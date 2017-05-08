@@ -1,0 +1,19 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!--include file="example.xml"/-->
+    <!-- Configuration for the default package. -->
+    <package name="default" extends="struts-default">
+    </package>
+    
+    <package name="sv.edu.ues.bad115.action" namespace="/" extends="struts-default">
+        <action name="LoginAction" class="sv.edu.ues.bad115.action.LoginAction" method="execute">
+            <result name="proveedor">/Views/Proveedores/HomeProveedor.jsp</result>
+            <result name="home">/Views/Home.jsp</result>
+            <result name="login">/Views/Login.jsp</result>
+            
+        </action>
+    </package>
+</struts>

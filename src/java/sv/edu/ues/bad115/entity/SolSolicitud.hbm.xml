@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 04-15-2017 04:24:52 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="sv.edu.ues.bad115.entity.SolSolicitud" table="sol_solicitud" catalog="controldecompras" optimistic-lock="version">
+        <id name="solId" type="int">
+            <column name="sol_id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="catCategoriaequipo" class="sv.edu.ues.bad115.entity.CatCategoriaequipo" fetch="select">
+            <column name="cat_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="estEstado" class="sv.edu.ues.bad115.entity.EstEstado" fetch="select">
+            <column name="est_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tcoTipocontratacion" class="sv.edu.ues.bad115.entity.TcoTipocontratacion" fetch="select">
+            <column name="tco_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="uniUnidad" class="sv.edu.ues.bad115.entity.UniUnidad" fetch="select">
+            <column name="uni_id" not-null="true" />
+        </many-to-one>
+        <property name="solFecha" type="date">
+            <column name="sol_fecha" length="10" not-null="true" />
+        </property>
+        <property name="solDescripcion" type="string">
+            <column name="sol_descripcion" length="65535" not-null="true" />
+        </property>
+        <set name="manSolMantenimientosolicituds" table="man_sol_mantenimientosolicitud" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="sol_id" not-null="true" />
+            </key>
+            <one-to-many class="sv.edu.ues.bad115.entity.ManSolMantenimientosolicitud" />
+        </set>
+        <set name="ordOrdendecompras" table="ord_ordendecompra" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="sol_id" not-null="true" />
+            </key>
+            <one-to-many class="sv.edu.ues.bad115.entity.OrdOrdendecompra" />
+        </set>
+        <set name="comSolComprasolicituds" table="com_sol_comprasolicitud" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="sol_id" not-null="true" />
+            </key>
+            <one-to-many class="sv.edu.ues.bad115.entity.ComSolComprasolicitud" />
+        </set>
+    </class>
+</hibernate-mapping>

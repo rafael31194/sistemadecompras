@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 04-15-2017 04:24:52 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="sv.edu.ues.bad115.entity.UsuUsuario" table="usu_usuario" catalog="controldecompras" optimistic-lock="version">
+        <id name="usuId" type="int">
+            <column name="usu_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="usuUsuario" type="string">
+            <column name="usu_usuario" length="65535" not-null="true" />
+        </property>
+        <property name="usuContrasenia" type="string">
+            <column name="usu_contrasenia" length="65535" not-null="true" />
+        </property>
+        <property name="usuNombre" type="string">
+            <column name="usu_nombre" length="65535" not-null="true" />
+        </property>
+        <property name="usuCorreo" type="string">
+            <column name="usu_correo" length="65535" not-null="true" />
+        </property>
+        <set name="usrUniUsuariosUnidads" table="usr_uni_usuarios_unidad" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="usu_id" not-null="true" />
+            </key>
+            <one-to-many class="sv.edu.ues.bad115.entity.UsrUniUsuariosUnidad" />
+        </set>
+        <set name="usuRolUsuariosPorRols" table="usu_rol_usuarios_por_rol" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="usu_id" not-null="true" />
+            </key>
+            <one-to-many class="sv.edu.ues.bad115.entity.UsuRolUsuariosPorRol" />
+        </set>
+    </class>
+</hibernate-mapping>

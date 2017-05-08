@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 04-15-2017 04:24:52 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="sv.edu.ues.bad115.entity.ComCompra" table="com_compra" catalog="controldecompras" optimistic-lock="version">
+        <composite-id name="id" class="sv.edu.ues.bad115.entity.ComCompraId">
+            <key-property name="ordId" type="int">
+                <column name="ord_id" />
+            </key-property>
+            <key-property name="comId" type="int">
+                <column name="com_id" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="invInventario" class="sv.edu.ues.bad115.entity.InvInventario" fetch="select">
+            <column name="ins_id" not-null="true" />
+            <column name="inv_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="ordOrdendecompra" class="sv.edu.ues.bad115.entity.OrdOrdendecompra" update="false" insert="false" fetch="select">
+            <column name="ord_id" not-null="true" />
+        </many-to-one>
+        <property name="comCodFactura" type="int">
+            <column name="com_cod_factura" not-null="true" />
+        </property>
+        <property name="comDescripcion" type="string">
+            <column name="com_descripcion" length="65535" />
+        </property>
+        <property name="comIdIns" type="java.lang.Integer">
+            <column name="com_id_ins" />
+        </property>
+    </class>
+</hibernate-mapping>

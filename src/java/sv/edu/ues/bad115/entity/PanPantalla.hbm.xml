@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 04-15-2017 04:24:52 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="sv.edu.ues.bad115.entity.PanPantalla" table="pan_pantalla" catalog="controldecompras" optimistic-lock="version">
+        <id name="panId" type="int">
+            <column name="pan_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="panNombre" type="string">
+            <column name="pan_nombre" length="65535" not-null="true" />
+        </property>
+        <set name="panRolPantallasPorRoleses" table="pan_rol_pantallas_por_roles" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="pan_id" not-null="true" />
+            </key>
+            <one-to-many class="sv.edu.ues.bad115.entity.PanRolPantallasPorRoles" />
+        </set>
+    </class>
+</hibernate-mapping>

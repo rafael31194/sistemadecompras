@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 04-15-2017 04:24:52 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="sv.edu.ues.bad115.entity.EquEquipo" table="equ_equipo" catalog="controldecompras" optimistic-lock="version">
+        <id name="equId" type="int">
+            <column name="equ_id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="catCategoriaequipo" class="sv.edu.ues.bad115.entity.CatCategoriaequipo" fetch="select">
+            <column name="cat_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="proProveedorByProProId" class="sv.edu.ues.bad115.entity.ProProveedor" fetch="select">
+            <column name="pro_pro_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="proProveedorByProId" class="sv.edu.ues.bad115.entity.ProProveedor" fetch="select">
+            <column name="pro_id" not-null="true" />
+        </many-to-one>
+        <property name="equNombre" type="string">
+            <column name="equ_nombre" length="65535" not-null="true" />
+        </property>
+        <property name="equMarca" type="string">
+            <column name="equ_marca" length="65535" not-null="true" />
+        </property>
+        <property name="equModelo" type="string">
+            <column name="equ_modelo" length="65535" not-null="true" />
+        </property>
+        <property name="equAnio" type="java.lang.Integer">
+            <column name="equ_anio" />
+        </property>
+        <property name="equCapacidadBtu" type="java.lang.Long">
+            <column name="equ_capacidad_btu" precision="10" scale="0" />
+        </property>
+        <property name="equPotencia" type="java.lang.Long">
+            <column name="equ_potencia" precision="10" scale="0" />
+        </property>
+        <property name="equEspecificaciongarantia" type="string">
+            <column name="equ_especificaciongarantia" length="65535" />
+        </property>
+        <set name="ordDtlOrdendetalles" table="ord_dtl_ordendetalle" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="equ_id" not-null="true" />
+            </key>
+            <one-to-many class="sv.edu.ues.bad115.entity.OrdDtlOrdendetalle" />
+        </set>
+        <set name="invDtlInventarioDetalles" table="inv_dtl_inventario_detalle" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="equ_id" not-null="true" />
+            </key>
+            <one-to-many class="sv.edu.ues.bad115.entity.InvDtlInventarioDetalle" />
+        </set>
+    </class>
+</hibernate-mapping>

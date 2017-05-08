@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 04-15-2017 04:24:52 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="sv.edu.ues.bad115.entity.InvDtlInventarioDetalle" table="inv_dtl_inventario_detalle" catalog="controldecompras" optimistic-lock="version">
+        <composite-id name="id" class="sv.edu.ues.bad115.entity.InvDtlInventarioDetalleId">
+            <key-property name="insId" type="int">
+                <column name="ins_id" />
+            </key-property>
+            <key-property name="invId" type="int">
+                <column name="inv_id" />
+            </key-property>
+            <key-property name="invDtlId" type="int">
+                <column name="inv_dtl_id" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="equEquipo" class="sv.edu.ues.bad115.entity.EquEquipo" fetch="select">
+            <column name="equ_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="invInventario" class="sv.edu.ues.bad115.entity.InvInventario" update="false" insert="false" fetch="select">
+            <column name="ins_id" not-null="true" />
+            <column name="inv_id" not-null="true" />
+        </many-to-one>
+        <property name="invDtlIdEqu" type="int">
+            <column name="inv_dtl_id_equ" not-null="true" />
+        </property>
+        <property name="invDtlCantidad" type="int">
+            <column name="inv_dtl_cantidad" not-null="true" />
+        </property>
+        <property name="invDtlNombreEquipo" type="string">
+            <column name="inv_dtl_nombre_equipo" length="65535" not-null="true" />
+        </property>
+        <property name="invDtlIdIns" type="java.lang.Integer">
+            <column name="inv_dtl_id_ins" />
+        </property>
+        <property name="invDtlCodigoinventario" type="string">
+            <column name="inv_dtl_codigoinventario" length="65535" not-null="true" />
+        </property>
+        <set name="bitBitacoramantenimientos" table="bit_bitacoramantenimiento" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ins_id" not-null="true" />
+                <column name="inv_id" not-null="true" />
+                <column name="inv_dtl_id" not-null="true" />
+            </key>
+            <one-to-many class="sv.edu.ues.bad115.entity.BitBitacoramantenimiento" />
+        </set>
+        <set name="intIinstalacions" table="int_iinstalacion" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ins_id" not-null="true" />
+                <column name="inv_id" not-null="true" />
+                <column name="inv_dtl_id" not-null="true" />
+            </key>
+            <one-to-many class="sv.edu.ues.bad115.entity.IntIinstalacion" />
+        </set>
+    </class>
+</hibernate-mapping>

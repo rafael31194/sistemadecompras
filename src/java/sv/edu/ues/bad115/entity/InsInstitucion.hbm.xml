@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 04-15-2017 04:24:52 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="sv.edu.ues.bad115.entity.InsInstitucion" table="ins_institucion" catalog="controldecompras" optimistic-lock="version">
+        <id name="insId" type="int">
+            <column name="ins_id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="munMunicipio" class="sv.edu.ues.bad115.entity.MunMunicipio" fetch="select">
+            <column name="mun_id" not-null="true" />
+        </many-to-one>
+        <property name="insNombre" type="string">
+            <column name="ins_nombre" length="65535" not-null="true" />
+        </property>
+        <property name="insTelefono" type="string">
+            <column name="ins_telefono" length="65535" />
+        </property>
+        <property name="insDireccion" type="string">
+            <column name="ins_direccion" length="65535" />
+        </property>
+        <property name="insIdMun" type="java.lang.Integer">
+            <column name="ins_id_mun" />
+        </property>
+        <set name="resRestriccions" table="res_restriccion" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ins_id" not-null="true" />
+            </key>
+            <one-to-many class="sv.edu.ues.bad115.entity.ResRestriccion" />
+        </set>
+        <set name="invInventarios" table="inv_inventario" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ins_id" not-null="true" />
+            </key>
+            <one-to-many class="sv.edu.ues.bad115.entity.InvInventario" />
+        </set>
+        <set name="uniUnidads" table="uni_unidad" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ins_id" not-null="true" />
+            </key>
+            <one-to-many class="sv.edu.ues.bad115.entity.UniUnidad" />
+        </set>
+    </class>
+</hibernate-mapping>

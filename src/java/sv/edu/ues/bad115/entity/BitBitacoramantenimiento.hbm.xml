@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 04-15-2017 04:24:52 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="sv.edu.ues.bad115.entity.BitBitacoramantenimiento" table="bit_bitacoramantenimiento" catalog="controldecompras" optimistic-lock="version">
+        <id name="bitId" type="int">
+            <column name="bit_id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="invDtlInventarioDetalle" class="sv.edu.ues.bad115.entity.InvDtlInventarioDetalle" fetch="select">
+            <column name="ins_id" not-null="true" />
+            <column name="inv_id" not-null="true" />
+            <column name="inv_dtl_id" not-null="true" />
+        </many-to-one>
+        <property name="bitFechaproxima" type="date">
+            <column name="bit_fechaproxima" length="10" not-null="true" />
+        </property>
+        <property name="bitComentarios" type="string">
+            <column name="bit_comentarios" length="65535" />
+        </property>
+    </class>
+</hibernate-mapping>

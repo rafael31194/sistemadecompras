@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 04-15-2017 04:24:52 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="sv.edu.ues.bad115.entity.InvInventario" table="inv_inventario" catalog="controldecompras" optimistic-lock="version">
+        <composite-id name="id" class="sv.edu.ues.bad115.entity.InvInventarioId">
+            <key-property name="insId" type="int">
+                <column name="ins_id" />
+            </key-property>
+            <key-property name="invId" type="int">
+                <column name="inv_id" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="insInstitucion" class="sv.edu.ues.bad115.entity.InsInstitucion" update="false" insert="false" fetch="select">
+            <column name="ins_id" not-null="true" />
+        </many-to-one>
+        <property name="invDescripcion" type="string">
+            <column name="inv_descripcion" length="65535" not-null="true" />
+        </property>
+        <property name="invAnio" type="int">
+            <column name="inv_anio" not-null="true" />
+        </property>
+        <set name="comCompras" table="com_compra" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ins_id" not-null="true" />
+                <column name="inv_id" not-null="true" />
+            </key>
+            <one-to-many class="sv.edu.ues.bad115.entity.ComCompra" />
+        </set>
+        <set name="invDtlInventarioDetalles" table="inv_dtl_inventario_detalle" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ins_id" not-null="true" />
+                <column name="inv_id" not-null="true" />
+            </key>
+            <one-to-many class="sv.edu.ues.bad115.entity.InvDtlInventarioDetalle" />
+        </set>
+    </class>
+</hibernate-mapping>

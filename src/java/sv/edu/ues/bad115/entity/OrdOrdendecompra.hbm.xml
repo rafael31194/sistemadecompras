@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 04-15-2017 04:24:52 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="sv.edu.ues.bad115.entity.OrdOrdendecompra" table="ord_ordendecompra" catalog="controldecompras" optimistic-lock="version">
+        <id name="ordId" type="int">
+            <column name="ord_id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="estEstado" class="sv.edu.ues.bad115.entity.EstEstado" fetch="select">
+            <column name="est_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="proProveedor" class="sv.edu.ues.bad115.entity.ProProveedor" fetch="select">
+            <column name="pro_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="solSolicitud" class="sv.edu.ues.bad115.entity.SolSolicitud" fetch="select">
+            <column name="sol_id" not-null="true" />
+        </many-to-one>
+        <property name="ordFecha" type="date">
+            <column name="ord_fecha" length="10" not-null="true" />
+        </property>
+        <property name="ordDescripcion" type="string">
+            <column name="ord_descripcion" length="65535" />
+        </property>
+        <property name="ordAprobada" type="java.lang.Boolean">
+            <column name="ord_aprobada" />
+        </property>
+        <property name="ordTotal" type="long">
+            <column name="ord_total" precision="10" scale="0" not-null="true" />
+        </property>
+        <set name="comCompras" table="com_compra" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ord_id" not-null="true" />
+            </key>
+            <one-to-many class="sv.edu.ues.bad115.entity.ComCompra" />
+        </set>
+        <set name="ordDtlOrdendetalles" table="ord_dtl_ordendetalle" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ord_id" not-null="true" />
+            </key>
+            <one-to-many class="sv.edu.ues.bad115.entity.OrdDtlOrdendetalle" />
+        </set>
+    </class>
+</hibernate-mapping>

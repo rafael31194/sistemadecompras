@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 04-15-2017 04:24:52 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="sv.edu.ues.bad115.entity.IntIinstalacion" table="int_iinstalacion" catalog="controldecompras" optimistic-lock="version">
+        <id name="intId" type="int">
+            <column name="int_id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="invDtlInventarioDetalle" class="sv.edu.ues.bad115.entity.InvDtlInventarioDetalle" fetch="select">
+            <column name="ins_id" not-null="true" />
+            <column name="inv_id" not-null="true" />
+            <column name="inv_dtl_id" not-null="true" />
+        </many-to-one>
+        <property name="intDescripcion" type="string">
+            <column name="int_descripcion" length="65535" />
+        </property>
+        <property name="intFecha" type="date">
+            <column name="int_fecha" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

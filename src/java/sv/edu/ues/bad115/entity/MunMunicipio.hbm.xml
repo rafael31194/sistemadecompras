@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 04-15-2017 04:24:52 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="sv.edu.ues.bad115.entity.MunMunicipio" table="mun_municipio" catalog="controldecompras" optimistic-lock="version">
+        <id name="munId" type="int">
+            <column name="mun_id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="depDepartamento" class="sv.edu.ues.bad115.entity.DepDepartamento" fetch="select">
+            <column name="dep_id" not-null="true" />
+        </many-to-one>
+        <property name="munNombre" type="string">
+            <column name="mun_nombre" length="65535" />
+        </property>
+        <set name="insInstitucions" table="ins_institucion" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="mun_id" not-null="true" />
+            </key>
+            <one-to-many class="sv.edu.ues.bad115.entity.InsInstitucion" />
+        </set>
+        <set name="proProveedors" table="pro_proveedor" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="mun_id" not-null="true" />
+            </key>
+            <one-to-many class="sv.edu.ues.bad115.entity.ProProveedor" />
+        </set>
+        <set name="proProveedors_1" table="pro_proveedor" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="mun_id" not-null="true" />
+            </key>
+            <one-to-many class="sv.edu.ues.bad115.entity.ProProveedor" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 04-15-2017 04:24:52 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="sv.edu.ues.bad115.entity.ManSolMantenimientosolicitud" table="man_sol_mantenimientosolicitud" catalog="controldecompras" optimistic-lock="version">
+        <id name="manSolId" type="int">
+            <column name="man_sol_id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="solSolicitud" class="sv.edu.ues.bad115.entity.SolSolicitud" fetch="select">
+            <column name="sol_id" not-null="true" />
+        </many-to-one>
+        <property name="manSolDescripcion" type="string">
+            <column name="man_sol_descripcion" length="65535" />
+        </property>
+    </class>
+</hibernate-mapping>

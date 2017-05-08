@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 04-15-2017 04:24:52 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="sv.edu.ues.bad115.entity.UsrUniUsuariosUnidad" table="usr_uni_usuarios_unidad" catalog="controldecompras" optimistic-lock="version">
+        <composite-id name="id" class="sv.edu.ues.bad115.entity.UsrUniUsuariosUnidadId">
+            <key-property name="usuId" type="int">
+                <column name="usu_id" />
+            </key-property>
+            <key-property name="usrUniId" type="int">
+                <column name="usr_uni_id" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="uniUnidad" class="sv.edu.ues.bad115.entity.UniUnidad" fetch="select">
+            <column name="uni_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuUsuario" class="sv.edu.ues.bad115.entity.UsuUsuario" update="false" insert="false" fetch="select">
+            <column name="usu_id" not-null="true" />
+        </many-to-one>
+        <property name="usrUniNivelautorizacion" type="java.lang.Integer">
+            <column name="usr_uni_nivelautorizacion" />
+        </property>
+    </class>
+</hibernate-mapping>

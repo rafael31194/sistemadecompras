@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 04-15-2017 04:24:52 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="sv.edu.ues.bad115.entity.ResRestriccion" table="res_restriccion" catalog="controldecompras" optimistic-lock="version">
+        <id name="resId" type="int">
+            <column name="res_id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="insInstitucion" class="sv.edu.ues.bad115.entity.InsInstitucion" fetch="select">
+            <column name="ins_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="proProveedor" class="sv.edu.ues.bad115.entity.ProProveedor" fetch="select">
+            <column name="pro_id" not-null="true" />
+        </many-to-one>
+        <property name="resMontolimite" type="long">
+            <column name="res_montolimite" precision="10" scale="0" not-null="true" />
+        </property>
+        <property name="resCantidadcompras" type="java.lang.Integer">
+            <column name="res_cantidadcompras" />
+        </property>
+        <property name="resDescripcion" type="string">
+            <column name="res_descripcion" length="65535" />
+        </property>
+    </class>
+</hibernate-mapping>
