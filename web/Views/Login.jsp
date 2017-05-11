@@ -115,7 +115,7 @@ body {
   -moz-osx-font-smoothing: grayscale;      
 }
         </style>
-        <link rel="stylesheet" type="text/css" href="../Recursos/css/sweetalert2.min.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" type="text/css" href="../Recursos/css/sweetalert2.min.css" />
         <script language='javascript'>
             <%@include file="../Recursos/sweetalert2/sweetalert2.min.js" %>
             

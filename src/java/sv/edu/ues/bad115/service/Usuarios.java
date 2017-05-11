@@ -26,6 +26,7 @@ public class Usuarios {
     private PreparedStatement consulta;
      private ArrayList<PanPantalla> arregloPantallas;
     private ResultSet datos;
+    private ResultSet datosPantallas;
     
     
     
@@ -40,18 +41,22 @@ public class Usuarios {
       
           while(this.datos.next())
             {
+                //asignacion de datos 
+               sv.edu.ues.bad115.global.SessionSistema.UsuarioActivo.setCorreo(datos.getString("usu_correo"));
+               sv.edu.ues.bad115.global.SessionSistema.UsuarioActivo.setIdUsuario(datos.getInt("usu_id"));
+               sv.edu.ues.bad115.global.SessionSistema.UsuarioActivo.setNombre(datos.getString("usu_nombre"));
+               sv.edu.ues.bad115.global.SessionSistema.UsuarioActivo.setIdRol(datos.getInt("rol_id"));
+               
                 tieneDatosband=true;
-                pan=new PanPantalla();
-                pan.setPanNombre(datos.getString("pan_nombre"));
-                this.arregloPantallas.add(pan);
-                  
-        
-            
-             sv.edu.ues.bad115.global.SessionSistema.UsuarioActivo.setCorreo(datos.getString("usu_correo"));
-             sv.edu.ues.bad115.global.SessionSistema.UsuarioActivo.setIdUsuario(datos.getInt("usu_id"));
-             sv.edu.ues.bad115.global.SessionSistema.UsuarioActivo.setNombre(datos.getString("usu_nombre"));
-             
-             sv.edu.ues.bad115.global.SessionSistema.UsuarioActivo.setIdRol(datos.getInt("rol_id"));
+                String queryPantallas="CALL `sp_getPantallasXRol`('"+datos.getInt("rol_id")+"')";
+                this.datosPantallas=con.getData(queryPantallas);
+                
+                while(datosPantallas.next()){
+                    pan=new PanPantalla();
+                    pan.setPanNombre(datosPantallas.getString("pan_nombre"));
+                    this.arregloPantallas.add(pan);
+                }
+                
              
             }
             if(tieneDatosband==false){
