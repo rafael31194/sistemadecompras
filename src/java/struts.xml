@@ -10,9 +10,10 @@
     
     <package name="sv.edu.ues.bad115.action" namespace="/" extends="struts-default">
         <action name="LoginAction" class="sv.edu.ues.bad115.action.LoginAction" method="execute">
-            <result name="proveedor">/Views/Proveedores/HomeProveedor.jsp</result>
+            <result name="proveedor">/Views/Instituciones/homeInstitucion.jsp</result>
             <result name="home">/Views/Home.jsp</result>
             <result name="login">/Views/Login.jsp</result>
+            
             
         </action>
     </package>

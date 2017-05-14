@@ -27,7 +27,7 @@ public class Conexion {
     
     public Conexion()
     {
-        this.server="localhost";
+        this.server="localhost:3307";
         this.user="root";
         this.pass="admin";
         this.bd="controldecompras";
