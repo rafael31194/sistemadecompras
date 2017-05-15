@@ -1,20 +1,18 @@
 <%-- 
-    Document   : homeInstitucion
-    Created on : 13/05/2017, 06:07:58 PM
+    Document   : listaSolicitudes
+    Created on : 14/05/2017, 04:24:46 PM
     Author     : Hassel
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%@taglib prefix="s" uri="/struts-tags" %>
-
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <!-- start: Mobile Specific -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- end: Mobile Specific -->
-        <title>Instituciones</title>
+        <title>Listado de solicitudes</title>
         <!-- start: CSS -->
         <link type="text/css" id="base-style" href="Recursos/css/bootstrap.min.css" rel="stylesheet">
         <link type="text/css" id="base-style" href="Recursos/css/bootstrap-responsive.min.css" rel="stylesheet">
@@ -62,31 +60,27 @@
                         </ul>
                     </div>
                     <!-- end: Header Menu -->
-
                 </div>
             </div>
         </div>
         <!-- start: Header -->
 
+        <!-- start: Main Menu -->
+        <div id="sidebar-left" class="span2">
+            <div class="nav-collapse sidebar-nav">
+                <ul class="nav nav-tabs nav-stacked main-menu">
+                    <li><a href="form.html"><i class="icon-edit"></i><span class="hidden-tablet"> Formulario CRUD</span></a></li>
+                    <li><a href="Views/Solicitudes/listaSolicitudes.jsp"><i class="icon-align-justify"></i><span class="hidden-tablet"> Solicitudes</span></a></li>
+                    <li><a href="<s:url value='/Views/Login.jsp'/>"><i class="icon-lock"></i><span class="hidden-tablet"> Login</span></a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- end: Main Menu -->
+
         <div class="container-fluid-full">
             <div class="row-fluid">
-
-                <!-- start: Main Menu -->
-                <div id="sidebar-left" class="span2">
-                    <div class="nav-collapse sidebar-nav">
-                        <ul class="nav nav-tabs nav-stacked main-menu">
-                            <li><a href="form.html"><i class="icon-edit"></i><span class="hidden-tablet"> Formulario CRUD</span></a></li>
-                            <li><a href="Views/Solicitudes/listaSolicitudes.jsp"><i class="icon-align-justify"></i><span class="hidden-tablet"> Solicitudes</span></a></li>
-                            <li><a href="<s:url value='/Views/Login.jsp'/>"><i class="icon-lock"></i><span class="hidden-tablet"> Login</span></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- end: Main Menu -->
-
                 <!-- start: Content -->
                 <div id="content" class="span10">
-
-
                     <ul class="breadcrumb">
                         <li>
                             <i class="icon-home"></i>
@@ -95,66 +89,14 @@
                         </li>
                         <li>
                             <i class="icon-edit"></i>
-                            <a href="#">Insituciones</a>
+                            <a href="#">Solicitudes</a>
                         </li>
                     </ul>
 
                     <div class="row-fluid sortable">
                         <div class="box span12">
                             <div class="box-header" data-original-title>
-                                <h2><i class="icon-edit"></i><span class="break"></span>Agregar institución</h2>
-                                <div class="box-icon">
-                                    <a href="#" class="btn-setting"><i class="icon-cog white"></i></a>
-                                    <a href="#" class="btn-minimize"><i class="icon-chevron-down white"></i></a>
-                                </div>
-                            </div>
-                            <div class="box-content">
-                                <form class="form-horizontal">
-                                    <div class="control-group">
-                                        <label class="control-label">Institución:</label>
-                                        <div class="controls">
-                                            <input class="form-control" type="text" value="" placeholder="Institución">
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="control-label">Teléfono:</label>
-                                        <div class="controls">
-                                            <input class="form-control" type="text" value="" placeholder="Teléfono">
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="control-label">Dirección:</label>
-                                        <div class="controls">
-                                            <input class="form-control" type="text" value="" placeholder="Dirección">
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="control-label" for="selectError">Municipio:</label>
-                                        <div class="controls">
-                                            <select id="selectError" data-rel="chosen">
-                                                <option>Option 1</option>
-                                                <option>Option 2</option>
-                                                <option>Option 3</option>
-                                                <option>Option 4</option>
-                                                <option>Option 5</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-actions">
-                                        <button type="submit" class="btn btn-primary">Guardar</button>
-                                        <button class="btn">Limpiar</button>
-                                    </div>
-                                </form>
-
-                            </div>
-                        </div><!--/span-->
-
-                    </div><!--/row-->
-
-                    <div class="row-fluid sortable">
-                        <div class="box span12">
-                            <div class="box-header" data-original-title>
-                                <h2><i class="icon-align-justify"></i><span class="break"></span>Instituciones</h2>
+                                <h2><i class="icon-align-justify"></i><span class="break"></span>Solicitudes</h2>
                                 <div class="box-icon">
                                     <a href="#" class="btn-setting"><i class="icon-cog white"></i></a>
                                     <a href="#" class="btn-minimize"><i class="icon-chevron-down white"></i></a>
@@ -164,80 +106,48 @@
                                 <table class="table table-striped table-bordered bootstrap-datatable datatable">
                                     <thead>
                                         <tr>
-                                            <th>Nombre</th>
-                                            <th>Teléfono</th>
-                                            <th>Dirección</th>
-                                            <th>Municipio</th>
-                                            <th>Acciones</th>
+                                            <th>Tipo solicitud</th>
+                                            <th>Fecha</th>
+                                            <th>Unidad</th>
+                                            <th>Equipo</th>
+                                            <th>Estado</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>Ministerio de Trabajo</td>
-                                            <td class="center">2030-4563</td>
-                                            <td class="center">Sivar</td>
-                                            <td class="center">San Salvador</td>
+                                            <td class="center">Solicitud de compra</td>
+                                            <td class="center">23/04/2017</td>
+                                            <td class="center">Unidad administrativa</td>
+                                            <td class="center">Aire acondicionado</td>
                                             <td class="center">
-                                                <a class="btn btn-success" href="#">
-                                                    <i class="icon-save"></i>
-                                                </a>
-                                                <a class="btn btn-info" href="#">
-                                                    <i class="icon-pencil"></i>
-                                                </a>
-                                                <a class="btn btn-danger" href="#">
-                                                    <i class="icon-trash"></i>
-                                                </a>
+                                                <span class="label label-success">Activo</span>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>Ministerio de Trabajo</td>
-                                            <td class="center">2030-4563</td>
-                                            <td class="center">Sivar</td>
-                                            <td class="center">San Salvador</td>
+                                            <td class="center">Solicitud de instalación</td>
+                                            <td class="center">23/04/2017</td>
+                                            <td class="center">Unidad de sistemas</td>
+                                            <td class="center">Aire acondicionado</td>
                                             <td class="center">
-                                                <a class="btn btn-success" href="#">
-                                                    <i class="icon-save"></i>
-                                                </a>
-                                                <a class="btn btn-info" href="#">
-                                                    <i class="icon-pencil"></i>
-                                                </a>
-                                                <a class="btn btn-danger" href="#">
-                                                    <i class="icon-trash"></i>
-                                                </a>
+                                                <span class="label label-important">Disponible</span>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>Ministerio de Trabajo</td>
-                                            <td class="center">2030-4563</td>
-                                            <td class="center">Sivar</td>
-                                            <td class="center">San Salvador</td>
+                                            <td class="center">Solicitud de mantenimiento</td>
+                                            <td class="center">23/04/2017</td>
+                                            <td class="center">Unidad de sistemas</td>
+                                            <td class="center">Aire acondicionado</td>
                                             <td class="center">
-                                                <a class="btn btn-success" href="#">
-                                                    <i class="icon-save"></i>
-                                                </a>
-                                                <a class="btn btn-info" href="#">
-                                                    <i class="icon-pencil"></i>
-                                                </a>
-                                                <a class="btn btn-danger" href="#">
-                                                    <i class="icon-trash"></i>
-                                                </a>
+                                                <span class="label">Inactivo</span>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>Ministerio de Trabajo</td>
-                                            <td class="center">2030-4563</td>
-                                            <td class="center">Sivar</td>
-                                            <td class="center">San Salvador</td>
+                                            <td class="center">Solicitud de compra</td>
+                                            <td class="center">23/04/2017</td>
+                                            <td class="center">Unidad de sistemas</td>
+                                            <td class="center">Aire acondicionado</td>
                                             <td class="center">
-                                                <a class="btn btn-success" href="#">
-                                                    <i class="icon-save"></i>
-                                                </a>
-                                                <a class="btn btn-info" href="#">
-                                                    <i class="icon-pencil"></i>
-                                                </a>
-                                                <a class="btn btn-danger" href="#">
-                                                    <i class="icon-trash"></i>
-                                                </a>
+                                                <span class="label label-warning">En espera</span>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -247,27 +157,21 @@
 
                     </div><!--/row-->
                 </div><!--/.fluid-container-->
-
                 <!-- end: Content -->
             </div><!--/#content.span10-->
         </div><!--/fluid-row-->
 
-        <div class="modal hide fade" id="myModal">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">×</button>
-                <h3>Settings</h3>
-            </div>
-            <div class="modal-body">
-                <p>Here settings can be configured...</p>
-            </div>
-            <div class="modal-footer">
-                <a href="#" class="btn" data-dismiss="modal">Close</a>
-                <a href="#" class="btn btn-primary">Save changes</a>
+        <div class="common-modal modal fade" id="common-Modal1" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-content">
+                <ul class="list-inline item-details">
+                    <li><a href="http://themifycloud.com">Admin templates</a></li>
+                    <li><a href="http://themescloud.org">Bootstrap themes</a></li>
+                </ul>
             </div>
         </div>
 
         <div class="clearfix"></div>
-        
+
         <footer>
             <p>
                 <span style="text-align:left;float:left">Sistema de compra de equipos electrónicos.</span>
@@ -339,6 +243,5 @@
         <script src="../../dist/js/bootstrap.min.js"></script>
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
         <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-
     </body>
 </html>
