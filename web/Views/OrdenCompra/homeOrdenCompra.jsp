@@ -1,7 +1,7 @@
 <%-- 
-    Document   : homeInstitucion
-    Created on : 13/05/2017, 06:07:58 PM
-    Author     : Hassel
+    Document   : homeOrdenCompra
+    Created on : 14/05/2017, 04:12:15 PM
+    Author     : Pablo
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -14,11 +14,12 @@
         <!-- start: Mobile Specific -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- end: Mobile Specific -->
-        <title>Instituciones</title>
+        <title>Ordenes de Compras</title>
         <!-- start: CSS -->
         <link type="text/css" id="base-style" href="Recursos/css/bootstrap.min.css" rel="stylesheet">
         <link type="text/css" id="base-style" href="Recursos/css/bootstrap-responsive.min.css" rel="stylesheet">
         <link type="text/css" id="base-style" href="Recursos/css/style.css" rel="stylesheet">
+        <link type="text/css" id="base-style" href="Recursos/css/fullcalendar.css" rel="stylesheet">
         <link type="text/css" id="base-style" href="Recursos/css/iconos.css" rel="stylesheet">
         <link type="text/css" id="base-style" href="Recursos/css/elfinder.min.css" rel="stylesheet">
         <link type="text/css" id="base-style" href="Recursos/css/elfinder.theme.css" rel="stylesheet">
@@ -48,7 +49,7 @@
                             <!-- start: User Dropdown -->
                             <li class="dropdown">
                                 <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <i class="icon-user"></i> Hassel Ventura
+                                    <i class="icon-user"></i> Pablo Tobar
                                     <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu">
@@ -76,9 +77,9 @@
                     <div class="nav-collapse sidebar-nav">
                         <ul class="nav nav-tabs nav-stacked main-menu">
                             <li><a href="form.html"><i class="icon-edit"></i><span class="hidden-tablet"> Formulario CRUD</span></a></li>
-                            <li><a href="Views/Solicitudes/listaSolicitudes.jsp"><i class="icon-align-justify"></i><span class="hidden-tablet"> Solicitudes</span></a></li>
-                            <li><a href="<s:url value='/Views/OrdenCompra/homeOrdenCompra.jsp'/>"><i class="icon-lock"></i><span class="hidden-tablet"> OrdenCompra</span></a></li>
+                            <li><a href="table.html"><i class="icon-align-justify"></i><span class="hidden-tablet"> Tablas</span></a></li>
                             <li><a href="<s:url value='/Views/Login.jsp'/>"><i class="icon-lock"></i><span class="hidden-tablet"> Login</span></a></li>
+                            <li><a href="<s:url value='/Views/Instituciones/homeInstitucion.jsp'/>"><i class="icon-lock"></i><span class="hidden-tablet"> Instituciones</span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -91,46 +92,29 @@
                     <ul class="breadcrumb">
                         <li>
                             <i class="icon-home"></i>
-                            <a href="index.html">Inicio</a>
+                            <a href="index.html">Home</a>
                             <i class="icon-angle-right"></i>
                         </li>
                         <li>
                             <i class="icon-edit"></i>
-                            <a href="#">Insituciones</a>
+                            <a href="#">Forms</a>
                         </li>
                     </ul>
 
                     <div class="row-fluid sortable">
                         <div class="box span12">
                             <div class="box-header" data-original-title>
-                                <h2><i class="icon-edit"></i><span class="break"></span>Agregar institución</h2>
+                                <h2><i class="icon-edit"></i><span class="break"></span>Ingresar orden de compra</h2>
                                 <div class="box-icon">
-                                    <a href="#" class="btn-setting"><i class="icon-cog white"></i></a>
-                                    <a href="#" class="btn-minimize"><i class="icon-chevron-down white"></i></a>
+                                    <a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
+                                    <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+                                    <a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
                                 </div>
                             </div>
                             <div class="box-content">
                                 <form class="form-horizontal">
                                     <div class="control-group">
-                                        <label class="control-label">Institución:</label>
-                                        <div class="controls">
-                                            <input class="form-control" type="text" value="" placeholder="Institución">
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="control-label">Teléfono:</label>
-                                        <div class="controls">
-                                            <input class="form-control" type="text" value="" placeholder="Teléfono">
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="control-label">Dirección:</label>
-                                        <div class="controls">
-                                            <input class="form-control" type="text" value="" placeholder="Dirección">
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="control-label" for="selectError">Municipio:</label>
+                                        <label class="control-label" for="selectError">Estado:</label>
                                         <div class="controls">
                                             <select id="selectError" data-rel="chosen">
                                                 <option>Option 1</option>
@@ -141,6 +125,49 @@
                                             </select>
                                         </div>
                                     </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="selectError">Solicitud:</label>
+                                        <div class="controls">
+                                            <select id="selectError" data-rel="chosen">
+                                                <option>Option 1</option>
+                                                <option>Option 2</option>
+                                                <option>Option 3</option>
+                                                <option>Option 4</option>
+                                                <option>Option 5</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="selectError">Proveedor:</label>
+                                        <div class="controls">
+                                            <select id="selectError" data-rel="chosen">
+                                                <option>Option 1</option>
+                                                <option>Option 2</option>
+                                                <option>Option 3</option>
+                                                <option>Option 4</option>
+                                                <option>Option 5</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+					<label class="control-label" for="typeahead">Auto complete </label>
+                                        <div class="controls">
+                                            <input type="text" class="span6 typeahead" id="typeahead"  data-provide="typeahead" data-items="4" data-source='["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]'>
+					</div>
+                                    </div>
+                                    <div class="control-group">
+					<label class="control-label" for="date01">Fecha:</label>
+					<div class="controls">
+                                            <input type="date" class="input-xlarge datepicker" id="date01">
+					</div>
+				</div>
+                                    <div class="control-group">
+                                        <label class="control-label">Descripción:</label>
+                                        <div class="controls">
+                                            <input class="form-control" type="text" value="" placeholder="Descripción">
+                                        </div>
+                                    </div>
+                                    
                                     <div class="form-actions">
                                         <button type="submit" class="btn btn-primary">Guardar</button>
                                         <button class="btn">Limpiar</button>
@@ -155,31 +182,36 @@
                     <div class="row-fluid sortable">
                         <div class="box span12">
                             <div class="box-header" data-original-title>
-                                <h2><i class="icon-align-justify"></i><span class="break"></span>Instituciones</h2>
+                                <h2><i class="icon-align-justify"></i><span class="break"></span>Ordenes de compras</h2>
                                 <div class="box-icon">
-                                    <a href="#" class="btn-setting"><i class="icon-cog white"></i></a>
-                                    <a href="#" class="btn-minimize"><i class="icon-chevron-down white"></i></a>
+                                    <a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
+                                    <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+                                    <a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
                                 </div>
                             </div>
                             <div class="box-content">
                                 <table class="table table-striped table-bordered bootstrap-datatable datatable">
                                     <thead>
                                         <tr>
-                                            <th>Nombre</th>
-                                            <th>Teléfono</th>
-                                            <th>Dirección</th>
-                                            <th>Municipio</th>
+                                            <th># Orden</th>
+                                            <th># Solicitud</th>
+                                            <th>Estado</th>
+                                            <th>Proveedor</th>
+                                            <th>Fecha</th>
+                                            <th>Descripción</th>
                                             <th>Acciones</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>Ministerio de Trabajo</td>
-                                            <td class="center">2030-4563</td>
-                                            <td class="center">Sivar</td>
-                                            <td class="center">San Salvador</td>
+                                            <td>1</td>
+                                            <td class="center">2</td>
+                                            <td class="center">Aprobada</td>
+                                            <td class="center">Tecnoparts</td>
+                                            <td class="center">03/05/2017</td>
+                                            <td class="center">Aires acondicionados</td>
                                             <td class="center">
-                                                <a class="btn btn-success" href="#">
+                                                <a class="btn btn-success" href="<s:url value='/Views/OrdenCompra/homeDetalleOrdenCompra.jsp'/>">
                                                     <i class="icon-save"></i>
                                                 </a>
                                                 <a class="btn btn-info" href="#">
@@ -190,45 +222,15 @@
                                                 </a>
                                             </td>
                                         </tr>
+                                        
+                          
                                         <tr>
-                                            <td>Ministerio de Trabajo</td>
-                                            <td class="center">2030-4563</td>
-                                            <td class="center">Sivar</td>
-                                            <td class="center">San Salvador</td>
-                                            <td class="center">
-                                                <a class="btn btn-success" href="#">
-                                                    <i class="icon-save"></i>
-                                                </a>
-                                                <a class="btn btn-info" href="#">
-                                                    <i class="icon-pencil"></i>
-                                                </a>
-                                                <a class="btn btn-danger" href="#">
-                                                    <i class="icon-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ministerio de Trabajo</td>
-                                            <td class="center">2030-4563</td>
-                                            <td class="center">Sivar</td>
-                                            <td class="center">San Salvador</td>
-                                            <td class="center">
-                                                <a class="btn btn-success" href="#">
-                                                    <i class="icon-save"></i>
-                                                </a>
-                                                <a class="btn btn-info" href="#">
-                                                    <i class="icon-pencil"></i>
-                                                </a>
-                                                <a class="btn btn-danger" href="#">
-                                                    <i class="icon-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ministerio de Trabajo</td>
-                                            <td class="center">2030-4563</td>
-                                            <td class="center">Sivar</td>
-                                            <td class="center">San Salvador</td>
+                                            <td>2</td>
+                                            <td class="center">27</td>
+                                            <td class="center">Aprobada</td>
+                                            <td class="center">Autoparts</td>
+                                            <td class="center">9/11/2016</td>
+                                            <td class="center">3 motocicletas</td>
                                             <td class="center">
                                                 <a class="btn btn-success" href="#">
                                                     <i class="icon-save"></i>
@@ -268,12 +270,6 @@
         </div>
 
         <div class="clearfix"></div>
-        
-        <footer>
-            <p>
-                <span style="text-align:left;float:left">Sistema de compra de equipos electrónicos.</span>
-            </p>
-        </footer>
 
         <!-- start: JavaScript-->
 
