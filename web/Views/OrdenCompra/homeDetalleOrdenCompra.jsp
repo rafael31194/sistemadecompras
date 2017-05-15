@@ -78,8 +78,9 @@
                         <ul class="nav nav-tabs nav-stacked main-menu">
                             <li><a href="form.html"><i class="icon-edit"></i><span class="hidden-tablet"> Formulario CRUD</span></a></li>
                             <li><a href="table.html"><i class="icon-align-justify"></i><span class="hidden-tablet"> Tablas</span></a></li>
-                            <li><a href="<s:url value='/Views/Login.jsp'/>"><i class="icon-lock"></i><span class="hidden-tablet"> Login</span></a></li>
-                            <li><a href="<s:url value='/Views/Instituciones/homeInstitucion.jsp'/>"><i class="icon-lock"></i><span class="hidden-tablet"> Instituciones</span></a></li>
+                            <li><s:a action="institucion" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Institución</s:a></i></li>
+                            <li><s:a action="ordenCompra" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Orden de Compra</s:a></i></li>
+                            <li><s:a action="LoginAction"><i class="icon-lock"></i><span class="hidden-tablet"> Login</span></s:a></li>
                         </ul>
                     </div>
                 </div>

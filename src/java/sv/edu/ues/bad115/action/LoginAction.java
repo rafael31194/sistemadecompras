@@ -65,6 +65,21 @@ public class LoginAction extends ActionSupport {
         
     }
     
+    public String ordenCompra() throws Exception
+    {
+        return SUCCESS;
+    }
+    
+    public String institucion() throws Exception
+    {
+        return SUCCESS;
+    }
+    
+    public String detalleOrdenCompra() throws Exception
+    {
+        return SUCCESS;
+    }
+    
       private void mostrarMensajeError() {
         loginError=1;
     }

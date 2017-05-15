@@ -16,5 +16,14 @@
             
             
         </action>
+        <action name="ordenCompra" class="sv.edu.ues.bad115.action.LoginAction" method="ordenCompra">
+            <result>/Views/OrdenCompra/homeOrdenCompra.jsp</result>
+        </action>
+        <action name="institucion" class="sv.edu.ues.bad115.action.LoginAction" method="institucion">
+            <result>/Views/Instituciones/homeInstitucion.jsp</result>
+        </action>
+        <action name="detalleOrdenCompra" class="sv.edu.ues.bad115.action.LoginAction" method="detalleOrdenCompra">
+            <result>/Views/OrdenCompra/homeDetalleOrdenCompra.jsp</result>
+        </action>
     </package>
 </struts>

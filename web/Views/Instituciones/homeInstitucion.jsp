@@ -77,8 +77,8 @@
                         <ul class="nav nav-tabs nav-stacked main-menu">
                             <li><a href="form.html"><i class="icon-edit"></i><span class="hidden-tablet"> Formulario CRUD</span></a></li>
                             <li><a href="Views/Solicitudes/listaSolicitudes.jsp"><i class="icon-align-justify"></i><span class="hidden-tablet"> Solicitudes</span></a></li>
-                            <li><a href="<s:url value='/Views/OrdenCompra/homeOrdenCompra.jsp'/>"><i class="icon-lock"></i><span class="hidden-tablet"> OrdenCompra</span></a></li>
-                            <li><a href="<s:url value='/Views/Login.jsp'/>"><i class="icon-lock"></i><span class="hidden-tablet"> Login</span></a></li>
+                            <li><s:a action="ordenCompra" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Orden de Compra</s:a></i></li>
+                            <li><s:a action="LoginAction"><i class="icon-lock"></i><span class="hidden-tablet"> Login</span></s:a></li>
                         </ul>
                     </div>
                 </div>
