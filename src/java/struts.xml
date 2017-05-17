@@ -25,5 +25,14 @@
         <action name="detalleOrdenCompra" class="sv.edu.ues.bad115.action.LoginAction" method="detalleOrdenCompra">
             <result>/Views/OrdenCompra/homeDetalleOrdenCompra.jsp</result>
         </action>
+        <action name="solicitudes" class="sv.edu.ues.bad115.action.SolicitudAction" method="solicitudes">
+            <result>/View/Solicitudes/listaSolicitudes.jsp</result>
+        </action>
+        <action name="solicitudCompra" class="sv.edu.ues.bad115.action.SolicitudAction" method="solicitudCompra">
+            <result>/View/Solicitudes/Compra/solicitudCompra.jsp</result>
+        </action>
+        <action name="solicitudMantto" class="sv.edu.ues.bad115.action.SolicitudAction" method="solicitudMantto">
+            <result>/View/Solicitudes/Mantenimiento/solicitudMantenimiento.jsp</result>
+        </action>
     </package>
 </struts>

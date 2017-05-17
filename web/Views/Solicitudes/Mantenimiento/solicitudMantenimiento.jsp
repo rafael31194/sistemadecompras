@@ -1,18 +1,20 @@
 <%-- 
-    Document   : listaSolicitudes
-    Created on : 14/05/2017, 04:24:46 PM
+    Document   : solicitudMantenimiento
+    Created on : 17/05/2017, 12:49:13 AM
     Author     : Hassel
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@taglib prefix="s" uri="/struts-tags" %>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <!-- start: Mobile Specific -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- end: Mobile Specific -->
-        <title>Listado de solicitudes</title>
+        <title>Solicitud de Mantenimiento</title>
         <!-- start: CSS -->
         <link type="text/css" id="base-style" href="Recursos/css/bootstrap.min.css" rel="stylesheet">
         <link type="text/css" id="base-style" href="Recursos/css/bootstrap-responsive.min.css" rel="stylesheet">
@@ -38,7 +40,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="index.html"><span>Sistema de compras</span></a>
+                    <a class="brand" href="index.html"><span>Sistema de mantenimiento</span></a>
 
                     <!-- start: Header Menu -->
                     <div class="nav-no-collapse header-nav">
@@ -60,32 +62,36 @@
                         </ul>
                     </div>
                     <!-- end: Header Menu -->
+
                 </div>
             </div>
         </div>
         <!-- start: Header -->
 
-        <!-- start: Main Menu -->
-        <div id="sidebar-left" class="span2">
-            <div class="nav-collapse sidebar-nav">
-                <ul class="nav nav-tabs nav-stacked main-menu">
-                    <li><a href="form.html"><i class="icon-edit"></i><span class="hidden-tablet"> Formulario CRUD</span></a></li>
-                    <li><a href="table.html"><i class="icon-align-justify"></i><span class="hidden-tablet"> Tablas</span></a></li>
-                    <li><s:a action="institucion" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Institución</s:a></i></li>
-                    <li><s:a action="solicitudes" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Solicitudes</s:a></li>
-                    <li><s:a action="solicitudCompra" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Solicitud de compra</s:a></li>
-                    <li><s:a action="solicitudMantto" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Solicitud de mantenimiento</s:a></li>
-                    <li><s:a action="ordenCompra" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Orden de Compra</s:a></i></li>
-                    <li><s:a action="LoginAction"><i class="icon-lock"></i><span class="hidden-tablet"> Login</span></s:a></li>
-                </ul>
-            </div>
-        </div>
-        <!-- end: Main Menu -->
-
         <div class="container-fluid-full">
             <div class="row-fluid">
+
+                <!-- start: Main Menu -->
+                <div id="sidebar-left" class="span2">
+                    <div class="nav-collapse sidebar-nav">
+                        <ul class="nav nav-tabs nav-stacked main-menu">
+                            <li><a href="form.html"><i class="icon-edit"></i><span class="hidden-tablet"> Formulario CRUD</span></a></li>
+                            <li><a href="table.html"><i class="icon-align-justify"></i><span class="hidden-tablet"> Tablas</span></a></li>
+                            <li><s:a action="institucion" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Institución</s:a></i></li>
+                            <li><s:a action="solicitudes" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Solicitudes</s:a></li>
+                            <li><s:a action="solicitudCompra" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Solicitud de compra</s:a></li>
+                            <li><s:a action="solicitudMantto" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Solicitud de mantenimiento</s:a></li>
+                            <li><s:a action="ordenCompra" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Orden de Compra</s:a></i></li>
+ +                          <li><s:a action="LoginAction"><i class="icon-lock"></i><span class="hidden-tablet"> Login</span></s:a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- end: Main Menu -->
+
                 <!-- start: Content -->
                 <div id="content" class="span10">
+
+
                     <ul class="breadcrumb">
                         <li>
                             <i class="icon-home"></i>
@@ -94,89 +100,62 @@
                         </li>
                         <li>
                             <i class="icon-edit"></i>
-                            <a href="#">Solicitudes</a>
+                            <a href="#">Solicitud de Mantenimiento</a>
                         </li>
                     </ul>
 
                     <div class="row-fluid sortable">
                         <div class="box span12">
                             <div class="box-header" data-original-title>
-                                <h2><i class="icon-align-justify"></i><span class="break"></span>Solicitudes</h2>
+                                <h2><i class="icon-edit"></i><span class="break"></span>Crear solicitud de mantenimiento</h2>
+                               <%-- <div class="box-icon">
+                                    <a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
+                                    <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+                                    <a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+                                </div>--%>
                                 <div class="box-icon">
                                     <a href="#" class="btn-setting"><i class="icon-cog white"></i></a>
                                     <a href="#" class="btn-minimize"><i class="icon-chevron-down white"></i></a>
                                 </div>
                             </div>
                             <div class="box-content">
-                                <table class="table table-striped table-bordered bootstrap-datatable datatable">
-                                    <thead>
-                                        <tr>
-                                            <th>Tipo solicitud</th>
-                                            <th>Fecha</th>
-                                            <th>Usuario</th>
-                                            <th>Descipción</th>
-                                            <th>Estado</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="center">Solicitud de compra</td>
-                                            <td class="center">23/04/2017</td>
-                                            <td class="center">Pablo Tobar</td>
-                                            <td class="center">Compra de aire acondicionado</td>
-                                            <td class="center">
-                                                <span class="label label-success">Activo</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="center">Solicitud de mantenimiento</td>
-                                            <td class="center">23/04/2017</td>
-                                            <td class="center">Hassel Ventura</td>
-                                            <td class="center">Mantto. de acondicionado</td>
-                                            <td class="center">
-                                                <span class="label label-important">Disponible</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="center">Solicitud de mantenimiento</td>
-                                            <td class="center">23/04/2017</td>
-                                            <td class="center">Pablo Tobar</td>
-                                            <td class="center">Mantto. de planta eléctrica</td>
-                                            <td class="center">
-                                                <span class="label">Inactivo</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="center">Solicitud de compra</td>
-                                            <td class="center">23/04/2017</td>
-                                            <td class="center">Hassel Ventura</td>
-                                            <td class="center">Compra de planta</td>
-                                            <td class="center">
-                                                <span class="label label-warning">En espera</span>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <form class="form-horizontal">
+                                    <div class="control-group">
+                                        <label class="control-label" for="selectError">Equipo:</label>
+                                        <div class="controls">
+                                            <select id="selectError" data-rel="chosen">
+                                                <option>Option 1</option>
+                                                <option>Option 2</option>
+                                                <option>Option 3</option>
+                                                <option>Option 4</option>
+                                                <option>Option 5</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label">Descripción:</label>
+                                        <div class="controls">
+                                            <input class="form-control" type="text" value="" placeholder="Teléfono">
+                                        </div>
+                                    </div>
+                                    <div class="form-actions">
+                                        <button type="submit" class="btn btn-primary">Guardar</button>
+                                        <button class="btn">Limpiar</button>
+                                    </div>
+                                </form>
+
                             </div>
                         </div><!--/span-->
 
                     </div><!--/row-->
                 </div><!--/.fluid-container-->
+
                 <!-- end: Content -->
             </div><!--/#content.span10-->
         </div><!--/fluid-row-->
 
-        <div class="common-modal modal fade" id="common-Modal1" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-content">
-                <ul class="list-inline item-details">
-                    <li><a href="http://themifycloud.com">Admin templates</a></li>
-                    <li><a href="http://themescloud.org">Bootstrap themes</a></li>
-                </ul>
-            </div>
-        </div>
-
         <div class="clearfix"></div>
-
+        
         <footer>
             <p>
                 <span style="text-align:left;float:left">Sistema de compra de equipos electrónicos.</span>
@@ -248,5 +227,7 @@
         <script src="dist/js/bootstrap.min.js"></script>
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
         <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+
     </body>
 </html>
+
