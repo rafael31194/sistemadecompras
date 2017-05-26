@@ -25,6 +25,18 @@
         <action name="detalleOrdenCompra" class="sv.edu.ues.bad115.action.LoginAction" method="detalleOrdenCompra">
             <result>/Views/OrdenCompra/homeDetalleOrdenCompra.jsp</result>
         </action>
+        <action name="restricciones" class="sv.edu.ues.bad115.action.LoginAction" method="restricciones">
+            <result>/Views/Mantenimientos/Restricciones/RestriccionesCRUD.jsp</result>
+        </action>
+        <action name="proveedores" class="sv.edu.ues.bad115.action.LoginAction" method="proveedores">
+            <result>/Views/Mantenimientos/Proveedores/ProveedoresCRUD.jsp</result>
+        </action>
+        <action name="usuarios" class="sv.edu.ues.bad115.action.LoginAction" method="usuarios">
+            <result>/Views/Mantenimientos/Usuarios/homeUsuarios.jsp</result>
+        </action>
+        <action name="roles" class="sv.edu.ues.bad115.action.LoginAction" method="roles">
+            <result>/Views/Mantenimientos/Roles/homeRoles.jsp</result>
+        </action>
         <action name="solicitudes" class="sv.edu.ues.bad115.action.SolicitudAction" method="solicitudes">
             <result>/Views/Solicitudes/listaSolicitudes.jsp</result>
         </action>
@@ -33,6 +45,15 @@
         </action>
         <action name="solicitudMantto" class="sv.edu.ues.bad115.action.SolicitudAction" method="solicitudMantto">
             <result>/Views/Solicitudes/Mantenimiento/solicitudMantenimiento.jsp</result>
+        </action>        
+        <action name="inventario" class="sv.edu.ues.bad115.action.SolicitudAction" method="inventario">
+            <result>/Views/Inventario/inventario.jsp</result>
+        </action>
+        <action name="detalleInventario" class="sv.edu.ues.bad115.action.SolicitudAction" method="detalleInventario">
+            <result>/Views/Inventario/DetalleInventario.jsp</result>
+        </action>  
+        <action name="bitacora" class="sv.edu.ues.bad115.action.SolicitudAction" method="bitacora">
+            <result>/Views/Bitacora/Bitacora.jsp</result>
         </action>
     </package>
     <package name="controllers" namespace="/" extends="struts-default">

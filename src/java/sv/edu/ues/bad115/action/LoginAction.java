@@ -80,6 +80,26 @@ public class LoginAction extends ActionSupport {
         return SUCCESS;
     }
     
+    public String restricciones() throws Exception
+    {
+        return SUCCESS;
+    }
+    
+    public String proveedores() throws Exception
+    {
+        return SUCCESS;
+    }
+    
+    public String usuarios() throws Exception
+    {
+        return SUCCESS;
+    }
+    
+    public String roles() throws Exception
+    {
+        return SUCCESS;
+    }
+    
       private void mostrarMensajeError() {
         loginError=1;
     }

@@ -25,4 +25,16 @@ public class SolicitudAction {
     public String solicitudMantto() throws Exception{
         return SUCCESS;
     }
+    
+    public String inventario() throws Exception{
+        return SUCCESS;
+    }
+    
+    public String detalleInventario() throws Exception{
+        return SUCCESS;
+    }
+    
+    public String bitacora() throws Exception{
+        return SUCCESS;
+    }
 }

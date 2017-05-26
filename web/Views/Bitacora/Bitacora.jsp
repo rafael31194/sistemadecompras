@@ -1,7 +1,7 @@
 <%-- 
-    Document   : RestriccionesCRUD
-    Created on : 05-13-2017, 10:55:43 PM
-    Author     : EduardoRAFAEL
+    Document   : homeOrdenCompra
+    Created on : 14/05/2017, 04:12:15 PM
+    Author     : Pablo
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -14,11 +14,12 @@
         <!-- start: Mobile Specific -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- end: Mobile Specific -->
-        <title>Restricciones</title>
+        <title>Ordenes de Compras</title>
         <!-- start: CSS -->
         <link type="text/css" id="base-style" href="Recursos/css/bootstrap.min.css" rel="stylesheet">
         <link type="text/css" id="base-style" href="Recursos/css/bootstrap-responsive.min.css" rel="stylesheet">
         <link type="text/css" id="base-style" href="Recursos/css/style.css" rel="stylesheet">
+        <link type="text/css" id="base-style" href="Recursos/css/fullcalendar.css" rel="stylesheet">
         <link type="text/css" id="base-style" href="Recursos/css/iconos.css" rel="stylesheet">
         <link type="text/css" id="base-style" href="Recursos/css/elfinder.min.css" rel="stylesheet">
         <link type="text/css" id="base-style" href="Recursos/css/elfinder.theme.css" rel="stylesheet">
@@ -48,7 +49,7 @@
                             <!-- start: User Dropdown -->
                             <li class="dropdown">
                                 <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <i class="icon-user"></i> Usuario
+                                    <i class="icon-user"></i> Pablo Tobar
                                     <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu">
@@ -113,7 +114,7 @@
                     <div class="row-fluid sortable">
                         <div class="box span12">
                             <div class="box-header" data-original-title>
-                                <h2><i class="icon-edit"></i><span class="break"></span>Agregar restricciones por institución</h2>
+                                <h2><i class="icon-edit"></i><span class="break"></span>Ingresar bitacora de matenimiento</h2>
                                 <div class="box-icon">
                                     <a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
                                     <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
@@ -123,53 +124,39 @@
                             <div class="box-content">
                                 <form class="form-horizontal">
                                     <div class="control-group">
-                                        <label class="control-label" for="selectError">Institución:</label>
+					<label class="control-label" for="typeahead">Institución:</label>
                                         <div class="controls">
-                                            <select id="selectError" data-rel="chosen">
-                                                <option>Option 1</option>
-                                                <option>Option 2</option>
-                                                <option>Option 3</option>
-                                                <option>Option 4</option>
-                                                <option>Option 5</option>
-                                            </select>
-                                        </div>
-                                    </div>   
-                                    <div class="control-group">
-                                        <label class="control-label" for="selectError">Producto:</label>
-                                        <div class="controls">
-                                            <select id="selectError" data-rel="chosen">
-                                                <option>Option 1</option>
-                                                <option>Option 2</option>
-                                                <option>Option 3</option>
-                                                <option>Option 4</option>
-                                                <option>Option 5</option>
-                                            </select>
-                                        </div>
-                                    </div>                                     
-                                    <div class="control-group">
-                                        <label class="control-label">Monto limite:</label>
-                                        <div class="controls">
-                                            <input class="form-control" type="number" value="" placeholder="Monto limite">
-                                        </div>
+                                            <input type="text" class="span6 typeahead" id="typeahead"  data-provide="typeahead" data-items="4" data-source='["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]'>
+					</div>
                                     </div>
+                                    
                                     <div class="control-group">
-                                        <label class="control-label">Cantidad:</label>
+					<label class="control-label" for="typeahead">Inventario:</label>
                                         <div class="controls">
-                                            <input class="form-control" type="number" value="" placeholder="Cantidad">
-                                        </div>
+                                            <input type="text" class="span6 typeahead" id="typeahead"  data-provide="typeahead" data-items="4" data-source='["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]'>
+					</div>
                                     </div>
+                                    
                                     <div class="control-group">
-                                        <label class="control-label">Descripción:</label>
+					<label class="control-label" for="typeahead">Detalle inventario:</label>
+                                        <div class="controls">
+                                            <input type="text" class="span6 typeahead" id="typeahead"  data-provide="typeahead" data-items="4" data-source='["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]'>
+					</div>
+                                    </div>                                    
+                                    
+                                    <div class="control-group">
+					<label class="control-label" for="date01">Fecha:</label>
+					<div class="controls">
+                                            <input type="date" class="input-xlarge datepicker" id="date01">
+					</div>
+				</div>
+                                    <div class="control-group">
+                                        <label class="control-label">Comentario:</label>
                                         <div class="controls">
                                             <input class="form-control" type="text" value="" placeholder="Descripción">
                                         </div>
                                     </div>
-                                    <div class="control-group">
-                                        <label class="control-label">Instalación:</label>
-                                        <div class="controls">
-                                            <input class="form-control" type="checkbox" value="" placeholder="Instalación">
-                                        </div>
-                                    </div>
+                                    
                                     <div class="form-actions">
                                         <button type="submit" class="btn btn-primary">Guardar</button>
                                         <button class="btn">Limpiar</button>
@@ -184,7 +171,7 @@
                     <div class="row-fluid sortable">
                         <div class="box span12">
                             <div class="box-header" data-original-title>
-                                <h2><i class="icon-align-justify"></i><span class="break"></span>Restricciones</h2>
+                                <h2><i class="icon-align-justify"></i><span class="break"></span>Bitacora de mantenimiento</h2>
                                 <div class="box-icon">
                                     <a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
                                     <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
@@ -195,26 +182,28 @@
                                 <table class="table table-striped table-bordered bootstrap-datatable datatable">
                                     <thead>
                                         <tr>
+                                            <th># Bitacora</th>
                                             <th>Institución</th>
-                                            <th>Producto</th>
-                                            <th>Monto limite</th>
-                                            <th>Cantidad</th>
-                                            <th>Descripción</th>
-                                            <th>Instalación</th>
+                                            <th>Inventario</th>
+                                            <th>Detalle de inventario</th>
+                                            <th>Fecha</th>
+                                            <th>Comentario</th>
+                                            <th>Acciones</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td class="center">Ministerio de Trabajo</td>
-                                            <td class="center">Aire acondicionado</td>
-                                            <td class="center">$10000</td>
-                                            <td class="center">100</td>
-                                            <td class="center">Ninguna</td>
-                                            <td class="center">Si</td>                                            
+                                            <td>1</td>
+                                            <td class="center">2</td>
+                                            <td class="center">Ministerio de trabajo</td>
+                                            <td class="center">1</td>
+                                            <td class="center">2</td>
+                                            <td class="center">02/12/2017</td>
+                                            <td class="center">mantenimiento preventivo</td>
                                             <td class="center">
-                                                <a class="btn btn-success" href="#">
+                                            <s:a class="btn btn-success" action="detalleOrdenCompra">
                                                     <i class="icon-save"></i>
-                                                </a>
+                                                </s:a>
                                                 <a class="btn btn-info" href="#">
                                                     <i class="icon-pencil"></i>
                                                 </a>
@@ -222,7 +211,9 @@
                                                     <i class="icon-trash"></i>
                                                 </a>
                                             </td>
-                                        </tr>
+                                        </tr>                                      
+                          
+                                       
                                     </tbody>
                                 </table>
                             </div>
