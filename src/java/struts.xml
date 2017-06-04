@@ -60,6 +60,17 @@
         <action name="home" class="controllers.InstitucionesController" method="execute">
             <result>/Views/Instituciones/homeInstitucion.jsp</result>
         </action>
-        
+        <action name="prueba" class="controllers.InstitucionesControllerMySQL" method="execute">
+            <result>/Views/Instituciones/homeInstitucion.jsp</result>
+        </action>
+        <action name="enviar" class="controllers.InstitucionesControllerMySQL" method="recibirDatos">
+            <result>/Views/Instituciones/homeInstitucion.jsp</result>
+        </action>
+        <action name="eliminar" class="controllers.InstitucionesControllerMySQL" method="eliminar">
+            <result>/Views/Instituciones/homeInstitucion.jsp</result>
+        </action>
+        <action name="editar" class="controllers.InstitucionesControllerMySQL" method="llenarFormulario">
+            <result>/Views/Instituciones/homeInstitucion.jsp</result>
+        </action>
     </package>
 </struts>

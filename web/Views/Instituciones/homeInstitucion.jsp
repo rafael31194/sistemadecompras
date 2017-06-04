@@ -120,23 +120,30 @@
                                 </div>
                             </div>
                             <div class="box-content">
-                                <form class="form-horizontal">
+                                 <s:form action="enviar">  
                                     <div class="control-group">
                                         <label class="control-label">Institución:</label>
                                         <div class="controls">
-                                            <input class="form-control" type="text" value="" placeholder="Institución">
+                                            <s:textfield name="ins_nombre"/>
+                                            <s:hidden name="ins_id"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label">Teléfono:</label>
                                         <div class="controls">
-                                            <input class="form-control" type="text" value="" placeholder="Teléfono">
+                                            <s:textfield name="ins_telefono"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label">Dirección:</label>
                                         <div class="controls">
-                                            <input class="form-control" type="text" value="" placeholder="Dirección">
+                                            <s:textfield name="ins_direccion"/>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label">Id municipio:</label>
+                                        <div class="controls">
+                                            <s:textfield name="mun_id"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
@@ -151,16 +158,59 @@
                                             </select>
                                         </div>
                                     </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="selectError">Municipio:</label>
+                                        <div class="controls">
+                                            <s:select name="municipios" list="datos"/>
+                                        </div>
+                                    </div>
                                     <div class="form-actions">
-                                        <button type="submit" class="btn btn-primary">Guardar</button>
+                                        <s:submit value="Enviar" title="Enviar" cssClass="btn btn-default"/>
                                         <button class="btn">Limpiar</button>
                                     </div>
-                                </form>
+                                </s:form>
 
                             </div>
                         </div><!--/span-->
 
                     </div><!--/row-->
+                    
+                    
+          <%--    <s:form action="enviar">                   
+                                        
+
+                                        <div class="control-group">
+                                            <label class="control-label">id municipio</label>
+                                            <div class="controls">
+                                                <s:hidden name="ins_id"/>
+                                                <s:textfield name="mun_id"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="control-group">
+                                            <label class="control-label">nombre</label>
+                                            <div class="controls">
+                                                <s:textfield name="ins_nombre"/>
+                                            </div>
+                                        </div>   
+
+                                        <div class="control-group">
+                                            <label class="control-label">telefono</label>
+                                            <div class="controls">
+                                                <s:textfield name="ins_telefono"/>
+                                            </div>
+                                        </div> 
+
+                                        <div class="control-group">
+                                            <label class="control-label">direccion</label>
+                                            <div class="controls">
+                                                <s:textfield name="ins_direccion"/>
+                                            </div>
+                                        </div> 
+                                        <s:submit value="Enviar" title="Enviar" cssClass="btn btn-default"/>
+                                    
+                    
+                </s:form>--%>
 
                     <div class="row-fluid sortable">
                         <div class="box span12">
@@ -172,85 +222,42 @@
                                 </div>
                             </div>
                             <div class="box-content">
-                                <table class="table table-striped table-bordered bootstrap-datatable datatable">
+                                <table class="table table-bordered">
                                     <thead>
                                         <tr>
+                                            <th>ID ins</th>
+                                            <th>ID mun</th>
+                                            <th>nombre mun</th>
                                             <th>Nombre</th>
                                             <th>Teléfono</th>
-                                            <th>Dirección</th>
-                                            <th>Municipio</th>
+                                            <th>Dirección</th>                                            
                                             <th>Acciones</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    <s:iterator value="datos" var="dato" status="estado">
                                         <tr>
-                                            <td>Ministerio de Trabajo</td>
-                                            <td class="center">2030-4563</td>
-                                            <td class="center">Sivar</td>
-                                            <td class="center">San Salvador</td>
-                                            <td class="center">
-                                                <a class="btn btn-success" href="#">
-                                                    <i class="icon-save"></i>
-                                                </a>
-                                                <a class="btn btn-info" href="#">
-                                                    <i class="icon-pencil"></i>
-                                                </a>
-                                                <a class="btn btn-danger" href="#">
+                                            <td><s:property value="ins_id"/></td>
+                                            <td><s:property value="mun_id"/></td>
+                                            <td><s:property value="mun_nombre"/></td>
+                                            <td><s:property value="ins_nombre"/></td>
+                                            <td><s:property value="ins_telefono"/></td>
+                                            <td><s:property value="ins_direccion"/></td>
+                                            <td>
+                                                <s:a action="eliminar">
+                                                    <s:param name="ins_id" value="ins_id"/>
                                                     <i class="icon-trash"></i>
-                                                </a>
+                                                </s:a>
                                             </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ministerio de Trabajo</td>
-                                            <td class="center">2030-4563</td>
-                                            <td class="center">Sivar</td>
-                                            <td class="center">San Salvador</td>
-                                            <td class="center">
-                                                <a class="btn btn-success" href="#">
-                                                    <i class="icon-save"></i>
-                                                </a>
-                                                <a class="btn btn-info" href="#">
+                                            <td>
+                                                <s:a action="editar">
+                                                    <s:param name="ins_id" value="ins_id"/>
                                                     <i class="icon-pencil"></i>
-                                                </a>
-                                                <a class="btn btn-danger" href="#">
-                                                    <i class="icon-trash"></i>
-                                                </a>
-                                            </td>
+                                                </s:a>
+                                            </td>                                            
                                         </tr>
-                                        <tr>
-                                            <td>Ministerio de Trabajo</td>
-                                            <td class="center">2030-4563</td>
-                                            <td class="center">Sivar</td>
-                                            <td class="center">San Salvador</td>
-                                            <td class="center">
-                                                <a class="btn btn-success" href="#">
-                                                    <i class="icon-save"></i>
-                                                </a>
-                                                <a class="btn btn-info" href="#">
-                                                    <i class="icon-pencil"></i>
-                                                </a>
-                                                <a class="btn btn-danger" href="#">
-                                                    <i class="icon-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ministerio de Trabajo</td>
-                                            <td class="center">2030-4563</td>
-                                            <td class="center">Sivar</td>
-                                            <td class="center">San Salvador</td>
-                                            <td class="center">
-                                                <a class="btn btn-success" href="#">
-                                                    <i class="icon-save"></i>
-                                                </a>
-                                                <a class="btn btn-info" href="#">
-                                                    <i class="icon-pencil"></i>
-                                                </a>
-                                                <a class="btn btn-danger" href="#">
-                                                    <i class="icon-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
+                                    </s:iterator>
+                                        
                                     </tbody>
                                 </table>
                             </div>
