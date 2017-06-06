@@ -37,4 +37,7 @@ public class SolicitudAction {
     public String bitacora() throws Exception{
         return SUCCESS;
     }
+    public String solicitud() throws Exception{
+        return SUCCESS;
+    }
 }

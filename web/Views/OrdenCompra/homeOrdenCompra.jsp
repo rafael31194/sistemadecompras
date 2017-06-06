@@ -89,139 +89,139 @@
                             <li><s:a action="ordenCompra" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Orden de Compra</s:a></i></li>
                             <li><s:a action="inventario" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Inventario</s:a></i></li>
                             <li><s:a action="bitacora" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Bitacora</s:a></i></li>
- +                          <li><s:a action="LoginAction"><i class="icon-lock"></i><span class="hidden-tablet"> Login</span></s:a></li>
-                        </ul>
+                            +                          <li><s:a action="LoginAction"><i class="icon-lock"></i><span class="hidden-tablet"> Login</span></s:a></li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <!-- end: Main Menu -->
+                    <!-- end: Main Menu -->
 
-                <!-- start: Content -->
-                <div id="content" class="span10">
+                    <!-- start: Content -->
+                    <div id="content" class="span10">
 
 
-                    <ul class="breadcrumb">
-                        <li>
-                            <i class="icon-home"></i>
-                            <a href="index.html">Home</a>
-                            <i class="icon-angle-right"></i>
-                        </li>
-                        <li>
-                            <i class="icon-edit"></i>
-                            <a href="#">Forms</a>
-                        </li>
-                    </ul>
+                        <ul class="breadcrumb">
+                            <li>
+                                <i class="icon-home"></i>
+                                <a href="index.html">Home</a>
+                                <i class="icon-angle-right"></i>
+                            </li>
+                            <li>
+                                <i class="icon-edit"></i>
+                                <a href="#">Forms</a>
+                            </li>
+                        </ul>
 
-                    <div class="row-fluid sortable">
-                        <div class="box span12">
-                            <div class="box-header" data-original-title>
-                                <h2><i class="icon-edit"></i><span class="break"></span>Ingresar orden de compra</h2>
-                                <div class="box-icon">
-                                    <a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
-                                    <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
-                                    <a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+                        <div class="row-fluid sortable">
+                            <div class="box span12">
+                                <div class="box-header" data-original-title>
+                                    <h2><i class="icon-edit"></i><span class="break"></span>Ingresar orden de compra</h2>
+                                    <div class="box-icon">
+                                        <a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
+                                        <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+                                        <a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="box-content">
-                                <form class="form-horizontal">
-                                    <div class="control-group">
-                                        <label class="control-label" for="selectError">Estado:</label>
-                                        <div class="controls">
-                                            <select id="selectError" data-rel="chosen">
-                                                <option>Option 1</option>
-                                                <option>Option 2</option>
-                                                <option>Option 3</option>
-                                                <option>Option 4</option>
-                                                <option>Option 5</option>
-                                            </select>
+                                <div class="box-content">
+                                    <form class="form-horizontal">
+                                        <div class="control-group">
+                                            <label class="control-label" for="selectError">Estado:</label>
+                                            <div class="controls">
+                                                <select id="selectError" data-rel="chosen">
+                                                    <option>Option 1</option>
+                                                    <option>Option 2</option>
+                                                    <option>Option 3</option>
+                                                    <option>Option 4</option>
+                                                    <option>Option 5</option>
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="control-label" for="selectError">Solicitud:</label>
-                                        <div class="controls">
-                                            <select id="selectError" data-rel="chosen">
-                                                <option>Option 1</option>
-                                                <option>Option 2</option>
-                                                <option>Option 3</option>
-                                                <option>Option 4</option>
-                                                <option>Option 5</option>
-                                            </select>
+                                        <div class="control-group">
+                                            <label class="control-label" for="selectError">Solicitud:</label>
+                                            <div class="controls">
+                                                <select id="selectError" data-rel="chosen">
+                                                    <option>Option 1</option>
+                                                    <option>Option 2</option>
+                                                    <option>Option 3</option>
+                                                    <option>Option 4</option>
+                                                    <option>Option 5</option>
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="control-label" for="selectError">Proveedor:</label>
-                                        <div class="controls">
-                                            <select id="selectError" data-rel="chosen">
-                                                <option>Option 1</option>
-                                                <option>Option 2</option>
-                                                <option>Option 3</option>
-                                                <option>Option 4</option>
-                                                <option>Option 5</option>
-                                            </select>
+                                        <div class="control-group">
+                                            <label class="control-label" for="selectError">Proveedor:</label>
+                                            <div class="controls">
+                                                <select id="selectError" data-rel="chosen">
+                                                    <option>Option 1</option>
+                                                    <option>Option 2</option>
+                                                    <option>Option 3</option>
+                                                    <option>Option 4</option>
+                                                    <option>Option 5</option>
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="control-group">
-					<label class="control-label" for="typeahead">Auto complete </label>
-                                        <div class="controls">
-                                            <input type="text" class="span6 typeahead" id="typeahead"  data-provide="typeahead" data-items="4" data-source='["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]'>
-					</div>
-                                    </div>
-                                    <div class="control-group">
-					<label class="control-label" for="date01">Fecha:</label>
-					<div class="controls">
-                                            <input type="date" class="input-xlarge datepicker" id="date01">
-					</div>
-				</div>
-                                    <div class="control-group">
-                                        <label class="control-label">Descripción:</label>
-                                        <div class="controls">
-                                            <input class="form-control" type="text" value="" placeholder="Descripción">
+                                        <div class="control-group">
+                                            <label class="control-label" for="typeahead">Auto complete </label>
+                                            <div class="controls">
+                                                <input type="text" class="span6 typeahead" id="typeahead"  data-provide="typeahead" data-items="4" data-source='["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]'>
+                                            </div>
                                         </div>
-                                    </div>
-                                    
-                                    <div class="form-actions">
-                                        <button type="submit" class="btn btn-primary">Guardar</button>
-                                        <button class="btn">Limpiar</button>
-                                    </div>
-                                </form>
+                                        <div class="control-group">
+                                            <label class="control-label" for="date01">Fecha:</label>
+                                            <div class="controls">
+                                                <input type="date" class="input-xlarge datepicker" id="date01">
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label">Descripción:</label>
+                                            <div class="controls">
+                                                <input class="form-control" type="text" value="" placeholder="Descripción">
+                                            </div>
+                                        </div>
 
-                            </div>
-                        </div><!--/span-->
+                                        <div class="form-actions">
+                                            <button type="submit" class="btn btn-primary">Guardar</button>
+                                            <button class="btn">Limpiar</button>
+                                        </div>
+                                    </form>
 
-                    </div><!--/row-->
-
-                    <div class="row-fluid sortable">
-                        <div class="box span12">
-                            <div class="box-header" data-original-title>
-                                <h2><i class="icon-align-justify"></i><span class="break"></span>Ordenes de compras</h2>
-                                <div class="box-icon">
-                                    <a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
-                                    <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
-                                    <a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
                                 </div>
-                            </div>
-                            <div class="box-content">
-                                <table class="table table-striped table-bordered bootstrap-datatable datatable">
-                                    <thead>
-                                        <tr>
-                                            <th># Orden</th>
-                                            <th># Solicitud</th>
-                                            <th>Estado</th>
-                                            <th>Proveedor</th>
-                                            <th>Fecha</th>
-                                            <th>Descripción</th>
-                                            <th>Acciones</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td class="center">2</td>
-                                            <td class="center">Aprobada</td>
-                                            <td class="center">Tecnoparts</td>
-                                            <td class="center">03/05/2017</td>
-                                            <td class="center">Aires acondicionados</td>
-                                            <td class="center">
-                                            <s:a class="btn btn-success" action="detalleOrdenCompra">
+                            </div><!--/span-->
+
+                        </div><!--/row-->
+
+                        <div class="row-fluid sortable">
+                            <div class="box span12">
+                                <div class="box-header" data-original-title>
+                                    <h2><i class="icon-align-justify"></i><span class="break"></span>Ordenes de compras</h2>
+                                    <div class="box-icon">
+                                        <a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
+                                        <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+                                        <a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+                                    </div>
+                                </div>
+                                <div class="box-content">
+                                    <table class="table table-striped table-bordered bootstrap-datatable datatable">
+                                        <thead>
+                                            <tr>
+                                                <th># Orden</th>
+                                                <th># Solicitud</th>
+                                                <th>Estado</th>
+                                                <th>Proveedor</th>
+                                                <th>Fecha</th>
+                                                <th>Descripción</th>
+                                                <th>Acciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td class="center">2</td>
+                                                <td class="center">Aprobada</td>
+                                                <td class="center">Tecnoparts</td>
+                                                <td class="center">03/05/2017</td>
+                                                <td class="center">Aires acondicionados</td>
+                                                <td class="center">
+                                                <s:a cssClass="btn btn-success" action="detalleOrdenCompra">
                                                     <i class="icon-save"></i>
                                                 </s:a>
                                                 <a class="btn btn-info" href="#">
@@ -232,8 +232,8 @@
                                                 </a>
                                             </td>
                                         </tr>
-                                        
-                          
+
+
                                         <tr>
                                             <td>2</td>
                                             <td class="center">27</td>

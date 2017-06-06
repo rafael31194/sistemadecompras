@@ -72,5 +72,11 @@
         <action name="editar" class="controllers.InstitucionesControllerMySQL" method="llenarFormulario">
             <result>/Views/Instituciones/homeInstitucion.jsp</result>
         </action>
+        <action name="solicitud" class="controllers.SolicitudController" method="execute">
+            <result>/Views/Solicitudes/homeSolicitud.jsp</result>
+        </action>
+        <action name="enviar" class="controllers.SolicitudController" method="recibirDatos">
+            <result>/Views/Solicitudes/homeSolicitud.jsp</result>
+        </action>
     </package>
 </struts>

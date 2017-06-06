@@ -1,6 +1,6 @@
 <%-- 
-    Document   : homeInstitucion
-    Created on : 13/05/2017, 06:07:58 PM
+    Document   : homeSolicitud
+    Created on : 3/06/2017, 11:12:24 PM
     Author     : Hassel
 --%>
 
@@ -14,7 +14,7 @@
         <!-- start: Mobile Specific -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- end: Mobile Specific -->
-        <title>Instituciones</title>
+        <title>Solicitud</title>
         <!-- start: CSS -->
         <link type="text/css" id="base-style" href="Recursos/css/bootstrap.min.css" rel="stylesheet">
         <link type="text/css" id="base-style" href="Recursos/css/bootstrap-responsive.min.css" rel="stylesheet">
@@ -89,204 +89,191 @@
                             <li><s:a action="ordenCompra" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Orden de Compra</s:a></i></li>
                             <li><s:a action="inventario" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Inventario</s:a></i></li>
                             <li><s:a action="bitacora" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Bitacora</s:a></i></li>
- +                          <li><s:a action="LoginAction"><i class="icon-lock"></i><span class="hidden-tablet"> Login</span></s:a></li>
-                        </ul>
+                            +                          <li><s:a action="LoginAction"><i class="icon-lock"></i><span class="hidden-tablet"> Login</span></s:a></li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <!-- end: Main Menu -->
+                    <!-- end: Main Menu -->
 
-                <!-- start: Content -->
-                <div id="content" class="span10">
+                    <!-- start: Content -->
+                    <div id="content" class="span10">
 
 
-                    <ul class="breadcrumb">
-                        <li>
-                            <i class="icon-home"></i>
-                            <a href="index.html">Inicio</a>
-                            <i class="icon-angle-right"></i>
-                        </li>
-                        <li>
-                            <i class="icon-edit"></i>
-                            <a href="#">Insituciones</a>
-                        </li>
-                    </ul>
+                        <ul class="breadcrumb">
+                            <li>
+                                <i class="icon-home"></i>
+                                <a href="index.html">Inicio</a>
+                                <i class="icon-angle-right"></i>
+                            </li>
+                            <li>
+                                <i class="icon-edit"></i>
+                                <a href="#">Solicitud</a>
+                            </li>
+                        </ul>
 
-                    <div class="row-fluid sortable">
-                        <div class="box span12">
-                            <div class="box-header" data-original-title>
-                                <h2><i class="icon-edit"></i><span class="break"></span>Agregar institución</h2>
+                        <div class="row-fluid sortable">
+                            <div class="box span12">
+                                <div class="box-header" data-original-title>
+                                    <h2><i class="icon-edit"></i><span class="break"></span>Crear solicitud</h2>
+                                        <%-- <div class="box-icon">
+                                             <a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
+                                             <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+                                             <a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+                                         </div>--%>
                                 <div class="box-icon">
                                     <a href="#" class="btn-setting"><i class="icon-cog white"></i></a>
                                     <a href="#" class="btn-minimize"><i class="icon-chevron-down white"></i></a>
                                 </div>
                             </div>
                             <div class="box-content">
-                                 <s:form action="enviar">  
+                                <s:form action="enviar">
                                     <div class="control-group">
-                                        <label class="control-label">Institución:</label>
+                                        <label class="control-label">Categoría del equipo:</label>
                                         <div class="controls">
-                                            <s:textfield name="ins_nombre"/>
-                                            <s:hidden name="ins_id"/>
+                                            <s:textfield name="cat_id" cssClass="form-control"/>
+                                        </div>
+                                    </div>
+                                    <!--                                    <div class="control-group">
+                                                                            <label class="control-label" for="selectError">Categoría del equipo:</label>
+                                                                            <div class="controls">
+                                                                                <select id="selectError" data-rel="chosen">
+                                                                                    <option>Option 1</option>
+                                                                                    <option>Option 2</option>
+                                                                                    <option>Option 3</option>
+                                                                                    <option>Option 4</option>
+                                                                                    <option>Option 5</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>-->
+                                    <div class="control-group">
+                                        <label class="control-label">Unidad:</label>
+                                        <div class="controls">
+                                            <s:textfield name="uni_id" cssClass="form-control"/>
+                                        </div>
+                                    </div>
+                                    <!--                                    <div class="control-group">
+                                                                            <label class="control-label" for="selectError">Unidad:</label>
+                                                                            <div class="controls">
+                                                                                <select id="selectError" data-rel="chosen">
+                                                                                    <option>Option 1</option>
+                                                                                    <option>Option 2</option>
+                                                                                    <option>Option 3</option>
+                                                                                    <option>Option 4</option>
+                                                                                    <option>Option 5</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>-->
+                                    <div class="control-group">
+                                        <label class="control-label">Estado:</label>
+                                        <div class="controls">
+                                            <s:textfield name="est_id" cssClass="form-control"/>
+                                        </div>
+                                    </div>
+                                    <!--                                    <div class="control-group">
+                                                                            <label class="control-label" for="selectError">Estado:</label>
+                                                                            <div class="controls">
+                                                                                <select id="selectError" data-rel="chosen">
+                                                                                    <option>Option 1</option>
+                                                                                    <option>Option 2</option>
+                                                                                    <option>Option 3</option>
+                                                                                    <option>Option 4</option>
+                                                                                    <option>Option 5</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>-->
+                                    <div class="control-group">
+                                        <label class="control-label">Usuario:</label>
+                                        <div class="controls">
+                                            <s:textfield name="sol_id_usu" cssClass="form-control disabled"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label">Teléfono:</label>
+                                        <label class="control-label" for="date01">Fecha:</label>
                                         <div class="controls">
-                                            <s:textfield name="ins_telefono"/>
+                                            <s:textfield name="sol_fecha" cssClass="form-control"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label">Dirección:</label>
+                                        <label class="control-label">Descripción:</label>
                                         <div class="controls">
-                                            <s:textfield name="ins_direccion"/>
+                                            <s:textfield name="sol_descripcion" cssClass="form-control"/>
                                         </div>
                                     </div>
+                                        
                                     <div class="control-group">
-                                        <label class="control-label">Id municipio:</label>
+                                        <label class="control-label">Sol tipo:</label>
                                         <div class="controls">
-                                            <s:textfield name="mun_id"/>
+                                            <s:textfield name="sol_tipo" cssClass="form-control"/>
                                         </div>
                                     </div>
-                                    <div class="control-group">
-                                        <label class="control-label" for="selectError">Municipio:</label>
+<!--                                    <div class="control-group">
+                                        <label class="control-label">Tipo:</label>
                                         <div class="controls">
-                                            <select id="selectError" data-rel="chosen">
-                                                <option>Option 1</option>
-                                                <option>Option 2</option>
-                                                <option>Option 3</option>
-                                                <option>Option 4</option>
-                                                <option>Option 5</option>
-                                            </select>
+                                            <label class="radio" 
+                                                <%--<s:textfield name="sol_tipo" cssClass="form-control"/>--%>
+                                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+                                            </label>
+                                            
                                         </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="control-label" for="selectError">Municipio:</label>
-                                        <div class="controls">
-                                            <%--<s:select name="municipios" list="datos"/>--%>
-                                        </div>
-                                    </div>
+                                    </div>-->
                                     <div class="form-actions">
-                                        <s:submit value="Enviar" title="Enviar" cssClass="btn btn-default"/>
+                                        <s:submit value="Enviar" title="Enviar" cssClass="btn btn-primary" />
                                         <button class="btn">Limpiar</button>
                                     </div>
                                 </s:form>
 
-                            </div>
-                        </div><!--/span-->
-
-                    </div><!--/row-->
-                    
-                    
-          <%--    <s:form action="enviar">                   
-                                        
-
-                                        <div class="control-group">
-                                            <label class="control-label">id municipio</label>
-                                            <div class="controls">
-                                                <s:hidden name="ins_id"/>
-                                                <s:textfield name="mun_id"/>
-                                            </div>
-                                        </div>
-
-                                        <div class="control-group">
-                                            <label class="control-label">nombre</label>
-                                            <div class="controls">
-                                                <s:textfield name="ins_nombre"/>
-                                            </div>
-                                        </div>   
-
-                                        <div class="control-group">
-                                            <label class="control-label">telefono</label>
-                                            <div class="controls">
-                                                <s:textfield name="ins_telefono"/>
-                                            </div>
-                                        </div> 
-
-                                        <div class="control-group">
-                                            <label class="control-label">direccion</label>
-                                            <div class="controls">
-                                                <s:textfield name="ins_direccion"/>
-                                            </div>
-                                        </div> 
-                                        <s:submit value="Enviar" title="Enviar" cssClass="btn btn-default"/>
-                                    
-                    
-                </s:form>--%>
-
-                    <div class="row-fluid sortable">
-                        <div class="box span12">
-                            <div class="box-header" data-original-title>
-                                <h2><i class="icon-align-justify"></i><span class="break"></span>Instituciones</h2>
-                                <div class="box-icon">
-                                    <a href="#" class="btn-setting"><i class="icon-cog white"></i></a>
-                                    <a href="#" class="btn-minimize"><i class="icon-chevron-down white"></i></a>
                                 </div>
-                            </div>
-                            <div class="box-content">
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th>ID ins</th>
-                                            <th>ID mun</th>
-                                            <th>nombre mun</th>
-                                            <th>Nombre</th>
-                                            <th>Teléfono</th>
-                                            <th>Dirección</th>                                            
-                                            <th>Acciones</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    <s:iterator value="datos" var="dato" status="estado">
-                                        <tr>
-                                            <td><s:property value="ins_id"/></td>
-                                            <td><s:property value="mun_id"/></td>
-                                            <td><s:property value="mun_nombre"/></td>
-                                            <td><s:property value="ins_nombre"/></td>
-                                            <td><s:property value="ins_telefono"/></td>
-                                            <td><s:property value="ins_direccion"/></td>
-                                            <td>
-                                                <s:a action="eliminar">
-                                                    <s:param name="ins_id" value="ins_id"/>
-                                                    <i class="icon-trash"></i>
-                                                </s:a>
-                                            </td>
-                                            <td>
-                                                <s:a action="editar">
-                                                    <s:param name="ins_id" value="ins_id"/>
-                                                    <i class="icon-pencil"></i>
-                                                </s:a>
-                                            </td>                                            
-                                        </tr>
-                                    </s:iterator>
-                                        
+                            </div><!--/span-->
+
+                        </div><!--/row-->
+
+                        <div class="row-fluid sortable">
+                            <div class="box span12">
+                                <div class="box-header" data-original-title>
+                                    <h2><i class="icon-align-justify"></i><span class="break"></span>Solicitudes</h2>
+                                    <div class="box-icon">
+                                        <a href="#" class="btn-setting"><i class="icon-cog white"></i></a>
+                                        <a href="#" class="btn-minimize"><i class="icon-chevron-down white"></i></a>
+                                    </div>
+                                </div>
+                                <div class="box-content">
+                                    <table class="table table-striped table-bordered bootstrap-datatable datatable">
+                                        <thead>
+                                            <tr>
+                                                <th>Tipo solicitud</th>
+                                                <th>Fecha</th>
+                                                <th>Usuario</th>
+                                                <th>Descripción</th>
+                                                <th>Estado</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <s:iterator value="datos" var="dato" status="estado">
+                                            <tr>
+                                                <td><s:property value="sol_tipo"/></td>
+                                                <td><s:property value="sol_fecha"/></td>
+                                                <td><s:property value="sol_id_usu"/></td>
+                                                <td><s:property value="sol_descripcion"/></td>
+                                                <td>
+                                                    <span class="label label-success"><s:property value="est_estado"/></span>
+                                                </td>
+                                            </tr>
+                                        </s:iterator>
                                     </tbody>
                                 </table>
                             </div>
                         </div><!--/span-->
 
                     </div><!--/row-->
+
                 </div><!--/.fluid-container-->
 
                 <!-- end: Content -->
             </div><!--/#content.span10-->
         </div><!--/fluid-row-->
 
-        <div class="modal hide fade" id="myModal">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">×</button>
-                <h3>Settings</h3>
-            </div>
-            <div class="modal-body">
-                <p>Here settings can be configured...</p>
-            </div>
-            <div class="modal-footer">
-                <a href="#" class="btn" data-dismiss="modal">Close</a>
-                <a href="#" class="btn btn-primary">Save changes</a>
-            </div>
-        </div>
-
         <div class="clearfix"></div>
-        
+
         <footer>
             <p>
                 <span style="text-align:left;float:left">Sistema de compra de equipos electrónicos.</span>

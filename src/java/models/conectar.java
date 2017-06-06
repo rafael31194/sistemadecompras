@@ -14,6 +14,7 @@ public class conectar {
     private ResultSet datos;
     private String server, user, bd, pass;
     private ArrayList<InstitucionModel> arreglo;
+    private ArrayList<SolicitudModel> solicitudes;
     private ArrayList<String> array;
     
     public conectar() {
@@ -37,6 +38,7 @@ public class conectar {
         this.con.close();
     }
     
+    //******************************************************************* Métodos Institucion *****************************************************************//
     public ArrayList<InstitucionModel> getData(String sql) throws SQLException {
         
         this.arreglo = new ArrayList<>();
@@ -92,4 +94,16 @@ public class conectar {
         
     }
     
+    //******************************************************************* Métodos Solicitud *****************************************************************//
+    public ArrayList<SolicitudModel> getDataSolicitud(String sql) throws SQLException{
+        this.solicitudes = new ArrayList<>();
+        this.con();
+        this.consulta = this.con.prepareStatement(sql);
+        this.datos = this.consulta.executeQuery();
+        while (this.datos.next()) {
+            this.solicitudes.add(new SolicitudModel(datos.getInt("sol_id"), datos.getInt("cat_id"), datos.getInt("uni_id"), datos.getInt("est_id"), 
+            datos.getInt("sol_id_usu"), datos.getInt("sol_tipo"), datos.getString("sol_fecha"), datos.getString("sol_descripcion"), datos.getString("est_estado")));
+        }
+        return this.solicitudes;
+    }
 }
