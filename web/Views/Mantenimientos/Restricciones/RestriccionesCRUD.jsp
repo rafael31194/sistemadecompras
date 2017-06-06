@@ -121,7 +121,7 @@
                                 </div>
                             </div>
                             <div class="box-content">
-                                <s:form action="enviar">
+                                <s:form action="res_enviar">
                                     <div class="control-group">
                                         <label class="control-label">Institución:</label>
                                         <div class="controls">
@@ -204,13 +204,13 @@
                                             <td><s:property value="res_descripcion"/></td>                                            
                                             <td><s:property value="res_EsInstalacion"/></td> 
                                             <td>
-                                                <s:a action="eliminar">
+                                                <s:a action="res_eliminar">
                                                     <s:param name="res_id" value="res_id"/>
                                                     <i class="icon-trash"></i>
                                                 </s:a>
                                             </td>
                                             <td>
-                                                <s:a action="editar">
+                                                <s:a action="res_editar">
                                                     <s:param name="res_id" value="res_id"/>
                                                     <i class="icon-pencil"></i>
                                                 </s:a>

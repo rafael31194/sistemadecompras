@@ -80,13 +80,13 @@
         <action name="prueba2" class="controllers.RestriccionesControllerMySQL" method="execute">
             <result>/Views/Mantenimientos/Restricciones/RestriccionesCRUD.jsp</result>
         </action>
-        <action name="enviar" class="controllers.RestriccionesControllerMySQL" method="recibirDatos">
+        <action name="res_enviar" class="controllers.RestriccionesControllerMySQL" method="recibirDatos">
             <result>/Views/Mantenimientos/Restricciones/RestriccionesCRUD.jsp</result>
         </action>
-        <action name="eliminar" class="controllers.RestriccionesControllerMySQL" method="eliminar">
+        <action name="res_eliminar" class="controllers.RestriccionesControllerMySQL" method="eliminar">
             <result>/Views/Mantenimientos/Restricciones/RestriccionesCRUD.jsp</result>
         </action>
-        <action name="editar" class="controllers.RestriccionesControllerMySQL" method="llenarFormulario">
+        <action name="res_editar" class="controllers.RestriccionesControllerMySQL" method="llenarFormulario">
             <result>/Views/Mantenimientos/Restricciones/RestriccionesCRUD.jsp</result>
         </action>
     </package>    
