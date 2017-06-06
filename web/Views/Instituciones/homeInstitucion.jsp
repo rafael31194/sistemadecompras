@@ -106,7 +106,7 @@
                         </li>
                         <li>
                             <i class="icon-edit"></i>
-                            <a href="#">Insituciones</a>
+                            <a href="#">Instituciones</a>
                         </li>
                     </ul>
 

@@ -19,6 +19,14 @@ public class InstitucionModel {
         this.ins_direccion = ins_direccion;
     }
 
+    public InstitucionModel(int ins_id, int mun_id, String ins_nombre, String ins_telefono, String ins_direccion) {
+        this.ins_id = ins_id;
+        this.mun_id = mun_id;
+        this.ins_nombre = ins_nombre;
+        this.ins_telefono = ins_telefono;
+        this.ins_direccion = ins_direccion;
+    }
+    
     public String getMun_nombre() {
         return mun_nombre;
     }

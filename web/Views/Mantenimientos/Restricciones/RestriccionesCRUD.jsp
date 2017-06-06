@@ -101,12 +101,12 @@
                     <ul class="breadcrumb">
                         <li>
                             <i class="icon-home"></i>
-                            <a href="index.html">Home</a>
+                            <a href="index.html">Inicio</a>
                             <i class="icon-angle-right"></i>
                         </li>
                         <li>
                             <i class="icon-edit"></i>
-                            <a href="#">Forms</a>
+                            <a href="#">Restricciones</a>
                         </li>
                     </ul>
 
@@ -121,60 +121,49 @@
                                 </div>
                             </div>
                             <div class="box-content">
-                                <form class="form-horizontal">
+                                <s:form action="enviar">
                                     <div class="control-group">
-                                        <label class="control-label" for="selectError">Institución:</label>
+                                        <label class="control-label">Institución:</label>
                                         <div class="controls">
-                                            <select id="selectError" data-rel="chosen">
-                                                <option>Option 1</option>
-                                                <option>Option 2</option>
-                                                <option>Option 3</option>
-                                                <option>Option 4</option>
-                                                <option>Option 5</option>
-                                            </select>
+                                            <s:hidden name="res_id"/>
+                                            <s:select name="id_ins" list="datosIns" listValue="ins_nombre" listKey="ins_id"/>
                                         </div>
                                     </div>   
                                     <div class="control-group">
-                                        <label class="control-label" for="selectError">Producto:</label>
+                                        <label class="control-label">Producto:</label>
                                         <div class="controls">
-                                            <select id="selectError" data-rel="chosen">
-                                                <option>Option 1</option>
-                                                <option>Option 2</option>
-                                                <option>Option 3</option>
-                                                <option>Option 4</option>
-                                                <option>Option 5</option>
-                                            </select>
+                                            <s:select name="id_pro" list="datosPro" listValue="pro_nombre" listKey="pro_id"></s:select>
                                         </div>
                                     </div>                                     
                                     <div class="control-group">
                                         <label class="control-label">Monto limite:</label>
                                         <div class="controls">
-                                            <input class="form-control" type="number" value="" placeholder="Monto limite">
+                                            <s:textfield name="res_montolimite"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label">Cantidad:</label>
                                         <div class="controls">
-                                            <input class="form-control" type="number" value="" placeholder="Cantidad">
+                                            <s:textfield name="res_cantidadcompras"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label">Descripción:</label>
                                         <div class="controls">
-                                            <input class="form-control" type="text" value="" placeholder="Descripción">
+                                            <s:textfield name="res_descripcion"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label">Instalación:</label>
                                         <div class="controls">
-                                            <input class="form-control" type="checkbox" value="" placeholder="Instalación">
+                                            <s:checkbox name="res_EsInstalacion" fieldValue="1"/>
                                         </div>
                                     </div>
                                     <div class="form-actions">
-                                        <button type="submit" class="btn btn-primary">Guardar</button>
+                                        <s:submit value="Enviar" title="Enviar" cssClass="btn btn-default"/>
                                         <button class="btn">Limpiar</button>
                                     </div>
-                                </form>
+                                </s:form>
 
                             </div>
                         </div><!--/span-->
@@ -195,34 +184,39 @@
                                 <table class="table table-striped table-bordered bootstrap-datatable datatable">
                                     <thead>
                                         <tr>
+                                            <th>ID</th>
                                             <th>Institución</th>
                                             <th>Producto</th>
-                                            <th>Monto limite</th>
+                                            <th>Monto límite</th>
                                             <th>Cantidad</th>
                                             <th>Descripción</th>
                                             <th>Instalación</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    <s:iterator value="datos" var="dato" status="estado">
                                         <tr>
-                                            <td class="center">Ministerio de Trabajo</td>
-                                            <td class="center">Aire acondicionado</td>
-                                            <td class="center">$10000</td>
-                                            <td class="center">100</td>
-                                            <td class="center">Ninguna</td>
-                                            <td class="center">Si</td>                                            
-                                            <td class="center">
-                                                <a class="btn btn-success" href="#">
-                                                    <i class="icon-save"></i>
-                                                </a>
-                                                <a class="btn btn-info" href="#">
-                                                    <i class="icon-pencil"></i>
-                                                </a>
-                                                <a class="btn btn-danger" href="#">
+                                            <td><s:property value="res_id"/></td>
+                                            <td><s:property value="ins_nombre"/></td>
+                                            <td><s:property value="pro_nombre"/></td>
+                                            <td><s:property value="res_montolimite"/></td>
+                                            <td><s:property value="res_cantidadcompras"/></td>
+                                            <td><s:property value="res_descripcion"/></td>                                            
+                                            <td><s:property value="res_EsInstalacion"/></td> 
+                                            <td>
+                                                <s:a action="eliminar">
+                                                    <s:param name="res_id" value="res_id"/>
                                                     <i class="icon-trash"></i>
-                                                </a>
+                                                </s:a>
+                                            </td>
+                                            <td>
+                                                <s:a action="editar">
+                                                    <s:param name="res_id" value="res_id"/>
+                                                    <i class="icon-pencil"></i>
+                                                </s:a>
                                             </td>
                                         </tr>
+                                    </s:iterator>    
                                     </tbody>
                                 </table>
                             </div>
@@ -250,72 +244,78 @@
         </div>
 
         <div class="clearfix"></div>
+        
+        <footer>
+            <p>
+                <span style="text-align:left;float:left">Sistema de compra de equipos electrónicos.</span>
+            </p>
+        </footer>        
 
         <!-- start: JavaScript-->
 
-        <script src="../Recursos/js/jquery-1.9.1.min.js"></script>
-        <script src="../Recursos/js/jquery-migrate-1.0.0.min.js"></script>
+        <script src="Recursos/js/jquery-1.9.1.min.js"></script>
+        <script src="Recursos/js/jquery-migrate-1.0.0.min.js"></script>
 
-        <script src="../Recursos/js/jquery-ui-1.10.0.custom.min.js"></script>
+        <script src="Recursos/js/jquery-ui-1.10.0.custom.min.js"></script>
 
-        <script src="../Recursos/js/jquery.ui.touch-punch.js"></script>
+        <script src="Recursos/js/jquery.ui.touch-punch.js"></script>
 
-        <script src="../Recursos/js/modernizr.js"></script>
+        <script src="Recursos/js/modernizr.js"></script>
 
-        <script src="../Recursos/js/bootstrap.min.js"></script>
+        <script src="Recursos/js/bootstrap.min.js"></script>
 
-        <script src="../Recursos/js/jquery.cookie.js"></script>
+        <script src="Recursos/js/jquery.cookie.js"></script>
 
-        <script src='../Recursos/js/fullcalendar.min.js'></script>
+        <script src='Recursos/js/fullcalendar.min.js'></script>
 
-        <script src='../Recursos/js/jquery.dataTables.min.js'></script>
+        <script src='Recursos/js/jquery.dataTables.min.js'></script>
 
-        <script src="../Recursos/js/excanvas.js"></script>
-        <script src="../Recursos/js/jquery.flot.js"></script>
-        <script src="../Recursos/js/jquery.flot.pie.js"></script>
-        <script src="../Recursos/js/jquery.flot.stack.js"></script>
-        <script src="../Recursos/js/jquery.flot.resize.min.js"></script>
+        <script src="Recursos/js/excanvas.js"></script>
+        <script src="Recursos/js/jquery.flot.js"></script>
+        <script src="Recursos/js/jquery.flot.pie.js"></script>
+        <script src="Recursos/js/jquery.flot.stack.js"></script>
+        <script src="Recursos/js/jquery.flot.resize.min.js"></script>
 
-        <script src="../Recursos/js/jquery.chosen.min.js"></script>
+        <script src="Recursos/js/jquery.chosen.min.js"></script>
 
-        <script src="../Recursos/js/jquery.uniform.min.js"></script>
+        <script src="Recursos/js/jquery.uniform.min.js"></script>
 
-        <script src="../Recursos/js/jquery.cleditor.min.js"></script>
+        <script src="Recursos/js/jquery.cleditor.min.js"></script>
 
-        <script src="../Recursos/js/jquery.noty.js"></script>
+        <script src="Recursos/js/jquery.noty.js"></script>
 
-        <script src="../Recursos/js/jquery.elfinder.min.js"></script>
+        <script src="Recursos/js/jquery.elfinder.min.js"></script>
 
-        <script src="../Recursos/js/jquery.raty.min.js"></script>
+        <script src="Recursos/js/jquery.raty.min.js"></script>
 
-        <script src="../Recursos/js/jquery.iphone.toggle.js"></script>
+        <script src="Recursos/js/jquery.iphone.toggle.js"></script>
 
-        <script src="../Recursos/js/jquery.uploadify-3.1.min.js"></script>
+        <script src="Recursos/js/jquery.uploadify-3.1.min.js"></script>
 
-        <script src="../Recursos/js/jquery.gritter.min.js"></script>
+        <script src="Recursos/js/jquery.gritter.min.js"></script>
 
-        <script src="../Recursos/js/jquery.imagesloaded.js"></script>
+        <script src="Recursos/js/jquery.imagesloaded.js"></script>
 
-        <script src="../Recursos/js/jquery.masonry.min.js"></script>
+        <script src="Recursos/js/jquery.masonry.min.js"></script>
 
-        <script src="../Recursos/js/jquery.knob.modified.js"></script>
+        <script src="Recursos/js/jquery.knob.modified.js"></script>
 
-        <script src="../Recursos/js/jquery.sparkline.min.js"></script>
+        <script src="Recursos/js/jquery.sparkline.min.js"></script>
 
-        <script src="../Recursos/js/counter.js"></script>
+        <script src="Recursos/js/counter.js"></script>
 
-        <script src="../Recursos/js/retina.js"></script>
+        <script src="Recursos/js/retina.js"></script>
 
-        <script src="../Recursos/js/custom.js"></script>
+        <script src="Recursos/js/custom.js"></script>
         <!-- end: JavaScript-->
 
         <!-- Bootstrap core JavaScript================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-        <script src="../../dist/js/bootstrap.min.js"></script>
+        <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script>
+        <script src="dist/js/bootstrap.min.js"></script>
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-        <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+        <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
 
     </body>
 </html>
