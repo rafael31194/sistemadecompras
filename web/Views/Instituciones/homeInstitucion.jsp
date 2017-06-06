@@ -120,7 +120,7 @@
                                 </div>
                             </div>
                             <div class="box-content">
-                                 <s:form action="enviar">  
+                                 <s:form action="enviarInsti">  
                                     <div class="control-group">
                                         <label class="control-label">Institución:</label>
                                         <div class="controls">
@@ -232,13 +232,13 @@
                                             <td><s:property value="ins_telefono"/></td>
                                             <td><s:property value="ins_direccion"/></td>
                                             <td>
-                                                <s:a action="eliminar">
+                                                <s:a action="eliminarInsti">
                                                     <s:param name="ins_id" value="ins_id"/>
                                                     <i class="icon-trash"></i>
                                                 </s:a>
                                             </td>
                                             <td>
-                                                <s:a action="editar">
+                                                <s:a action="editarInsti">
                                                     <s:param name="ins_id" value="ins_id"/>
                                                     <i class="icon-pencil"></i>
                                                 </s:a>
