@@ -257,6 +257,18 @@
                                                 <td>
                                                     <span class="label label-success"><s:property value="est_estado"/></span>
                                                 </td>
+                                                <td>
+                                                    <s:a action="editarSoli">
+                                                        <s:param name="sol_id" value="sol_id"/>
+                                                        <i class="icon-pencil"></i>
+                                                    </s:a>
+                                                </td>
+                                                <td>
+                                                    <s:a action="eliminarSoli">
+                                                        <s:param name="sol_id" value="sol_id"/>
+                                                        <i class="icon-trash"></i>
+                                                    </s:a>
+                                                </td>
                                             </tr>
                                         </s:iterator>
                                     </tbody>

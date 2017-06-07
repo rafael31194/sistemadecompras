@@ -69,6 +69,8 @@ public class conectar {
         
     }
     
+    //****************************************************************************************************************************************************//
+    
     public void setData(String sql) throws SQLException {
        
         this.con();
@@ -99,6 +101,7 @@ public class conectar {
         this.consulta.executeUpdate();          
     }
     
+    //******************************************************************* Métodos Institucion *****************************************************************//
     
     public ArrayList getNomMunicipios(String sql) throws SQLException {
         

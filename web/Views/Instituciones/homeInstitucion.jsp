@@ -79,7 +79,6 @@
                             <li><a href="table.html"><i class="icon-align-justify"></i><span class="hidden-tablet"> Tablas</span></a></li>
                             <li><s:a action="institucion" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Institución</s:a></i></li>
                             <li><s:a action="solicitudes" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Solicitudes</s:a></li>
-                            <li><s:a action="solicitud" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Crear Solicitud</s:a></li>
                             <li><s:a action="restricciones" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Restricciones</s:a></i></li>
                             <li><s:a action="proveedores" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Proveedores</s:a></i></li>
                             <li><s:a action="usuarios" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Usuarios</s:a></i></li>
@@ -121,7 +120,7 @@
                                 </div>
                             </div>
                             <div class="box-content">
-                                 <s:form action="enviar">  
+                                 <s:form action="enviarInsti">  
                                     <div class="control-group">
                                         <label class="control-label">Institución:</label>
                                         <div class="controls">
@@ -233,13 +232,13 @@
                                             <td><s:property value="ins_telefono"/></td>
                                             <td><s:property value="ins_direccion"/></td>
                                             <td>
-                                                <s:a action="eliminar">
+                                                <s:a action="eliminarInsti">
                                                     <s:param name="ins_id" value="ins_id"/>
                                                     <i class="icon-trash"></i>
                                                 </s:a>
                                             </td>
                                             <td>
-                                                <s:a action="editar">
+                                                <s:a action="editarInsti">
                                                     <s:param name="ins_id" value="ins_id"/>
                                                     <i class="icon-pencil"></i>
                                                 </s:a>

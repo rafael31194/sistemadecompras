@@ -57,7 +57,33 @@ public class SolicitudController extends ActionSupport{
         return SUCCESS;
     }
     
-    
+    public String llenarFormulario() throws Exception{
+        this.con = new conectar();
+        this.dato = con.getDataForm("select * from sol_solicitud where sol_id = "+this.sol_id+" ");
+        while (this.dato.next()) {    
+            this.sol_id = dato.getInt("sol_id");
+            this.cat_id = dato.getInt("cat_id");
+            this.uni_id = dato.getInt("uni_id");
+            this.sol_fecha = dato.getString("sol_fecha");
+            this.sol_id_usu = dato.getInt("sol_id_usu");
+            this.sol_tipo = dato.getInt("sol_tipo");
+            this.sol_descripcion = dato.getString("sol_descripcion");
+            this.est_id = dato.getInt("est_id");
+        }
+        this.datos = new ArrayList<>();
+        this.datos = this.con.getDataSolicitud("select s.sol_id, s.cat_id, s.uni_id, s.est_id, s.sol_tipo, s.sol_fecha, s.sol_id_usu, "
+                                               + "s.sol_descripcion, e.est_estado from sol_solicitud s inner join est_estado e on s.est_id = e.est_id;");
+        return SUCCESS;
+    }
+   
+    public String eliminar() throws Exception{
+        this.con = new conectar();
+        con.deleteData("delete from sol_solicitud where sol_id="+this.sol_id+"");
+        this.datos = new ArrayList<>();
+        this.datos = this.con.getDataSolicitud("select s.sol_id, s.cat_id, s.uni_id, s.est_id, s.sol_tipo, s.sol_fecha, s.sol_id_usu, "
+                                               + "s.sol_descripcion, e.est_estado from sol_solicitud s inner join est_estado e on s.est_id = e.est_id;");
+        return SUCCESS;
+    }
     
     //******************************************************************* Getters & Setters ************************************************************//
 
