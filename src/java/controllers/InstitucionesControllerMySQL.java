@@ -6,17 +6,59 @@ import java.util.ArrayList;
 import models.InstitucionModel;
 import models.conectar;
 import java.sql.ResultSet;
+import models.MunicipiosModel;
 
 public class InstitucionesControllerMySQL extends ActionSupport{
     
     private conectar con;
     private ArrayList<InstitucionModel> datos;
-    //private ArrayList<String> select;
-    private ResultSet dato,select;
+    private ArrayList<MunicipiosModel> datosMun;
+    private ArrayList<String> select;
+    private ResultSet dato;
     
     
-    private int mun_id,ins_id;
-    private String ins_nombre,ins_telefono,ins_direccion;
+    private int mun_id,ins_id,id;
+    private String ins_nombre,ins_telefono,ins_direccion,municipios;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    
+
+    public ArrayList<MunicipiosModel> getDatosMun() {
+        return datosMun;
+    }
+
+    public void setDatosMun(ArrayList<MunicipiosModel> datosMun) {
+        this.datosMun = datosMun;
+    }
+    
+    
+
+    public String getMunicipios() {
+        return municipios;
+    }
+
+    public void setMunicipios(String municipios) {
+        this.municipios = municipios;
+    }
+    
+    
+
+    public ArrayList<String> getSelect() {
+        return select;
+    }
+
+    public void setSelect(ArrayList<String> select) {
+        this.select = select;
+    }
+    
+    
 
     public int getIns_id() {
         return ins_id;
@@ -82,18 +124,24 @@ public class InstitucionesControllerMySQL extends ActionSupport{
     public String execute() throws Exception {     
         this.con=new conectar();
         this.datos=new ArrayList<>();
+        this.datosMun=new ArrayList<>();
         this.datos=con.getData("select i.ins_id,i.mun_id,m.mun_nombre,i.ins_nombre,i.ins_telefono,i.ins_direccion from ins_institucion i inner join mun_municipio m on i.mun_id=m.mun_id");
-        this.select=con.getNomMunicipios("select m.mun_nombre from ins_institucion i inner join mun_municipio m on i.mun_id=m.mun_id");
+        //this.select=con.getNomMunicipios("select m.mun_nombre from ins_institucion i inner join mun_municipio m on i.mun_id=m.mun_id");
+        this.datosMun=new ArrayList<>();
+        this.datosMun=con.getNomMunicipios("select * from mun_municipio");
+          
         return SUCCESS;
     }
     
   
     public String recibirDatos() throws Exception {
         this.con=new conectar();
+        this.datosMun=new ArrayList<>();
+        this.datosMun=con.getNomMunicipios("select * from mun_municipio");             
         if (this.ins_id==0){        
-        con.setData("CALL `sp_insert_ins_institucion`('"+this.mun_id+"', '"+this.ins_nombre+"', '"+this.ins_telefono+"', '"+this.ins_direccion+"')");
+        con.setData("CALL `sp_insert_ins_institucion`('"+this.id+"', '"+this.ins_nombre+"', '"+this.ins_telefono+"', '"+this.ins_direccion+"')");
         } else {
-        con.updateData("update ins_institucion set mun_id="+this.mun_id+",ins_nombre='"+this.ins_nombre+"',ins_telefono='"+this.ins_telefono+"',ins_direccion='"+this.ins_direccion+"' where ins_id="+this.ins_id+"");
+        con.updateData("update ins_institucion set mun_id="+this.id+",ins_nombre='"+this.ins_nombre+"',ins_telefono='"+this.ins_telefono+"',ins_direccion='"+this.ins_direccion+"' where ins_id="+this.ins_id+"");
         }
         this.ins_id=0;
         this.mun_id=0;
@@ -107,6 +155,8 @@ public class InstitucionesControllerMySQL extends ActionSupport{
     
     public String eliminar() throws Exception {
         this.con=new conectar();
+        this.datosMun=new ArrayList<>();
+        this.datosMun=con.getNomMunicipios("select * from mun_municipio");  
         con.deleteData("delete from ins_institucion where ins_id="+this.ins_id+"");
         this.datos=new ArrayList<>();
         this.datos=con.getData("select i.ins_id,i.mun_id,m.mun_nombre,i.ins_nombre,i.ins_telefono,i.ins_direccion from ins_institucion i inner join mun_municipio m on i.mun_id=m.mun_id");
@@ -115,10 +165,12 @@ public class InstitucionesControllerMySQL extends ActionSupport{
     
     public String llenarFormulario() throws Exception{
         this.con=new conectar();
+        this.datosMun=new ArrayList<>();
+        this.datosMun=con.getNomMunicipios("select * from mun_municipio");  
         this.dato=con.getDataForm("select * from ins_institucion where ins_id="+this.ins_id+"");
         while(this.dato.next()){
         this.ins_id=dato.getInt("ins_id");
-        this.mun_id=dato.getInt("mun_id");
+        this.id=dato.getInt("mun_id");
         this.ins_nombre=dato.getString("ins_nombre");
         this.ins_telefono=dato.getString("ins_telefono");
         this.ins_direccion=dato.getString("ins_direccion");

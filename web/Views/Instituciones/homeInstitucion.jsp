@@ -107,7 +107,7 @@
                         </li>
                         <li>
                             <i class="icon-edit"></i>
-                            <a href="#">Insituciones</a>
+                            <a href="#">Instituciones</a>
                         </li>
                     </ul>
 
@@ -141,28 +141,16 @@
                                             <s:textfield name="ins_direccion"/>
                                         </div>
                                     </div>
-                                    <div class="control-group">
+<!--                                    <div class="control-group">
                                         <label class="control-label">Id municipio:</label>
                                         <div class="controls">
-                                            <s:textfield name="mun_id"/>
+                                            <%--<s:textfield name="mun_id"/>--%>
                                         </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="control-label" for="selectError">Municipio:</label>
+                                    </div>-->
+                                   <div class="control-group">
+                                        <label class="control-label">Municipio:</label>
                                         <div class="controls">
-                                            <select id="selectError" data-rel="chosen">
-                                                <option>Option 1</option>
-                                                <option>Option 2</option>
-                                                <option>Option 3</option>
-                                                <option>Option 4</option>
-                                                <option>Option 5</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="control-label" for="selectError">Municipio:</label>
-                                        <div class="controls">
-                                            <%--<s:select name="municipios" list="datos"/>--%>
+                                            <s:select name="id" list="datosMun" listValue="mun_nombre" listKey="mun_id"/>
                                         </div>
                                     </div>
                                     <div class="form-actions">

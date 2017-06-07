@@ -14,8 +14,10 @@ public class conectar {
     private ResultSet datos;
     private String server, user, bd, pass;
     private ArrayList<InstitucionModel> arreglo;
+    private ArrayList<MunicipiosModel> arregloMun;
+    private ArrayList<MunicipiosModel> array;
     private ArrayList<SolicitudModel> solicitudes;
-    private ArrayList<String> array;
+//    private ArrayList<String> array;
     
     public conectar() {
         this.server = "localhost:3307";
@@ -53,6 +55,20 @@ public class conectar {
         
     }
     
+    public ArrayList<MunicipiosModel> getDataMunicipios(String sql) throws SQLException {
+        
+        this.arregloMun = new ArrayList<>();
+        this.con();
+        this.consulta = this.con.prepareStatement(sql);
+        this.datos = this.consulta.executeQuery();
+        while (this.datos.next()) {
+            this.arregloMun.add(new MunicipiosModel(datos.getInt("mun_id"), datos.getInt("dep_id"), datos.getString("mun_nombre")));
+            
+        }
+        return this.arregloMun;
+        
+    }
+    
     public void setData(String sql) throws SQLException {
        
         this.con();
@@ -84,13 +100,16 @@ public class conectar {
     }
     
     
-    public ResultSet getNomMunicipios(String sql) throws SQLException {
+    public ArrayList getNomMunicipios(String sql) throws SQLException {
         
-        //this.array = new ArrayList<>();
+        this.array = new ArrayList<>();
         this.con();
         this.consulta = this.con.prepareStatement(sql);
         this.datos = this.consulta.executeQuery();
-        return datos;
+        while(this.datos.next()){
+            this.array.add(new MunicipiosModel(datos.getInt("mun_id"),datos.getInt("dep_id"),datos.getString("mun_nombre")));
+        }
+        return array;
         
     }
     

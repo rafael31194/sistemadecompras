@@ -56,7 +56,9 @@
             <result>/Views/Bitacora/Bitacora.jsp</result>
         </action>
     </package>
-    <package name="controllers" namespace="/" extends="struts-default">
+    
+    
+    <package name="institucion" namespace="/" extends="struts-default">
         <action name="home" class="controllers.InstitucionesController" method="execute">
             <result>/Views/Instituciones/homeInstitucion.jsp</result>
         </action>
@@ -72,11 +74,29 @@
         <action name="editar" class="controllers.InstitucionesControllerMySQL" method="llenarFormulario">
             <result>/Views/Instituciones/homeInstitucion.jsp</result>
         </action>
+    </package>
+    
+    <package name="solicitudes" namespace="/" extends="struts-default">
         <action name="solicitud" class="controllers.SolicitudController" method="execute">
             <result>/Views/Solicitudes/homeSolicitud.jsp</result>
         </action>
-        <action name="enviar" class="controllers.SolicitudController" method="recibirDatos">
+        <action name="enviar" class="controllers.SolicitudController" method="guardar">
             <result>/Views/Solicitudes/homeSolicitud.jsp</result>
         </action>
     </package>
+    
+    <package name="restriccion" namespace="/" extends="struts-default">
+        <action name="prueba2" class="controllers.RestriccionesControllerMySQL" method="execute">
+            <result>/Views/Mantenimientos/Restricciones/RestriccionesCRUD.jsp</result>
+        </action>
+        <action name="enviar" class="controllers.RestriccionesControllerMySQL" method="recibirDatos">
+            <result>/Views/Mantenimientos/Restricciones/RestriccionesCRUD.jsp</result>
+        </action>
+        <action name="eliminar" class="controllers.RestriccionesControllerMySQL" method="eliminar">
+            <result>/Views/Mantenimientos/Restricciones/RestriccionesCRUD.jsp</result>
+        </action>
+        <action name="editar" class="controllers.RestriccionesControllerMySQL" method="llenarFormulario">
+            <result>/Views/Mantenimientos/Restricciones/RestriccionesCRUD.jsp</result>
+        </action>
+    </package>    
 </struts>

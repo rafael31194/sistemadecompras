@@ -37,7 +37,7 @@ public class SolicitudController extends ActionSupport{
         return SUCCESS;
     }
     
-    public String recibirDatos() throws Exception{
+    public String guardar() throws Exception{
         this.con = new conectar();
         this.tipos = new ArrayList<>();
         this.tipos.add("1");
@@ -56,6 +56,8 @@ public class SolicitudController extends ActionSupport{
                                                + "s.sol_descripcion, e.est_estado from sol_solicitud s inner join est_estado e on s.est_id = e.est_id;");
         return SUCCESS;
     }
+    
+    
     
     //******************************************************************* Getters & Setters ************************************************************//
 
