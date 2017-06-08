@@ -7,7 +7,7 @@ public class RestriccionModel {
     private double res_montolimite;
     private int res_cantidadcompras;
     private String res_descripcion;
-    private int res_EsInstalacion = 0;
+    private int res_EsInstalacion;
 
     public RestriccionModel() {
     }

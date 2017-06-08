@@ -3,7 +3,7 @@ package models;
 public class ProveedorModel {
     
     private int pro_id, mun_id;
-    private String pro_nombre, pro_direccion;
+    private String mun_nombre, pro_nombre, pro_direccion, usu_usuario;
     private int pro_id_usu;
 
     public ProveedorModel() {
@@ -17,6 +17,14 @@ public class ProveedorModel {
         this.pro_id_usu = pro_id_usu;
     }
 
+    public ProveedorModel(int pro_id, String mun_nombre, String pro_nombre, String pro_direccion, String usu_usuario) {
+        this.pro_id = pro_id;
+        this.mun_nombre = mun_nombre;
+        this.pro_nombre = pro_nombre;
+        this.pro_direccion = pro_direccion;
+        this.usu_usuario = usu_usuario;
+    }
+    
     public int getPro_id() {
         return pro_id;
     }
@@ -56,4 +64,20 @@ public class ProveedorModel {
     public void setPro_id_usu(int pro_id_usu) {
         this.pro_id_usu = pro_id_usu;
     }
+
+    public String getMun_nombre() {
+        return mun_nombre;
+    }
+
+    public void setMun_nombre(String mun_nombre) {
+        this.mun_nombre = mun_nombre;
+    }
+
+    public String getUsu_usuario() {
+        return usu_usuario;
+    }
+
+    public void setUsu_usuario(String usu_usuario) {
+        this.usu_usuario = usu_usuario;
+    } 
 }

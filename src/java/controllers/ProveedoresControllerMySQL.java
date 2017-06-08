@@ -3,55 +3,53 @@ package controllers;
 import com.opensymphony.xwork2.ActionSupport;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import models.InstitucionModel;
+import models.MunicipiosModel;
+import models.UsuarioModel;
+import models.ProveedorConectar;
 import models.ProveedorModel;
-import models.RestriccionConectar;
-import models.RestriccionModel;
 
-public class RestriccionesControllerMySQL extends ActionSupport{
+public class ProveedoresControllerMySQL extends ActionSupport{
     
-    private RestriccionConectar con;
-    private ArrayList<RestriccionModel> datos;
-    private ArrayList<InstitucionModel> datosIns;
-    private ArrayList<ProveedorModel> datosPro;
+    private ProveedorConectar con;
+    private ArrayList<ProveedorModel> datos;
+    private ArrayList<MunicipiosModel> datosMun;
+    private ArrayList<UsuarioModel> datosUsu;
     private ArrayList<String> select;
     private ResultSet dato;
     
-    private int res_id, ins_id, pro_id, id_ins, id_pro, res_cantidadcompras;
-    private String res_descripcion;
-    private double res_montolimite;
-    private int res_EsInstalacion;
+    private int pro_id, mun_id, usu_id, id_mun, pro_id_usu;
+    private String pro_nombre, pro_direccion;
 
-    public RestriccionConectar getCon() {
+    public ProveedorConectar getCon() {
         return con;
     }
 
-    public void setCon(RestriccionConectar con) {
+    public void setCon(ProveedorConectar con) {
         this.con = con;
     }
 
-    public ArrayList<RestriccionModel> getDatos() {
+    public ArrayList<ProveedorModel> getDatos() {
         return datos;
     }
 
-    public void setDatos(ArrayList<RestriccionModel> datos) {
+    public void setDatos(ArrayList<ProveedorModel> datos) {
         this.datos = datos;
     }
 
-    public ArrayList<InstitucionModel> getDatosIns() {
-        return datosIns;
+    public ArrayList<MunicipiosModel> getDatosMun() {
+        return datosMun;
     }
 
-    public void setDatosIns(ArrayList<InstitucionModel> datosIns) {
-        this.datosIns = datosIns;
+    public void setDatosMun(ArrayList<MunicipiosModel> datosMun) {
+        this.datosMun = datosMun;
     }
 
-    public ArrayList<ProveedorModel> getDatosPro() {
-        return datosPro;
+    public ArrayList<UsuarioModel> getDatosUsu() {
+        return datosUsu;
     }
 
-    public void setDatosPro(ArrayList<ProveedorModel> datosPro) {
-        this.datosPro = datosPro;
+    public void setDatosUsu(ArrayList<UsuarioModel> datosUsu) {
+        this.datosUsu = datosUsu;
     }
 
     public ArrayList<String> getSelect() {
@@ -70,22 +68,6 @@ public class RestriccionesControllerMySQL extends ActionSupport{
         this.dato = dato;
     }
 
-    public int getRes_id() {
-        return res_id;
-    }
-
-    public void setRes_id(int res_id) {
-        this.res_id = res_id;
-    }
-
-    public int getIns_id() {
-        return ins_id;
-    }
-
-    public void setIns_id(int ins_id) {
-        this.ins_id = ins_id;
-    }
-
     public int getPro_id() {
         return pro_id;
     }
@@ -94,67 +76,67 @@ public class RestriccionesControllerMySQL extends ActionSupport{
         this.pro_id = pro_id;
     }
 
-    public int getId_ins() {
-        return id_ins;
+    public int getMun_id() {
+        return mun_id;
     }
 
-    public void setId_ins(int id_ins) {
-        this.id_ins = id_ins;
+    public void setMun_id(int mun_id) {
+        this.mun_id = mun_id;
     }
 
-    public int getId_pro() {
-        return id_pro;
+    public int getUsu_id() {
+        return usu_id;
     }
 
-    public void setId_pro(int id_pro) {
-        this.id_pro = id_pro;
+    public void setUsu_id(int usu_id) {
+        this.usu_id = usu_id;
     }
 
-    public int getRes_cantidadcompras() {
-        return res_cantidadcompras;
+    public int getId_mun() {
+        return id_mun;
     }
 
-    public void setRes_cantidadcompras(int res_cantidadcompras) {
-        this.res_cantidadcompras = res_cantidadcompras;
+    public void setId_mun(int id_mun) {
+        this.id_mun = id_mun;
     }
 
-    public String getRes_descripcion() {
-        return res_descripcion;
+    public int getPro_id_usu() {
+        return pro_id_usu;
     }
 
-    public void setRes_descripcion(String res_descripcion) {
-        this.res_descripcion = res_descripcion;
+    public void setPro_id_usu(int pro_id_usu) {
+        this.pro_id_usu = pro_id_usu;
     }
 
-    public double getRes_montolimite() {
-        return res_montolimite;
+    public String getPro_nombre() {
+        return pro_nombre;
     }
 
-    public void setRes_montolimite(double res_montolimite) {
-        this.res_montolimite = res_montolimite;
+    public void setPro_nombre(String pro_nombre) {
+        this.pro_nombre = pro_nombre;
     }
 
-    public int getRes_EsInstalacion() {
-        return res_EsInstalacion;
+    public String getPro_direccion() {
+        return pro_direccion;
     }
 
-    public void setRes_EsInstalacion(int res_EsInstalacion) {
-        this.res_EsInstalacion = res_EsInstalacion;
+    public void setPro_direccion(String pro_direccion) {
+        this.pro_direccion = pro_direccion;
     }
-
+ 
     @Override
     public String execute() throws Exception {     
-        this.con = new RestriccionConectar();
+        this.con = new ProveedorConectar();
         this.datos = new ArrayList<>();
-        this.datosIns = new ArrayList<>();
-        this.datosPro = new ArrayList<>();
-        this.datos = con.getData("select r.res_id, i.ins_nombre, p.pro_nombre, r.res_montolimite, r.res_cantidadcompras, r.res_descripcion, r.res_EsInstalacion from res_restriccion r inner join ins_institucion i on r.ins_id = i.ins_id inner join pro_proveedor p on r.pro_id = p.pro_id");
+        this.datosMun = new ArrayList<>();
+        this.datosUsu = new ArrayList<>();
+        this.datos = con.getData("select p.pro_id, m.mun_nombre, p.pro_nombre, p.pro_direccion, u.usu_usuario from pro_proveedor p inner join mun_municipio m on p.pro_id = m.mun_id inner join usu_usuarios u on p.pro_id = u.usu_id");
         
-        this.datosIns = new ArrayList<>();
-        this.datosIns = con.getDataInstituciones("select * from ins_institucion");
+        this.datosMun = new ArrayList<>();
+        this.datosMun = con.getDataMunicipios("select * from mun_municipio");
         
-        this.datosPro = new ArrayList<>();
-        this.datosPro = con.getDataProveedores("select * from pro_proveedor");
+        this.datosUsu = new ArrayList<>();
+        this.datosUsu = con.getDataUsuario("select * from usu_usuarios");
           
         return SUCCESS;
     }
@@ -223,6 +205,6 @@ public class RestriccionesControllerMySQL extends ActionSupport{
         this.datos=con.getData("select r.res_id, i.ins_nombre, p.pro_nombre, r.res_montolimite, r.res_cantidadcompras, r.res_descripcion, r.res_EsInstalacion from res_restriccion r inner join ins_institucion i on r.ins_id = i.ins_id inner join pro_proveedor p on r.pro_id = p.pro_id");
         
         return SUCCESS;       
-    }
-    
+    }    
+
 }
