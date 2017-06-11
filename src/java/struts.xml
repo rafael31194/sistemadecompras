@@ -134,8 +134,7 @@
         <action name="editarUsu" class="controllers.UsuariosControllerMySQL" method="llenarFormulario">
             <result>/Views/Mantenimientos/Usuarios/homeUsuarios.jsp</result>
         </action>
-    </package>  
-    </package>    
+    </package>     
     
     <package name="bitacoras" namespace="/" extends="struts-default">
         <action name="bitacora" class="controllers.BitacoraController" method="execute">
