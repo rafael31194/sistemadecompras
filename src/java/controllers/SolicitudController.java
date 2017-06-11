@@ -42,8 +42,14 @@ public class SolicitudController extends ActionSupport{
         this.tipos = new ArrayList<>();
         this.tipos.add("1");
         this.tipos.add("2");
-        con.setData("CALL `sp_insert_sol_crearSolicitud`('"+this.cat_id+"', '"+this.uni_id+"', '"+this.est_id+"', '"+this.sol_id_usu+"', "
-                + "'"+this.sol_tipo+"','"+this.sol_fecha+"', '"+this.sol_descripcion+"')");
+        if (this.sol_id == 0) {
+            con.setData("CALL `sp_insert_sol_crearSolicitud`('"+this.cat_id+"', '"+this.uni_id+"', '"+this.est_id+"', '"+this.sol_id_usu+"', "
+                        + "'"+this.sol_tipo+"','"+this.sol_fecha+"', '"+this.sol_descripcion+"')");
+        } else {
+            con.updateData("update sol_solicitud set cat_id = "+this.cat_id+", uni_id = "+this.uni_id+", est_id = "+this.est_id+", sol_id_usu = "+this.sol_id_usu+", sol_fecha= '"+this.sol_fecha+"', \n" +
+                            "sol_descripcion = '"+this.sol_descripcion+"', sol_tipo = "+this.sol_tipo+" where sol_id = "+this.sol_id+"");
+        }
+        
         this.cat_id = 0;
         this.uni_id = 0;
         this.est_id = 0;

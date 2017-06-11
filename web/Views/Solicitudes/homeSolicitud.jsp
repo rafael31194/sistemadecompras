@@ -126,11 +126,12 @@
                                 </div>
                             </div>
                             <div class="box-content">
-                                <s:form action="enviar">
+                                <s:form action="enviar" cssClass="form-horizontal">
                                     <div class="control-group">
                                         <label class="control-label">Categoría del equipo:</label>
                                         <div class="controls">
                                             <s:textfield name="cat_id" cssClass="form-control"/>
+                                            <s:hidden name="sol_id"/>
                                         </div>
                                     </div>
                                     <!--                                    <div class="control-group">
@@ -199,55 +200,56 @@
                                             <s:textfield name="sol_descripcion" cssClass="form-control"/>
                                         </div>
                                     </div>
-                                        
+
                                     <div class="control-group">
-                                        <label class="control-label">Sol tipo:</label>
+                                        <label class="control-label">Tipos soicitud:</label>
                                         <div class="controls">
                                             <s:textfield name="sol_tipo" cssClass="form-control"/>
                                         </div>
                                     </div>
-<!--                                    <div class="control-group">
-                                        <label class="control-label">Tipo:</label>
-                                        <div class="controls">
-                                            <label class="radio" 
-                                                <%--<s:textfield name="sol_tipo" cssClass="form-control"/>--%>
-                                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-                                            </label>
-                                            
-                                        </div>
-                                    </div>-->
+                                    <!--                                    <div class="control-group">
+                                                                            <label class="control-label">Tipo:</label>
+                                                                            <div class="controls">
+                                                                                <label class="radio" 
+                                    <%--<s:textfield name="sol_tipo" cssClass="form-control"/>--%>
+                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+                                </label>
+                                
+                            </div>
+                        </div>-->
                                     <div class="form-actions">
                                         <s:submit value="Enviar" title="Enviar" cssClass="btn btn-primary" />
                                         <button class="btn">Limpiar</button>
                                     </div>
                                 </s:form>
 
-                                </div>
-                            </div><!--/span-->
+                            </div>
+                        </div><!--/span-->
 
-                        </div><!--/row-->
+                    </div><!--/row-->
 
-                        <div class="row-fluid sortable">
-                            <div class="box span12">
-                                <div class="box-header" data-original-title>
-                                    <h2><i class="icon-align-justify"></i><span class="break"></span>Solicitudes</h2>
-                                    <div class="box-icon">
-                                        <a href="#" class="btn-setting"><i class="icon-cog white"></i></a>
-                                        <a href="#" class="btn-minimize"><i class="icon-chevron-down white"></i></a>
-                                    </div>
+                    <div class="row-fluid sortable">
+                        <div class="box span12">
+                            <div class="box-header" data-original-title>
+                                <h2><i class="icon-align-justify"></i><span class="break"></span>Solicitudes</h2>
+                                <div class="box-icon">
+                                    <a href="#" class="btn-setting"><i class="icon-cog white"></i></a>
+                                    <a href="#" class="btn-minimize"><i class="icon-chevron-down white"></i></a>
                                 </div>
-                                <div class="box-content">
-                                    <table class="table table-striped table-bordered bootstrap-datatable datatable">
-                                        <thead>
-                                            <tr>
-                                                <th>Tipo solicitud</th>
-                                                <th>Fecha</th>
-                                                <th>Usuario</th>
-                                                <th>Descripción</th>
-                                                <th>Estado</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
+                            </div>
+                            <div class="box-content">
+                                <table class="table table-striped table-bordered bootstrap-datatable datatable">
+                                    <thead>
+                                        <tr>
+                                            <th>Tipo solicitud</th>
+                                            <th>Fecha</th>
+                                            <th>Usuario</th>
+                                            <th>Descripción</th>
+                                            <th>Estado</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
                                         <s:iterator value="datos" var="dato" status="estado">
                                             <tr>
                                                 <td><s:property value="sol_tipo"/></td>
@@ -258,13 +260,11 @@
                                                     <span class="label label-success"><s:property value="est_estado"/></span>
                                                 </td>
                                                 <td>
-                                                    <s:a action="editarSoli">
+                                                    <s:a action="editarSoli" cssClass="btn btn-info">
                                                         <s:param name="sol_id" value="sol_id"/>
                                                         <i class="icon-pencil"></i>
                                                     </s:a>
-                                                </td>
-                                                <td>
-                                                    <s:a action="eliminarSoli">
+                                                    <s:a action="eliminarSoli" cssClass="btn btn-danger">
                                                         <s:param name="sol_id" value="sol_id"/>
                                                         <i class="icon-trash"></i>
                                                     </s:a>

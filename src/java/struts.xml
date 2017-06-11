@@ -105,4 +105,20 @@
             <result>/Views/Mantenimientos/Restricciones/RestriccionesCRUD.jsp</result>
         </action>
     </package>    
+    
+    <package name="bitacoras" namespace="/" extends="struts-default">
+        <action name="bitacora" class="controllers.BitacoraController" method="execute">
+            <result>/Views/Bitacora/Bitacora.jsp</result>
+        </action>
+        <action name="bit_enviar" class="controllers.BitacoraController" method="guardar">
+            <result>/Views/Bitacora/Bitacora.jsp</result>
+        </action>
+        <action name="bit_editar" class="controllers.BitacoraController" method="llenarFormulario">
+            <result>/Views/Bitacora/Bitacora.jsp</result>
+        </action>
+        <action name="bit_eliminiar" class="controllers.BitacoraController" method="eliminar">
+            <result>/Views/Bitacora/Bitacora.jsp</result>
+        </action>
+    </package>
+    
 </struts>

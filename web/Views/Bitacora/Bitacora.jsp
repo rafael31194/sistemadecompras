@@ -14,7 +14,7 @@
         <!-- start: Mobile Specific -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- end: Mobile Specific -->
-        <title>Ordenes de Compras</title>
+        <title>Bitácora de mantenimientos</title>
         <!-- start: CSS -->
         <link type="text/css" id="base-style" href="Recursos/css/bootstrap.min.css" rel="stylesheet">
         <link type="text/css" id="base-style" href="Recursos/css/bootstrap-responsive.min.css" rel="stylesheet">
@@ -89,80 +89,74 @@
                             <li><s:a action="ordenCompra" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Orden de Compra</s:a></i></li>
                             <li><s:a action="inventario" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Inventario</s:a></i></li>
                             <li><s:a action="bitacora" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Bitacora</s:a></i></li>
- +                          <li><s:a action="LoginAction"><i class="icon-lock"></i><span class="hidden-tablet"> Login</span></s:a></li>
-                        </ul>
+                            +                          <li><s:a action="LoginAction"><i class="icon-lock"></i><span class="hidden-tablet"> Login</span></s:a></li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <!-- end: Main Menu -->
+                    <!-- end: Main Menu -->
 
-                <!-- start: Content -->
-                <div id="content" class="span10">
+                    <!-- start: Content -->
+                    <div id="content" class="span10">
 
 
-                    <ul class="breadcrumb">
-                        <li>
-                            <i class="icon-home"></i>
-                            <a href="index.html">Home</a>
-                            <i class="icon-angle-right"></i>
-                        </li>
-                        <li>
-                            <i class="icon-edit"></i>
-                            <a href="#">Forms</a>
-                        </li>
-                    </ul>
+                        <ul class="breadcrumb">
+                            <li>
+                                <i class="icon-home"></i>
+                                <a href="index.html">Home</a>
+                                <i class="icon-angle-right"></i>
+                            </li>
+                            <li>
+                                <i class="icon-edit"></i>
+                                <a href="#">Forms</a>
+                            </li>
+                        </ul>
 
-                    <div class="row-fluid sortable">
-                        <div class="box span12">
-                            <div class="box-header" data-original-title>
-                                <h2><i class="icon-edit"></i><span class="break"></span>Ingresar bitacora de matenimiento</h2>
-                                <div class="box-icon">
-                                    <a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
-                                    <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
-                                    <a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+                        <div class="row-fluid sortable">
+                            <div class="box span12">
+                                <div class="box-header" data-original-title>
+                                    <h2><i class="icon-edit"></i><span class="break"></span>Ingresar bitacora de matenimiento</h2>
+                                    <div class="box-icon">
+                                        <a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
+                                        <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+                                        <a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="box-content">
-                                <form class="form-horizontal">
+                                <div class="box-content">
+                                <s:form action="bit_enviar" cssClass="form-horizontal">
                                     <div class="control-group">
-					<label class="control-label" for="typeahead">Institución:</label>
+                                        <label class="control-label" for="typeahead">Institución:</label>
                                         <div class="controls">
-                                            <input type="text" class="span6 typeahead" id="typeahead"  data-provide="typeahead" data-items="4" data-source='["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]'>
-					</div>
+                                            <s:textfield cssClass="form-control" name="ins_id"/>
+                                            <s:hidden name="bit_id"/>
+                                        </div>
                                     </div>
-                                    
+
                                     <div class="control-group">
-					<label class="control-label" for="typeahead">Inventario:</label>
+                                        <label class="control-label" for="typeahead">Equipo:</label>
                                         <div class="controls">
-                                            <input type="text" class="span6 typeahead" id="typeahead"  data-provide="typeahead" data-items="4" data-source='["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]'>
-					</div>
+                                            <s:textfield cssClass="form-control" name="inv_dtl_id"/>
+                                        </div>
+                                        <p>(Por el momento ingresar ID detalle inventario)</p>
                                     </div>
-                                    
+
                                     <div class="control-group">
-					<label class="control-label" for="typeahead">Detalle inventario:</label>
+                                        <label class="control-label" for="date01">Fecha:</label>
                                         <div class="controls">
-                                            <input type="text" class="span6 typeahead" id="typeahead"  data-provide="typeahead" data-items="4" data-source='["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]'>
-					</div>
-                                    </div>                                    
-                                    
-                                    <div class="control-group">
-					<label class="control-label" for="date01">Fecha:</label>
-					<div class="controls">
-                                            <input type="date" class="input-xlarge datepicker" id="date01">
-					</div>
-				</div>
+                                            <s:textfield cssClass="form-control" name="bit_fechaproxima"/>
+                                        </div>
+                                    </div>
                                     <div class="control-group">
                                         <label class="control-label">Comentario:</label>
                                         <div class="controls">
-                                            <input class="form-control" type="text" value="" placeholder="Descripción">
+                                            <s:textfield cssClass="form-control" name="bit_comentarios"/>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="form-actions">
-                                        <button type="submit" class="btn btn-primary">Guardar</button>
+                                        <s:submit value="Enviar" title="Guardar" cssClass="btn btn-info"/>
                                         <button class="btn">Limpiar</button>
                                     </div>
-                                </form>
-
+                                </s:form>
                             </div>
                         </div><!--/span-->
 
@@ -171,7 +165,7 @@
                     <div class="row-fluid sortable">
                         <div class="box span12">
                             <div class="box-header" data-original-title>
-                                <h2><i class="icon-align-justify"></i><span class="break"></span>Bitacora de mantenimiento</h2>
+                                <h2><i class="icon-align-justify"></i><span class="break"></span>Bitácora de mantenimiento</h2>
                                 <div class="box-icon">
                                     <a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
                                     <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
@@ -182,38 +176,37 @@
                                 <table class="table table-striped table-bordered bootstrap-datatable datatable">
                                     <thead>
                                         <tr>
-                                            <th># Bitacora</th>
+                                            <th>Correlativo</th>
                                             <th>Institución</th>
-                                            <th>Inventario</th>
-                                            <th>Detalle de inventario</th>
-                                            <th>Fecha</th>
+                                            <th>Equipo</th>
+                                            <th>Fecha próxima</th>
                                             <th>Comentario</th>
                                             <th>Acciones</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td class="center">2</td>
-                                            <td class="center">Ministerio de trabajo</td>
-                                            <td class="center">1</td>
-                                            <td class="center">2</td>
-                                            <td class="center">02/12/2017</td>
-                                            <td class="center">mantenimiento preventivo</td>
-                                            <td class="center">
-                                            <s:a class="btn btn-success" action="detalleOrdenCompra">
-                                                    <i class="icon-save"></i>
-                                                </s:a>
-                                                <a class="btn btn-info" href="#">
-                                                    <i class="icon-pencil"></i>
-                                                </a>
-                                                <a class="btn btn-danger" href="#">
-                                                    <i class="icon-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>                                      
-                          
-                                       
+                                        <s:iterator value="datos" var="dato" status="estado">
+                                            <tr>
+                                                <td><s:property value="bit_id"/></td>
+                                                <td class="center"><s:property value="ins_nombre"/></td>
+                                                <td class="center"><s:property value="inv_dtl_nombre_equipo"/></td>
+                                                <td class="center"><s:property value="bit_fechaproxima"/></td>
+                                                <td class="center"><s:property value="bit_comentarios"/></td>
+                                                <td class="center">
+                                                    <s:a cssClass="btn btn-success" action="detalleOrdenCompra">
+                                                        <i class="icon-save"></i>
+                                                    </s:a>
+                                                    <s:a action="bit_editar" cssClass="btn btn-info">
+                                                        <s:param name="bit_id" value="bit_id"/>
+                                                        <i class="icon-pencil"></i>
+                                                    </s:a>
+                                                    <s:a action="bit_eliminiar" cssClass="btn btn-danger">
+                                                        <s:param name="bit_id" value="bit_id"/>
+                                                        <i class="icon-trash"></i>
+                                                    </s:a>
+                                                </td>
+                                            </tr>                                      
+                                        </s:iterator>
                                     </tbody>
                                 </table>
                             </div>
@@ -225,20 +218,6 @@
                 <!-- end: Content -->
             </div><!--/#content.span10-->
         </div><!--/fluid-row-->
-
-        <div class="modal hide fade" id="myModal">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">×</button>
-                <h3>Settings</h3>
-            </div>
-            <div class="modal-body">
-                <p>Here settings can be configured...</p>
-            </div>
-            <div class="modal-footer">
-                <a href="#" class="btn" data-dismiss="modal">Close</a>
-                <a href="#" class="btn btn-primary">Save changes</a>
-            </div>
-        </div>
 
         <div class="clearfix"></div>
 
