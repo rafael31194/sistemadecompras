@@ -104,5 +104,19 @@
         <action name="res_editar" class="controllers.RestriccionesControllerMySQL" method="llenarFormulario">
             <result>/Views/Mantenimientos/Restricciones/RestriccionesCRUD.jsp</result>
         </action>
-    </package>    
+    </package> 
+    <package name="usuarios" namespace="/" extends="struts-default">
+        <action name="prueba3" class="controllers.UsuariosControllerMySQL" method="execute">
+            <result>/Views/Mantenimientos/Usuarios/homeUsuarios.jsp</result>
+        </action>
+        <action name="enviarUsu" class="controllers.UsuariosControllerMySQL" method="recibirDatos">
+            <result>/Views/Mantenimientos/Usuarios/homeUsuarios.jsp</result>
+        </action>
+        <action name="eliminarUsu" class="controllers.UsuariosControllerMySQL" method="eliminar">
+            <result>/Views/Mantenimientos/Usuarios/homeUsuarios.jsp</result>
+        </action>
+        <action name="editarUsu" class="controllers.UsuariosControllerMySQL" method="llenarFormulario">
+            <result>/Views/Mantenimientos/Usuarios/homeUsuarios.jsp</result>
+        </action>
+    </package>  
 </struts>
