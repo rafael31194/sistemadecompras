@@ -101,12 +101,12 @@
                     <ul class="breadcrumb">
                         <li>
                             <i class="icon-home"></i>
-                            <a href="index.html">Home</a>
+                            <a href="index.html">Inicio</a>
                             <i class="icon-angle-right"></i>
                         </li>
                         <li>
                             <i class="icon-edit"></i>
-                            <a href="#">Forms</a>
+                            <a href="#">Proveedores</a>
                         </li>
                     </ul>
 
@@ -121,48 +121,37 @@
                                 </div>
                             </div>
                             <div class="box-content">
-                                <form class="form-horizontal">
+                                <s:form action="pro_enviar">
                                     <div class="control-group">
-                                        <label class="control-label" for="selectError">Municipio:</label>
+                                        <label class="control-label">Municipio:</label>
                                         <div class="controls">
-                                            <select id="selectError" data-rel="chosen">
-                                                <option>Option 1</option>
-                                                <option>Option 2</option>
-                                                <option>Option 3</option>
-                                                <option>Option 4</option>
-                                                <option>Option 5</option>
-                                            </select>
+                                            <s:hidden name="pro_id"/>
+                                            <s:select name="id_mun" list="datosMun" listValue="mun_nombre" listKey="mun_id"/>
                                         </div>
                                     </div>                                      
                                     <div class="control-group">
                                         <label class="control-label">Nombre:</label>
                                         <div class="controls">
-                                            <input class="form-control" type="text" value="" placeholder="Nombre">
+                                            <s:textfield name="pro_nombre"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label">Direccion:</label>
                                         <div class="controls">
-                                            <input class="form-control" type="number" value="" placeholder="Direccion">
+                                            <s:textfield name="pro_direccion"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label" for="selectError">Usuario:</label>
                                         <div class="controls">
-                                            <select id="selectError" data-rel="chosen">
-                                                <option>Option 1</option>
-                                                <option>Option 2</option>
-                                                <option>Option 3</option>
-                                                <option>Option 4</option>
-                                                <option>Option 5</option>
-                                            </select>
+                                            <s:select name="id_usu" list="datosUsu" listValue="usu_usuario" listKey="usu_id"/>
                                         </div>
                                     </div> 
                                     <div class="form-actions">
-                                        <button type="submit" class="btn btn-primary">Guardar</button>
+                                        <s:submit value="Enviar" title="Enviar" cssClass="btn btn-default"/>
                                         <button class="btn">Limpiar</button>
                                     </div>
-                                </form>
+                                </s:form>
                             </div>
                         </div><!--/span-->
 
@@ -182,6 +171,7 @@
                                 <table class="table table-striped table-bordered bootstrap-datatable datatable">
                                     <thead>
                                         <tr>
+                                            <th>ID</th>
                                             <th>Municipio</th>
                                             <th>Nombre</th>
                                             <th>Dirección</th>
@@ -189,23 +179,27 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    <s:iterator value="datos" var="dato" status="estado">
                                         <tr>
-                                            <td class="center">San Salvador</td>
-                                            <td class="center">Omnisport</td>
-                                            <td class="center">Plaza Mundo, Soyapango</td>
-                                            <td class="center">Omnisport</td>                                          
-                                            <td class="center">
-                                                <a class="btn btn-success" href="#">
-                                                    <i class="icon-save"></i>
-                                                </a>
-                                                <a class="btn btn-info" href="#">
-                                                    <i class="icon-pencil"></i>
-                                                </a>
-                                                <a class="btn btn-danger" href="#">
+                                            <td><s:property value="pro_id"/></td>
+                                            <td><s:property value="mun_nombre"/></td>
+                                            <td><s:property value="pro_nombre"/></td>
+                                            <td><s:property value="pro_direccion"/></td>
+                                            <td><s:property value="usu_usuario"/></td>
+                                            <td>
+                                                <s:a action="pro_eliminar">
+                                                    <s:param name="pro_id" value="pro_id"/>
                                                     <i class="icon-trash"></i>
-                                                </a>
+                                                </s:a>
+                                            </td>
+                                            <td>
+                                                <s:a action="pro_editar">
+                                                    <s:param name="pro_id" value="pro_id"/>
+                                                    <i class="icon-pencil"></i>
+                                                </s:a>
                                             </td>
                                         </tr>
+                                    </s:iterator>
                                     </tbody>
                                 </table>
                             </div>
@@ -234,71 +228,77 @@
 
         <div class="clearfix"></div>
 
+        <footer>
+            <p>
+                <span style="text-align:left;float:left">Sistema de compra de equipos electrónicos.</span>
+            </p>
+        </footer>           
+        
         <!-- start: JavaScript-->
 
-        <script src="../Recursos/js/jquery-1.9.1.min.js"></script>
-        <script src="../Recursos/js/jquery-migrate-1.0.0.min.js"></script>
+        <script src="Recursos/js/jquery-1.9.1.min.js"></script>
+        <script src="Recursos/js/jquery-migrate-1.0.0.min.js"></script>
 
-        <script src="../Recursos/js/jquery-ui-1.10.0.custom.min.js"></script>
+        <script src="Recursos/js/jquery-ui-1.10.0.custom.min.js"></script>
 
-        <script src="../Recursos/js/jquery.ui.touch-punch.js"></script>
+        <script src="Recursos/js/jquery.ui.touch-punch.js"></script>
 
-        <script src="../Recursos/js/modernizr.js"></script>
+        <script src="Recursos/js/modernizr.js"></script>
 
-        <script src="../Recursos/js/bootstrap.min.js"></script>
+        <script src="Recursos/js/bootstrap.min.js"></script>
 
-        <script src="../Recursos/js/jquery.cookie.js"></script>
+        <script src="Recursos/js/jquery.cookie.js"></script>
 
-        <script src='../Recursos/js/fullcalendar.min.js'></script>
+        <script src='Recursos/js/fullcalendar.min.js'></script>
 
-        <script src='../Recursos/js/jquery.dataTables.min.js'></script>
+        <script src='Recursos/js/jquery.dataTables.min.js'></script>
 
-        <script src="../Recursos/js/excanvas.js"></script>
-        <script src="../Recursos/js/jquery.flot.js"></script>
-        <script src="../Recursos/js/jquery.flot.pie.js"></script>
-        <script src="../Recursos/js/jquery.flot.stack.js"></script>
-        <script src="../Recursos/js/jquery.flot.resize.min.js"></script>
+        <script src="Recursos/js/excanvas.js"></script>
+        <script src="Recursos/js/jquery.flot.js"></script>
+        <script src="Recursos/js/jquery.flot.pie.js"></script>
+        <script src="Recursos/js/jquery.flot.stack.js"></script>
+        <script src="Recursos/js/jquery.flot.resize.min.js"></script>
 
-        <script src="../Recursos/js/jquery.chosen.min.js"></script>
+        <script src="Recursos/js/jquery.chosen.min.js"></script>
 
-        <script src="../Recursos/js/jquery.uniform.min.js"></script>
+        <script src="Recursos/js/jquery.uniform.min.js"></script>
 
-        <script src="../Recursos/js/jquery.cleditor.min.js"></script>
+        <script src="Recursos/js/jquery.cleditor.min.js"></script>
 
-        <script src="../Recursos/js/jquery.noty.js"></script>
+        <script src="Recursos/js/jquery.noty.js"></script>
 
-        <script src="../Recursos/js/jquery.elfinder.min.js"></script>
+        <script src="Recursos/js/jquery.elfinder.min.js"></script>
 
-        <script src="../Recursos/js/jquery.raty.min.js"></script>
+        <script src="Recursos/js/jquery.raty.min.js"></script>
 
-        <script src="../Recursos/js/jquery.iphone.toggle.js"></script>
+        <script src="Recursos/js/jquery.iphone.toggle.js"></script>
 
-        <script src="../Recursos/js/jquery.uploadify-3.1.min.js"></script>
+        <script src="Recursos/js/jquery.uploadify-3.1.min.js"></script>
 
-        <script src="../Recursos/js/jquery.gritter.min.js"></script>
+        <script src="Recursos/js/jquery.gritter.min.js"></script>
 
-        <script src="../Recursos/js/jquery.imagesloaded.js"></script>
+        <script src="Recursos/js/jquery.imagesloaded.js"></script>
 
-        <script src="../Recursos/js/jquery.masonry.min.js"></script>
+        <script src="Recursos/js/jquery.masonry.min.js"></script>
 
-        <script src="../Recursos/js/jquery.knob.modified.js"></script>
+        <script src="Recursos/js/jquery.knob.modified.js"></script>
 
-        <script src="../Recursos/js/jquery.sparkline.min.js"></script>
+        <script src="Recursos/js/jquery.sparkline.min.js"></script>
 
-        <script src="../Recursos/js/counter.js"></script>
+        <script src="Recursos/js/counter.js"></script>
 
-        <script src="../Recursos/js/retina.js"></script>
+        <script src="Recursos/js/retina.js"></script>
 
-        <script src="../Recursos/js/custom.js"></script>
+        <script src="Recursos/js/custom.js"></script>
         <!-- end: JavaScript-->
 
         <!-- Bootstrap core JavaScript================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-        <script src="../../dist/js/bootstrap.min.js"></script>
+        <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script>
+        <script src="dist/js/bootstrap.min.js"></script>
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-        <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+        <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
 
     </body>
 </html>

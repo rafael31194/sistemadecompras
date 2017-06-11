@@ -17,7 +17,7 @@ public class ProveedoresControllerMySQL extends ActionSupport{
     private ArrayList<String> select;
     private ResultSet dato;
     
-    private int pro_id, mun_id, usu_id, id_mun, pro_id_usu;
+    private int pro_id, mun_id, id_mun, pro_id_usu, id_usu;
     private String pro_nombre, pro_direccion;
 
     public ProveedorConectar getCon() {
@@ -84,14 +84,6 @@ public class ProveedoresControllerMySQL extends ActionSupport{
         this.mun_id = mun_id;
     }
 
-    public int getUsu_id() {
-        return usu_id;
-    }
-
-    public void setUsu_id(int usu_id) {
-        this.usu_id = usu_id;
-    }
-
     public int getId_mun() {
         return id_mun;
     }
@@ -106,6 +98,14 @@ public class ProveedoresControllerMySQL extends ActionSupport{
 
     public void setPro_id_usu(int pro_id_usu) {
         this.pro_id_usu = pro_id_usu;
+    }
+
+    public int getId_usu() {
+        return id_usu;
+    }
+
+    public void setId_usu(int id_usu) {
+        this.id_usu = id_usu;
     }
 
     public String getPro_nombre() {
@@ -130,79 +130,77 @@ public class ProveedoresControllerMySQL extends ActionSupport{
         this.datos = new ArrayList<>();
         this.datosMun = new ArrayList<>();
         this.datosUsu = new ArrayList<>();
-        this.datos = con.getData("select p.pro_id, m.mun_nombre, p.pro_nombre, p.pro_direccion, u.usu_usuario from pro_proveedor p inner join mun_municipio m on p.pro_id = m.mun_id inner join usu_usuarios u on p.pro_id = u.usu_id");
+        this.datos = con.getData("select p.pro_id, m.mun_nombre, p.pro_nombre, p.pro_direccion, u.usu_usuario from pro_proveedor p inner join mun_municipio m on p.mun_id = m.mun_id inner join usu_usuario u on p.pro_id_usu = u.usu_id");
         
         this.datosMun = new ArrayList<>();
         this.datosMun = con.getDataMunicipios("select * from mun_municipio");
         
         this.datosUsu = new ArrayList<>();
-        this.datosUsu = con.getDataUsuario("select * from usu_usuarios");
+        this.datosUsu = con.getDataUsuario("select * from usu_usuario");
           
         return SUCCESS;
     }
     
     public String recibirDatos() throws Exception {
-        this.con = new RestriccionConectar();        
-        this.datosIns = new ArrayList<>();
-        this.datosIns = con.getDataInstituciones("select * from ins_institucion");         
+        this.con = new ProveedorConectar();      
+        this.datosMun = new ArrayList<>();
+        this.datosMun = con.getDataMunicipios("select * from mun_municipio");
         
-        this.datosPro = new ArrayList<>();
-        this.datosPro = con.getDataProveedores("select * from pro_proveedor");
+        this.datosUsu = new ArrayList<>();
+        this.datosUsu = con.getDataUsuario("select * from usu_usuario");
                
-        if (this.res_id == 0)       
-            con.setData("CALL `sp_insert_res_restriccion`('"+this.id_ins+"', '"+this.id_pro+"', '"+this.res_montolimite+"', '"+this.res_cantidadcompras+"', '"+this.res_descripcion+"', '"+this.res_EsInstalacion+"')");
+        if (this.pro_id == 0)       
+            con.setData("CALL `sp_insert_pro_proveedor`('"+this.id_mun+"', '"+this.pro_nombre+"', '"+this.pro_direccion+"', '"+this.id_usu+"')");
         else 
-            con.updateData("update res_restriccion set ins_id="+this.id_ins+", pro_id="+this.id_pro+", res_montolimite='"+this.res_montolimite+"', res_cantidadcompras='"+this.res_cantidadcompras+"', res_descripcion='"+this.res_descripcion+"', res_EsInstalacion='"+this.res_EsInstalacion+"' where res_id="+this.res_id+"");
+            con.updateData("update pro_proveedor set mun_id="+this.id_mun+", pro_nombre="+this.pro_nombre+", pro_direccion='"+this.pro_direccion+"', pro_id_usu='"+this.id_usu+"' where pro_id="+this.pro_id+"");
 
-        this.res_id = 0;
-        this.ins_id = 0;
         this.pro_id = 0;
-        this.res_montolimite = 0;
-        this.res_cantidadcompras = 0;
-        this.res_descripcion = null;
-        this.res_EsInstalacion = 0;
+        this.mun_id = 0;
+        this.pro_nombre = null;
+        this.pro_direccion = null;
+        this.pro_id_usu = 0;
 
         this.datos = new ArrayList<>();
-        this.datos = con.getData("select r.res_id, i.ins_nombre, p.pro_nombre, r.res_montolimite, r.res_cantidadcompras, r.res_descripcion, r.res_EsInstalacion from res_restriccion r inner join ins_institucion i on r.ins_id = i.ins_id inner join pro_proveedor p on r.pro_id = p.pro_id");
-        
+        this.datos = con.getData("select p.pro_id, m.mun_nombre, p.pro_nombre, p.pro_direccion, u.usu_usuario from pro_proveedor p inner join mun_municipio m on p.mun_id = m.mun_id inner join usu_usuario u on p.pro_id_usu = u.usu_id");
+
         return SUCCESS;
     }
 
     public String eliminar() throws Exception {
-        this.con = new RestriccionConectar();        
-        this.datosIns = new ArrayList<>();
-        this.datosIns = con.getDataInstituciones("select * from ins_institucion");         
+        this.con = new ProveedorConectar();      
+        this.datosMun = new ArrayList<>();
+        this.datosMun = con.getDataMunicipios("select * from mun_municipio");
         
-        this.datosPro = new ArrayList<>();
-        this.datosPro = con.getDataProveedores("select * from pro_proveedor");
+        this.datosUsu = new ArrayList<>();
+        this.datosUsu = con.getDataUsuario("select * from usu_usuario");
         
-        con.deleteData("delete from res_restriccion where res_id="+this.res_id+"");
+        con.deleteData("delete from pro_proveedor where pro_id="+this.pro_id+"");
         this.datos = new ArrayList<>();
-        this.datos = con.getData("select r.res_id, i.ins_nombre, p.pro_nombre, r.res_montolimite, r.res_cantidadcompras, r.res_descripcion, r.res_EsInstalacion from res_restriccion r inner join ins_institucion i on r.ins_id = i.ins_id inner join pro_proveedor p on r.pro_id = p.pro_id");
+        this.datos = con.getData("select p.pro_id, m.mun_nombre, p.pro_nombre, p.pro_direccion, u.usu_usuario from pro_proveedor p inner join mun_municipio m on p.mun_id = m.mun_id inner join usu_usuario u on p.pro_id_usu = u.usu_id");
         
         return SUCCESS;        
     }
 
     public String llenarFormulario() throws Exception{
-        this.con = new RestriccionConectar();
-        this.datosIns = new ArrayList<>();
-        this.datosIns = con.getDataInstituciones("select * from ins_institucion");         
+        this.con = new ProveedorConectar();      
+        this.datosMun = new ArrayList<>();
+        this.datosMun = con.getDataMunicipios("select * from mun_municipio");
         
-        this.datosPro = new ArrayList<>();
-        this.datosPro = con.getDataProveedores("select * from pro_proveedor");        
+        this.datosUsu = new ArrayList<>();
+        this.datosUsu = con.getDataUsuario("select * from usu_usuario");   
         
-        this.dato = con.getDataForm("select * from res_restriccion where res_id="+this.res_id+"");
+        this.dato = con.getDataForm("select * from pro_proveedor where pro_id="+this.pro_id+"");
         while(this.dato.next()){
-        this.res_id = dato.getInt("res_id");
-        this.id_ins = dato.getInt("ins_id");
-        this.id_pro = dato.getInt("pro_id");
-        this.res_montolimite = dato.getDouble("res_montolimite");
-        this.res_cantidadcompras = dato.getInt("res_cantidadcompras");
-        this.res_descripcion = dato.getString("res_descripcion");
-        this.res_EsInstalacion = dato.getInt("res_EsInstalacion");
+            
+        this.pro_id = dato.getInt("pro_id");
+        this.id_mun = dato.getInt("mun_id");
+        this.pro_nombre = dato.getString("pro_nombre");
+        this.pro_direccion = dato.getString("pro_direccion");
+        this.id_usu = dato.getInt("pro_id_usu");    
+
         }
-        this.datos=new ArrayList<>();
-        this.datos=con.getData("select r.res_id, i.ins_nombre, p.pro_nombre, r.res_montolimite, r.res_cantidadcompras, r.res_descripcion, r.res_EsInstalacion from res_restriccion r inner join ins_institucion i on r.ins_id = i.ins_id inner join pro_proveedor p on r.pro_id = p.pro_id");
+        this.datos = new ArrayList<>();
+        this.datos = con.getData("select p.pro_id, m.mun_nombre, p.pro_nombre, p.pro_direccion, u.usu_usuario from pro_proveedor p inner join mun_municipio m on p.mun_id = m.mun_id inner join usu_usuario u on p.pro_id_usu = u.usu_id");
         
         return SUCCESS;       
     }    

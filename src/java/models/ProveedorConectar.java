@@ -15,11 +15,8 @@ public class ProveedorConectar {
     private String server, user, bd, pass;
     
     private ArrayList<ProveedorModel> arreglo;
-    private ArrayList<MunicipiosModel> arregloMun;
-    private ArrayList<MunicipiosModel> array1;
-    
+    private ArrayList<MunicipiosModel> arregloMun;    
     private ArrayList<UsuarioModel> arregloUsu;
-    private ArrayList<UsuarioModel> array2;
     
     public ProveedorConectar() {
         this.server = "localhost:3307";
