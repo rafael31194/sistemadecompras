@@ -47,7 +47,7 @@
                             <!-- start: User Dropdown -->
                             <li class="dropdown">
                                 <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <i class="icon-user"></i> Joseline Alfaro
+                                    <i class="icon-user"></i> Usuario
                                     <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu">
@@ -119,48 +119,41 @@
                                 </div>
                             </div>
                             <div class="box-content">
-                                <form class="form-horizontal">
-                                    <div class="control-group">
+                                  <s:form action="enviarUsu">  
+                                   <div class="control-group">
                                         <label class="control-label">Usuario:</label>
                                         <div class="controls">
-                                            <input class="form-control" type="text" value="" placeholder="Usuario">
+                                            
+                                            <s:textfield name="usu_usuario"/>
+                                            <s:hidden name="usu_id"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label">Contraseña:</label>
                                         <div class="controls">
-                                            <input class="form-control" type="text" value="" placeholder="Contraseña">
-                                        </div>
+                                             <s:textfield name="usu_contrasenia"/>
+                                            </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label">Nombre:</label>
                                         <div class="controls">
-                                            <input class="form-control" type="text" value="" placeholder="Nombre">
-                                        </div>
+                                            <s:textfield name="usu_nombre"/>
+                                            </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label">Correo electrónico:</label>
                                         <div class="controls">
-                                            <input class="form-control" type="text" value="" placeholder="Correo">
-                                        </div>
+                                            <s:textfield name="usu_correo"/>
+                                         
+                                              </div>
                                     </div>
-                                    <div class="control-group">
-                                        <label class="control-label" for="selectError">Institución:</label>
-                                        <div class="controls">
-                                            <select id="selectError" data-rel="chosen">
-                                                <option>Option 1</option>
-                                                <option>Option 2</option>
-                                                <option>Option 3</option>
-                                                <option>Option 4</option>
-                                                <option>Option 5</option>
-                                            </select>
-                                        </div>
-                                    </div>
+                                    
                                     <div class="form-actions">
-                                        <button type="submit" class="btn btn-primary">Guardar</button>
+                                        <s:submit value="Enviar" title="Enviar" cssClass="btn btn-default"/>
                                         <button class="btn">Limpiar</button>
+                                        
                                     </div>
-                                </form>
+                                </s:form>
 
                             </div>
                         </div><!--/span-->
@@ -180,35 +173,38 @@
                                 <table class="table table-striped table-bordered bootstrap-datatable datatable">
                                     <thead>
                                         <tr>
+                                            <th>ID</th>
                                             <th>Usuario</th>
                                             <th>Contraseña</th>
                                             <th>Nombre</th>
                                             <th>Correo</th>
-                                            <th>Institución</th>
-                                            <th>Acciones</th>
+                                            <th>Activo</th>
+                                            
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody> <s:iterator value="datos" var="dato" status="estado">
                                         <tr>
-                                            <td>Proveedor</td>
-                                            <td class="center">*****</td>
-                                            <td class="center">Omnisport</td>
-                                            <td class="center">info@omnisport.com</td>
-                                            <td class="center">Ministerio de turismo</td>
-                                            
-                                            <td class="center">
-                                                <a class="btn btn-success" href="#">
-                                                    <i class="icon-save"></i>
-                                                </a>
-                                                <a class="btn btn-info" href="#">
-                                                    <i class="icon-pencil"></i>
-                                                </a>
-                                                <a class="btn btn-danger" href="#">
+                                            <td><s:property value="usu_id"/></td>
+                                            <td><s:property value="usu_usuario"/></td>
+                                            <td><s:property value="usu_contasenia"/></td>
+                                            <td><s:property value="usu_nombre"/></td>
+                                            <td><s:property value="usu_correo"/></td>
+                                            <td><s:property value="usu_activo"/></td>
+                                            <td>
+                                                <s:a action="eliminarUsu">
+                                                    <s:param name="usu_id" value="usu_id"/>
                                                     <i class="icon-trash"></i>
-                                                </a>
+                                                </s:a>
                                             </td>
+                                            <td>
+                                                <s:a action="editarUsu">
+                                                    <s:param name="usu_id" value="usu_id"/>
+                                                    <i class="icon-pencil"></i>
+                                                </s:a>
+                                            </td>                                            
                                         </tr>
-                                        
+                                    </s:iterator>
+                                    
                                     </tbody>
                                 </table>
                             </div>

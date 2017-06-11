@@ -7,21 +7,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class RestriccionConectar {
+public class UsuarioConectar {
     
     private Connection con;
     private PreparedStatement consulta;
     private ResultSet datos;
     private String server, user, bd, pass;
+    private ArrayList<UsuarioModel> arreglo;
     
-    private ArrayList<RestriccionModel> arreglo;
-    private ArrayList<InstitucionModel> arregloIns;
-    private ArrayList<InstitucionModel> array1;
-    
-    private ArrayList<ProveedorModel> arregloPro;
-    private ArrayList<ProveedorModel> array2;
-    
-    public RestriccionConectar() {
+    public UsuarioConectar() {
         this.server = "localhost:3307";
         this.user = "root";
         this.pass = "admin";
@@ -42,48 +36,21 @@ public class RestriccionConectar {
         this.con.close();
     }
       
-    public ArrayList<RestriccionModel> getData(String sql) throws SQLException {
+    public ArrayList<UsuarioModel> getData(String sql) throws SQLException {
         
         this.arreglo = new ArrayList<>();
         this.con();
         this.consulta = this.con.prepareStatement(sql);
         this.datos = this.consulta.executeQuery();
         while (this.datos.next()) {
-            this.arreglo.add(new RestriccionModel(datos.getInt("res_id"), datos.getString("ins_nombre"), datos.getString("pro_nombre"),
-                    datos.getDouble("res_montolimite"), datos.getInt("res_cantidadcompras"), datos.getString("res_descripcion"), 
-                    datos.getInt("res_EsInstalacion")));        
+            this.arreglo.add(new UsuarioModel(datos.getInt("usu_id"), datos.getString("usu_usuario"), datos.getString("usu_contrasenia"),
+                    datos.getString("usu_nombre"),datos.getString("usu_correo"),datos.getInt("usu_activo")));        
         }
         return this.arreglo;
         
     }
 
-    public ArrayList<InstitucionModel> getDataInstituciones(String sql) throws SQLException {
-        
-        this.arregloIns = new ArrayList<>();
-        this.con();
-        this.consulta = this.con.prepareStatement(sql);
-        this.datos = this.consulta.executeQuery();
-        while (this.datos.next()) {
-            this.arregloIns.add(new InstitucionModel(datos.getInt("ins_id"), datos.getInt("mun_id"), datos.getString("ins_nombre"),
-                datos.getString("ins_telefono"), datos.getString("ins_direccion")));  
-        }
-        return this.arregloIns;
-        
-    }
     
-    public ArrayList<ProveedorModel> getDataProveedores(String sql) throws SQLException {
-        
-        this.arregloPro = new ArrayList<>();
-        this.con();
-        this.consulta = this.con.prepareStatement(sql);
-        this.datos = this.consulta.executeQuery();
-        while (this.datos.next()) {
-            this.arregloPro.add(new ProveedorModel(datos.getInt("pro_id"), datos.getInt("mun_id"), datos.getString("pro_nombre"),
-                datos.getString("pro_direccion"), datos.getInt("pro_id_usu")));  
-        }
-        return this.arregloPro;
-        
-    }    
     
     public void setData(String sql) throws SQLException {
        
@@ -116,6 +83,7 @@ public class RestriccionConectar {
         this.consulta = this.con.prepareStatement(sql);
         this.consulta.executeUpdate();  
         
-    }       
+    }    
     
+       
 }

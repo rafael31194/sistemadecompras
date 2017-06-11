@@ -251,8 +251,7 @@
             </p>
         </footer>        
 
-        <!-- start: JavaScript-->
-
+        <!-- start: JavaScript-->       
         <script src="Recursos/js/jquery-1.9.1.min.js"></script>
         <script src="Recursos/js/jquery-migrate-1.0.0.min.js"></script>
 

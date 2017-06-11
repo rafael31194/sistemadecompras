@@ -20,7 +20,7 @@ public class RestriccionesControllerMySQL extends ActionSupport{
     private int res_id, ins_id, pro_id, id_ins, id_pro, res_cantidadcompras;
     private String res_descripcion;
     private double res_montolimite;
-    private int res_EsInstalacion = 0;
+    private int res_EsInstalacion;
 
     public RestriccionConectar getCon() {
         return con;
@@ -162,10 +162,10 @@ public class RestriccionesControllerMySQL extends ActionSupport{
     public String recibirDatos() throws Exception {
         this.con = new RestriccionConectar();        
         this.datosIns = new ArrayList<>();
-        this.datosIns = con.getNomInstitucion("select * from ins_institucion");         
+        this.datosIns = con.getDataInstituciones("select * from ins_institucion");         
         
         this.datosPro = new ArrayList<>();
-        this.datosPro = con.getNomProveedor("select * from pro_proveedor");
+        this.datosPro = con.getDataProveedores("select * from pro_proveedor");
                
         if (this.res_id == 0)       
             con.setData("CALL `sp_insert_res_restriccion`('"+this.id_ins+"', '"+this.id_pro+"', '"+this.res_montolimite+"', '"+this.res_cantidadcompras+"', '"+this.res_descripcion+"', '"+this.res_EsInstalacion+"')");
@@ -189,10 +189,10 @@ public class RestriccionesControllerMySQL extends ActionSupport{
     public String eliminar() throws Exception {
         this.con = new RestriccionConectar();        
         this.datosIns = new ArrayList<>();
-        this.datosIns = con.getNomInstitucion("select * from ins_institucion");         
+        this.datosIns = con.getDataInstituciones("select * from ins_institucion");         
         
         this.datosPro = new ArrayList<>();
-        this.datosPro = con.getNomProveedor("select * from pro_proveedor");
+        this.datosPro = con.getDataProveedores("select * from pro_proveedor");
         
         con.deleteData("delete from res_restriccion where res_id="+this.res_id+"");
         this.datos = new ArrayList<>();
@@ -204,10 +204,10 @@ public class RestriccionesControllerMySQL extends ActionSupport{
     public String llenarFormulario() throws Exception{
         this.con = new RestriccionConectar();
         this.datosIns = new ArrayList<>();
-        this.datosIns = con.getNomInstitucion("select * from ins_institucion");         
+        this.datosIns = con.getDataInstituciones("select * from ins_institucion");         
         
         this.datosPro = new ArrayList<>();
-        this.datosPro = con.getNomProveedor("select * from pro_proveedor");        
+        this.datosPro = con.getDataProveedores("select * from pro_proveedor");        
         
         this.dato = con.getDataForm("select * from res_restriccion where res_id="+this.res_id+"");
         while(this.dato.next()){
