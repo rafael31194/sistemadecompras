@@ -20,7 +20,7 @@ public class RestriccionesControllerMySQL extends ActionSupport{
     private int res_id, ins_id, pro_id, id_ins, id_pro, res_cantidadcompras;
     private String res_descripcion;
     private double res_montolimite;
-    private int res_EsInstalacion;
+    private boolean res_EsInstalacion;
 
     public RestriccionConectar getCon() {
         return con;
@@ -134,11 +134,11 @@ public class RestriccionesControllerMySQL extends ActionSupport{
         this.res_montolimite = res_montolimite;
     }
 
-    public int getRes_EsInstalacion() {
+    public boolean isRes_EsInstalacion() {
         return res_EsInstalacion;
     }
 
-    public void setRes_EsInstalacion(int res_EsInstalacion) {
+    public void setRes_EsInstalacion(boolean res_EsInstalacion) {
         this.res_EsInstalacion = res_EsInstalacion;
     }
 
@@ -178,7 +178,7 @@ public class RestriccionesControllerMySQL extends ActionSupport{
         this.res_montolimite = 0;
         this.res_cantidadcompras = 0;
         this.res_descripcion = null;
-        this.res_EsInstalacion = 0;
+        this.res_EsInstalacion = false;
 
         this.datos = new ArrayList<>();
         this.datos = con.getData("select r.res_id, i.ins_nombre, p.pro_nombre, r.res_montolimite, r.res_cantidadcompras, r.res_descripcion, r.res_EsInstalacion from res_restriccion r inner join ins_institucion i on r.ins_id = i.ins_id inner join pro_proveedor p on r.pro_id = p.pro_id");
@@ -217,10 +217,10 @@ public class RestriccionesControllerMySQL extends ActionSupport{
         this.res_montolimite = dato.getDouble("res_montolimite");
         this.res_cantidadcompras = dato.getInt("res_cantidadcompras");
         this.res_descripcion = dato.getString("res_descripcion");
-        this.res_EsInstalacion = dato.getInt("res_EsInstalacion");
+        this.res_EsInstalacion = dato.getBoolean("res_EsInstalacion");
         }
-        this.datos=new ArrayList<>();
-        this.datos=con.getData("select r.res_id, i.ins_nombre, p.pro_nombre, r.res_montolimite, r.res_cantidadcompras, r.res_descripcion, r.res_EsInstalacion from res_restriccion r inner join ins_institucion i on r.ins_id = i.ins_id inner join pro_proveedor p on r.pro_id = p.pro_id");
+        this.datos = new ArrayList<>();
+        this.datos = con.getData("select r.res_id, i.ins_nombre, p.pro_nombre, r.res_montolimite, r.res_cantidadcompras, r.res_descripcion, r.res_EsInstalacion from res_restriccion r inner join ins_institucion i on r.ins_id = i.ins_id inner join pro_proveedor p on r.pro_id = p.pro_id");
         
         return SUCCESS;       
     }

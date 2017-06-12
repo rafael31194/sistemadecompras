@@ -156,7 +156,7 @@
                                     <div class="control-group">
                                         <label class="control-label">Instalación:</label>
                                         <div class="controls">
-                                            <s:checkbox name="res_EsInstalacion" fieldValue="1"/>
+                                            <s:checkbox name="res_EsInstalacion"/>
                                         </div>
                                     </div>
                                     <div class="form-actions">
@@ -201,8 +201,12 @@
                                             <td><s:property value="pro_nombre"/></td>
                                             <td><s:property value="res_montolimite"/></td>
                                             <td><s:property value="res_cantidadcompras"/></td>
-                                            <td><s:property value="res_descripcion"/></td>                                            
-                                            <td><s:property value="res_EsInstalacion"/></td> 
+                                            <td><s:property value="res_descripcion"/></td>                                           
+                                            <td>
+                                                <s:iterator value="res_EsInstalacion" var="val">
+                                                <s:checkbox name="%{val}" id="%{val}" label="%{val}" onclick="return false;"></s:checkbox>
+                                                </s:iterator> 
+                                            </td>
                                             <td>
                                                 <s:a action="res_eliminar">
                                                     <s:param name="res_id" value="res_id"/>

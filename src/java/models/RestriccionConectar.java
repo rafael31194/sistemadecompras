@@ -51,7 +51,7 @@ public class RestriccionConectar {
         while (this.datos.next()) {
             this.arreglo.add(new RestriccionModel(datos.getInt("res_id"), datos.getString("ins_nombre"), datos.getString("pro_nombre"),
                     datos.getDouble("res_montolimite"), datos.getInt("res_cantidadcompras"), datos.getString("res_descripcion"), 
-                    datos.getInt("res_EsInstalacion")));        
+                    datos.getBoolean("res_EsInstalacion")));        
         }
         return this.arreglo;
         

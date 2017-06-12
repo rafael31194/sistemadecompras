@@ -7,12 +7,12 @@ public class RestriccionModel {
     private double res_montolimite;
     private int res_cantidadcompras;
     private String res_descripcion;
-    private int res_EsInstalacion;
+    private boolean res_EsInstalacion;
 
     public RestriccionModel() {
     }
 
-    public RestriccionModel(int res_id, String ins_nombre, String pro_nombre, double res_montolimite, int res_cantidadcompras, String res_descripcion, int res_EsInstalacion) {
+    public RestriccionModel(int res_id, String ins_nombre, String pro_nombre, double res_montolimite, int res_cantidadcompras, String res_descripcion, boolean res_EsInstalacion) {
         this.res_id = res_id;
         this.ins_nombre = ins_nombre;
         this.pro_nombre = pro_nombre;
@@ -70,11 +70,11 @@ public class RestriccionModel {
         this.res_descripcion = res_descripcion;
     }
 
-    public int isRes_EsInstalacion() {
+    public boolean isRes_EsInstalacion() {
         return res_EsInstalacion;
     }
 
-    public void setRes_EsInstalacion(int res_EsInstalacion) {
+    public void setRes_EsInstalacion(boolean res_EsInstalacion) {
         this.res_EsInstalacion = res_EsInstalacion;
     }
 }
