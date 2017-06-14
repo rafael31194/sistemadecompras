@@ -122,8 +122,8 @@
                                     </div>
                                 </div>
                                 <div class="box-content">
-                                    <form class="form-horizontal">
-                                        <div class="control-group">
+                                    <s:form action="enviarOrden"> 
+                                       <!-- <div class="control-group">
                                             <label class="control-label" for="selectError">Estado:</label>
                                             <div class="controls">
                                                 <select id="selectError" data-rel="chosen">
@@ -170,19 +170,56 @@
                                             <div class="controls">
                                                 <input type="date" class="input-xlarge datepicker" id="date01">
                                             </div>
+                                        </div>-->
+                                       <div class="control-group">
+                                            <label class="control-label">Estado:</label>
+                                            <div class="controls">
+                                                <s:textfield name="est_id"/>
+                                                <s:hidden name="ord_id"/>
+                                            </div>
+                                        </div>
+                                       <div class="control-group">
+                                            <label class="control-label">Tipo Contratacion:</label>
+                                            <div class="controls">
+                                                <s:textfield name="tco_id"/>
+                                            </div>
+                                        </div>
+                                       <div class="control-group">
+                                            <label class="control-label">solicitud:</label>
+                                            <div class="controls">
+                                                <s:textfield name="sol_id"/>
+                                            </div>
+                                        </div>
+                                       <div class="control-group">
+                                            <label class="control-label">Proveedor:</label>
+                                            <div class="controls">
+                                                <s:textfield name="pro_id"/>
+                                            </div>
+                                        </div>
+                                       <div class="control-group">
+                                            <label class="control-label">Fecha:</label>
+                                            <div class="controls">
+                                                <s:textfield name="ord_fecha"/>
+                                            </div>
+                                        </div>                                       
+                                       <div class="control-group">
+                                            <label class="control-label">Total:</label>
+                                            <div class="controls">
+                                                <s:textfield name="ord_total"/>
+                                            </div>
                                         </div>
                                         <div class="control-group">
                                             <label class="control-label">Descripción:</label>
                                             <div class="controls">
-                                                <input class="form-control" type="text" value="" placeholder="Descripción">
+                                                <s:textfield name="ord_descripcion"/>
                                             </div>
                                         </div>
 
                                         <div class="form-actions">
-                                            <button type="submit" class="btn btn-primary">Guardar</button>
+                                            <s:submit value="Enviar" title="Enviar" cssClass="btn btn-default"/>
                                             <button class="btn">Limpiar</button>
                                         </div>
-                                    </form>
+                                    </s:form>
 
                                 </div>
                             </div><!--/span-->
@@ -203,56 +240,50 @@
                                     <table class="table table-striped table-bordered bootstrap-datatable datatable">
                                         <thead>
                                             <tr>
-                                                <th># Orden</th>
-                                                <th># Solicitud</th>
+                                                <th># Orden</th>                                                
                                                 <th>Estado</th>
+                                                <th>Tipo contratacion</th>
+                                                <th># Solicitud</th>
                                                 <th>Proveedor</th>
                                                 <th>Fecha</th>
                                                 <th>Descripción</th>
+                                                <th>total</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td class="center">2</td>
-                                                <td class="center">Aprobada</td>
-                                                <td class="center">Tecnoparts</td>
-                                                <td class="center">03/05/2017</td>
-                                                <td class="center">Aires acondicionados</td>
-                                                <td class="center">
-                                                <s:a cssClass="btn btn-success" action="detalleOrdenCompra">
-                                                    <i class="icon-save"></i>
-                                                </s:a>
-                                                <a class="btn btn-info" href="#">
-                                                    <i class="icon-pencil"></i>
-                                                </a>
-                                                <a class="btn btn-danger" href="#">
-                                                    <i class="icon-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-
-
+                                            <s:iterator value="datos" var="dato" status="estado">
                                         <tr>
-                                            <td>2</td>
-                                            <td class="center">27</td>
-                                            <td class="center">Aprobada</td>
-                                            <td class="center">Autoparts</td>
-                                            <td class="center">9/11/2016</td>
-                                            <td class="center">3 motocicletas</td>
-                                            <td class="center">
-                                                <a class="btn btn-success" href="#">
+                                            <td><s:property value="ord_id"/></td>
+                                            <td><s:property value="est_id"/></td>
+                                            <td><s:property value="tco_id"/></td>
+                                            <td><s:property value="sol_id"/></td>
+                                            <td><s:property value="pro_id"/></td>
+                                            <td><s:property value="ord_fecha"/></td>
+                                            <td><s:property value="ord_descripcion"/></td>
+                                            <td><s:property value="ord_total"/></td>
+                                            <td>
+                                                <s:a cssClass="btn btn-success" action="detalleOrdenCompra">
+                                                    <s:param name="ord_id" value="ord_id"/>
                                                     <i class="icon-save"></i>
-                                                </a>
-                                                <a class="btn btn-info" href="#">
+                                                </s:a>  
+                                            </td> 
+                                            <td>
+                                                <s:a cssClass="btn btn-info" action="editarOrden">
+                                                    <s:param name="ord_id" value="ord_id"/>
                                                     <i class="icon-pencil"></i>
-                                                </a>
-                                                <a class="btn btn-danger" href="#">
+                                                </s:a>
+                                            </td> 
+                                            
+                                            <td>
+                                                <s:a cssClass="btn btn-danger" action="eliminarOrden">
+                                                    <s:param name="ord_id" value="ord_id"/>
                                                     <i class="icon-trash"></i>
-                                                </a>
+                                                </s:a>
                                             </td>
+                                            
                                         </tr>
+                                    </s:iterator>
                                     </tbody>
                                 </table>
                             </div>

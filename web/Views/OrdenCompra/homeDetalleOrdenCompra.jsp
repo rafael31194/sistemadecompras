@@ -122,33 +122,36 @@
                                 </div>
                             </div>
                             <div class="box-content">
-                                <form class="form-horizontal">
+                                <s:form action="enviarDetalle"> 
                                     
-                                    <div class="control-group">
-					<label class="control-label" for="typeahead">AutoComplete Equipo:</label>
-                                        <div class="controls">
-                                            <input type="text" class="span6 typeahead" id="typeahead"  data-provide="typeahead" data-items="4" data-source='["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]'>
-					</div>
-                                    </div>
-                                    
+                                                                       
                                     <div class="control-group">
                                         <label class="control-label">Equipo:</label>
                                         <div class="controls">
-                                            <input class="form-control" type="text" value="" placeholder="Descripción">
+                                            <s:textfield name="equ_id"/>
+                                            <s:hidden name="ord_dtl_id"/>
                                         </div>
                                     </div>
                                     
                                     <div class="control-group">
                                         <label class="control-label">Precio:</label>
                                         <div class="controls">
-                                            <input class="form-control" type="text" value="" placeholder="Precio">
+                                            <s:textfield name="ord_dtl_precio"/>
                                         </div>
                                     </div>
+                                    
+                                    <div class="control-group">
+                                        <label class="control-label">Codigo Inventario:</label>
+                                        <div class="controls">
+                                            <s:textfield name="ord_dtl_codigoInventario"/>
+                                        </div>
+                                    </div>
+                                    
                                     <div class="form-actions">
-                                        <button type="submit" class="btn btn-primary">Guardar</button>
+                                        <s:submit value="Enviar" title="Enviar" cssClass="btn btn-default"/>
                                         <button class="btn">Limpiar</button>
                                     </div>
-                                </form>
+                                </s:form>
 
                             </div>
                         </div><!--/span-->
@@ -172,31 +175,36 @@
                                             <th># Detalle Orden</th>
                                             <th># Orden</th>
                                             <th>Equipo</th>
-                                            <th>Precio</th>                                         
+                                            <th>Precio</th>   
+                                            <th>Codigo inventario</th>
                                             <th>Acciones</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <s:iterator value="datos" var="dato" status="estado">
                                         <tr>
-                                            <td>1</td>
-                                            <td class="center">2</td>
-                                            <td class="center">Aire Acondicionado</td>
-                                            <td class="center">1000.00</td>                                            
-                                            <td class="center">
-                                                <a class="btn btn-success" href="#">
-                                                    <i class="icon-save"></i>
-                                                </a>
-                                                <a class="btn btn-info" href="#">
+                                            <td><s:property value="ord_dtl_id"/></td>
+                                            <td><s:property value="ord_id"/></td>
+                                            <td><s:property value="equ_id"/></td>
+                                            <td><s:property value="ord_dtl_precio"/></td>
+                                            <td><s:property value="ord_dtl_codigoInventario"/></td>                                           
+                                            
+                                            <td>
+                                                <s:a cssClass="btn btn-info" action="editarDetalle">
+                                                    <s:param name="ord_dtl_id" value="ord_dtl_id"/>
                                                     <i class="icon-pencil"></i>
-                                                </a>
-                                                <a class="btn btn-danger" href="#">
+                                                </s:a>
+                                            </td> 
+                                            
+                                            <td>
+                                                <s:a cssClass="btn btn-danger" action="eliminarDetalle">
+                                                    <s:param name="ord_dtl_id" value="ord_dtl_id"/>
                                                     <i class="icon-trash"></i>
-                                                </a>
+                                                </s:a>
                                             </td>
+                                            
                                         </tr>
-                                        
-                          
-                                        
+                                    </s:iterator>
                                     </tbody>
                                 </table>
                             </div>
