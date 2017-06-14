@@ -151,4 +151,37 @@
         </action>
     </package>
     
+    <package name="ordenes" namespace="/" extends="struts-default">
+        <action name="orden" class="controllers.OrdenCompraController" method="execute">
+            <result>/Views/OrdenCompra/homeOrdenCompra.jsp</result>
+        </action>
+        <action name="enviarOrden" class="controllers.OrdenCompraController" method="recibirDatos">
+            <result>/Views/OrdenCompra/homeOrdenCompra.jsp</result>
+        </action>
+        <action name="eliminarOrden" class="controllers.OrdenCompraController" method="eliminar">
+            <result>/Views/OrdenCompra/homeOrdenCompra.jsp</result>
+        </action>
+        <action name="editarOrden" class="controllers.OrdenCompraController" method="llenarFormulario">
+            <result>/Views/OrdenCompra/homeOrdenCompra.jsp</result>
+        </action>
+        <action name="detalleOrden" class="controllers.OrdenCompraController" method="detalleOrdenCompra">
+            <result>/Views/OrdenCompra/homeDetalleOrdenCompra.jsp</result>
+        </action>
+    </package>
+    
+    <package name="detalleordenes" namespace="/" extends="struts-default">
+        <action name="detalleorden" class="controllers.DetalleOrdenCompraController" method="execute">
+            <result>/Views/OrdenCompra/homeDetalleOrdenCompra.jsp</result>
+        </action>
+        <action name="enviarDetalle" class="controllers.DetalleOrdenCompraController" method="recibirDatos">
+            <result>/Views/OrdenCompra/homeDetalleOrdenCompra.jsp</result>
+        </action>
+        <action name="eliminarDetalle" class="controllers.DetalleOrdenCompraController" method="eliminar">
+            <result>/Views/OrdenCompra/homeDetalleOrdenCompra.jsp</result>
+        </action>
+        <action name="editarDetalle" class="controllers.DetalleOrdenCompraController" method="llenarFormulario">
+            <result>/Views/OrdenCompra/homeDetalleOrdenCompra.jsp</result>
+        </action>        
+    </package>
+    
 </struts>
