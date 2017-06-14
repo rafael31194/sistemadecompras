@@ -121,20 +121,20 @@
         </action>
     </package>  
 
-    <package name="usuarios" namespace="/" extends="struts-default">
+     <package name="usuario" namespace="/" extends="struts-default">
         <action name="prueba4" class="controllers.UsuariosControllerMySQL" method="execute">
             <result>/Views/Mantenimientos/Usuarios/homeUsuarios.jsp</result>
         </action>
-        <action name="enviarUsu" class="controllers.UsuariosControllerMySQL" method="recibirDatos">
+        <action name="usu_enviar" class="controllers.UsuariosControllerMySQL" method="recibirDatos">
             <result>/Views/Mantenimientos/Usuarios/homeUsuarios.jsp</result>
         </action>
-        <action name="eliminarUsu" class="controllers.UsuariosControllerMySQL" method="eliminar">
+        <action name="usu_eliminar" class="controllers.UsuariosControllerMySQL" method="eliminar">
             <result>/Views/Mantenimientos/Usuarios/homeUsuarios.jsp</result>
         </action>
-        <action name="editarUsu" class="controllers.UsuariosControllerMySQL" method="llenarFormulario">
+        <action name="usu_editar" class="controllers.UsuariosControllerMySQL" method="llenarFormulario">
             <result>/Views/Mantenimientos/Usuarios/homeUsuarios.jsp</result>
         </action>
-    </package>     
+    </package>  
     
     <package name="bitacoras" namespace="/" extends="struts-default">
         <action name="bitacora" class="controllers.BitacoraController" method="execute">

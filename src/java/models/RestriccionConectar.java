@@ -16,11 +16,9 @@ public class RestriccionConectar {
     
     private ArrayList<RestriccionModel> arreglo;
     private ArrayList<InstitucionModel> arregloIns;
-    private ArrayList<InstitucionModel> array1;
     
     private ArrayList<ProveedorModel> arregloPro;
-    private ArrayList<ProveedorModel> array2;
-    
+
     public RestriccionConectar() {
         this.server = "localhost:3307";
         this.user = "root";

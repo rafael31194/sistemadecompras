@@ -15,6 +15,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- end: Mobile Specific -->
         <title>Usuarios</title>
+        <!-- start: CSS -->
         <link type="text/css" id="base-style" href="Recursos/css/bootstrap.min.css" rel="stylesheet">
         <link type="text/css" id="base-style" href="Recursos/css/bootstrap-responsive.min.css" rel="stylesheet">
         <link type="text/css" id="base-style" href="Recursos/css/style.css" rel="stylesheet">
@@ -112,46 +113,61 @@
                     <div class="row-fluid sortable">
                         <div class="box span12">
                             <div class="box-header" data-original-title>
-                                <h2><i class="icon-edit"></i><span class="break"></span>Agregar Usuario</h2>
+                                <h2><i class="icon-edit"></i><span class="break"></span>Agregar usuarios</h2>
                                 <div class="box-icon">
-                                    <a href="#" class="btn-setting"><i class="icon-cog white"></i></a>
-                                    <a href="#" class="btn-minimize"><i class="icon-chevron-down white"></i></a>
+                                    <a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
+                                    <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+                                    <a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
                                 </div>
                             </div>
                             <div class="box-content">
-                                  <s:form action="enviarUsu">  
-                                   <div class="control-group">
+                                <s:form action="usu_enviar">
+                                    <div class="control-group">
                                         <label class="control-label">Usuario:</label>
                                         <div class="controls">
-                                            
-                                            <s:textfield name="usu_usuario"/>
                                             <s:hidden name="usu_id"/>
+                                            <s:textfield name="usu_usuario"/>                                            
                                         </div>
-                                    </div>
+                                    </div>   
                                     <div class="control-group">
                                         <label class="control-label">Contraseña:</label>
                                         <div class="controls">
-                                             <s:textfield name="usu_contrasenia"/>
-                                            </div>
-                                    </div>
+                                            <s:textfield name="usu_contrasenia"/> 
+                                        </div>
+                                    </div>                                     
                                     <div class="control-group">
                                         <label class="control-label">Nombre:</label>
                                         <div class="controls">
                                             <s:textfield name="usu_nombre"/>
-                                            </div>
+                                        </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label">Correo electrónico:</label>
+                                        <label class="control-label">Correo:</label>
                                         <div class="controls">
                                             <s:textfield name="usu_correo"/>
-                                         
-                                              </div>
+                                        </div>
                                     </div>
-                                    
+                                    <div class="control-group">
+                                        <label class="control-label">Rol:</label>
+                                        <div class="controls">
+                                            <s:select name="id_rol" list="datosRol" listValue="rol_descripcion" listKey="rol_id"/>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label">Unidad:</label>
+                                        <div class="controls">
+                                            <s:select name="id_uni" list="datosUni" listValue="uni_nombre" listKey="uni_id"/>
+                                        </div>
+                                    </div
+                                    <div class="control-group">
+                                        <label class="control-label">Institucion:</label>
+                                        <div class="controls">
+                                            <s:select name="id_ins" list="datosIns" listValue="ins_nombre" listKey="ins_id"/>
+                                        </div>
+                                    </div>                                    
                                     <div class="form-actions">
                                         <s:submit value="Enviar" title="Enviar" cssClass="btn btn-default"/>
                                         <button class="btn">Limpiar</button>
-                                        
                                     </div>
                                 </s:form>
 
@@ -163,48 +179,49 @@
                     <div class="row-fluid sortable">
                         <div class="box span12">
                             <div class="box-header" data-original-title>
-                                <h2><i class="icon-align-justify"></i><span class="break"></span>Usuarios</h2>
+                                <h2><i class="icon-align-justify"></i><span class="break"></span>Restricciones</h2>
                                 <div class="box-icon">
-                                    <a href="#" class="btn-setting"><i class="icon-cog white"></i></a>
-                                    <a href="#" class="btn-minimize"><i class="icon-chevron-down white"></i></a>
+                                    <a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
+                                    <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+                                    <a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
                                 </div>
                             </div>
                             <div class="box-content">
                                 <table class="table table-striped table-bordered bootstrap-datatable datatable">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
                                             <th>Usuario</th>
-                                            <th>Contraseña</th>
                                             <th>Nombre</th>
                                             <th>Correo</th>
-                                            <th>Activo</th>
-                                            
+                                            <th>Rol</th>
+                                            <th>Unidad</th>
+                                            <th>Institución</th>
                                         </tr>
                                     </thead>
-                                    <tbody> <s:iterator value="datos" var="dato" status="estado">
+                                    <tbody>
+                                    <s:iterator value="datos" var="dato" status="estado">
                                         <tr>
-                                            <td><s:property value="usu_id"/></td>
-                                            <td><s:property value="usu_usuario"/></td>
-                                            <td><s:property value="usu_contasenia"/></td>
+                                            <td><s:property value="usu_usuario"/>
+                                            <s:hidden value="usu_contrasenia"/></td>                                            
                                             <td><s:property value="usu_nombre"/></td>
                                             <td><s:property value="usu_correo"/></td>
-                                            <td><s:property value="usu_activo"/></td>
+                                            <td><s:property value="rol_descripcion"/></td>
+                                            <td><s:property value="uni_nombre"/></td>  
+                                            <td><s:property value="ins_nombre"/></td>  
                                             <td>
-                                                <s:a action="eliminarUsu">
+                                                <s:a action="usu_eliminar">
                                                     <s:param name="usu_id" value="usu_id"/>
                                                     <i class="icon-trash"></i>
                                                 </s:a>
                                             </td>
                                             <td>
-                                                <s:a action="editarUsu">
+                                                <s:a action="usu_editar">
                                                     <s:param name="usu_id" value="usu_id"/>
                                                     <i class="icon-pencil"></i>
                                                 </s:a>
-                                            </td>                                            
+                                            </td>
                                         </tr>
-                                    </s:iterator>
-                                    
+                                    </s:iterator>    
                                     </tbody>
                                 </table>
                             </div>
@@ -237,73 +254,72 @@
             <p>
                 <span style="text-align:left;float:left">Sistema de compra de equipos electrónicos.</span>
             </p>
-        </footer>
+        </footer>        
 
-        <!-- start: JavaScript-->
+        <!-- start: JavaScript-->       
+        <script src="Recursos/js/jquery-1.9.1.min.js"></script>
+        <script src="Recursos/js/jquery-migrate-1.0.0.min.js"></script>
 
-        <script src="../Recursos/js/jquery-1.9.1.min.js"></script>
-        <script src="../Recursos/js/jquery-migrate-1.0.0.min.js"></script>
+        <script src="Recursos/js/jquery-ui-1.10.0.custom.min.js"></script>
 
-        <script src="../Recursos/js/jquery-ui-1.10.0.custom.min.js"></script>
+        <script src="Recursos/js/jquery.ui.touch-punch.js"></script>
 
-        <script src="../Recursos/js/jquery.ui.touch-punch.js"></script>
+        <script src="Recursos/js/modernizr.js"></script>
 
-        <script src="../Recursos/js/modernizr.js"></script>
+        <script src="Recursos/js/bootstrap.min.js"></script>
 
-        <script src="../Recursos/js/bootstrap.min.js"></script>
+        <script src="Recursos/js/jquery.cookie.js"></script>
 
-        <script src="../Recursos/js/jquery.cookie.js"></script>
+        <script src='Recursos/js/fullcalendar.min.js'></script>
 
-        <script src='../Recursos/js/fullcalendar.min.js'></script>
+        <script src='Recursos/js/jquery.dataTables.min.js'></script>
 
-        <script src='../Recursos/js/jquery.dataTables.min.js'></script>
+        <script src="Recursos/js/excanvas.js"></script>
+        <script src="Recursos/js/jquery.flot.js"></script>
+        <script src="Recursos/js/jquery.flot.pie.js"></script>
+        <script src="Recursos/js/jquery.flot.stack.js"></script>
+        <script src="Recursos/js/jquery.flot.resize.min.js"></script>
 
-        <script src="../Recursos/js/excanvas.js"></script>
-        <script src="../Recursos/js/jquery.flot.js"></script>
-        <script src="../Recursos/js/jquery.flot.pie.js"></script>
-        <script src="../Recursos/js/jquery.flot.stack.js"></script>
-        <script src="../Recursos/js/jquery.flot.resize.min.js"></script>
+        <script src="Recursos/js/jquery.chosen.min.js"></script>
 
-        <script src="../Recursos/js/jquery.chosen.min.js"></script>
+        <script src="Recursos/js/jquery.uniform.min.js"></script>
 
-        <script src="../Recursos/js/jquery.uniform.min.js"></script>
+        <script src="Recursos/js/jquery.cleditor.min.js"></script>
 
-        <script src="../Recursos/js/jquery.cleditor.min.js"></script>
+        <script src="Recursos/js/jquery.noty.js"></script>
 
-        <script src="../Recursos/js/jquery.noty.js"></script>
+        <script src="Recursos/js/jquery.elfinder.min.js"></script>
 
-        <script src="../Recursos/js/jquery.elfinder.min.js"></script>
+        <script src="Recursos/js/jquery.raty.min.js"></script>
 
-        <script src="../Recursos/js/jquery.raty.min.js"></script>
+        <script src="Recursos/js/jquery.iphone.toggle.js"></script>
 
-        <script src="../Recursos/js/jquery.iphone.toggle.js"></script>
+        <script src="Recursos/js/jquery.uploadify-3.1.min.js"></script>
 
-        <script src="../Recursos/js/jquery.uploadify-3.1.min.js"></script>
+        <script src="Recursos/js/jquery.gritter.min.js"></script>
 
-        <script src="../Recursos/js/jquery.gritter.min.js"></script>
+        <script src="Recursos/js/jquery.imagesloaded.js"></script>
 
-        <script src="../Recursos/js/jquery.imagesloaded.js"></script>
+        <script src="Recursos/js/jquery.masonry.min.js"></script>
 
-        <script src="../Recursos/js/jquery.masonry.min.js"></script>
+        <script src="Recursos/js/jquery.knob.modified.js"></script>
 
-        <script src="../Recursos/js/jquery.knob.modified.js"></script>
+        <script src="Recursos/js/jquery.sparkline.min.js"></script>
 
-        <script src="../Recursos/js/jquery.sparkline.min.js"></script>
+        <script src="Recursos/js/counter.js"></script>
 
-        <script src="../Recursos/js/counter.js"></script>
+        <script src="Recursos/js/retina.js"></script>
 
-        <script src="../Recursos/js/retina.js"></script>
-
-        <script src="../Recursos/js/custom.js"></script>
+        <script src="Recursos/js/custom.js"></script>
         <!-- end: JavaScript-->
 
         <!-- Bootstrap core JavaScript================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-        <script src="../../dist/js/bootstrap.min.js"></script>
+        <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script>
+        <script src="dist/js/bootstrap.min.js"></script>
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-        <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+        <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
 
     </body>
 </html>

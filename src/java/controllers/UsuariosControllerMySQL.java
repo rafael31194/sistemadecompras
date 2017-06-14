@@ -3,26 +3,29 @@ package controllers;
 import com.opensymphony.xwork2.ActionSupport;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import models.UsuarioModel;
+import models.RolModel;
+import models.UnidadModel;
+import models.InstitucionModel;
 import models.UsuarioConectar;
+import models.UsuarioModel;
 
 public class UsuariosControllerMySQL extends ActionSupport{
-    
+
     private UsuarioConectar con;
     private ArrayList<UsuarioModel> datos;
+    private ArrayList<RolModel> datosRol;
+    private ArrayList<UnidadModel> datosUni;
+    private ArrayList<InstitucionModel> datosIns;
     private ArrayList<String> select;
     private ResultSet dato;
     
-    private int usu_id;
-    private String usu_usuario,usu_contrasenia,usu_nombre,usu_correo;
-    private int usu_activo = 1;
+    private int usu_id, rol_id, uni_id, ins_id, id_rol, id_uni, id_ins, usu_rol_id, usr_uni_id;
+    private String usu_usuario, usu_contrasenia, usu_nombre, usu_correo, rol_descripcion, ins_nombre, uni_nombre;
 
-    
     public UsuarioConectar getCon() {
         return con;
     }
 
-   
     public void setCon(UsuarioConectar con) {
         this.con = con;
     }
@@ -35,7 +38,30 @@ public class UsuariosControllerMySQL extends ActionSupport{
         this.datos = datos;
     }
 
-    
+    public ArrayList<RolModel> getDatosRol() {
+        return datosRol;
+    }
+
+    public void setDatosRol(ArrayList<RolModel> datosRol) {
+        this.datosRol = datosRol;
+    }
+
+    public ArrayList<UnidadModel> getDatosUni() {
+        return datosUni;
+    }
+
+    public void setDatosUni(ArrayList<UnidadModel> datosUni) {
+        this.datosUni = datosUni;
+    }
+
+    public ArrayList<InstitucionModel> getDatosIns() {
+        return datosIns;
+    }
+
+    public void setDatosIns(ArrayList<InstitucionModel> datosIns) {
+        this.datosIns = datosIns;
+    }
+
     public ArrayList<String> getSelect() {
         return select;
     }
@@ -44,27 +70,86 @@ public class UsuariosControllerMySQL extends ActionSupport{
         this.select = select;
     }
 
-    
     public ResultSet getDato() {
         return dato;
     }
 
-   
     public void setDato(ResultSet dato) {
         this.dato = dato;
     }
 
-    
     public int getUsu_id() {
         return usu_id;
     }
 
-    
     public void setUsu_id(int usu_id) {
         this.usu_id = usu_id;
     }
 
-   
+    public int getRol_id() {
+        return rol_id;
+    }
+
+    public void setRol_id(int rol_id) {
+        this.rol_id = rol_id;
+    }
+
+    public int getUni_id() {
+        return uni_id;
+    }
+
+    public void setUni_id(int uni_id) {
+        this.uni_id = uni_id;
+    }
+
+    public int getIns_id() {
+        return ins_id;
+    }
+
+    public void setIns_id(int ins_id) {
+        this.ins_id = ins_id;
+    }
+
+    public int getId_rol() {
+        return id_rol;
+    }
+
+    public void setId_rol(int id_rol) {
+        this.id_rol = id_rol;
+    }
+
+    public int getId_uni() {
+        return id_uni;
+    }
+
+    public void setId_uni(int id_uni) {
+        this.id_uni = id_uni;
+    }
+
+    public int getId_ins() {
+        return id_ins;
+    }
+
+    public void setId_ins(int id_ins) {
+        this.id_ins = id_ins;
+    }
+
+    public int getUsu_rol_id() {
+        return usu_rol_id;
+    }
+
+    public void setUsu_rol_id(int usu_rol_id) {
+        this.usu_rol_id = usu_rol_id;
+    }
+
+    public int getUsr_uni_id() {
+        return usr_uni_id;
+    }
+
+    public void setUsr_uni_id(int usr_uni_id) {
+        this.usr_uni_id = usr_uni_id;
+    }
+
     public String getUsu_usuario() {
         return usu_usuario;
     }
@@ -73,107 +158,153 @@ public class UsuariosControllerMySQL extends ActionSupport{
         this.usu_usuario = usu_usuario;
     }
 
-   
     public String getUsu_contrasenia() {
         return usu_contrasenia;
     }
 
-    
     public void setUsu_contrasenia(String usu_contrasenia) {
         this.usu_contrasenia = usu_contrasenia;
     }
 
-   
     public String getUsu_nombre() {
         return usu_nombre;
     }
 
-    
     public void setUsu_nombre(String usu_nombre) {
         this.usu_nombre = usu_nombre;
     }
 
-   
     public String getUsu_correo() {
         return usu_correo;
     }
 
-   
     public void setUsu_correo(String usu_correo) {
         this.usu_correo = usu_correo;
     }
 
-    
-    public int getUsu_activo() {
-        return usu_activo;
+    public String getRol_descripcion() {
+        return rol_descripcion;
     }
 
-    
-    public void setUsu_activo(int usu_activo) {
-        this.usu_activo = usu_activo;
+    public void setRol_descripcion(String rol_descripcion) {
+        this.rol_descripcion = rol_descripcion;
     }
 
-  
+    public String getIns_nombre() {
+        return ins_nombre;
+    }
+
+    public void setIns_nombre(String ins_nombre) {
+        this.ins_nombre = ins_nombre;
+    }
+
+    public String getUni_nombre() {
+        return uni_nombre;
+    }
+
+    public void setUni_nombre(String uni_nombre) {
+        this.uni_nombre = uni_nombre;
+    }
 
     @Override
     public String execute() throws Exception {     
         this.con = new UsuarioConectar();
         this.datos = new ArrayList<>();
-        this.datos = con.getData("select * from usu_usuarios");
+        this.datosRol = new ArrayList<>();
+        this.datosUni = new ArrayList<>();
+        this.datosIns = new ArrayList<>();
+        this.datos = con.getData("select u.usu_id, u.usu_usuario, u.usu_contrasenia, u.usu_nombre, u.usu_correo, r.rol_descripcion, un.uni_nombre, ins_nombre from rol_rol r join usu_rol_usuarios_por_rol ur on r.rol_id = ur.rol_id join usu_usuario u on ur.usu_id = u.usu_id join usr_uni_usuarios_unidad uu on u.usu_id = uu.usu_id join ins_institucion i on uu.ins_id = i.ins_id join uni_unidad un on uu.uni_id = un.uni_id");
         
+        this.datosRol = new ArrayList<>();
+        this.datosRol = con.getDataRoles("select * from rol_rol");
+        
+        this.datosUni = new ArrayList<>();
+        this.datosUni = con.getDataUnidades("select * from uni_unidad");
           
+        this.datosIns = new ArrayList<>();
+        this.datosIns = con.getDataInstituciones("select * from ins_institucion");
+        
+        return SUCCESS;
+    }
+  
+    public String recibirDatos() throws Exception {
+        this.con = new UsuarioConectar();     
+        this.datosRol = new ArrayList<>();
+        this.datosRol = con.getDataRoles("select * from rol_rol");
+        
+        this.datosUni = new ArrayList<>();
+        this.datosUni = con.getDataUnidades("select * from uni_unidad");
+
+        this.datosIns = new ArrayList<>();
+        this.datosIns = con.getDataInstituciones("select * from ins_institucion");
+        
+        if (this.usu_id == 0)       
+            con.setData("CALL `sp_insert_usu_usuarioConRol`('"+this.usu_usuario+"', '"+this.usu_contrasenia+"', '"+this.usu_nombre+"', '"+this.usu_correo+"', '"+this.id_rol+"', '"+this.id_uni+"', '"+this.id_ins+"')");
+        else 
+            con.updateData("update usu_usuario u, usu_rol_usuarios_por_rol ur, usr_uni_usuarios_unidad uu set u.usu_usuario="+this.usu_usuario+", u.usu_contrasenia=sha("+this.usu_contrasenia+"), u.usu_nombre="+this.usu_nombre+", u.usu_correo="+this.usu_correo+", ur.rol_id="+this.id_rol+", uu.uni_id="+this.id_uni+", uu.ins_id="+this.id_ins+" where u.usu_id="+this.usu_id+" and ur.usu_rol_id="+this.usu_rol_id+" and uu.usr_uni_id="+this.usr_uni_id+"");
+        
+        this.usu_id = 0;
+        this.usu_rol_id = 0;
+        this.usr_uni_id = 0;
+        this.usu_usuario = null;
+        this.usu_contrasenia = null;
+        this.usu_nombre = null;
+        this.usu_correo = null;
+        this.rol_id = 0;
+        this.uni_id = 0;
+        this.ins_id = 0;
+
+        this.datos = new ArrayList<>();
+        this.datos = con.getData("select u.usu_id, u.usu_usuario, u.usu_contrasenia, u.usu_nombre, u.usu_correo, r.rol_descripcion, un.uni_nombre, ins_nombre from rol_rol r join usu_rol_usuarios_por_rol ur on r.rol_id = ur.rol_id join usu_usuario u on ur.usu_id = u.usu_id join usr_uni_usuarios_unidad uu on u.usu_id = uu.usu_id join ins_institucion i on uu.ins_id = i.ins_id join uni_unidad un on uu.uni_id = un.uni_id");
+        
         return SUCCESS;
     }
     
-   public String recibirDatos() throws Exception {
-        this.con = new UsuarioConectar();        
-        this.datos = new ArrayList<>();      
-        if (this.usu_id == 0)       
-            con.setData("CALL `sp_insert_usu_usuarios`("+this.usu_usuario+"', '"+this.usu_contrasenia+"', '"+this.usu_nombre+"', '"+this.usu_correo+"', '"+this.usu_activo+"')");
-        else 
-            con.updateData("update usu_usuarios set usu_usuario="+this.usu_usuario+", usu_contrasenia="+this.usu_contrasenia+", usu_nombre='"+this.usu_nombre+"', usu_correo='"+this.usu_correo+"', usu_activo='"+this.usu_activo+"' where usu_id="+this.usu_id+"");
-
-        this.usu_id = 0;
-        this.usu_usuario=null;
-        this.usu_contrasenia=null;
-        this.usu_nombre=null;
-        this.usu_correo=null;
-        this.usu_activo = 0;
-
-        this.datos = new ArrayList<>();
-        this.datos = con.getData("select * from usu_usuarios");
-        return SUCCESS;
-    }
-
     public String eliminar() throws Exception {
-        this.con = new UsuarioConectar();        
-         
-        con.deleteData("delete from usu_usuarios where usu_id="+this.usu_id+"");
+        this.con = new UsuarioConectar();     
+        this.datosRol = new ArrayList<>();
+        this.datosRol = con.getDataRoles("select * from rol_rol");
+        
+        this.datosUni = new ArrayList<>();
+        this.datosUni = con.getDataUnidades("select * from uni_unidad");
+
+        this.datosIns = new ArrayList<>();
+        this.datosIns = con.getDataInstituciones("select * from ins_institucion");
+        
+        con.deleteData("delete from usu_usuario where usu_id = "+this.usu_id+"");
         this.datos = new ArrayList<>();
-        this.datos=con.getData("select * from usu_usuarios");
+        this.datos = con.getData("select u.usu_id, u.usu_usuario, u.usu_contrasenia, u.usu_nombre, u.usu_correo, r.rol_descripcion, un.uni_nombre, ins_nombre from rol_rol r join usu_rol_usuarios_por_rol ur on r.rol_id = ur.rol_id join usu_usuario u on ur.usu_id = u.usu_id join usr_uni_usuarios_unidad uu on u.usu_id = uu.usu_id join ins_institucion i on uu.ins_id = i.ins_id join uni_unidad un on uu.uni_id = un.uni_id");
         
         return SUCCESS;        
     }
 
     public String llenarFormulario() throws Exception{
-        this.con = new UsuarioConectar();
-         
-        this.dato = con.getDataForm("select * from usu_usuarios where usu_id="+this.usu_id+"");
+        this.con = new UsuarioConectar();     
+        this.datosRol = new ArrayList<>();
+        this.datosRol = con.getDataRoles("select * from rol_rol");
+        
+        this.datosUni = new ArrayList<>();
+        this.datosUni = con.getDataUnidades("select * from uni_unidad");
+
+        this.datosIns = new ArrayList<>();
+        this.datosIns = con.getDataInstituciones("select * from ins_institucion");
+        
+        this.dato = con.getDataForm("select u.usu_id, u.usu_usuario, u.usu_nombre, u.usu_correo, ur.rol_id, uu.uni_id, uu.ins_id from usu_usuario u join usu_rol_usuarios_por_rol ur on "+this.usu_id+" = ur.usu_id join usr_uni_usuarios_unidad uu on "+this.usu_id+" = uu.usu_id");
         while(this.dato.next()){
+        
         this.usu_id = dato.getInt("usu_id");
         this.usu_usuario = dato.getString("usu_usuario");
-        this.usu_contrasenia = dato.getString("usu_contrasenia");
         this.usu_nombre = dato.getString("usu_nombre");
         this.usu_correo = dato.getString("usu_correo");
-        this.usu_activo = dato.getInt("usu_activo");
-        
+        this.id_rol = dato.getInt("rol_id");
+        this.id_uni = dato.getInt("uni_id");
+        this.id_ins = dato.getInt("ins_id");
+
         }
-        this.datos=new ArrayList<>();
-        this.datos=con.getData("select * from usu_usuarios");
+        this.datos = new ArrayList<>();
+        this.datos = con.getData("select u.usu_id, u.usu_usuario, u.usu_contrasenia, u.usu_nombre, u.usu_correo, r.rol_descripcion, un.uni_nombre, ins_nombre from rol_rol r join usu_rol_usuarios_por_rol ur on r.rol_id = ur.rol_id join usu_usuario u on ur.usu_id = u.usu_id join usr_uni_usuarios_unidad uu on u.usu_id = uu.usu_id join ins_institucion i on uu.ins_id = i.ins_id join uni_unidad un on uu.uni_id = un.uni_id");
         
         return SUCCESS;       
-    }
+    }    
     
- }
-
-
+}

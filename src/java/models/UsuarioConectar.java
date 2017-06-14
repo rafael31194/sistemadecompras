@@ -7,13 +7,19 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+
 public class UsuarioConectar {
-    
+
     private Connection con;
     private PreparedStatement consulta;
     private ResultSet datos;
     private String server, user, bd, pass;
+    
     private ArrayList<UsuarioModel> arreglo;
+    private ArrayList<RolModel> arregloRol;
+    
+    private ArrayList<UnidadModel> arregloUni;
+    private ArrayList<InstitucionModel> arregloIns;
     
     public UsuarioConectar() {
         this.server = "localhost:3307";
@@ -43,14 +49,53 @@ public class UsuarioConectar {
         this.consulta = this.con.prepareStatement(sql);
         this.datos = this.consulta.executeQuery();
         while (this.datos.next()) {
-            this.arreglo.add(new UsuarioModel(datos.getInt("usu_id"), datos.getString("usu_usuario"), datos.getString("usu_contrasenia"),
-                    datos.getString("usu_nombre"),datos.getString("usu_correo"),datos.getInt("usu_activo")));        
+            this.arreglo.add(new UsuarioModel(datos.getInt("usu_id"), datos.getString("usu_usuario"), datos.getString("usu_contrasenia"), 
+                    datos.getString("usu_nombre"), datos.getString("usu_correo"), datos.getString("rol_descripcion"), 
+                    datos.getString("uni_nombre"), datos.getString("ins_nombre")));        
         }
         return this.arreglo;
         
     }
-
+        
+    public ArrayList<RolModel> getDataRoles(String sql) throws SQLException {
+        
+        this.arregloRol = new ArrayList<>();
+        this.con();
+        this.consulta = this.con.prepareStatement(sql);
+        this.datos = this.consulta.executeQuery();
+        while (this.datos.next()) {
+            this.arregloRol.add(new RolModel(datos.getInt("rol_id"), datos.getString("rol_descripcion")));  
+        }
+        return this.arregloRol;
+        
+    }
     
+    public ArrayList<UnidadModel> getDataUnidades(String sql) throws SQLException {
+        
+        this.arregloUni = new ArrayList<>();
+        this.con();
+        this.consulta = this.con.prepareStatement(sql);
+        this.datos = this.consulta.executeQuery();
+        while (this.datos.next()) {
+            this.arregloUni.add(new UnidadModel(datos.getInt("uni_id"), datos.getString("uni_nombre")));  
+        }
+        return this.arregloUni;
+        
+    }    
+    
+    public ArrayList<InstitucionModel> getDataInstituciones(String sql) throws SQLException {
+        
+        this.arregloIns = new ArrayList<>();
+        this.con();
+        this.consulta = this.con.prepareStatement(sql);
+        this.datos = this.consulta.executeQuery();
+        while (this.datos.next()) {
+            this.arregloIns.add(new InstitucionModel(datos.getInt("ins_id"), datos.getInt("mun_id"), datos.getString("ins_nombre"),
+                datos.getString("ins_telefono"), datos.getString("ins_direccion")));  
+        }
+        return this.arregloIns;
+        
+    }    
     
     public void setData(String sql) throws SQLException {
        
@@ -83,7 +128,6 @@ public class UsuarioConectar {
         this.consulta = this.con.prepareStatement(sql);
         this.consulta.executeUpdate();  
         
-    }    
-    
-       
+    }      
+
 }
