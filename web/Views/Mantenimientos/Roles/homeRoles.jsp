@@ -1,8 +1,3 @@
-<%-- 
-    Document   : homeUsuarios
-    Created on : 14-may-2017, 21:33:16
-    Author     : Joseline
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -15,6 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- end: Mobile Specific -->
         <title>Roles</title>
+        <!-- start: CSS -->
         <link type="text/css" id="base-style" href="Recursos/css/bootstrap.min.css" rel="stylesheet">
         <link type="text/css" id="base-style" href="Recursos/css/bootstrap-responsive.min.css" rel="stylesheet">
         <link type="text/css" id="base-style" href="Recursos/css/style.css" rel="stylesheet">
@@ -47,7 +43,7 @@
                             <!-- start: User Dropdown -->
                             <li class="dropdown">
                                 <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <i class="icon-user"></i> Joseline Alfaro
+                                    <i class="icon-user"></i> Usuario
                                     <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu">
@@ -112,102 +108,82 @@
                     <div class="row-fluid sortable">
                         <div class="box span12">
                             <div class="box-header" data-original-title>
-                                <h2><i class="icon-edit"></i><span class="break"></span>Agregar Rol</h2>
+                                <h2><i class="icon-edit"></i><span class="break"></span>Agregar Roles</h2>
                                 <div class="box-icon">
-                                    <a href="#" class="btn-setting"><i class="icon-cog white"></i></a>
-                                    <a href="#" class="btn-minimize"><i class="icon-chevron-down white"></i></a>
+                                    <a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
+                                    <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+                                    <a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
                                 </div>
                             </div>
                             <div class="box-content">
-                                <form class="form-horizontal">
-                                    
+                                <s:form action="enviarRol">
                                     <div class="control-group">
                                         <label class="control-label">Descripcion:</label>
                                         <div class="controls">
-                                            <input class="form-control" type="text" value="" placeholder="Descripcion">
+                                            <s:hidden name="rol_id"/>
+                                            <s:textfield name="rol_descripcion"/>
                                         </div>
-                                    </div>
-                                    <table class="table table-striped table-bordered bootstrap-datatable datatable">
-                                    <thead>
-                                        <tr>
-                                            <th>Lista de acceso</th>
-                                            <th>Estado</th>
-                                            <th>Nivel de acceso</th>
-                                            <th>Acciones</th>
-                                            
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Ordenes de compra</td>
-                                            <td class="center"><input type="checkbox" name="cbCompra"></td>
-                                            <td class="center"><input type="radio" name="rCompra" value="todos">Todos. <input type="radio" name="rCompra" value="todosME">Todos Menos Eliminar.<br>
-                                            <input type="radio" name="rCompra" value="sConsul">Solo Consultar. <input type="radio" name="rCompra" value="todosMA">Todos Menos Actualizar</td>
-                                            
-                                            <td class="center">
-                                                <a class="btn btn-success" href="#">
-                                                    <i class="icon-save"></i>
-                                                </a>
-                                                <a class="btn btn-info" href="#">
-                                                    <i class="icon-pencil"></i>
-                                                </a>
-                                                <a class="btn btn-danger" href="#">
-                                                    <i class="icon-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Inventario</td>
-                                            <td class="center"><input type="checkbox" name="cbInv"></td>
-                                            <td class="center"><input type="radio" name="rInv" value="todos">Todos. <input type="radio" name="rInv" value="todosME">Todos Menos Eliminar.<br>
-                                            <input type="radio" name="rInv" value="sConsul">Solo Consultar. <input type="radio" name="rInv" value="todosMA">Todos Menos Actualizar</td>
-                                            
-                                            <td class="center">
-                                                <a class="btn btn-success" href="#">
-                                                    <i class="icon-save"></i>
-                                                </a>
-                                                <a class="btn btn-info" href="#">
-                                                    <i class="icon-pencil"></i>
-                                                </a>
-                                                <a class="btn btn-danger" href="#">
-                                                    <i class="icon-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Institucion</td>
-                                            <td class="center"><input type="checkbox" name="cbInst"></td>
-                                            <td class="center"><input type="radio" name="rInst" value="todos">Todos. <input type="radio" name="rInst" value="todosME">Todos Menos Eliminar.<br>
-                                            <input type="radio" name="rInst" value="sConsul">Solo Consultar. <input type="radio" name="rInst" value="todosMA">Todos Menos Actualizar</td>
-                                            
-                                            <td class="center">
-                                                <a class="btn btn-success" href="#">
-                                                    <i class="icon-save"></i>
-                                                </a>
-                                                <a class="btn btn-info" href="#">
-                                                    <i class="icon-pencil"></i>
-                                                </a>
-                                                <a class="btn btn-danger" href="#">
-                                                    <i class="icon-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        
-                                    </tbody>
-                                </table>
-                                    </div>
+                                    </div>                                      
+                                     
                                     <div class="form-actions">
-                                        <button type="submit" class="btn btn-primary">Guardar</button>
+                                        <s:submit value="Enviar" title="Enviar" cssClass="btn btn-default"/>
                                         <button class="btn">Limpiar</button>
                                     </div>
-                                                            </div>
+                                </s:form>
+                            </div>
                         </div><!--/span-->
 
                     </div><!--/row-->
 
-            </div>
-        </div>
-                        
+                    <div class="row-fluid sortable">
+                        <div class="box span12">
+                            <div class="box-header" data-original-title>
+                                <h2><i class="icon-align-justify"></i><span class="break"></span>Roles</h2>
+                                <div class="box-icon">
+                                    <a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
+                                    <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+                                    <a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+                                </div>
+                            </div>
+                            <div class="box-content">
+                                <table class="table table-striped table-bordered bootstrap-datatable datatable">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Descripcion</th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <s:iterator value="datos" var="dato" status="estado">
+                                        <tr>
+                                            <td><s:property value="rol_id"/></td>
+                                            <td><s:property value="rol_descripcion"/></td>
+                                             <td>
+                                                <s:a action="eliminarRol">
+                                                    <s:param name="rol_id" value="rol_id"/>
+                                                    <i class="icon-trash"></i>
+                                                </s:a>
+                                            </td>
+                                            <td>
+                                                <s:a action="editarRol">
+                                                    <s:param name="rol_id" value="rol_id"/>
+                                                    <i class="icon-pencil"></i>
+                                                </s:a>
+                                            </td>
+                                        </tr>
+                                    </s:iterator>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div><!--/span-->
+
+                    </div><!--/row-->
+                </div><!--/.fluid-container-->
+
+                <!-- end: Content -->
+            </div><!--/#content.span10-->
+        </div><!--/fluid-row-->
 
         <div class="modal hide fade" id="myModal">
             <div class="modal-header">
@@ -224,78 +200,78 @@
         </div>
 
         <div class="clearfix"></div>
-        
+
         <footer>
             <p>
                 <span style="text-align:left;float:left">Sistema de compra de equipos electrónicos.</span>
             </p>
-        </footer>
-
+        </footer>           
+        
         <!-- start: JavaScript-->
 
-        <script src="../Recursos/js/jquery-1.9.1.min.js"></script>
-        <script src="../Recursos/js/jquery-migrate-1.0.0.min.js"></script>
+        <script src="Recursos/js/jquery-1.9.1.min.js"></script>
+        <script src="Recursos/js/jquery-migrate-1.0.0.min.js"></script>
 
-        <script src="../Recursos/js/jquery-ui-1.10.0.custom.min.js"></script>
+        <script src="Recursos/js/jquery-ui-1.10.0.custom.min.js"></script>
 
-        <script src="../Recursos/js/jquery.ui.touch-punch.js"></script>
+        <script src="Recursos/js/jquery.ui.touch-punch.js"></script>
 
-        <script src="../Recursos/js/modernizr.js"></script>
+        <script src="Recursos/js/modernizr.js"></script>
 
-        <script src="../Recursos/js/bootstrap.min.js"></script>
+        <script src="Recursos/js/bootstrap.min.js"></script>
 
-        <script src="../Recursos/js/jquery.cookie.js"></script>
+        <script src="Recursos/js/jquery.cookie.js"></script>
 
-        <script src='../Recursos/js/fullcalendar.min.js'></script>
+        <script src='Recursos/js/fullcalendar.min.js'></script>
 
-        <script src='../Recursos/js/jquery.dataTables.min.js'></script>
+        <script src='Recursos/js/jquery.dataTables.min.js'></script>
 
-        <script src="../Recursos/js/excanvas.js"></script>
-        <script src="../Recursos/js/jquery.flot.js"></script>
-        <script src="../Recursos/js/jquery.flot.pie.js"></script>
-        <script src="../Recursos/js/jquery.flot.stack.js"></script>
-        <script src="../Recursos/js/jquery.flot.resize.min.js"></script>
+        <script src="Recursos/js/excanvas.js"></script>
+        <script src="Recursos/js/jquery.flot.js"></script>
+        <script src="Recursos/js/jquery.flot.pie.js"></script>
+        <script src="Recursos/js/jquery.flot.stack.js"></script>
+        <script src="Recursos/js/jquery.flot.resize.min.js"></script>
 
-        <script src="../Recursos/js/jquery.chosen.min.js"></script>
+        <script src="Recursos/js/jquery.chosen.min.js"></script>
 
-        <script src="../Recursos/js/jquery.uniform.min.js"></script>
+        <script src="Recursos/js/jquery.uniform.min.js"></script>
 
-        <script src="../Recursos/js/jquery.cleditor.min.js"></script>
+        <script src="Recursos/js/jquery.cleditor.min.js"></script>
 
-        <script src="../Recursos/js/jquery.noty.js"></script>
+        <script src="Recursos/js/jquery.noty.js"></script>
 
-        <script src="../Recursos/js/jquery.elfinder.min.js"></script>
+        <script src="Recursos/js/jquery.elfinder.min.js"></script>
 
-        <script src="../Recursos/js/jquery.raty.min.js"></script>
+        <script src="Recursos/js/jquery.raty.min.js"></script>
 
-        <script src="../Recursos/js/jquery.iphone.toggle.js"></script>
+        <script src="Recursos/js/jquery.iphone.toggle.js"></script>
 
-        <script src="../Recursos/js/jquery.uploadify-3.1.min.js"></script>
+        <script src="Recursos/js/jquery.uploadify-3.1.min.js"></script>
 
-        <script src="../Recursos/js/jquery.gritter.min.js"></script>
+        <script src="Recursos/js/jquery.gritter.min.js"></script>
 
-        <script src="../Recursos/js/jquery.imagesloaded.js"></script>
+        <script src="Recursos/js/jquery.imagesloaded.js"></script>
 
-        <script src="../Recursos/js/jquery.masonry.min.js"></script>
+        <script src="Recursos/js/jquery.masonry.min.js"></script>
 
-        <script src="../Recursos/js/jquery.knob.modified.js"></script>
+        <script src="Recursos/js/jquery.knob.modified.js"></script>
 
-        <script src="../Recursos/js/jquery.sparkline.min.js"></script>
+        <script src="Recursos/js/jquery.sparkline.min.js"></script>
 
-        <script src="../Recursos/js/counter.js"></script>
+        <script src="Recursos/js/counter.js"></script>
 
-        <script src="../Recursos/js/retina.js"></script>
+        <script src="Recursos/js/retina.js"></script>
 
-        <script src="../Recursos/js/custom.js"></script>
+        <script src="Recursos/js/custom.js"></script>
         <!-- end: JavaScript-->
 
         <!-- Bootstrap core JavaScript================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-        <script src="../../dist/js/bootstrap.min.js"></script>
+        <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script>
+        <script src="dist/js/bootstrap.min.js"></script>
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-        <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+        <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
 
     </body>
 </html>
