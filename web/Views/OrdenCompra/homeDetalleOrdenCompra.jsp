@@ -132,6 +132,7 @@
                                             <s:hidden name="ordid" value="%{#parameters.ord_id}"/>  
                                             <s:textfield name="equ_id"/>
                                             <s:hidden name="ord_dtl_id"/>
+                                            <s:hidden name="ord_idd"/>
                                         </div>
                                     </div>
                                     
