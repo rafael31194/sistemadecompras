@@ -126,6 +126,8 @@
                                         <label class="control-label">Usuario:</label>
                                         <div class="controls">
                                             <s:hidden name="usu_id"/>
+                                            <s:hidden name="id_ur"/>
+                                            <s:hidden name="id_uu"/>
                                             <s:textfield name="usu_usuario"/>                                            
                                         </div>
                                     </div>   
