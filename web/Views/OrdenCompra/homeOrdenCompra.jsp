@@ -178,6 +178,13 @@
                                                 <s:hidden name="ord_id"/>
                                             </div>
                                         </div>
+                                            
+                                       <!-- <div class="control-group">
+                                        <label class="control-label">Estado:</label>
+                                        <div class="controls">
+                                            <%--<s:select name="idest" list="datosEst" listValue="est_estado" listKey="est_id"/>--%>
+                                        </div>
+                                        </div>-->
                                        <div class="control-group">
                                             <label class="control-label">Tipo Contratacion:</label>
                                             <div class="controls">
@@ -263,7 +270,7 @@
                                             <td><s:property value="ord_descripcion"/></td>
                                             <td><s:property value="ord_total"/></td>
                                             <td>
-                                                <s:a cssClass="btn btn-success" action="detalleOrdenCompra">
+                                                <s:a cssClass="btn btn-success" action="detalleOrden">
                                                     <s:param name="ord_id" value="ord_id"/>
                                                     <i class="icon-save"></i>
                                                 </s:a>  

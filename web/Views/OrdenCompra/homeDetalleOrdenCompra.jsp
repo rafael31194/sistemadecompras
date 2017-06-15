@@ -121,15 +121,18 @@
                                     <a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
                                 </div>
                             </div>
-                            <div class="box-content">
+                            <div class="box-content">     
+                                
                                 <s:form action="enviarDetalle"> 
                                     
                                                                        
                                     <div class="control-group">
                                         <label class="control-label">Equipo:</label>
                                         <div class="controls">
+                                            <s:hidden name="ordid" value="%{#parameters.ord_id}"/>  
                                             <s:textfield name="equ_id"/>
                                             <s:hidden name="ord_dtl_id"/>
+                                            <s:hidden name="ord_idd"/>
                                         </div>
                                     </div>
                                     
@@ -181,7 +184,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <s:iterator value="datos" var="dato" status="estado">
+                                        <s:iterator value="datos2" var="dato" status="estado">
                                         <tr>
                                             <td><s:property value="ord_dtl_id"/></td>
                                             <td><s:property value="ord_id"/></td>
@@ -192,6 +195,7 @@
                                             <td>
                                                 <s:a cssClass="btn btn-info" action="editarDetalle">
                                                     <s:param name="ord_dtl_id" value="ord_dtl_id"/>
+                                                    <s:param name="ord_id" value="ord_id"/>
                                                     <i class="icon-pencil"></i>
                                                 </s:a>
                                             </td> 
@@ -199,6 +203,7 @@
                                             <td>
                                                 <s:a cssClass="btn btn-danger" action="eliminarDetalle">
                                                     <s:param name="ord_dtl_id" value="ord_dtl_id"/>
+                                                    <s:param name="ord_id" value="ord_id"/>
                                                     <i class="icon-trash"></i>
                                                 </s:a>
                                             </td>

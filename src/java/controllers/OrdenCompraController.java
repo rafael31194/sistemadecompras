@@ -4,17 +4,22 @@ package controllers;
 import com.opensymphony.xwork2.ActionSupport;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import models.DetalleOrdenCompraConectar;
 import models.DetalleOrdenCompraModel;
+import models.EstadoModel;
 import models.OrdenCompraConectar;
 import models.OrdenCompraModel;
 
 public class OrdenCompraController extends ActionSupport{
     
     private OrdenCompraConectar con;
+    private DetalleOrdenCompraConectar con2;
     private ArrayList<OrdenCompraModel> datos;
+    private ArrayList<DetalleOrdenCompraModel> datos2;
+    private ArrayList<EstadoModel> datosEst;
     private ResultSet dato;
     
-    private int ord_id;
+    public int ord_id;
     private int est_id;
     private int tco_id;
     private int sol_id;
@@ -22,8 +27,33 @@ public class OrdenCompraController extends ActionSupport{
     private String ord_fecha;
     private String ord_descripcion;
     private float ord_total;
+    private int ordid;
 
-    public OrdenCompraConectar getCon() {
+    public ArrayList<DetalleOrdenCompraModel> getDatos2() {
+        return datos2;
+    }
+
+    public void setDatos2(ArrayList<DetalleOrdenCompraModel> datos2) {
+        this.datos2 = datos2;
+    }
+
+    public DetalleOrdenCompraConectar getCon2() {
+        return con2;
+    }
+
+    public void setCon2(DetalleOrdenCompraConectar con2) {
+        this.con2 = con2;
+    }
+
+    public int getOrdid() {
+        return ordid;
+    }
+
+    public void setOrdid(int ordid) {
+        this.ordid = ordid;
+    }
+    
+        public OrdenCompraConectar getCon() {
         return con;
     }
 
@@ -134,11 +164,14 @@ public class OrdenCompraController extends ActionSupport{
         } else {
         con.updateData("update ord_ordendecompra set est_id="+this.est_id+",tco_id='"+this.tco_id+"',sol_id='"+this.sol_id+"',pro_id='"+this.pro_id+"',ord_fecha='"+this.ord_fecha+"',ord_descripcion='"+this.ord_descripcion+"',ord_total='"+this.ord_total+"' where ord_id="+this.ord_id+"");
         }
-        /*this.ins_id=0;
-        this.mun_id=0;
-        this.ins_nombre=null;
-        this.ins_telefono=null;
-        this.ins_direccion=null;*/
+        this.est_id=0;
+        this.sol_id=0;
+        this.tco_id=0;
+        this.pro_id=0;
+        this.ord_fecha=null;
+        this.ord_descripcion=null;
+        this.ord_id=0;
+        this.ord_total=0;
         this.datos=new ArrayList<>();
         this.datos=con.getData("select * from ord_ordendecompra");
         return SUCCESS;
@@ -170,6 +203,14 @@ public class OrdenCompraController extends ActionSupport{
         //this.datosMun=new ArrayList<>();
         //this.datosMun=con.getNomMunicipios("select * from mun_municipio");  
         con.deleteData("delete from ord_ordendecompra where ord_id="+this.ord_id+"");
+        this.est_id=0;
+        this.sol_id=0;
+        this.tco_id=0;
+        this.pro_id=0;
+        this.ord_fecha=null;
+        this.ord_descripcion=null;
+        this.ord_id=0;
+        this.ord_total=0;
         this.datos=new ArrayList<>();
         this.datos=con.getData("select * from ord_ordendecompra");
         return SUCCESS;        
@@ -177,8 +218,14 @@ public class OrdenCompraController extends ActionSupport{
     
     public String detalleOrdenCompra() throws Exception
     {
-        DetalleOrdenCompraModel ordid = new DetalleOrdenCompraModel();
-        ordid.setOrd_id(this.ord_id);
+        
+        this.con2=new DetalleOrdenCompraConectar();
+        this.datos2=new ArrayList<>();
+        //OrdenCompraController ordid = new OrdenCompraController();
+        //rdid.valorordid();
+        //this.ordid=3;
+        this.datos2=con2.getData("select * from ord_dtl_ordendetalle where ord_id="+this.ord_id+"");
         return SUCCESS;
     }
+    
 }

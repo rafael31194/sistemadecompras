@@ -3,7 +3,7 @@ package models;
 
 public class DetalleOrdenCompraModel {
     
-    private int ord_id;
+    public int ord_id;
     private int ord_dtl_id;
     private int equ_id;
     private float ord_dtl_precio;
