@@ -164,11 +164,14 @@ public class OrdenCompraController extends ActionSupport{
         } else {
         con.updateData("update ord_ordendecompra set est_id="+this.est_id+",tco_id='"+this.tco_id+"',sol_id='"+this.sol_id+"',pro_id='"+this.pro_id+"',ord_fecha='"+this.ord_fecha+"',ord_descripcion='"+this.ord_descripcion+"',ord_total='"+this.ord_total+"' where ord_id="+this.ord_id+"");
         }
-        /*this.ins_id=0;
-        this.mun_id=0;
-        this.ins_nombre=null;
-        this.ins_telefono=null;
-        this.ins_direccion=null;*/
+        this.est_id=0;
+        this.sol_id=0;
+        this.tco_id=0;
+        this.pro_id=0;
+        this.ord_fecha=null;
+        this.ord_descripcion=null;
+        this.ord_id=0;
+        this.ord_total=0;
         this.datos=new ArrayList<>();
         this.datos=con.getData("select * from ord_ordendecompra");
         return SUCCESS;
@@ -200,6 +203,14 @@ public class OrdenCompraController extends ActionSupport{
         //this.datosMun=new ArrayList<>();
         //this.datosMun=con.getNomMunicipios("select * from mun_municipio");  
         con.deleteData("delete from ord_ordendecompra where ord_id="+this.ord_id+"");
+        this.est_id=0;
+        this.sol_id=0;
+        this.tco_id=0;
+        this.pro_id=0;
+        this.ord_fecha=null;
+        this.ord_descripcion=null;
+        this.ord_id=0;
+        this.ord_total=0;
         this.datos=new ArrayList<>();
         this.datos=con.getData("select * from ord_ordendecompra");
         return SUCCESS;        
