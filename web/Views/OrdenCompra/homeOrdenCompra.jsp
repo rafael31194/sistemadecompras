@@ -171,24 +171,18 @@
                                                 <input type="date" class="input-xlarge datepicker" id="date01">
                                             </div>
                                         </div>-->
+                                                                                  
                                        <div class="control-group">
-                                            <label class="control-label">Estado:</label>
-                                            <div class="controls">
-                                                <s:textfield name="est_id"/>
-                                                <s:hidden name="ord_id"/>
-                                            </div>
-                                        </div>
-                                            
-                                       <!-- <div class="control-group">
                                         <label class="control-label">Estado:</label>
                                         <div class="controls">
-                                            <%--<s:select name="idest" list="datosEst" listValue="est_estado" listKey="est_id"/>--%>
+                                            <s:select name="estid" list="datosEst" listValue="est_estado" listKey="est_id"/>                                            
                                         </div>
-                                        </div>-->
+                                    </div>
                                        <div class="control-group">
                                             <label class="control-label">Tipo Contratacion:</label>
                                             <div class="controls">
                                                 <s:textfield name="tco_id"/>
+                                                <s:hidden name="ord_id"/>
                                             </div>
                                         </div>
                                        <div class="control-group">

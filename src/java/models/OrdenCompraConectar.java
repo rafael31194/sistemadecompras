@@ -15,6 +15,7 @@ public class OrdenCompraConectar {
     private String server, user, bd, pass;
     
     private ArrayList<OrdenCompraModel> arreglo;
+    private ArrayList<EstadoModel> array;
     
     
     public OrdenCompraConectar() {
@@ -84,5 +85,18 @@ public class OrdenCompraConectar {
         this.consulta = this.con.prepareStatement(sql);
         this.consulta.executeUpdate();  
         
-    }        
+    }    
+
+    public ArrayList getEstado(String sql) throws SQLException {
+        
+        this.array = new ArrayList<>();
+        this.con();
+        this.consulta = this.con.prepareStatement(sql);
+        this.datos = this.consulta.executeQuery();
+        while(this.datos.next()){
+            this.array.add(new EstadoModel(datos.getInt("est_id"),datos.getString("est_estado")));
+        }
+        return array;
+        
+    }
 }
