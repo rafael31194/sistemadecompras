@@ -249,7 +249,7 @@
                                                 <th># Orden</th>                                                
                                                 <th>Estado</th>
                                                 <th>Tipo contratacion</th>
-                                                <th># Solicitud</th>
+                                                <th>Solicitud</th>
                                                 <th>Proveedor</th>
                                                 <th>Fecha</th>
                                                 <th>Descripción</th>
@@ -261,10 +261,10 @@
                                             <s:iterator value="datos" var="dato" status="estado">
                                         <tr>
                                             <td><s:property value="ord_id"/></td>
-                                            <td><s:property value="est_id"/></td>
-                                            <td><s:property value="tco_id"/></td>
-                                            <td><s:property value="sol_id"/></td>
-                                            <td><s:property value="pro_id"/></td>
+                                            <td><s:property value="est_estado"/></td>
+                                            <td><s:property value="tco_descripcion"/></td>
+                                            <td><s:property value="sol_descripcion"/></td>
+                                            <td><s:property value="pro_nombre"/></td>
                                             <td><s:property value="ord_fecha"/></td>
                                             <td><s:property value="ord_descripcion"/></td>
                                             <td><s:property value="ord_total"/></td>

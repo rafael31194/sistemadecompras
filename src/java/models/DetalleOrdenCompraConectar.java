@@ -14,7 +14,8 @@ public class DetalleOrdenCompraConectar {
     private ResultSet datos;
     private String server, user, bd, pass;
     
-    private ArrayList<DetalleOrdenCompraModel> arreglo;
+    private ArrayList<DetalleOrdenCompraJoins> arreglo;
+    private ArrayList<EquipoModel> arrayEqu;
     
     
     public DetalleOrdenCompraConectar() {
@@ -38,14 +39,14 @@ public class DetalleOrdenCompraConectar {
         this.con.close();
     }
       
-    public ArrayList<DetalleOrdenCompraModel> getData(String sql) throws SQLException {
+    public ArrayList<DetalleOrdenCompraJoins> getData(String sql) throws SQLException {
         
         this.arreglo = new ArrayList<>();
         this.con();
         this.consulta = this.con.prepareStatement(sql);
         this.datos = this.consulta.executeQuery();
         while (this.datos.next()) {
-            this.arreglo.add(new DetalleOrdenCompraModel(datos.getInt("ord_id"),datos.getInt("ord_dtl_id"), datos.getInt("equ_id"),datos.getFloat("ord_dtl_precio"),datos.getString("ord_dtl_codigoInventario")));        
+            this.arreglo.add(new DetalleOrdenCompraJoins(datos.getInt("ord_dtl_id"),datos.getInt("ord_id"),datos.getString("equ_nombre"),datos.getFloat("ord_dtl_precio"),datos.getString("ord_dtl_codigoInventario")));        
         }
         return this.arreglo;
         
@@ -83,5 +84,20 @@ public class DetalleOrdenCompraConectar {
         this.consulta = this.con.prepareStatement(sql);
         this.consulta.executeUpdate();  
         
-    }                
+    }         
+    
+    public ArrayList getEqu(String sql) throws SQLException {
+        
+        this.arrayEqu = new ArrayList<>();
+        this.con();
+        this.consulta = this.con.prepareStatement(sql);
+        this.datos = this.consulta.executeQuery();
+        while(this.datos.next()){
+            this.arrayEqu.add(new EquipoModel(datos.getInt("equ_id"),datos.getInt("pro_id"),datos.getInt("pro_pro_id"),datos.getInt("cat_id"),
+                    datos.getInt("equ_anio"),datos.getString("equ_nombre"),datos.getString("equ_marca"),datos.getString("equ_modelo"),datos.getString("equ_especificaciongarantia"),datos.getString("equ_imagen"),
+                    datos.getFloat("equ_capacidad_btu"),datos.getFloat("equ_potencia")));
+        } 
+        return arrayEqu;
+        
+    }
 }

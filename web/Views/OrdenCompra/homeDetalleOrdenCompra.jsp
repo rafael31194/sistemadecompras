@@ -126,27 +126,27 @@
                                 <s:form action="enviarDetalle"> 
                                     
                                                                        
+                                    
                                     <div class="control-group">
-                                        <label class="control-label">Equipo:</label>
+                                            <label class="control-label">Equipo:</label>
+                                            <div class="controls">
+                                                <s:select name="equid" list="datosEqu" listValue="equ_nombre" listKey="equ_id"/>                                                 
+                                            </div>
+                                     </div>
+                                    <div class="control-group">
+                                        <label class="control-label">Precio:</label>
                                         <div class="controls">
-                                            <s:hidden name="ordid" value="%{#parameters.ord_id}"/>  
-                                            <s:textfield name="equ_id"/>
+                                            <s:textfield name="ord_dtl_precio" type="number" min="0" required="true"/>
+                                            <s:hidden name="ordid" value="%{#parameters.ord_id}"/>                                             
                                             <s:hidden name="ord_dtl_id"/>
                                             <s:hidden name="ord_idd"/>
                                         </div>
                                     </div>
                                     
                                     <div class="control-group">
-                                        <label class="control-label">Precio:</label>
-                                        <div class="controls">
-                                            <s:textfield name="ord_dtl_precio"/>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="control-group">
                                         <label class="control-label">Codigo Inventario:</label>
                                         <div class="controls">
-                                            <s:textfield name="ord_dtl_codigoInventario"/>
+                                            <s:textfield name="ord_dtl_codigoInventario" type="text" required="true"/>
                                         </div>
                                     </div>
                                     
@@ -176,7 +176,6 @@
                                     <thead>
                                         <tr>
                                             <th># Detalle Orden</th>
-                                            <th># Orden</th>
                                             <th>Equipo</th>
                                             <th>Precio</th>   
                                             <th>Codigo inventario</th>
@@ -186,9 +185,8 @@
                                     <tbody>
                                         <s:iterator value="datos2" var="dato" status="estado">
                                         <tr>
-                                            <td><s:property value="ord_dtl_id"/></td>
-                                            <td><s:property value="ord_id"/></td>
-                                            <td><s:property value="equ_id"/></td>
+                                            <td><s:property value="ord_dtl_id"/></td>                                            
+                                            <td><s:property value="equ_nombre"/></td>
                                             <td><s:property value="ord_dtl_precio"/></td>
                                             <td><s:property value="ord_dtl_codigoInventario"/></td>                                           
                                             

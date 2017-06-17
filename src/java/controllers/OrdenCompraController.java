@@ -5,9 +5,12 @@ import com.opensymphony.xwork2.ActionSupport;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import models.DetalleOrdenCompraConectar;
+import models.DetalleOrdenCompraJoins;
 import models.DetalleOrdenCompraModel;
+import models.EquipoModel;
 import models.EstadoModel;
 import models.OrdenCompraConectar;
+import models.OrdenCompraJoins;
 import models.OrdenCompraModel;
 import models.ProveedorModel;
 import models.SolicitudModel;
@@ -17,12 +20,13 @@ public class OrdenCompraController extends ActionSupport{
     
     private OrdenCompraConectar con;
     private DetalleOrdenCompraConectar con2;
-    private ArrayList<OrdenCompraModel> datos;
-    private ArrayList<DetalleOrdenCompraModel> datos2;
+    private ArrayList<OrdenCompraJoins> datos;
+    private ArrayList<DetalleOrdenCompraJoins> datos2;
     private ArrayList<EstadoModel> datosEst;
     private ArrayList<TipoContratacionModel> datosTipo;
     private ArrayList<SolicitudModel> datosSol;
     private ArrayList<ProveedorModel> datosPro;
+    private ArrayList<EquipoModel> datosEqu;
     private ResultSet dato;
     
     public int ord_id;
@@ -34,6 +38,14 @@ public class OrdenCompraController extends ActionSupport{
     private String ord_descripcion;
     private float ord_total;
     private int ordid;
+
+    public ArrayList<EquipoModel> getDatosEqu() {
+        return datosEqu;
+    }
+
+    public void setDatosEqu(ArrayList<EquipoModel> datosEqu) {
+        this.datosEqu = datosEqu;
+    }
 
     public int getTcoid() {
         return tcoid;
@@ -107,11 +119,11 @@ public class OrdenCompraController extends ActionSupport{
         this.estid = estid;
     }
 
-    public ArrayList<DetalleOrdenCompraModel> getDatos2() {
+    public ArrayList<DetalleOrdenCompraJoins> getDatos2() {
         return datos2;
     }
 
-    public void setDatos2(ArrayList<DetalleOrdenCompraModel> datos2) {
+    public void setDatos2(ArrayList<DetalleOrdenCompraJoins> datos2) {
         this.datos2 = datos2;
     }
 
@@ -139,11 +151,11 @@ public class OrdenCompraController extends ActionSupport{
         this.con = con;
     }
 
-    public ArrayList<OrdenCompraModel> getDatos() {
+    public ArrayList<OrdenCompraJoins> getDatos() {
         return datos;
     }
 
-    public void setDatos(ArrayList<OrdenCompraModel> datos) {
+    public void setDatos(ArrayList<OrdenCompraJoins> datos) {
         this.datos = datos;
     }
     
@@ -228,7 +240,12 @@ public class OrdenCompraController extends ActionSupport{
     public String execute() throws Exception {    
         this.con=new OrdenCompraConectar();
         this.datos=new ArrayList<>();
-        this.datos=con.getData("select * from ord_ordendecompra");
+        this.datos=con.getData("select o.ord_id,e.est_estado,t.tco_descripcion,s.sol_descripcion,p.pro_nombre,o.ord_fecha,o.ord_descripcion,o.ord_total\n" +
+                                "from ord_ordendecompra o \n" +
+                                "join est_estado e on e.est_id=o.est_id\n" +
+                                "join sol_solicitud s on s.sol_id=o.sol_id\n" +
+                                "join tco_tipocontratacion t on t.tco_id=o.tco_id\n" +
+                                "join pro_proveedor p on p.pro_id=o.pro_id");
         this.datosEst=new ArrayList<>();
         this.datosEst=con.getEstado("select * from est_estado");
         this.datosTipo=new ArrayList<>();
@@ -267,7 +284,12 @@ public class OrdenCompraController extends ActionSupport{
         this.ord_id=0;
         this.ord_total=0;
         this.datos=new ArrayList<>();
-        this.datos=con.getData("select * from ord_ordendecompra");
+         this.datos=con.getData("select o.ord_id,e.est_estado,t.tco_descripcion,s.sol_descripcion,p.pro_nombre,o.ord_fecha,o.ord_descripcion,o.ord_total\n" +
+                                "from ord_ordendecompra o \n" +
+                                "join est_estado e on e.est_id=o.est_id\n" +
+                                "join sol_solicitud s on s.sol_id=o.sol_id\n" +
+                                "join tco_tipocontratacion t on t.tco_id=o.tco_id\n" +
+                                "join pro_proveedor p on p.pro_id=o.pro_id");
         return SUCCESS;
     }
     
@@ -293,7 +315,12 @@ public class OrdenCompraController extends ActionSupport{
         this.ord_total=dato.getFloat("ord_total");
         }
         this.datos=new ArrayList<>();
-        this.datos=con.getData("select * from ord_ordendecompra");
+         this.datos=con.getData("select o.ord_id,e.est_estado,t.tco_descripcion,s.sol_descripcion,p.pro_nombre,o.ord_fecha,o.ord_descripcion,o.ord_total\n" +
+                                "from ord_ordendecompra o \n" +
+                                "join est_estado e on e.est_id=o.est_id\n" +
+                                "join sol_solicitud s on s.sol_id=o.sol_id\n" +
+                                "join tco_tipocontratacion t on t.tco_id=o.tco_id\n" +
+                                "join pro_proveedor p on p.pro_id=o.pro_id");
         return SUCCESS;
                 
     }
@@ -318,7 +345,12 @@ public class OrdenCompraController extends ActionSupport{
         this.ord_id=0;
         this.ord_total=0;
         this.datos=new ArrayList<>();
-        this.datos=con.getData("select * from ord_ordendecompra");
+         this.datos=con.getData("select o.ord_id,e.est_estado,t.tco_descripcion,s.sol_descripcion,p.pro_nombre,o.ord_fecha,o.ord_descripcion,o.ord_total\n" +
+                                "from ord_ordendecompra o \n" +
+                                "join est_estado e on e.est_id=o.est_id\n" +
+                                "join sol_solicitud s on s.sol_id=o.sol_id\n" +
+                                "join tco_tipocontratacion t on t.tco_id=o.tco_id\n" +
+                                "join pro_proveedor p on p.pro_id=o.pro_id");
         return SUCCESS;        
     }
     
@@ -327,7 +359,13 @@ public class OrdenCompraController extends ActionSupport{
         
         this.con2=new DetalleOrdenCompraConectar();
         this.datos2=new ArrayList<>();
-        this.datos2=con2.getData("select * from ord_dtl_ordendetalle where ord_id="+this.ord_id+"");
+        this.datos2=con2.getData("select od.ord_dtl_id,o.ord_id,e.equ_nombre,od.ord_dtl_precio,od.ord_dtl_codigoInventario\n" +
+                                "from ord_dtl_ordendetalle od\n" +
+                                "join equ_equipo e on e.equ_id=od.equ_id\n" +
+                                "join ord_ordendecompra o on od.ord_id=o.ord_id\n" +
+                                "where o.ord_id="+this.ord_id+"");
+        this.datosEqu=new ArrayList<>();
+        this.datosEqu=con2.getEqu("select * from equ_equipo");
         return SUCCESS;
     }
     
