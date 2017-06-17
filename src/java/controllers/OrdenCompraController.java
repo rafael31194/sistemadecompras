@@ -9,6 +9,9 @@ import models.DetalleOrdenCompraModel;
 import models.EstadoModel;
 import models.OrdenCompraConectar;
 import models.OrdenCompraModel;
+import models.ProveedorModel;
+import models.SolicitudModel;
+import models.TipoContratacionModel;
 
 public class OrdenCompraController extends ActionSupport{
     
@@ -17,17 +20,92 @@ public class OrdenCompraController extends ActionSupport{
     private ArrayList<OrdenCompraModel> datos;
     private ArrayList<DetalleOrdenCompraModel> datos2;
     private ArrayList<EstadoModel> datosEst;
+    private ArrayList<TipoContratacionModel> datosTipo;
+    private ArrayList<SolicitudModel> datosSol;
+    private ArrayList<ProveedorModel> datosPro;
     private ResultSet dato;
     
     public int ord_id;
-    private int est_id;
-    private int tco_id;
-    private int sol_id;
-    private int pro_id;
+    private int est_id,estid,id;
+    private int tco_id,tcoid;
+    private int sol_id,solid;
+    private int pro_id,proid;
     private String ord_fecha;
     private String ord_descripcion;
     private float ord_total;
     private int ordid;
+
+    public int getTcoid() {
+        return tcoid;
+    }
+
+    public void setTcoid(int tcoid) {
+        this.tcoid = tcoid;
+    }
+
+    public int getSolid() {
+        return solid;
+    }
+
+    public void setSolid(int solid) {
+        this.solid = solid;
+    }
+
+    public int getProid() {
+        return proid;
+    }
+
+    public void setProid(int proid) {
+        this.proid = proid;
+    }
+
+    public ArrayList<TipoContratacionModel> getDatosTipo() {
+        return datosTipo;
+    }
+
+    public void setDatosTipo(ArrayList<TipoContratacionModel> datosTipo) {
+        this.datosTipo = datosTipo;
+    }
+
+    public ArrayList<SolicitudModel> getDatosSol() {
+        return datosSol;
+    }
+
+    public void setDatosSol(ArrayList<SolicitudModel> datosSol) {
+        this.datosSol = datosSol;
+    }
+
+    public ArrayList<ProveedorModel> getDatosPro() {
+        return datosPro;
+    }
+
+    public void setDatosPro(ArrayList<ProveedorModel> datosPro) {
+        this.datosPro = datosPro;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public ArrayList<EstadoModel> getDatosEst() {
+        return datosEst;
+    }
+
+    public void setDatosEst(ArrayList<EstadoModel> datosEst) {
+        this.datosEst = datosEst;
+    }
+
+    public int getEstid() {
+        return estid;
+    }
+
+    public void setEstid(int estid) {
+        this.estid = estid;
+    }
 
     public ArrayList<DetalleOrdenCompraModel> getDatos2() {
         return datos2;
@@ -151,6 +229,14 @@ public class OrdenCompraController extends ActionSupport{
         this.con=new OrdenCompraConectar();
         this.datos=new ArrayList<>();
         this.datos=con.getData("select * from ord_ordendecompra");
+        this.datosEst=new ArrayList<>();
+        this.datosEst=con.getEstado("select * from est_estado");
+        this.datosTipo=new ArrayList<>();
+        this.datosTipo=con.getTipo("select * from tco_tipocontratacion");
+        this.datosSol=new ArrayList<>();
+        this.datosSol=con.getSol("select * from sol_solicitud");
+        this.datosPro=new ArrayList<>();
+        this.datosPro=con.getPro("select * from pro_proveedor");
 
     return SUCCESS;
     }
@@ -158,17 +244,28 @@ public class OrdenCompraController extends ActionSupport{
     public String recibirDatos() throws Exception {
         this.con=new OrdenCompraConectar();
         //this.datosMun=new ArrayList<>();
-        //this.datosMun=con.getNomMunicipios("select * from mun_municipio");             
+        //this.datosMun=con.getNomMunicipios("select * from mun_municipio"); 
+        this.datosEst=new ArrayList<>();
+        this.datosEst=con.getEstado("select * from est_estado");
+        this.datosTipo=new ArrayList<>();
+        this.datosTipo=con.getTipo("select * from tco_tipocontratacion");
+        this.datosSol=new ArrayList<>();
+        this.datosSol=con.getSol("select * from sol_solicitud");
+        this.datosPro=new ArrayList<>();
+        this.datosPro=con.getPro("select * from pro_proveedor");
         if (this.ord_id==0){        
-        con.setData("CALL `sp_insert_ord_ordenCompra`('"+this.est_id+"', '"+this.sol_id+"', '"+this.pro_id+"', '"+this.ord_fecha+"', '"+this.ord_descripcion+"', '"+this.ord_total+"', '"+this.tco_id+"')");
+        con.setData("CALL `sp_insert_ord_ordenCompra`('"+this.estid+"', '"+this.solid+"', '"+this.proid+"', '"+this.ord_fecha+"', '"+this.ord_descripcion+"', '"+this.ord_total+"', '"+this.tcoid+"')");
         } else {
-        con.updateData("update ord_ordendecompra set est_id="+this.est_id+",tco_id='"+this.tco_id+"',sol_id='"+this.sol_id+"',pro_id='"+this.pro_id+"',ord_fecha='"+this.ord_fecha+"',ord_descripcion='"+this.ord_descripcion+"',ord_total='"+this.ord_total+"' where ord_id="+this.ord_id+"");
+        con.updateData("update ord_ordendecompra set est_id="+this.estid+",tco_id='"+this.tcoid+"',sol_id='"+this.solid+"',pro_id='"+this.proid+"',ord_fecha='"+this.ord_fecha+"',ord_descripcion='"+this.ord_descripcion+"',ord_total='"+this.ord_total+"' where ord_id="+this.ord_id+"");
         }
-        /*this.ins_id=0;
-        this.mun_id=0;
-        this.ins_nombre=null;
-        this.ins_telefono=null;
-        this.ins_direccion=null;*/
+        this.est_id=0;
+        this.sol_id=0;
+        this.tco_id=0;
+        this.pro_id=0;
+        this.ord_fecha=null;
+        this.ord_descripcion=null;
+        this.ord_id=0;
+        this.ord_total=0;
         this.datos=new ArrayList<>();
         this.datos=con.getData("select * from ord_ordendecompra");
         return SUCCESS;
@@ -176,15 +273,21 @@ public class OrdenCompraController extends ActionSupport{
     
     public String llenarFormulario() throws Exception{
         this.con=new OrdenCompraConectar();
-        //this.datosMun=new ArrayList<>();
-        //this.datosMun=con.getNomMunicipios("select * from mun_municipio");  
+        this.datosEst=new ArrayList<>();
+        this.datosEst=con.getEstado("select * from est_estado");  
+        this.datosTipo=new ArrayList<>();
+        this.datosTipo=con.getTipo("select * from tco_tipocontratacion");
+        this.datosSol=new ArrayList<>();
+        this.datosSol=con.getSol("select * from sol_solicitud");
+        this.datosPro=new ArrayList<>();
+        this.datosPro=con.getPro("select * from pro_proveedor");
         this.dato=con.getDataForm("select * from ord_ordendecompra where ord_id="+this.ord_id+"");
         while(this.dato.next()){
         this.ord_id=dato.getInt("ord_id");
-        this.est_id=dato.getInt("est_id");
-        this.tco_id=dato.getInt("tco_id");
-        this.sol_id=dato.getInt("sol_id");
-        this.pro_id=dato.getInt("pro_id");
+        this.estid=dato.getInt("est_id");
+        this.tcoid=dato.getInt("tco_id");
+        this.solid=dato.getInt("sol_id");
+        this.proid=dato.getInt("pro_id");
         this.ord_fecha=dato.getString("ord_fecha");
         this.ord_descripcion=dato.getString("ord_descripcion");
         this.ord_total=dato.getFloat("ord_total");
@@ -197,9 +300,23 @@ public class OrdenCompraController extends ActionSupport{
     
     public String eliminar() throws Exception {
         this.con=new OrdenCompraConectar();
-        //this.datosMun=new ArrayList<>();
-        //this.datosMun=con.getNomMunicipios("select * from mun_municipio");  
+        this.datosEst=new ArrayList<>();
+        this.datosEst=con.getEstado("select * from est_estado");
+        this.datosTipo=new ArrayList<>();
+        this.datosTipo=con.getTipo("select * from tco_tipocontratacion");
+        this.datosSol=new ArrayList<>();
+        this.datosSol=con.getSol("select * from sol_solicitud");
+        this.datosPro=new ArrayList<>();
+        this.datosPro=con.getPro("select * from pro_proveedor");
         con.deleteData("delete from ord_ordendecompra where ord_id="+this.ord_id+"");
+        this.est_id=0;
+        this.sol_id=0;
+        this.tco_id=0;
+        this.pro_id=0;
+        this.ord_fecha=null;
+        this.ord_descripcion=null;
+        this.ord_id=0;
+        this.ord_total=0;
         this.datos=new ArrayList<>();
         this.datos=con.getData("select * from ord_ordendecompra");
         return SUCCESS;        
@@ -210,11 +327,9 @@ public class OrdenCompraController extends ActionSupport{
         
         this.con2=new DetalleOrdenCompraConectar();
         this.datos2=new ArrayList<>();
-        //OrdenCompraController ordid = new OrdenCompraController();
-        //rdid.valorordid();
-        //this.ordid=3;
         this.datos2=con2.getData("select * from ord_dtl_ordendetalle where ord_id="+this.ord_id+"");
         return SUCCESS;
     }
+    
     
 }

@@ -126,7 +126,7 @@ public class conectar {
         this.datos = this.consulta.executeQuery();
         while (this.datos.next()) {
             this.solicitudes.add(new SolicitudModel(datos.getInt("sol_id"), datos.getInt("cat_id"), datos.getInt("uni_id"), datos.getInt("est_id"), 
-            datos.getInt("sol_id_usu"), datos.getInt("sol_tipo"), datos.getString("sol_fecha"), datos.getString("sol_descripcion"), datos.getString("est_estado")));
+            datos.getInt("sol_id_usu"), datos.getInt("sol_tipo"), datos.getString("sol_fecha"), datos.getString("sol_descripcion")));
         }
         return this.solicitudes;
     }    

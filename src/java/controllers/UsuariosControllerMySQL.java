@@ -19,8 +19,8 @@ public class UsuariosControllerMySQL extends ActionSupport{
     private ArrayList<String> select;
     private ResultSet dato;
     
-    private int usu_id, rol_id, uni_id, ins_id, id_rol, id_uni, id_ins, usu_rol_id, usr_uni_id;
-    private String usu_usuario, usu_contrasenia, usu_nombre, usu_correo, rol_descripcion, ins_nombre, uni_nombre;
+    private int usu_id, rol_id, uni_id, ins_id, id_rol, id_uni, id_ins, usu_rol_id, usr_uni_id, id_ur, id_uu;
+    private String usu_usuario, usu_contrasenia, usu_nombre, usu_correo, rol_descripcion;
 
     public UsuarioConectar getCon() {
         return con;
@@ -150,6 +150,22 @@ public class UsuariosControllerMySQL extends ActionSupport{
         this.usr_uni_id = usr_uni_id;
     }
 
+    public int getId_ur() {
+        return id_ur;
+    }
+
+    public void setId_ur(int id_ur) {
+        this.id_ur = id_ur;
+    }
+
+    public int getId_uu() {
+        return id_uu;
+    }
+
+    public void setId_uu(int id_uu) {
+        this.id_uu = id_uu;
+    }
+
     public String getUsu_usuario() {
         return usu_usuario;
     }
@@ -190,22 +206,6 @@ public class UsuariosControllerMySQL extends ActionSupport{
         this.rol_descripcion = rol_descripcion;
     }
 
-    public String getIns_nombre() {
-        return ins_nombre;
-    }
-
-    public void setIns_nombre(String ins_nombre) {
-        this.ins_nombre = ins_nombre;
-    }
-
-    public String getUni_nombre() {
-        return uni_nombre;
-    }
-
-    public void setUni_nombre(String uni_nombre) {
-        this.uni_nombre = uni_nombre;
-    }
-
     @Override
     public String execute() throws Exception {     
         this.con = new UsuarioConectar();
@@ -213,7 +213,7 @@ public class UsuariosControllerMySQL extends ActionSupport{
         this.datosRol = new ArrayList<>();
         this.datosUni = new ArrayList<>();
         this.datosIns = new ArrayList<>();
-        this.datos = con.getData("select u.usu_id, u.usu_usuario, u.usu_contrasenia, u.usu_nombre, u.usu_correo, r.rol_descripcion, un.uni_nombre, ins_nombre from rol_rol r join usu_rol_usuarios_por_rol ur on r.rol_id = ur.rol_id join usu_usuario u on ur.usu_id = u.usu_id join usr_uni_usuarios_unidad uu on u.usu_id = uu.usu_id join ins_institucion i on uu.ins_id = i.ins_id join uni_unidad un on uu.uni_id = un.uni_id");
+        this.datos = con.getData("select u.usu_id, u.usu_usuario, u.usu_contrasenia, u.usu_nombre, u.usu_correo, r.rol_descripcion, un.uni_nombre, i.ins_nombre from rol_rol r join usu_rol_usuarios_por_rol ur on r.rol_id = ur.rol_id join usu_usuario u on ur.usu_id = u.usu_id join usr_uni_usuarios_unidad uu on u.usu_id = uu.usu_id join ins_institucion i on uu.ins_id = i.ins_id join uni_unidad un on uu.uni_id = un.uni_id");
         
         this.datosRol = new ArrayList<>();
         this.datosRol = con.getDataRoles("select * from rol_rol");
@@ -241,16 +241,17 @@ public class UsuariosControllerMySQL extends ActionSupport{
         if (this.usu_id == 0)       
             con.setData("CALL `sp_insert_usu_usuarioConRol`('"+this.usu_usuario+"', '"+this.usu_contrasenia+"', '"+this.usu_nombre+"', '"+this.usu_correo+"', '"+this.id_rol+"', '"+this.id_uni+"', '"+this.id_ins+"')");
         else 
-            con.updateData("update usu_usuario u, usu_rol_usuarios_por_rol ur, usr_uni_usuarios_unidad uu set u.usu_usuario="+this.usu_usuario+", u.usu_contrasenia=sha("+this.usu_contrasenia+"), u.usu_nombre="+this.usu_nombre+", u.usu_correo="+this.usu_correo+", ur.rol_id="+this.id_rol+", uu.uni_id="+this.id_uni+", uu.ins_id="+this.id_ins+" where u.usu_id="+this.usu_id+" and ur.usu_rol_id="+this.usu_rol_id+" and uu.usr_uni_id="+this.usr_uni_id+"");
+            con.updateData("update usu_usuario u, usu_rol_usuarios_por_rol ur, usr_uni_usuarios_unidad uu set u.usu_usuario = "+this.usu_usuario+", u.usu_contrasenia = sha("+this.usu_contrasenia+"), u.usu_nombre = "+this.usu_nombre+", u.usu_correo = "+this.usu_correo+", ur.rol_id = "+this.id_rol+", uu.uni_id = "+this.id_uni+", uu.ins_id = "+this.id_ins+" where u.usu_id = "+this.usu_id+" and ur.usu_rol_id = "+this.id_ur+" and uu.usr_uni_id = "+this.id_uu+"");
         
         this.usu_id = 0;
-        this.usu_rol_id = 0;
-        this.usr_uni_id = 0;
+
         this.usu_usuario = null;
         this.usu_contrasenia = null;
         this.usu_nombre = null;
         this.usu_correo = null;
+        this.usu_rol_id = 0;    
         this.rol_id = 0;
+        this.usr_uni_id = 0;
         this.uni_id = 0;
         this.ins_id = 0;
 
@@ -289,14 +290,17 @@ public class UsuariosControllerMySQL extends ActionSupport{
         this.datosIns = new ArrayList<>();
         this.datosIns = con.getDataInstituciones("select * from ins_institucion");
         
-        this.dato = con.getDataForm("select u.usu_id, u.usu_usuario, u.usu_nombre, u.usu_correo, ur.rol_id, uu.uni_id, uu.ins_id from usu_usuario u join usu_rol_usuarios_por_rol ur on "+this.usu_id+" = ur.usu_id join usr_uni_usuarios_unidad uu on "+this.usu_id+" = uu.usu_id");
+        this.dato = con.getDataForm("select u.usu_id, u.usu_usuario, u.usu_contrasenia, u.usu_nombre, u.usu_correo, ur.usu_rol_id, ur.rol_id, uu.usr_uni_id, uu.uni_id, uu.ins_id from usu_usuario u join usu_rol_usuarios_por_rol ur on u.usu_id = ur.usu_id join usr_uni_usuarios_unidad uu on u.usu_id = uu.usu_id where u.usu_id = "+this.usu_id+"");
         while(this.dato.next()){
         
         this.usu_id = dato.getInt("usu_id");
         this.usu_usuario = dato.getString("usu_usuario");
+        this.usu_contrasenia = dato.getString("usu_contrasenia");
         this.usu_nombre = dato.getString("usu_nombre");
         this.usu_correo = dato.getString("usu_correo");
+        this.id_ur = dato.getInt("usu_rol_id");
         this.id_rol = dato.getInt("rol_id");
+        this.id_uu = dato.getInt("usr_uni_id");
         this.id_uni = dato.getInt("uni_id");
         this.id_ins = dato.getInt("ins_id");
 

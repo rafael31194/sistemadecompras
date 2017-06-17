@@ -12,12 +12,12 @@ package models;
 public class SolicitudModel {
     private int sol_id, cat_id, uni_id, est_id, sol_id_usu, sol_tipo;
     private String sol_fecha;
-    private String sol_descripcion, est_estado;
+    private String sol_descripcion;
 
     public SolicitudModel() {
     }
 
-    public SolicitudModel(int sol_id, int cat_id, int uni_id, int est_id, int sol_id_usu, int sol_tipo, String sol_fecha, String sol_descripcion, String est_estado) {
+    public SolicitudModel(int sol_id, int cat_id, int uni_id, int est_id, int sol_id_usu, int sol_tipo, String sol_fecha, String sol_descripcion) {
         this.sol_id = sol_id;
         this.cat_id = cat_id;
         this.uni_id = uni_id;
@@ -26,7 +26,7 @@ public class SolicitudModel {
         this.sol_tipo = sol_tipo;
         this.sol_fecha = sol_fecha;
         this.sol_descripcion = sol_descripcion;
-        this.est_estado = est_estado;
+        
     }
 
     public int getSol_id() {
@@ -93,13 +93,7 @@ public class SolicitudModel {
         this.sol_descripcion = sol_descripcion;
     }
 
-    public String getEst_estado() {
-        return est_estado;
-    }
-
-    public void setEst_estado(String est_estado) {
-        this.est_estado = est_estado;
-    }
+    
 
     
 }

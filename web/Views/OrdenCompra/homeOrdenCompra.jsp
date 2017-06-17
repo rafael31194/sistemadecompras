@@ -171,54 +171,53 @@
                                                 <input type="date" class="input-xlarge datepicker" id="date01">
                                             </div>
                                         </div>-->
+                                                                                  
+                                    <div class="control-group">
+                                        <label class="control-label">Estado:</label>
+                                        <div class="controls">
+                                            <s:select name="estid" list="datosEst" listValue="est_estado" listKey="est_id"/> 
+                                            <s:hidden name="ord_id"/>
+                                        </div>
+                                    </div>
+                                        
                                        <div class="control-group">
-                                            <label class="control-label">Estado:</label>
+                                            <label class="control-label">Tipo de contratacion:</label>
                                             <div class="controls">
-                                                <s:textfield name="est_id"/>
-                                                <s:hidden name="ord_id"/>
+                                                <s:select name="tcoid" list="datosTipo" listValue="tco_descripcion" listKey="tco_id"/>                                                 
+                                            </div>
+                                        </div>
+                                               
+                                                
+                                       <div class="control-group">
+                                            <label class="control-label">Solicitud:</label>
+                                            <div class="controls">
+                                                <s:select name="solid" list="datosSol" listValue="sol_descripcion" listKey="sol_id"/>                                                 
                                             </div>
                                         </div>
                                             
-                                       <!-- <div class="control-group">
-                                        <label class="control-label">Estado:</label>
-                                        <div class="controls">
-                                            <%--<s:select name="idest" list="datosEst" listValue="est_estado" listKey="est_id"/>--%>
-                                        </div>
-                                        </div>-->
-                                       <div class="control-group">
-                                            <label class="control-label">Tipo Contratacion:</label>
-                                            <div class="controls">
-                                                <s:textfield name="tco_id"/>
-                                            </div>
-                                        </div>
-                                       <div class="control-group">
-                                            <label class="control-label">solicitud:</label>
-                                            <div class="controls">
-                                                <s:textfield name="sol_id"/>
-                                            </div>
-                                        </div>
+                                       
                                        <div class="control-group">
                                             <label class="control-label">Proveedor:</label>
                                             <div class="controls">
-                                                <s:textfield name="pro_id"/>
+                                                <s:select name="proid" list="datosPro" listValue="pro_nombre" listKey="pro_id"/>                                                 
                                             </div>
                                         </div>
                                        <div class="control-group">
                                             <label class="control-label">Fecha:</label>
                                             <div class="controls">
-                                                <s:textfield name="ord_fecha"/>
+                                                <s:textfield name="ord_fecha" type="date" required="true"/>
                                             </div>
                                         </div>                                       
                                        <div class="control-group">
                                             <label class="control-label">Total:</label>
                                             <div class="controls">
-                                                <s:textfield name="ord_total"/>
+                                                <s:textfield name="ord_total" type="number" min="0" required="true"/>
                                             </div>
                                         </div>
                                         <div class="control-group">
                                             <label class="control-label">Descripción:</label>
                                             <div class="controls">
-                                                <s:textfield name="ord_descripcion"/>
+                                                <s:textfield name="ord_descripcion" type="text" required="true"/>
                                             </div>
                                         </div>
 
