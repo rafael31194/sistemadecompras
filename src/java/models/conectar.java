@@ -18,7 +18,8 @@ public class conectar {
     private ArrayList<MunicipiosModel> array;
     private ArrayList<SolicitudModel> solicitudes;
     private ArrayList<BitacoraModel> bits;
-//    private ArrayList<String> array;
+    private ArrayList<InstitucionModel> arregloInst;
+    private ArrayList<EquipoModel> arregloEqui;
     
     public conectar() {
         this.server = "localhost:3307";
@@ -128,19 +129,6 @@ public class conectar {
             datos.getInt("sol_id_usu"), datos.getInt("sol_tipo"), datos.getString("sol_fecha"), datos.getString("sol_descripcion"), datos.getString("est_estado")));
         }
         return this.solicitudes;
-    }
+    }    
     
-     //******************************************************************* Métodos Bitácora *****************************************************************//
-    public ArrayList<BitacoraModel> getDataBitacora(String sql) throws SQLException{
-        this.bits = new ArrayList<>();
-        this.con();
-        this.consulta = this.con.prepareStatement(sql);
-        this.datos = this.consulta.executeQuery();
-        while (this.datos.next()) {
-            this.bits.add(new BitacoraModel(datos.getInt("bit_id"), datos.getInt("ins_id"), datos.getInt("inv_dtl_id"),
-            datos.getString("bit_fechaproxima"), datos.getString("bit_comentarios"), datos.getString("inv_dtl_nombre_equipo"),
-            datos.getString("ins_nombre")));
-        }
-        return this.bits;
-    }
 }
