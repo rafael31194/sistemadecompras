@@ -16,17 +16,21 @@ import java.util.ArrayList;
  *
  * @author Hassel
  */
-public class BitacoraConectar {
+public class SolicitudConectar {
     
     private Connection con;
     private PreparedStatement consulta;
     private ResultSet datos;
     private String server, user, bd, pass;
+    private ArrayList<InstitucionModel> arreglo;
+    private ArrayList<MunicipiosModel> arregloMun;
+    private ArrayList<MunicipiosModel> array;
+    private ArrayList<SolicitudModel> solicitudes;
     private ArrayList<BitacoraModel> bits;
+    private ArrayList<InstitucionModel> arregloInst;
     private ArrayList<EquipoModel> arregloEqui;
-    private ArrayList<InventarioDetalleModel> arregloInvDtl;
     
-    public BitacoraConectar() {
+    public SolicitudConectar() {
         this.server = "localhost:3307";
         this.user = "root";
         this.pass = "admin";
@@ -47,7 +51,7 @@ public class BitacoraConectar {
         this.con.close();
     }
     
-    public void setData(String sql) throws SQLException {
+     public void setData(String sql) throws SQLException {
        
         this.con();
         this.consulta = this.con.prepareStatement(sql);
@@ -77,33 +81,16 @@ public class BitacoraConectar {
         this.consulta.executeUpdate();          
     }
     
-    //******************************************************************* Métodos Bitácora *****************************************************************//
-    public ArrayList<BitacoraModel> getDataBitacora(String sql) throws SQLException{
-        this.bits = new ArrayList<>();
+    //******************************************************************* Métodos Solicitud *****************************************************************//
+    public ArrayList<SolicitudModel> getDataSolicitud(String sql) throws SQLException{
+        this.solicitudes = new ArrayList<>();
         this.con();
         this.consulta = this.con.prepareStatement(sql);
         this.datos = this.consulta.executeQuery();
         while (this.datos.next()) {
-            this.bits.add(new BitacoraModel(datos.getInt("bit_id"), datos.getInt("inv_dtl_id"), datos.getString("bit_fecha_inicio"),
-            datos.getString("bit_fecha_fin"), datos.getString("bit_hora_inicio"),datos.getString("bit_hora_fin"), datos.getString("bit_nombre_personal"),
-            datos.getString("bit_comentarios")));
+            this.solicitudes.add(new SolicitudModel(datos.getInt("sol_id"), datos.getInt("cat_id"), datos.getInt("uni_id"), datos.getInt("est_id"), 
+            datos.getInt("sol_id_usu"), datos.getInt("sol_tipo"), datos.getString("sol_fecha"), datos.getString("sol_descripcion")));
         }
-        return this.bits;
-    }
-    
-    public ArrayList getDataInvDtl(String sql) throws SQLException {
-        
-        this.arregloInvDtl = new ArrayList<>();
-        this.con();
-        this.consulta = this.con.prepareStatement(sql);
-        this.datos = this.consulta.executeQuery();
-        while (this.datos.next()) {
-            this.arregloInvDtl.add(new InventarioDetalleModel(datos.getInt("ins_id"), datos.getInt("inv_id"), datos.getInt("inv_dtl_id"),datos.getInt("equ_id"),
-                     datos.getInt("inv_dtl_cantidad"), datos.getString("inv_dtl_nombre_equipo"),datos.getString("inv_dtl_codigoinventario"))); 
-        }
-        return this.arregloInvDtl;
-        
-    }
-    
-    
+        return this.solicitudes;
+    }    
 }

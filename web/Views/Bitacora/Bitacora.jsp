@@ -126,38 +126,38 @@
                                     <div class="control-group">
                                         <label class="control-label" for="typeahead">Equipo:</label>
                                         <div class="controls">
-                                            <s:select name="id1" list="datosEqui" listValue="equ_nombre" listKey="equ_id"/>
+                                            <s:select name="id1" list="datosEqui" listValue="equ_id" listKey="inv_dtl_id"/>
                                             <s:hidden name="bit_id"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label" for="date01">Fecha inicio:</label>
                                         <div class="controls">
-                                            <s:textfield cssClass="form-control" name="bit_fechaproxima"/>
+                                            <s:textfield cssClass="form-control" name="bit_fecha_inicio"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label" for="date01">Hora:</label>
                                         <div class="controls">
-                                            <s:textfield cssClass="form-control" name="bit_fechaproxima"/>
+                                            <s:textfield cssClass="form-control" name="bit_hora_inicio"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label" for="date01">Fecha fin:</label>
                                         <div class="controls">
-                                            <s:textfield cssClass="form-control" name="bit_fechaproxima"/>
+                                            <s:textfield cssClass="form-control" name="bit_fecha_fin"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label" for="date01">Hora:</label>
                                         <div class="controls">
-                                            <s:textfield cssClass="form-control" name="bit_fechaproxima"/>
+                                            <s:textfield cssClass="form-control" name="bit_hora_fin"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label">Persona que lo realiza:</label>
                                         <div class="controls">
-                                            <s:textfield cssClass="form-control" name="bit_comentarios"/>
+                                            <s:textfield cssClass="form-control" name="bit_nombre_personal"/>
                                         </div>
                                     </div>
 

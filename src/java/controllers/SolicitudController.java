@@ -9,15 +9,15 @@ import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionSupport;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import models.SolicitudConectar;
 import models.SolicitudModel;
-import models.conectar;
 
 /**
  *
  * @author Hassel
  */
 public class SolicitudController extends ActionSupport{
-    private conectar con;
+    private SolicitudConectar con;
     private ArrayList<SolicitudModel> datos;
     private ResultSet dato, select;
     private ArrayList<String> tipos;
@@ -28,7 +28,7 @@ public class SolicitudController extends ActionSupport{
     
     @Override
     public String execute() throws Exception{
-        this.con = new conectar();
+        this.con = new SolicitudConectar();
         this.datos = new ArrayList<>();
         this.datos = this.con.getDataSolicitud("select s.sol_id, s.cat_id, s.uni_id, s.est_id, s.sol_tipo, s.sol_fecha, s.sol_id_usu, "
                                                + "s.sol_descripcion, e.est_estado from sol_solicitud s inner join est_estado e on s.est_id = e.est_id;");
@@ -38,7 +38,7 @@ public class SolicitudController extends ActionSupport{
     }
     
     public String guardar() throws Exception{
-        this.con = new conectar();
+        this.con = new SolicitudConectar();
         this.tipos = new ArrayList<>();
         this.tipos.add("1");
         this.tipos.add("2");
@@ -64,7 +64,7 @@ public class SolicitudController extends ActionSupport{
     }
     
     public String llenarFormulario() throws Exception{
-        this.con = new conectar();
+        this.con = new SolicitudConectar();
         this.dato = con.getDataForm("select * from sol_solicitud where sol_id = "+this.sol_id+" ");
         while (this.dato.next()) {    
             this.sol_id = dato.getInt("sol_id");
@@ -83,7 +83,7 @@ public class SolicitudController extends ActionSupport{
     }
    
     public String eliminar() throws Exception{
-        this.con = new conectar();
+        this.con = new SolicitudConectar();
         con.deleteData("delete from sol_solicitud where sol_id="+this.sol_id+"");
         this.datos = new ArrayList<>();
         this.datos = this.con.getDataSolicitud("select s.sol_id, s.cat_id, s.uni_id, s.est_id, s.sol_tipo, s.sol_fecha, s.sol_id_usu, "
@@ -93,11 +93,11 @@ public class SolicitudController extends ActionSupport{
     
     //******************************************************************* Getters & Setters ************************************************************//
 
-    public conectar getCon() {
+    public SolicitudConectar getCon() {
         return con;
     }
 
-    public void setCon(conectar con) {
+    public void setCon(SolicitudConectar con) {
         this.con = con;
     }
 
@@ -123,6 +123,14 @@ public class SolicitudController extends ActionSupport{
 
     public void setSelect(ResultSet select) {
         this.select = select;
+    }
+
+    public ArrayList<String> getTipos() {
+        return tipos;
+    }
+
+    public void setTipos(ArrayList<String> tipos) {
+        this.tipos = tipos;
     }
 
     public int getSol_id() {
@@ -188,6 +196,7 @@ public class SolicitudController extends ActionSupport{
     public void setSol_descripcion(String sol_descripcion) {
         this.sol_descripcion = sol_descripcion;
     }
-    
+
+  
     
 }

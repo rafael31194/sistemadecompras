@@ -16,10 +16,6 @@ public class conectar {
     private ArrayList<InstitucionModel> arreglo;
     private ArrayList<MunicipiosModel> arregloMun;
     private ArrayList<MunicipiosModel> array;
-    private ArrayList<SolicitudModel> solicitudes;
-    private ArrayList<BitacoraModel> bits;
-    private ArrayList<InstitucionModel> arregloInst;
-    private ArrayList<EquipoModel> arregloEqui;
     
     public conectar() {
         this.server = "localhost:3307";
@@ -117,18 +113,5 @@ public class conectar {
         return array;
         
     }
-    
-    //******************************************************************* Métodos Solicitud *****************************************************************//
-    public ArrayList<SolicitudModel> getDataSolicitud(String sql) throws SQLException{
-        this.solicitudes = new ArrayList<>();
-        this.con();
-        this.consulta = this.con.prepareStatement(sql);
-        this.datos = this.consulta.executeQuery();
-        while (this.datos.next()) {
-            this.solicitudes.add(new SolicitudModel(datos.getInt("sol_id"), datos.getInt("cat_id"), datos.getInt("uni_id"), datos.getInt("est_id"), 
-            datos.getInt("sol_id_usu"), datos.getInt("sol_tipo"), datos.getString("sol_fecha"), datos.getString("sol_descripcion")));
-        }
-        return this.solicitudes;
-    }    
     
 }

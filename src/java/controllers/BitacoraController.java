@@ -30,14 +30,14 @@ public class BitacoraController extends ActionSupport {
     @Override
     public String execute() throws Exception {
         this.con = new BitacoraConectar();
-        this.datos = new ArrayList<>();
         
+        this.datosEqui = new ArrayList<>();
+        this.datosEqui = this.con.getDataInvDtl("select * from inv_dtl_inventario_detalle");
+        
+        this.datos = new ArrayList<>();
         this.datos = this.con.getDataBitacora("CALL `sp_select_all_bit_bitacoramanto`()");
         System.out.println("Bitácora: \n");
         System.out.println(this.datos);
-        
-        this.datosEqui = new ArrayList<>();
-        this.datosEqui = this.con.getDataEquipos("select * from equ_equipo");
         
         return SUCCESS;
     }
@@ -45,15 +45,13 @@ public class BitacoraController extends ActionSupport {
     public String guardar() throws Exception {
         this.con = new BitacoraConectar();
         
-        this.datosEqui = new ArrayList<>();
-        this.datosEqui = this.con.getDataEquipos("select * from equ_equipo");
-        
         if (this.bit_id == 0) {
-            this.con.setData("CALL `sp_insert_bit_bitacoramanto`('"+this.id1+"','"+this.inv_dtl_id+"', '"+this.bit_fecha_inicio+"', '"+this.bit_fecha_fin+"',"
-                    + " '"+this.bit_hora_inicio+"', '"+this.bit_hora_fin+"', '"+this.bit_nombre_personal+"', '"+this.bit_comentarios+"')");
+            this.con.setData("CALL `sp_insert_bit_bitacoramanto`('"+this.id1+"', '"+this.bit_fecha_inicio+"', '"+this.bit_fecha_fin+"',"
+                            + " '"+this.bit_hora_inicio+"', '"+this.bit_hora_fin+"', '"+this.bit_nombre_personal+"', '"+this.bit_comentarios+"')");
         }
         else {
-            con.updateData("");
+            con.updateData("CALL `sp_update_bit_bitacoramanto`('"+this.bit_id+"', '"+this.id1+"', '"+this.bit_fecha_inicio+"', '"+this.bit_fecha_fin+"', "
+                            + "'"+this.bit_hora_inicio+"', '"+this.bit_hora_fin+"', '"+this.bit_nombre_personal+"', '"+this.bit_comentarios+"')");
         }
         this.inv_dtl_id = 0;
         this.bit_fecha_inicio = null;
@@ -62,8 +60,8 @@ public class BitacoraController extends ActionSupport {
         this.bit_hora_fin = null;
         this.bit_nombre_personal = null;
         this.bit_comentarios = null;
-        this.datos = new ArrayList<>();
-        this.datos = this.con.getDataBitacora("CALL `sp_select_all_bit_bitacoramanto`()");
+        
+        execute();
         return SUCCESS;
     }
     
@@ -71,7 +69,7 @@ public class BitacoraController extends ActionSupport {
         this.con = new BitacoraConectar();
         this.dato = con.getDataForm("select * from bit_bitacoramantenimiento where bit_id = "+this.bit_id+"");
         while (this.dato.next()) {            
-            this.inv_dtl_id = dato.getInt("inv_dtl_id");
+            this.id1 = dato.getInt("inv_dtl_id");
             this.bit_fecha_inicio = dato.getString("bit_fecha_inicio");
             this.bit_fecha_fin = dato.getString("bit_fecha_fin");
             this.bit_hora_inicio = dato.getString("bit_hora_inicio");
@@ -79,12 +77,7 @@ public class BitacoraController extends ActionSupport {
             this.bit_nombre_personal = dato.getString("bit_nombre_personal");
             this.bit_comentarios = dato.getString("bit_comentarios");
         }
-        this.datos = new ArrayList<>();
-        this.datos = this.con.getDataBitacora("select b.bit_id, b.ins_id, b.inv_dtl_id, b.bit_fechaproxima, b.bit_comentarios, i.ins_nombre, id.inv_dtl_nombre_equipo from bit_bitacoramantenimiento b \n"
-                + "join inv_dtl_inventario_detalle id\n"
-                + "on b.inv_dtl_id = id.inv_dtl_id \n"
-                + "join ins_institucion i \n"
-                + "on b.ins_id = i.ins_id order by bit_id;");
+        execute();
         return SUCCESS;
     }
     
@@ -92,11 +85,7 @@ public class BitacoraController extends ActionSupport {
         this.con = new BitacoraConectar();
         this.datos = new ArrayList<>();
         con.deleteData("delete from bit_bitacoramantenimiento where bit_id = "+this.bit_id+"");        
-        this.datos = this.con.getDataBitacora("select b.bit_id, b.ins_id, b.inv_dtl_id, b.bit_fechaproxima, b.bit_comentarios, i.ins_nombre, id.inv_dtl_nombre_equipo from bit_bitacoramantenimiento b \n"
-                + "join inv_dtl_inventario_detalle id\n"
-                + "on b.inv_dtl_id = id.inv_dtl_id \n"
-                + "join ins_institucion i \n"
-                + "on b.ins_id = i.ins_id order by bit_id;");
+        execute();
         return SUCCESS;
     }        
     
