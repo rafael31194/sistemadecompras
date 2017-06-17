@@ -15,7 +15,10 @@ public class OrdenCompraConectar {
     private String server, user, bd, pass;
     
     private ArrayList<OrdenCompraModel> arreglo;
-    private ArrayList<EstadoModel> array;
+    private ArrayList<EstadoModel> arrayEst;
+    private ArrayList<TipoContratacionModel> arrayTipo;
+    private ArrayList<SolicitudModel> arraySol;
+    private ArrayList<ProveedorModel> arrayPro;
     
     
     public OrdenCompraConectar() {
@@ -89,14 +92,53 @@ public class OrdenCompraConectar {
 
     public ArrayList getEstado(String sql) throws SQLException {
         
-        this.array = new ArrayList<>();
+        this.arrayEst = new ArrayList<>();
         this.con();
         this.consulta = this.con.prepareStatement(sql);
         this.datos = this.consulta.executeQuery();
         while(this.datos.next()){
-            this.array.add(new EstadoModel(datos.getInt("est_id"),datos.getString("est_estado")));
+            this.arrayEst.add(new EstadoModel(datos.getInt("est_id"),datos.getString("est_estado")));
         }
-        return array;
+        return arrayEst;
+        
+    }
+    
+    public ArrayList getSol(String sql) throws SQLException {
+        
+        this.arraySol = new ArrayList<>();
+        this.con();
+        this.consulta = this.con.prepareStatement(sql);
+        this.datos = this.consulta.executeQuery();
+        while(this.datos.next()){
+            this.arraySol.add(new SolicitudModel(datos.getInt("sol_id"),datos.getInt("cat_id"),datos.getInt("uni_id"),datos.getInt("est_id"),datos.getInt("sol_id_usu"),
+                    datos.getInt("sol_tipo"),datos.getString("sol_fecha"),datos.getString("sol_descripcion")));
+        } 
+        return arraySol;
+        
+    }
+    
+    public ArrayList getTipo(String sql) throws SQLException {
+        
+        this.arrayTipo = new ArrayList<>();
+        this.con();
+        this.consulta = this.con.prepareStatement(sql);
+        this.datos = this.consulta.executeQuery();
+        while(this.datos.next()){
+            this.arrayTipo.add(new TipoContratacionModel(datos.getInt("tco_id"),datos.getString("tco_descripcion")));
+        }
+        return arrayTipo;
+        
+    }public ArrayList getPro(String sql) throws SQLException {
+        
+        this.arrayPro = new ArrayList<>();
+        this.con();
+        this.consulta = this.con.prepareStatement(sql);
+        this.datos = this.consulta.executeQuery();
+        while(this.datos.next()){
+            this.arrayPro.add(new ProveedorModel(datos.getInt("pro_id"),datos.getInt("mun_id"),datos.getString("pro_nombre"),
+                    datos.getString("pro_direccion"),datos.getInt("pro_id_usu")));
+        }
+        return arrayPro;
         
     }
 }
