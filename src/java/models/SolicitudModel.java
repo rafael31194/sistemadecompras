@@ -11,8 +11,7 @@ package models;
  */
 public class SolicitudModel {
     private int sol_id, cat_id, uni_id, est_id, sol_id_usu, sol_tipo;
-    private String sol_fecha;
-    private String sol_descripcion;
+   private String sol_fecha, tipoSol, unidad, categoriaEqui, usuario, sol_descripcion, estado;
 
     public SolicitudModel() {
     }
@@ -29,6 +28,28 @@ public class SolicitudModel {
         
     }
 
+    public SolicitudModel(int sol_id, int cat_id, int uni_id, int est_id, String sol_fecha, String tipoSol, String unidad, String categoriaEqui, String usuario, String sol_descripcion, String estado) {
+        this.sol_id = sol_id;
+        this.cat_id = cat_id;
+        this.uni_id = uni_id;
+        this.est_id = est_id;
+        this.sol_fecha = sol_fecha;
+        this.tipoSol = tipoSol;
+        this.unidad = unidad;
+        this.categoriaEqui = categoriaEqui;
+        this.usuario = usuario;
+        this.sol_descripcion = sol_descripcion;
+        this.estado = estado;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+     
     public int getSol_id() {
         return sol_id;
     }
@@ -93,7 +114,36 @@ public class SolicitudModel {
         this.sol_descripcion = sol_descripcion;
     }
 
-    
+    public String getTipoSol() {
+        return tipoSol;
+    }
 
-    
+    public void setTipoSol(String tipoSol) {
+        this.tipoSol = tipoSol;
+    }
+
+    public String getUnidad() {
+        return unidad;
+    }
+
+    public void setUnidad(String unidad) {
+        this.unidad = unidad;
+    }
+
+    public String getCategoriaEqui() {
+        return categoriaEqui;
+    }
+
+    public void setCategoriaEqui(String categoriaEqui) {
+        this.categoriaEqui = categoriaEqui;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
 }

@@ -130,20 +130,20 @@
                                     <div class="control-group">
                                         <label class="control-label">Categoría del equipo:</label>
                                         <div class="controls">
-                                            <s:textfield name="cat_id" cssClass="form-control"/>
+                                            <s:select name="id" list="datosCatEqui" listValue="cat_descripcion" listKey="cat_id"/>
                                             <s:hidden name="sol_id"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label">Unidad:</label>
                                         <div class="controls">
-                                            <s:textfield name="uni_id" cssClass="form-control"/>
+                                            <s:select name="idUni" list="datosUnidad" listValue="uni_nombre" listKey="uni_id"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label">Usuario:</label>
                                         <div class="controls">
-                                            <s:textfield name="sol_id_usu" cssClass="form-control disabled"/>
+                                            <s:select name="idUser" list="datosUser" listValue="usu_usuario" listKey="usu_id"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
@@ -160,7 +160,7 @@
                                     </div>
 
                                     <div class="control-group">
-                                        <label class="control-label">Tipos soicitud:</label>
+                                        <label class="control-label">Tipo solicitud:</label>
                                         <div class="controls">
                                             <s:textfield name="sol_tipo" cssClass="form-control"/>
                                         </div>
@@ -190,8 +190,10 @@
                                     <thead>
                                         <tr>
                                             <th>Tipo solicitud</th>
-                                            <th>Fecha</th>
+                                            <th>Categoria de equipo</th>
+                                            <th>Unidad</th>
                                             <th>Usuario</th>
+                                            <th>Fecha</th>
                                             <th>Descripción</th>
                                             <th>Estado</th>
                                             <th>Acciones</th>
@@ -200,12 +202,14 @@
                                     <tbody>
                                         <s:iterator value="datos" var="dato" status="estado">
                                             <tr>
-                                                <td><s:property value="sol_tipo"/></td>
+                                                <td><s:property value="tipoSol"/></td>
+                                                <td><s:property value="categoriaEqui"/></td>
+                                                <td><s:property value="unidad"/></td>
+                                                <td><s:property value="usuario"/></td>
                                                 <td><s:property value="sol_fecha"/></td>
-                                                <td><s:property value="sol_id_usu"/></td>
                                                 <td><s:property value="sol_descripcion"/></td>
                                                 <td>
-                                                    <span class="label label-success"><s:property value="est_estado"/></span>
+                                                    <span class="label label-success"><s:property value="estado"/></span>
                                                 </td>
                                                 <td>
                                                     <s:a action="editarSoli" cssClass="btn btn-info">

@@ -140,12 +140,6 @@
                                             <s:textfield name="ins_direccion"/>
                                         </div>
                                     </div>
-<!--                                    <div class="control-group">
-                                        <label class="control-label">Id municipio:</label>
-                                        <div class="controls">
-                                            <%--<s:textfield name="mun_id"/>--%>
-                                        </div>
-                                    </div>-->
                                    <div class="control-group">
                                         <label class="control-label">Municipio:</label>
                                         <div class="controls">
@@ -162,43 +156,6 @@
                         </div><!--/span-->
 
                     </div><!--/row-->
-                    
-                    
-          <%--    <s:form action="enviar">                   
-                                        
-
-                                        <div class="control-group">
-                                            <label class="control-label">id municipio</label>
-                                            <div class="controls">
-                                                <s:hidden name="ins_id"/>
-                                                <s:textfield name="mun_id"/>
-                                            </div>
-                                        </div>
-
-                                        <div class="control-group">
-                                            <label class="control-label">nombre</label>
-                                            <div class="controls">
-                                                <s:textfield name="ins_nombre"/>
-                                            </div>
-                                        </div>   
-
-                                        <div class="control-group">
-                                            <label class="control-label">telefono</label>
-                                            <div class="controls">
-                                                <s:textfield name="ins_telefono"/>
-                                            </div>
-                                        </div> 
-
-                                        <div class="control-group">
-                                            <label class="control-label">direccion</label>
-                                            <div class="controls">
-                                                <s:textfield name="ins_direccion"/>
-                                            </div>
-                                        </div> 
-                                        <s:submit value="Enviar" title="Enviar" cssClass="btn btn-default"/>
-                                    
-                    
-                </s:form>--%>
 
                     <div class="row-fluid sortable">
                         <div class="box span12">

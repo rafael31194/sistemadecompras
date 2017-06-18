@@ -126,7 +126,7 @@
                                     <div class="control-group">
                                         <label class="control-label" for="typeahead">Equipo:</label>
                                         <div class="controls">
-                                            <s:select name="id1" list="datosEqui" listValue="equ_id" listKey="inv_dtl_id"/>
+                                            <s:select name="id1" list="datosEqui" listValue="inv_dtl_nombre_equipo" listKey="inv_dtl_id"/>
                                             <s:hidden name="bit_id"/>
                                         </div>
                                     </div>

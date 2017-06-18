@@ -10,14 +10,13 @@ package models;
  * @author Hassel
  */
 public class EquipoModel {
-    private int equ_id, pro_id, pro_pro_id, cat_id, equ_anio;
+    private int equ_id, pro_id,cat_id, equ_anio;
     private String equ_nombre, equ_marca, equ_modelo, equ_especificaciongarantia, equ_imagen;
     private float equ_capacidad_btu, equ_potencia;
 
-    public EquipoModel(int equ_id, int pro_id, int pro_pro_id, int cat_id, int equ_anio, String equ_nombre, String equ_marca, String equ_modelo, String equ_especificaciongarantia, String equ_imagen, float equ_capacidad_btu, float equ_potencia) {
+    public EquipoModel(int equ_id, int pro_id, int cat_id, int equ_anio, String equ_nombre, String equ_marca, String equ_modelo, String equ_especificaciongarantia, String equ_imagen, float equ_capacidad_btu, float equ_potencia) {
         this.equ_id = equ_id;
         this.pro_id = pro_id;
-        this.pro_pro_id = pro_pro_id;
         this.cat_id = cat_id;
         this.equ_anio = equ_anio;
         this.equ_nombre = equ_nombre;
@@ -46,14 +45,6 @@ public class EquipoModel {
 
     public void setPro_id(int pro_id) {
         this.pro_id = pro_id;
-    }
-
-    public int getPro_pro_id() {
-        return pro_pro_id;
-    }
-
-    public void setPro_pro_id(int pro_pro_id) {
-        this.pro_pro_id = pro_pro_id;
     }
 
     public int getCat_id() {

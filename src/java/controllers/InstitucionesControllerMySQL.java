@@ -158,6 +158,7 @@ public class InstitucionesControllerMySQL extends ActionSupport{
         this.datosMun=new ArrayList<>();
         this.datosMun=con.getNomMunicipios("select * from mun_municipio");  
         con.deleteData("delete from ins_institucion where ins_id="+this.ins_id+"");
+        this.ins_id=0;
         this.datos=new ArrayList<>();
         this.datos=con.getData("select i.ins_id,i.mun_id,m.mun_nombre,i.ins_nombre,i.ins_telefono,i.ins_direccion from ins_institucion i inner join mun_municipio m on i.mun_id=m.mun_id");
         return SUCCESS;        

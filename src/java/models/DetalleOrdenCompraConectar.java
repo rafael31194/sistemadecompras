@@ -93,7 +93,7 @@ public class DetalleOrdenCompraConectar {
         this.consulta = this.con.prepareStatement(sql);
         this.datos = this.consulta.executeQuery();
         while(this.datos.next()){
-            this.arrayEqu.add(new EquipoModel(datos.getInt("equ_id"),datos.getInt("pro_id"),datos.getInt("pro_pro_id"),datos.getInt("cat_id"),
+            this.arrayEqu.add(new EquipoModel(datos.getInt("equ_id"),datos.getInt("pro_id"),datos.getInt("cat_id"),
                     datos.getInt("equ_anio"),datos.getString("equ_nombre"),datos.getString("equ_marca"),datos.getString("equ_modelo"),datos.getString("equ_especificaciongarantia"),datos.getString("equ_imagen"),
                     datos.getFloat("equ_capacidad_btu"),datos.getFloat("equ_potencia")));
         } 

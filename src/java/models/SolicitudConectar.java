@@ -22,13 +22,10 @@ public class SolicitudConectar {
     private PreparedStatement consulta;
     private ResultSet datos;
     private String server, user, bd, pass;
-    private ArrayList<InstitucionModel> arreglo;
-    private ArrayList<MunicipiosModel> arregloMun;
-    private ArrayList<MunicipiosModel> array;
     private ArrayList<SolicitudModel> solicitudes;
-    private ArrayList<BitacoraModel> bits;
-    private ArrayList<InstitucionModel> arregloInst;
-    private ArrayList<EquipoModel> arregloEqui;
+    private ArrayList<CategoriaEquipoModel> categorias;
+    private ArrayList<UnidadModel> unidades;
+    private ArrayList<UsuarioModel> users;
     
     public SolicitudConectar() {
         this.server = "localhost:3307";
@@ -88,9 +85,48 @@ public class SolicitudConectar {
         this.consulta = this.con.prepareStatement(sql);
         this.datos = this.consulta.executeQuery();
         while (this.datos.next()) {
-            this.solicitudes.add(new SolicitudModel(datos.getInt("sol_id"), datos.getInt("cat_id"), datos.getInt("uni_id"), datos.getInt("est_id"), 
-            datos.getInt("sol_id_usu"), datos.getInt("sol_tipo"), datos.getString("sol_fecha"), datos.getString("sol_descripcion")));
+            this.solicitudes.add(new SolicitudModel(datos.getInt("sol_id"), datos.getInt("cat_id"), datos.getInt("uni_id"),
+            datos.getInt("est_id"), datos.getString("sol_fecha"), datos.getString("tipoSol"), datos.getString("unidad"), datos.getString("categoriaEqui")
+            , datos.getString("usuario"), datos.getString("sol_descripcion"), datos.getString("estado")));
         }
+        
         return this.solicitudes;
-    }    
+    }  
+    
+    public ArrayList<CategoriaEquipoModel> getDataCatEquipo(String sql) throws SQLException{
+        this.categorias = new ArrayList<>();
+        this.con();
+        this.consulta = this.con.prepareStatement(sql);
+        this.datos = this.consulta.executeQuery();
+        while (this.datos.next()) {
+            this.categorias.add(new CategoriaEquipoModel(datos.getInt("cat_id"), datos.getString("cat_descripcion")));
+        }
+        
+        return this.categorias;
+    }  
+    
+    public ArrayList<UnidadModel> getDataUnidades(String sql) throws SQLException{
+        this.unidades = new ArrayList<>();
+        this.con();
+        this.consulta = this.con.prepareStatement(sql);
+        this.datos = this.consulta.executeQuery();
+        while (this.datos.next()) {
+            this.unidades.add(new UnidadModel(datos.getInt("uni_id"), datos.getString("uni_nombre")));
+        }
+        
+        return this.unidades;
+    } 
+    public ArrayList<UsuarioModel> getDataUsuario(String sql) throws SQLException {
+        
+        this.users = new ArrayList<>();
+        this.con();
+        this.consulta = this.con.prepareStatement(sql);
+        this.datos = this.consulta.executeQuery();
+        while (this.datos.next()) {
+            this.users.add(new UsuarioModel(datos.getInt("usu_id"), datos.getString("usu_usuario"), datos.getString("usu_contrasenia"),
+            datos.getString("usu_nombre"), datos.getString("usu_correo"), datos.getInt("usu_activo")));  
+        }
+        return this.users;
+        
+    }   
 }

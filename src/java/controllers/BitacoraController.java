@@ -32,7 +32,7 @@ public class BitacoraController extends ActionSupport {
         this.con = new BitacoraConectar();
         
         this.datosEqui = new ArrayList<>();
-        this.datosEqui = this.con.getDataInvDtl("select * from inv_dtl_inventario_detalle");
+        this.datosEqui = this.con.getDataInvDtl("CALL `sp_select_inv_dtl_equ_equiposByInventario`()");
         
         this.datos = new ArrayList<>();
         this.datos = this.con.getDataBitacora("CALL `sp_select_all_bit_bitacoramanto`()");
@@ -53,7 +53,7 @@ public class BitacoraController extends ActionSupport {
             con.updateData("CALL `sp_update_bit_bitacoramanto`('"+this.bit_id+"', '"+this.id1+"', '"+this.bit_fecha_inicio+"', '"+this.bit_fecha_fin+"', "
                             + "'"+this.bit_hora_inicio+"', '"+this.bit_hora_fin+"', '"+this.bit_nombre_personal+"', '"+this.bit_comentarios+"')");
         }
-        this.inv_dtl_id = 0;
+        this.id1 = 0;
         this.bit_fecha_inicio = null;
         this.bit_fecha_fin = null;
         this.bit_hora_inicio = null;
@@ -67,7 +67,7 @@ public class BitacoraController extends ActionSupport {
     
     public String llenarFormulario() throws Exception{
         this.con = new BitacoraConectar();
-        this.dato = con.getDataForm("select * from bit_bitacoramantenimiento where bit_id = "+this.bit_id+"");
+        this.dato = con.getDataForm("CALL `sp_select_sol_bitacoraById`('"+this.bit_id+"')");
         while (this.dato.next()) {            
             this.id1 = dato.getInt("inv_dtl_id");
             this.bit_fecha_inicio = dato.getString("bit_fecha_inicio");
