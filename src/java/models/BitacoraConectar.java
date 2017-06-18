@@ -99,7 +99,7 @@ public class BitacoraConectar {
         this.datos = this.consulta.executeQuery();
         while (this.datos.next()) {
             this.arregloInvDtl.add(new InventarioDetalleModel(datos.getInt("ins_id"), datos.getInt("inv_id"), datos.getInt("inv_dtl_id"),datos.getInt("equ_id"),
-                     datos.getInt("inv_dtl_cantidad"), datos.getString("inv_dtl_nombre_equipo"),datos.getString("inv_dtl_codigoinventario"))); 
+                     datos.getInt("inv_dtl_cantidad"), datos.getString("inv_dtl_nombre_equipo"),datos.getString("inv_dtl_codigoinventario"), datos.getString("equ_nombre"))); 
         }
         return this.arregloInvDtl;
         

@@ -11,8 +11,8 @@ package models;
  */
 public class InventarioDetalleModel {
     private int ins_id, inv_id, inv_dtl_id, equ_id, inv_dtl_cantidad;
-    private String inv_dtl_nombre_equipo, inv_dtl_codigoinventario;
-
+    private String inv_dtl_nombre_equipo, inv_dtl_codigoinventario, equ_nombre;
+    
     public InventarioDetalleModel() {
     }
 
@@ -26,6 +26,18 @@ public class InventarioDetalleModel {
         this.inv_dtl_codigoinventario = inv_dtl_codigoinventario;
     }
 
+    public InventarioDetalleModel(int ins_id, int inv_id, int inv_dtl_id, int equ_id, int inv_dtl_cantidad, String inv_dtl_nombre_equipo, String inv_dtl_codigoinventario, String equ_nombre) {
+        this.ins_id = ins_id;
+        this.inv_id = inv_id;
+        this.inv_dtl_id = inv_dtl_id;
+        this.equ_id = equ_id;
+        this.inv_dtl_cantidad = inv_dtl_cantidad;
+        this.inv_dtl_nombre_equipo = inv_dtl_nombre_equipo;
+        this.inv_dtl_codigoinventario = inv_dtl_codigoinventario;
+        this.equ_nombre = equ_nombre;
+    }
+    
+    
     public int getIns_id() {
         return ins_id;
     }
