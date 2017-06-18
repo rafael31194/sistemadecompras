@@ -15,6 +15,7 @@ public class InstitucionesControllerMySQL extends ActionSupport{
     private ArrayList<MunicipiosModel> datosMun;
     private ArrayList<String> select;
     private ResultSet dato;
+    private int rol;
     
     
     private int mun_id,ins_id,id;
@@ -117,11 +118,21 @@ public class InstitucionesControllerMySQL extends ActionSupport{
     public void setDatos(ArrayList<InstitucionModel> datos) {
         this.datos = datos;
     }
+
+    public int getRol() {
+        return rol;
+    }
+
+    public void setRol(int rol) {
+        this.rol = rol;
+    }
     
     
     
     @Override
-    public String execute() throws Exception {     
+    public String execute() throws Exception {  
+        
+        this.rol=1;
         this.con=new conectar();
         this.datos=new ArrayList<>();
         this.datosMun=new ArrayList<>();

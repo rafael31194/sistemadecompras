@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%@taglib prefix="s" uri="/struts-tags" %>
-
+<%@page import="sv.edu.ues.bad115.global.SessionSistema.UsuarioActivo" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -70,7 +70,7 @@
 
         <div class="container-fluid-full">
             <div class="row-fluid">
-
+<%    if (UsuarioActivo.idRol==1) {%>
                 <!-- start: Main Menu -->
                 <div id="sidebar-left" class="span2">
                     <div class="nav-collapse sidebar-nav">
@@ -93,7 +93,20 @@
                     </div>
                 </div>
                 <!-- end: Main Menu -->
-
+        <%} else {%>
+                <div id="sidebar-left" class="span2">
+                    <div class="nav-collapse sidebar-nav">
+                        <ul class="nav nav-tabs nav-stacked main-menu">
+                            <li><a href="form.html"><i class="icon-edit"></i><span class="hidden-tablet"> Formulario CRUD</span></a></li>
+                            <li><a href="table.html"><i class="icon-align-justify"></i><span class="hidden-tablet"> Tablas</span></a></li>
+                            <li><s:a action="institucion" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Institución</s:a></i></li>
+         </ul>
+                            
+                            
+                       
+                    </div>
+                </div>
+         <%}%>
                 <!-- start: Content -->
                 <div id="content" class="span10">
 
