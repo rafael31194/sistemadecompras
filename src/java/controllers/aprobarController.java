@@ -1,10 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package controllers;
 
+package controllers;
 import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionSupport;
 import java.sql.ResultSet;
@@ -16,11 +11,7 @@ import models.SolicitudModel;
 import models.UnidadModel;
 import models.UsuarioModel;
 
-/**
- *
- * @author Hassel
- */
-public class SolicitudController extends ActionSupport{
+public class aprobarController extends ActionSupport{
     private SolicitudConectar con;
     private ProveedorConectar pro_con;
     private ArrayList<SolicitudModel> datos;
@@ -280,7 +271,4 @@ public class SolicitudController extends ActionSupport{
     public void setSol_descripcion(String sol_descripcion) {
         this.sol_descripcion = sol_descripcion;
     }
-
-  
-    
 }

@@ -79,7 +79,7 @@
     <package name="solicitudes" namespace="/" extends="struts-default">
         <action name="solicitud" class="controllers.SolicitudController" method="execute">
             <result>/Views/Solicitudes/homeSolicitud.jsp</result>
-        </action>
+        </action>        
         <action name="enviar" class="controllers.SolicitudController" method="guardar">
             <result>/Views/Solicitudes/homeSolicitud.jsp</result>
         </action>
@@ -88,6 +88,27 @@
         </action>
         <action name="eliminarSoli" class="controllers.SolicitudController" method="eliminar">
             <result>/Views/Solicitudes/homeSolicitud.jsp</result>
+        </action>
+    </package>
+    
+    <package name="aprobarSolicitudes" namespace="/" extends="struts-default">
+        <action name="aprobar" class="controllers.aprobarController" method="execute">
+            <result>/Views/Solicitudes/aprobarSolicitud.jsp</result>
+        </action>        
+        <action name="enviar" class="controllers.aprobarController" method="guardar">
+            <result>/Views/Solicitudes/aprobarSolicitud.jsp</result>
+        </action>
+        <action name="editarSoli" class="controllers.aprobarController" method="llenarFormulario">
+            <result>/Views/Solicitudes/aprobarSolicitud.jsp</result>
+        </action>
+        <action name="eliminarSoli" class="controllers.aprobarController" method="eliminar">
+            <result>/Views/Solicitudes/aprobarSolicitud.jsp</result>
+        </action>
+        <action name="aprobarSol" class="controllers.aprobarController" method="aprobarSol">
+            <result>/Views/Solicitudes/aprobarSolicitud.jsp</result>
+        </action>
+        <action name="denegarSol" class="controllers.aprobarController" method="denegarSol">
+            <result>/Views/Solicitudes/aprobarSolicitud.jsp</result>
         </action>
     </package>
     
