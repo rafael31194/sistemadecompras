@@ -48,8 +48,7 @@
                             <!-- start: User Dropdown -->
                             <li class="dropdown">
                                 <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <i class="icon-user"></i> Hassel Ventura
-                                    <span class="caret"></span>
+                                    <i class="icon-user"></i>Usuario<span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li class="dropdown-menu-title">
@@ -149,13 +148,13 @@
                                     <div class="control-group">
                                         <label class="control-label" for="date01">Fecha:</label>
                                         <div class="controls">
-                                            <s:textfield name="sol_fecha" cssClass="form-control"/>
+                                            <s:textfield name="sol_fecha" type="date" required="true"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label">Descripción:</label>
                                         <div class="controls">
-                                            <s:textfield name="sol_descripcion" cssClass="form-control"/>
+                                            <s:textfield name="sol_descripcion" required="true"  minlength="5"/>
                                         </div>
                                     </div>
 
@@ -212,11 +211,11 @@
                                                     <span class="label label-success"><s:property value="estado"/></span>
                                                 </td>
                                                 <td>
-                                                    <s:a action="editarSoli" cssClass="btn btn-info">
+                                                    <s:a cssClass="btn btn-info" action="editarSoli">
                                                         <s:param name="sol_id" value="sol_id"/>
                                                         <i class="icon-pencil"></i>
                                                     </s:a>
-                                                    <s:a action="eliminarSoli" cssClass="btn btn-danger">
+                                                    <s:a cssClass="btn btn-danger" action="eliminarSoli">
                                                         <s:param name="sol_id" value="sol_id"/>
                                                         <i class="icon-trash"></i>
                                                     </s:a>
@@ -273,7 +272,7 @@
 
         <script src="Recursos/js/jquery.uniform.min.js"></script>
 
-        <script src="Recursos/js/jquery.cleditor.min.js"></script>
+        <!-- <script src="Recursos/js/jquery.cleditor.min.js"></script> -->
 
         <script src="Recursos/js/jquery.noty.js"></script>
 
@@ -299,16 +298,16 @@
 
         <script src="Recursos/js/retina.js"></script>
 
-        <script src="Recursos/js/custom.js"></script>
+        <!-- <script src="Recursos/js/custom.js"></script> -->
         <!-- end: JavaScript-->
 
         <!-- Bootstrap core JavaScript================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script>
-        <script src="dist/js/bootstrap.min.js"></script>
+        <!-- <script src="dist/js/bootstrap.min.js"></script> -->
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-        <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+        <!-- <script src="assets/js/ie10-viewport-bug-workaround.js"></script> -->
 
     </body>
 </html>

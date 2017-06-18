@@ -1,7 +1,7 @@
 <%-- 
-    Document   : homeUsuarios
-    Created on : 14-may-2017, 21:33:16
-    Author     : Joseline
+    Document   : RestriccionesCRUD
+    Created on : 05-13-2017, 10:55:43 PM
+    Author     : EduardoRAFAEL
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -106,14 +106,14 @@
                         </li>
                         <li>
                             <i class="icon-edit"></i>
-                            <a href="#">Usuarios</a>
+                            <a href="#">Restricciones</a>
                         </li>
                     </ul>
 
                     <div class="row-fluid sortable">
                         <div class="box span12">
                             <div class="box-header" data-original-title>
-                                <h2><i class="icon-edit"></i><span class="break"></span>Agregar usuarios</h2>
+                                <h2><i class="icon-edit"></i><span class="break"></span>Agregar usuario</h2>
                                 <div class="box-icon">
                                     <a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
                                     <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
@@ -128,25 +128,25 @@
                                             <s:hidden name="usu_id"/>
                                             <s:hidden name="id_ur"/>
                                             <s:hidden name="id_uu"/>
-                                            <s:textfield name="usu_usuario" required="true" />                                            
+                                            <s:textfield name="usu_usuario" required="true" />
                                         </div>
                                     </div>   
                                     <div class="control-group">
                                         <label class="control-label">Contraseña:</label>
                                         <div class="controls">
-                                            <s:textfield name="usu_contrasenia" required="true" type="password" minlength="8"/> 
+                                            <s:textfield name="usu_contrasenia" required="true" type="password" minlength="8" maxlength="12" pattern="[A-Za-z][A-Za-z0-9!#$%&?-]*[0-9!#$%&?-][A-Za-z0-9]*" title="Una contraseña válida es un conjuto de caracteres, donde cada uno consiste de una letra mayúscula o minúscula, o un dígito. La contraseña debe empezar con una letra y contener al menos un dígito o símbolo (! # $ % & ? -)."/>
                                         </div>
                                     </div>                                     
                                     <div class="control-group">
                                         <label class="control-label">Nombre:</label>
                                         <div class="controls">
-                                            <s:textfield name="usu_nombre" required="true"/>
+                                        <s:textfield name="usu_nombre" required="true" minlength="5"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label">Correo:</label>
                                         <div class="controls">
-                                            <s:textfield name="usu_correo" required="true"/>
+                                            <s:textfield name="usu_correo" required="true" type="email"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
@@ -160,13 +160,13 @@
                                         <div class="controls">
                                             <s:select name="id_uni" list="datosUni" listValue="uni_nombre" listKey="uni_id"/>
                                         </div>
-                                    </div
+                                    </div>
                                     <div class="control-group">
                                         <label class="control-label">Institucion:</label>
                                         <div class="controls">
                                             <s:select name="id_ins" list="datosIns" listValue="ins_nombre" listKey="ins_id"/>
                                         </div>
-                                    </div>                                    
+                                    </div>                                        
                                     <div class="form-actions">
                                         <s:submit value="Enviar" title="Enviar" cssClass="btn btn-default"/>
                                         <button class="btn">Limpiar</button>
@@ -203,15 +203,14 @@
                                     <tbody>
                                     <s:iterator value="datos" var="dato" status="estado">
                                         <tr>
-                                            <td><s:property value="usu_usuario"/>
-                                            <s:hidden value="usu_contrasenia"/></td>                                            
-                                            <td><s:property value="usu_nombre"/></td>
+                                            <td><s:property value="usu_usuario"/></td>
+                                            <td><s:property value="usu_nombre"/></td>        
                                             <td><s:property value="usu_correo"/></td>
-                                            <td><s:property value="rol_descripcion"/></td>
-                                            <td><s:property value="uni_nombre"/></td>  
-                                            <td><s:property value="ins_nombre"/></td>  
+                                            <td><s:property value="rol_descripcion"/></td>   
+                                            <td><s:property value="uni_nombre"/></td>
+                                            <td><s:property value="ins_nombre"/></td>   
                                             <td>
-                                                <s:a action="usu_editar">
+                                                <s:a cssClass="btn btn-info" action="usu_editar">
                                                     <s:param name="usu_id" value="usu_id"/>
                                                     <i class="icon-pencil"></i>
                                                 </s:a>
@@ -252,7 +251,8 @@
             </p>
         </footer>        
 
-        <!-- start: JavaScript-->       
+        <!-- start: JavaScript-->
+
         <script src="Recursos/js/jquery-1.9.1.min.js"></script>
         <script src="Recursos/js/jquery-migrate-1.0.0.min.js"></script>
 
@@ -280,7 +280,7 @@
 
         <script src="Recursos/js/jquery.uniform.min.js"></script>
 
-        <script src="Recursos/js/jquery.cleditor.min.js"></script>
+        <!-- <script src="Recursos/js/jquery.cleditor.min.js"></script> -->
 
         <script src="Recursos/js/jquery.noty.js"></script>
 
@@ -306,16 +306,16 @@
 
         <script src="Recursos/js/retina.js"></script>
 
-        <script src="Recursos/js/custom.js"></script>
+        <!-- <script src="Recursos/js/custom.js"></script> -->
         <!-- end: JavaScript-->
 
         <!-- Bootstrap core JavaScript================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script>
-        <script src="dist/js/bootstrap.min.js"></script>
+        <!-- <script src="dist/js/bootstrap.min.js"></script> -->
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-        <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+        <!-- <script src="assets/js/ie10-viewport-bug-workaround.js"></script> -->
 
     </body>
 </html>
