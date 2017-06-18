@@ -242,16 +242,17 @@ public class OrdenCompraController extends ActionSupport{
         this.datos=new ArrayList<>();
         this.datos=con.getData("select o.ord_id,e.est_estado,t.tco_descripcion,s.sol_descripcion,p.pro_nombre,o.ord_fecha,o.ord_descripcion,o.ord_total\n" +
                                 "from ord_ordendecompra o \n" +
-                                "join est_estado e on e.est_id=o.est_id\n" +
+                                "join est_estado e on o.est_id=e.est_id\n" +
                                 "join sol_solicitud s on s.sol_id=o.sol_id\n" +
                                 "join tco_tipocontratacion t on t.tco_id=o.tco_id\n" +
-                                "join pro_proveedor p on p.pro_id=o.pro_id");
+                                "join pro_proveedor p on p.pro_id=o.pro_id\n" +
+                                "where s.est_id=3 order by o.ord_id");
         this.datosEst=new ArrayList<>();
         this.datosEst=con.getEstado("select * from est_estado");
         this.datosTipo=new ArrayList<>();
         this.datosTipo=con.getTipo("select * from tco_tipocontratacion");
         this.datosSol=new ArrayList<>();
-        this.datosSol=con.getSol("select * from sol_solicitud");
+        this.datosSol=con.getSol("select * from sol_solicitud where est_id=3");
         this.datosPro=new ArrayList<>();
         this.datosPro=con.getPro("select * from pro_proveedor");
 
@@ -267,13 +268,13 @@ public class OrdenCompraController extends ActionSupport{
         this.datosTipo=new ArrayList<>();
         this.datosTipo=con.getTipo("select * from tco_tipocontratacion");
         this.datosSol=new ArrayList<>();
-        this.datosSol=con.getSol("select * from sol_solicitud");
+        this.datosSol=con.getSol("select * from sol_solicitud where est_id=3");
         this.datosPro=new ArrayList<>();
         this.datosPro=con.getPro("select * from pro_proveedor");
         if (this.ord_id==0){        
-        con.setData("CALL `sp_insert_ord_ordenCompra`('"+this.estid+"', '"+this.solid+"', '"+this.proid+"', '"+this.ord_fecha+"', '"+this.ord_descripcion+"', '"+this.ord_total+"', '"+this.tcoid+"')");
+        con.setData("CALL `sp_insert_ord_ordenCompra`('"+5+"', '"+this.solid+"', '"+this.proid+"', '"+this.ord_fecha+"', '"+this.ord_descripcion+"', '"+0+"', '"+this.tcoid+"')");
         } else {
-        con.updateData("update ord_ordendecompra set est_id="+this.estid+",tco_id='"+this.tcoid+"',sol_id='"+this.solid+"',pro_id='"+this.proid+"',ord_fecha='"+this.ord_fecha+"',ord_descripcion='"+this.ord_descripcion+"',ord_total='"+this.ord_total+"' where ord_id="+this.ord_id+"");
+        con.updateData("update ord_ordendecompra set est_id="+5+",tco_id='"+this.tcoid+"',sol_id='"+this.solid+"',pro_id='"+this.proid+"',ord_fecha='"+this.ord_fecha+"',ord_descripcion='"+this.ord_descripcion+"' where ord_id="+this.ord_id+"");
         }
         this.est_id=0;
         this.sol_id=0;
@@ -282,14 +283,14 @@ public class OrdenCompraController extends ActionSupport{
         this.ord_fecha=null;
         this.ord_descripcion=null;
         this.ord_id=0;
-        this.ord_total=0;
         this.datos=new ArrayList<>();
-         this.datos=con.getData("select o.ord_id,e.est_estado,t.tco_descripcion,s.sol_descripcion,p.pro_nombre,o.ord_fecha,o.ord_descripcion,o.ord_total\n" +
+        this.datos=con.getData("select o.ord_id,e.est_estado,t.tco_descripcion,s.sol_descripcion,p.pro_nombre,o.ord_fecha,o.ord_descripcion,o.ord_total\n" +
                                 "from ord_ordendecompra o \n" +
-                                "join est_estado e on e.est_id=o.est_id\n" +
+                                "join est_estado e on o.est_id=e.est_id\n" +
                                 "join sol_solicitud s on s.sol_id=o.sol_id\n" +
                                 "join tco_tipocontratacion t on t.tco_id=o.tco_id\n" +
-                                "join pro_proveedor p on p.pro_id=o.pro_id");
+                                "join pro_proveedor p on p.pro_id=o.pro_id\n" +
+                                "where s.est_id=3 order by o.ord_id");
         return SUCCESS;
     }
     
@@ -300,7 +301,7 @@ public class OrdenCompraController extends ActionSupport{
         this.datosTipo=new ArrayList<>();
         this.datosTipo=con.getTipo("select * from tco_tipocontratacion");
         this.datosSol=new ArrayList<>();
-        this.datosSol=con.getSol("select * from sol_solicitud");
+        this.datosSol=con.getSol("select * from sol_solicitud where est_id=3");
         this.datosPro=new ArrayList<>();
         this.datosPro=con.getPro("select * from pro_proveedor");
         this.dato=con.getDataForm("select * from ord_ordendecompra where ord_id="+this.ord_id+"");
@@ -315,12 +316,13 @@ public class OrdenCompraController extends ActionSupport{
         this.ord_total=dato.getFloat("ord_total");
         }
         this.datos=new ArrayList<>();
-         this.datos=con.getData("select o.ord_id,e.est_estado,t.tco_descripcion,s.sol_descripcion,p.pro_nombre,o.ord_fecha,o.ord_descripcion,o.ord_total\n" +
+        this.datos=con.getData("select o.ord_id,e.est_estado,t.tco_descripcion,s.sol_descripcion,p.pro_nombre,o.ord_fecha,o.ord_descripcion,o.ord_total\n" +
                                 "from ord_ordendecompra o \n" +
-                                "join est_estado e on e.est_id=o.est_id\n" +
+                                "join est_estado e on o.est_id=e.est_id\n" +
                                 "join sol_solicitud s on s.sol_id=o.sol_id\n" +
                                 "join tco_tipocontratacion t on t.tco_id=o.tco_id\n" +
-                                "join pro_proveedor p on p.pro_id=o.pro_id");
+                                "join pro_proveedor p on p.pro_id=o.pro_id\n" +
+                                "where s.est_id=3 order by o.ord_id");
         return SUCCESS;
                 
     }
@@ -332,7 +334,7 @@ public class OrdenCompraController extends ActionSupport{
         this.datosTipo=new ArrayList<>();
         this.datosTipo=con.getTipo("select * from tco_tipocontratacion");
         this.datosSol=new ArrayList<>();
-        this.datosSol=con.getSol("select * from sol_solicitud");
+        this.datosSol=con.getSol("select * from sol_solicitud where est_id=3");
         this.datosPro=new ArrayList<>();
         this.datosPro=con.getPro("select * from pro_proveedor");
         con.deleteData("delete from ord_ordendecompra where ord_id="+this.ord_id+"");
@@ -343,14 +345,14 @@ public class OrdenCompraController extends ActionSupport{
         this.ord_fecha=null;
         this.ord_descripcion=null;
         this.ord_id=0;
-        this.ord_total=0;
         this.datos=new ArrayList<>();
-         this.datos=con.getData("select o.ord_id,e.est_estado,t.tco_descripcion,s.sol_descripcion,p.pro_nombre,o.ord_fecha,o.ord_descripcion,o.ord_total\n" +
+        this.datos=con.getData("select o.ord_id,e.est_estado,t.tco_descripcion,s.sol_descripcion,p.pro_nombre,o.ord_fecha,o.ord_descripcion,o.ord_total\n" +
                                 "from ord_ordendecompra o \n" +
-                                "join est_estado e on e.est_id=o.est_id\n" +
+                                "join est_estado e on o.est_id=e.est_id\n" +
                                 "join sol_solicitud s on s.sol_id=o.sol_id\n" +
                                 "join tco_tipocontratacion t on t.tco_id=o.tco_id\n" +
-                                "join pro_proveedor p on p.pro_id=o.pro_id");
+                                "join pro_proveedor p on p.pro_id=o.pro_id\n" +
+                                "where s.est_id=3 order by o.ord_id");
         return SUCCESS;        
     }
     
