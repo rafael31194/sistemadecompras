@@ -94,6 +94,7 @@ public class SolicitudController extends ActionSupport{
     public String eliminar() throws Exception{
         this.con = new SolicitudConectar();
         con.deleteData("delete from sol_solicitud where sol_id="+this.sol_id+"");
+        this.sol_id = 0;
         execute();
         return SUCCESS;
     }

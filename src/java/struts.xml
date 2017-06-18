@@ -184,4 +184,18 @@
         </action>        
     </package>
     
+    <package name="equipos" namespace="/" extends="struts-default">
+        <action name="equipo" class="controllers.EquipoController" method="execute">
+            <result>/Views/Equipo/Equipo.jsp</result>
+        </action>
+        <action name="enviarEquipo" class="controllers.EquipoController" method="recibirDatos">
+            <result>/Views/Equipo/Equipo.jsp</result>
+        </action>
+        <action name="eliminarEquipo" class="controllers.EquipoController" method="eliminar">
+            <result>/Views/Equipo/Equipo.jsp</result>
+        </action>
+        <action name="editarEquipo" class="controllers.EquipoController" method="llenarFormulario">
+            <result>/Views/Equipo/Equipo.jsp</result>
+        </action>        
+    </package>
 </struts>
