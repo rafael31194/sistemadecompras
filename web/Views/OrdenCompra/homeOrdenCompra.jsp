@@ -172,47 +172,47 @@
                                             </div>
                                         </div>-->
                                                                                   
-                                       <div class="control-group">
+                                <%--    <div class="control-group">
                                         <label class="control-label">Estado:</label>
                                         <div class="controls">
-                                            <s:select name="estid" list="datosEst" listValue="est_estado" listKey="est_id"/>                                            
+                                            <s:select name="estid" list="datosEst" listValue="est_estado" listKey="est_id"/> 
+                                            <s:hidden name="ord_id"/>
                                         </div>
-                                    </div>
+                                    </div> --%>
+                                        
                                        <div class="control-group">
-                                            <label class="control-label">Tipo Contratacion:</label>
+                                            <label class="control-label">Tipo de contratacion:</label>
                                             <div class="controls">
-                                                <s:textfield name="tco_id"/>
-                                                <s:hidden name="ord_id"/>
+                                                <s:select name="tcoid" list="datosTipo" listValue="tco_descripcion" listKey="tco_id"/>                                                 
                                             </div>
                                         </div>
+                                               
+                                                
                                        <div class="control-group">
-                                            <label class="control-label">solicitud:</label>
+                                            <label class="control-label">Solicitud:</label>
                                             <div class="controls">
-                                                <s:textfield name="sol_id"/>
+                                                <s:select name="solid" list="datosSol" listValue="sol_descripcion" listKey="sol_id"/>                                                 
                                             </div>
                                         </div>
+                                            
+                                       
                                        <div class="control-group">
                                             <label class="control-label">Proveedor:</label>
                                             <div class="controls">
-                                                <s:textfield name="pro_id"/>
+                                                <s:select name="proid" list="datosPro" listValue="pro_nombre" listKey="pro_id"/>                                                 
                                             </div>
                                         </div>
                                        <div class="control-group">
                                             <label class="control-label">Fecha:</label>
                                             <div class="controls">
-                                                <s:textfield name="ord_fecha"/>
+                                                <s:textfield name="ord_fecha" type="date" required="true"/>
                                             </div>
                                         </div>                                       
-                                       <div class="control-group">
-                                            <label class="control-label">Total:</label>
-                                            <div class="controls">
-                                                <s:textfield name="ord_total"/>
-                                            </div>
-                                        </div>
+                                      
                                         <div class="control-group">
                                             <label class="control-label">Descripción:</label>
                                             <div class="controls">
-                                                <s:textfield name="ord_descripcion"/>
+                                                <s:textfield name="ord_descripcion" type="text" required="true"/>
                                             </div>
                                         </div>
 
@@ -244,7 +244,7 @@
                                                 <th># Orden</th>                                                
                                                 <th>Estado</th>
                                                 <th>Tipo contratacion</th>
-                                                <th># Solicitud</th>
+                                                <th>Solicitud</th>
                                                 <th>Proveedor</th>
                                                 <th>Fecha</th>
                                                 <th>Descripción</th>
@@ -256,10 +256,10 @@
                                             <s:iterator value="datos" var="dato" status="estado">
                                         <tr>
                                             <td><s:property value="ord_id"/></td>
-                                            <td><s:property value="est_id"/></td>
-                                            <td><s:property value="tco_id"/></td>
-                                            <td><s:property value="sol_id"/></td>
-                                            <td><s:property value="pro_id"/></td>
+                                            <td><s:property value="est_estado"/></td>
+                                            <td><s:property value="tco_descripcion"/></td>
+                                            <td><s:property value="sol_descripcion"/></td>
+                                            <td><s:property value="pro_nombre"/></td>
                                             <td><s:property value="ord_fecha"/></td>
                                             <td><s:property value="ord_descripcion"/></td>
                                             <td><s:property value="ord_total"/></td>

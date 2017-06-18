@@ -124,27 +124,43 @@
                                 <div class="box-content">
                                 <s:form action="bit_enviar" cssClass="form-horizontal">
                                     <div class="control-group">
-                                        <label class="control-label" for="typeahead">Institución:</label>
+                                        <label class="control-label" for="typeahead">Equipo:</label>
                                         <div class="controls">
-                                            <s:textfield cssClass="form-control" name="ins_id"/>
+                                            <s:select name="id1" list="datosEqui" listValue="equ_id" listKey="inv_dtl_id"/>
                                             <s:hidden name="bit_id"/>
                                         </div>
                                     </div>
-
                                     <div class="control-group">
-                                        <label class="control-label" for="typeahead">Equipo:</label>
+                                        <label class="control-label" for="date01">Fecha inicio:</label>
                                         <div class="controls">
-                                            <s:textfield cssClass="form-control" name="inv_dtl_id"/>
-                                        </div>
-                                        <p>(Por el momento ingresar ID detalle inventario)</p>
-                                    </div>
-
-                                    <div class="control-group">
-                                        <label class="control-label" for="date01">Fecha:</label>
-                                        <div class="controls">
-                                            <s:textfield cssClass="form-control" name="bit_fechaproxima"/>
+                                            <s:textfield cssClass="form-control" name="bit_fecha_inicio"/>
                                         </div>
                                     </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="date01">Hora:</label>
+                                        <div class="controls">
+                                            <s:textfield cssClass="form-control" name="bit_hora_inicio"/>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="date01">Fecha fin:</label>
+                                        <div class="controls">
+                                            <s:textfield cssClass="form-control" name="bit_fecha_fin"/>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="date01">Hora:</label>
+                                        <div class="controls">
+                                            <s:textfield cssClass="form-control" name="bit_hora_fin"/>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label">Persona que lo realiza:</label>
+                                        <div class="controls">
+                                            <s:textfield cssClass="form-control" name="bit_nombre_personal"/>
+                                        </div>
+                                    </div>
+
                                     <div class="control-group">
                                         <label class="control-label">Comentario:</label>
                                         <div class="controls">
@@ -177,9 +193,15 @@
                                     <thead>
                                         <tr>
                                             <th>Correlativo</th>
-                                            <th>Institución</th>
+                                            <th>Inventario</th>
                                             <th>Equipo</th>
-                                            <th>Fecha próxima</th>
+                                            <th>Institucion</th>
+                                            <th>Fecha inicio</th>
+                                            <th>Hora inicio</th>
+                                            <th>Fecha fin</th>
+                                            <th>Hora fin</th>
+                                            <th>Estado</th>
+                                            <th>Persona</th>
                                             <th>Comentario</th>
                                             <th>Acciones</th>
                                         </tr>
@@ -188,9 +210,15 @@
                                         <s:iterator value="datos" var="dato" status="estado">
                                             <tr>
                                                 <td><s:property value="bit_id"/></td>
-                                                <td class="center"><s:property value="ins_nombre"/></td>
-                                                <td class="center"><s:property value="inv_dtl_nombre_equipo"/></td>
-                                                <td class="center"><s:property value="bit_fechaproxima"/></td>
+                                                <td class="center"><s:property value="inv_dtl_id"/></td>
+                                                <td class="center"><s:property value=""/></td>
+                                                <td class="center"><s:property value=""/></td>
+                                                <td class="center"><s:property value="bit_fecha_inicio"/></td>
+                                                <td class="center"><s:property value="bit_hora_inicio"/></td>
+                                                <td class="center"><s:property value="bit_fecha_fin"/></td>
+                                                <td class="center"><s:property value="bit_hora_fin"/></td>
+                                                <td class="center"><s:property value=""/></td>
+                                                <td class="center"><s:property value="bit_nombre_personal"/></td>
                                                 <td class="center"><s:property value="bit_comentarios"/></td>
                                                 <td class="center">
                                                     <s:a cssClass="btn btn-success" action="detalleOrdenCompra">

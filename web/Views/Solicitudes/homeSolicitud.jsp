@@ -134,54 +134,12 @@
                                             <s:hidden name="sol_id"/>
                                         </div>
                                     </div>
-                                    <!--                                    <div class="control-group">
-                                                                            <label class="control-label" for="selectError">Categoría del equipo:</label>
-                                                                            <div class="controls">
-                                                                                <select id="selectError" data-rel="chosen">
-                                                                                    <option>Option 1</option>
-                                                                                    <option>Option 2</option>
-                                                                                    <option>Option 3</option>
-                                                                                    <option>Option 4</option>
-                                                                                    <option>Option 5</option>
-                                                                                </select>
-                                                                            </div>
-                                                                        </div>-->
                                     <div class="control-group">
                                         <label class="control-label">Unidad:</label>
                                         <div class="controls">
                                             <s:textfield name="uni_id" cssClass="form-control"/>
                                         </div>
                                     </div>
-                                    <!--                                    <div class="control-group">
-                                                                            <label class="control-label" for="selectError">Unidad:</label>
-                                                                            <div class="controls">
-                                                                                <select id="selectError" data-rel="chosen">
-                                                                                    <option>Option 1</option>
-                                                                                    <option>Option 2</option>
-                                                                                    <option>Option 3</option>
-                                                                                    <option>Option 4</option>
-                                                                                    <option>Option 5</option>
-                                                                                </select>
-                                                                            </div>
-                                                                        </div>-->
-                                    <div class="control-group">
-                                        <label class="control-label">Estado:</label>
-                                        <div class="controls">
-                                            <s:textfield name="est_id" cssClass="form-control"/>
-                                        </div>
-                                    </div>
-                                    <!--                                    <div class="control-group">
-                                                                            <label class="control-label" for="selectError">Estado:</label>
-                                                                            <div class="controls">
-                                                                                <select id="selectError" data-rel="chosen">
-                                                                                    <option>Option 1</option>
-                                                                                    <option>Option 2</option>
-                                                                                    <option>Option 3</option>
-                                                                                    <option>Option 4</option>
-                                                                                    <option>Option 5</option>
-                                                                                </select>
-                                                                            </div>
-                                                                        </div>-->
                                     <div class="control-group">
                                         <label class="control-label">Usuario:</label>
                                         <div class="controls">
@@ -207,16 +165,6 @@
                                             <s:textfield name="sol_tipo" cssClass="form-control"/>
                                         </div>
                                     </div>
-                                    <!--                                    <div class="control-group">
-                                                                            <label class="control-label">Tipo:</label>
-                                                                            <div class="controls">
-                                                                                <label class="radio" 
-                                    <%--<s:textfield name="sol_tipo" cssClass="form-control"/>--%>
-                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-                                </label>
-                                
-                            </div>
-                        </div>-->
                                     <div class="form-actions">
                                         <s:submit value="Enviar" title="Enviar" cssClass="btn btn-primary" />
                                         <button class="btn">Limpiar</button>

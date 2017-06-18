@@ -1,4 +1,8 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package models;
 
 import java.sql.Connection;
@@ -8,17 +12,21 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class DetalleOrdenCompraConectar {
+/**
+ *
+ * @author Hassel
+ */
+public class BitacoraConectar {
+    
     private Connection con;
     private PreparedStatement consulta;
     private ResultSet datos;
     private String server, user, bd, pass;
+    private ArrayList<BitacoraModel> bits;
+    private ArrayList<EquipoModel> arregloEqui;
+    private ArrayList<InventarioDetalleModel> arregloInvDtl;
     
-    private ArrayList<DetalleOrdenCompraJoins> arreglo;
-    private ArrayList<EquipoModel> arrayEqu;
-    
-    
-    public DetalleOrdenCompraConectar() {
+    public BitacoraConectar() {
         this.server = "localhost:3307";
         this.user = "root";
         this.pass = "admin";
@@ -38,20 +46,6 @@ public class DetalleOrdenCompraConectar {
     public void desconectar() throws SQLException {
         this.con.close();
     }
-      
-    public ArrayList<DetalleOrdenCompraJoins> getData(String sql) throws SQLException {
-        
-        this.arreglo = new ArrayList<>();
-        this.con();
-        this.consulta = this.con.prepareStatement(sql);
-        this.datos = this.consulta.executeQuery();
-        while (this.datos.next()) {
-            this.arreglo.add(new DetalleOrdenCompraJoins(datos.getInt("ord_dtl_id"),datos.getInt("ord_id"),datos.getString("equ_nombre"),datos.getFloat("ord_dtl_precio"),datos.getString("ord_dtl_codigoInventario")));        
-        }
-        return this.arreglo;
-        
-    }   
-    
     
     public void setData(String sql) throws SQLException {
        
@@ -75,29 +69,41 @@ public class DetalleOrdenCompraConectar {
         this.consulta=this.con.prepareStatement(sql);
         this.datos=this.consulta.executeQuery();          
         return this.datos;
-        
     }
     
     public void updateData(String sql)  throws SQLException {
-        
         this.con();
         this.consulta = this.con.prepareStatement(sql);
-        this.consulta.executeUpdate();  
-        
-    }         
+        this.consulta.executeUpdate();          
+    }
     
-    public ArrayList getEqu(String sql) throws SQLException {
-        
-        this.arrayEqu = new ArrayList<>();
+    //******************************************************************* Métodos Bitácora *****************************************************************//
+    public ArrayList<BitacoraModel> getDataBitacora(String sql) throws SQLException{
+        this.bits = new ArrayList<>();
         this.con();
         this.consulta = this.con.prepareStatement(sql);
         this.datos = this.consulta.executeQuery();
-        while(this.datos.next()){
-            this.arrayEqu.add(new EquipoModel(datos.getInt("equ_id"),datos.getInt("pro_id"),datos.getInt("pro_pro_id"),datos.getInt("cat_id"),
-                    datos.getInt("equ_anio"),datos.getString("equ_nombre"),datos.getString("equ_marca"),datos.getString("equ_modelo"),datos.getString("equ_especificaciongarantia"),datos.getString("equ_imagen"),
-                    datos.getFloat("equ_capacidad_btu"),datos.getFloat("equ_potencia")));
-        } 
-        return arrayEqu;
+        while (this.datos.next()) {
+            this.bits.add(new BitacoraModel(datos.getInt("bit_id"), datos.getInt("inv_dtl_id"), datos.getString("bit_fecha_inicio"),
+            datos.getString("bit_fecha_fin"), datos.getString("bit_hora_inicio"),datos.getString("bit_hora_fin"), datos.getString("bit_nombre_personal"),
+            datos.getString("bit_comentarios")));
+        }
+        return this.bits;
+    }
+    
+    public ArrayList getDataInvDtl(String sql) throws SQLException {
+        
+        this.arregloInvDtl = new ArrayList<>();
+        this.con();
+        this.consulta = this.con.prepareStatement(sql);
+        this.datos = this.consulta.executeQuery();
+        while (this.datos.next()) {
+            this.arregloInvDtl.add(new InventarioDetalleModel(datos.getInt("ins_id"), datos.getInt("inv_id"), datos.getInt("inv_dtl_id"),datos.getInt("equ_id"),
+                     datos.getInt("inv_dtl_cantidad"), datos.getString("inv_dtl_nombre_equipo"),datos.getString("inv_dtl_codigoinventario"))); 
+        }
+        return this.arregloInvDtl;
         
     }
+    
+    
 }

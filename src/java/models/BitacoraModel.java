@@ -10,33 +10,18 @@ package models;
  * @author Hassel
  */
 public class BitacoraModel {
-    private int bit_id, ins_id, inv_dtl_id;
-    private String bit_fechaproxima, bit_comentarios, inv_dtl_nombre_equipo, ins_nombre;
+    private int bit_id, inv_dtl_id;
+    private String bit_fecha_inicio,bit_fecha_fin,bit_hora_inicio,bit_hora_fin,bit_nombre_personal,bit_comentarios;
 
-    public BitacoraModel(int bit_id, int ins_id, int inv_dtl_id, String bit_fechaproxima, String bit_comentarios, String inv_dtl_nombre_equipo, String ins_nombre) {
+    public BitacoraModel(int bit_id, int inv_dtl_id, String bit_fecha_inicio, String bit_fecha_fin, String bit_hora_inicio, String bit_hora_fin, String bit_nombre_personal, String bit_comentarios) {
         this.bit_id = bit_id;
-        this.ins_id = ins_id;
         this.inv_dtl_id = inv_dtl_id;
-        this.bit_fechaproxima = bit_fechaproxima;
+        this.bit_fecha_inicio = bit_fecha_inicio;
+        this.bit_fecha_fin = bit_fecha_fin;
+        this.bit_hora_inicio = bit_hora_inicio;
+        this.bit_hora_fin = bit_hora_fin;
+        this.bit_nombre_personal = bit_nombre_personal;
         this.bit_comentarios = bit_comentarios;
-        this.inv_dtl_nombre_equipo = inv_dtl_nombre_equipo;
-        this.ins_nombre = ins_nombre;
-    }
-
-    public String getIns_nombre() {
-        return ins_nombre;
-    }
-
-    public void setIns_nombre(String ins_nombre) {
-        this.ins_nombre = ins_nombre;
-    }
-
-    public String getInv_dtl_nombre_equipo() {
-        return inv_dtl_nombre_equipo;
-    }
-
-    public void setInv_dtl_nombre_equipo(String inv_dtl_nombre_equipo) {
-        this.inv_dtl_nombre_equipo = inv_dtl_nombre_equipo;
     }
 
     public BitacoraModel() {
@@ -50,14 +35,6 @@ public class BitacoraModel {
         this.bit_id = bit_id;
     }
 
-    public int getIns_id() {
-        return ins_id;
-    }
-
-    public void setIns_id(int ins_id) {
-        this.ins_id = ins_id;
-    }
-
     public int getInv_dtl_id() {
         return inv_dtl_id;
     }
@@ -66,12 +43,44 @@ public class BitacoraModel {
         this.inv_dtl_id = inv_dtl_id;
     }
 
-    public String getBit_fechaproxima() {
-        return bit_fechaproxima;
+    public String getBit_fecha_inicio() {
+        return bit_fecha_inicio;
     }
 
-    public void setBit_fechaproxima(String bit_fechaproxima) {
-        this.bit_fechaproxima = bit_fechaproxima;
+    public void setBit_fecha_inicio(String bit_fecha_inicio) {
+        this.bit_fecha_inicio = bit_fecha_inicio;
+    }
+
+    public String getBit_fecha_fin() {
+        return bit_fecha_fin;
+    }
+
+    public void setBit_fecha_fin(String bit_fecha_fin) {
+        this.bit_fecha_fin = bit_fecha_fin;
+    }
+
+    public String getBit_hora_inicio() {
+        return bit_hora_inicio;
+    }
+
+    public void setBit_hora_inicio(String bit_hora_inicio) {
+        this.bit_hora_inicio = bit_hora_inicio;
+    }
+
+    public String getBit_hora_fin() {
+        return bit_hora_fin;
+    }
+
+    public void setBit_hora_fin(String bit_hora_fin) {
+        this.bit_hora_fin = bit_hora_fin;
+    }
+
+    public String getBit_nombre_personal() {
+        return bit_nombre_personal;
+    }
+
+    public void setBit_nombre_personal(String bit_nombre_personal) {
+        this.bit_nombre_personal = bit_nombre_personal;
     }
 
     public String getBit_comentarios() {
@@ -81,6 +90,8 @@ public class BitacoraModel {
     public void setBit_comentarios(String bit_comentarios) {
         this.bit_comentarios = bit_comentarios;
     }
+    
+    
     
     
 }

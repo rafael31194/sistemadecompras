@@ -1,4 +1,8 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package models;
 
 import java.sql.Connection;
@@ -8,17 +12,25 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class DetalleOrdenCompraConectar {
+/**
+ *
+ * @author Hassel
+ */
+public class SolicitudConectar {
+    
     private Connection con;
     private PreparedStatement consulta;
     private ResultSet datos;
     private String server, user, bd, pass;
+    private ArrayList<InstitucionModel> arreglo;
+    private ArrayList<MunicipiosModel> arregloMun;
+    private ArrayList<MunicipiosModel> array;
+    private ArrayList<SolicitudModel> solicitudes;
+    private ArrayList<BitacoraModel> bits;
+    private ArrayList<InstitucionModel> arregloInst;
+    private ArrayList<EquipoModel> arregloEqui;
     
-    private ArrayList<DetalleOrdenCompraJoins> arreglo;
-    private ArrayList<EquipoModel> arrayEqu;
-    
-    
-    public DetalleOrdenCompraConectar() {
+    public SolicitudConectar() {
         this.server = "localhost:3307";
         this.user = "root";
         this.pass = "admin";
@@ -38,22 +50,8 @@ public class DetalleOrdenCompraConectar {
     public void desconectar() throws SQLException {
         this.con.close();
     }
-      
-    public ArrayList<DetalleOrdenCompraJoins> getData(String sql) throws SQLException {
-        
-        this.arreglo = new ArrayList<>();
-        this.con();
-        this.consulta = this.con.prepareStatement(sql);
-        this.datos = this.consulta.executeQuery();
-        while (this.datos.next()) {
-            this.arreglo.add(new DetalleOrdenCompraJoins(datos.getInt("ord_dtl_id"),datos.getInt("ord_id"),datos.getString("equ_nombre"),datos.getFloat("ord_dtl_precio"),datos.getString("ord_dtl_codigoInventario")));        
-        }
-        return this.arreglo;
-        
-    }   
     
-    
-    public void setData(String sql) throws SQLException {
+     public void setData(String sql) throws SQLException {
        
         this.con();
         this.consulta = this.con.prepareStatement(sql);
@@ -75,29 +73,24 @@ public class DetalleOrdenCompraConectar {
         this.consulta=this.con.prepareStatement(sql);
         this.datos=this.consulta.executeQuery();          
         return this.datos;
-        
     }
     
     public void updateData(String sql)  throws SQLException {
-        
         this.con();
         this.consulta = this.con.prepareStatement(sql);
-        this.consulta.executeUpdate();  
-        
-    }         
+        this.consulta.executeUpdate();          
+    }
     
-    public ArrayList getEqu(String sql) throws SQLException {
-        
-        this.arrayEqu = new ArrayList<>();
+    //******************************************************************* Métodos Solicitud *****************************************************************//
+    public ArrayList<SolicitudModel> getDataSolicitud(String sql) throws SQLException{
+        this.solicitudes = new ArrayList<>();
         this.con();
         this.consulta = this.con.prepareStatement(sql);
         this.datos = this.consulta.executeQuery();
-        while(this.datos.next()){
-            this.arrayEqu.add(new EquipoModel(datos.getInt("equ_id"),datos.getInt("pro_id"),datos.getInt("pro_pro_id"),datos.getInt("cat_id"),
-                    datos.getInt("equ_anio"),datos.getString("equ_nombre"),datos.getString("equ_marca"),datos.getString("equ_modelo"),datos.getString("equ_especificaciongarantia"),datos.getString("equ_imagen"),
-                    datos.getFloat("equ_capacidad_btu"),datos.getFloat("equ_potencia")));
-        } 
-        return arrayEqu;
-        
-    }
+        while (this.datos.next()) {
+            this.solicitudes.add(new SolicitudModel(datos.getInt("sol_id"), datos.getInt("cat_id"), datos.getInt("uni_id"), datos.getInt("est_id"), 
+            datos.getInt("sol_id_usu"), datos.getInt("sol_tipo"), datos.getString("sol_fecha"), datos.getString("sol_descripcion")));
+        }
+        return this.solicitudes;
+    }    
 }
