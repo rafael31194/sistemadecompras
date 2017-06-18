@@ -234,4 +234,10 @@
             <result>/Views/Equipo/Equipo.jsp</result>
         </action>        
     </package>
+    
+    <package name="inventarioInstitucion" namespace="/" extends="struts-default">
+        <action name="inventario" class="controllers.InventarioController" method="execute">
+            <result>/Views/Inventario/inventario.jsp</result>
+        </action>        
+    </package>
 </struts>

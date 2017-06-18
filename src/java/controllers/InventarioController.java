@@ -38,13 +38,15 @@ public class InventarioController extends ActionSupport{
         this.datosInv = datosInv;
     }
 
-    public int getIns_id() {
+    public int getInsid() {
         return insid;
     }
 
-    public void setIns_id(int insid) {
+    public void setInsid(int insid) {
         this.insid = insid;
     }
+
+   
     
     @Override
     public String execute() throws Exception {  
@@ -52,9 +54,9 @@ public class InventarioController extends ActionSupport{
         this.con=new InventarioConectar();
         this.datosIns=new ArrayList<>();        
         this.datosIns=con.getIns("CALL `sp_select_all_ins_instituciones`()");  
-        if (this.insid!=0){
-        this.datosInv=new ArrayList<>();        
-        this.datosInv=con.getInv("CALL `sp_select_all_ins_instituciones`("+this.insid+")");
+        if (this.insid!=0){ 
+            this.datosInv=new ArrayList<>();        
+            this.datosInv=con.getInv("CALL `sp_select_inventario_institucion`('"+this.insid+"')");
         }
         
         return SUCCESS;

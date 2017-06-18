@@ -133,16 +133,16 @@
                                 </div>
                             </div>
                             <div class="box-content">
-                                 <s:form action="generar">  
+                                 <s:form action="inventario">  
                                     
                                    <div class="control-group">
-                                        <label class="control-label">Municipio:</label>
+                                        <label class="control-label">Institución:</label>
                                         <div class="controls">
                                             <s:select name="insid" list="datosIns" listValue="ins_nombre" listKey="ins_id"/>                                           
                                         </div>
                                     </div>
                                     <div class="form-actions">
-                                        <s:submit value="Generar" title="Generar" cssClass="btn btn-default"/>                                        
+                                        <s:submit value="Enviar" title="Enviar" cssClass="btn btn-default"/>                                        
                                         <button class="btn">Limpiar</button>
                                     </div>
                                 </s:form>
@@ -177,22 +177,13 @@
                                     <tbody>
                                     <s:iterator value="datosInv" var="dato" status="estado">
                                         <tr>
-                                            <td><s:property value="ins_id"/></td>
-                                            <td><s:property value="mun_id"/></td>
-                                            <td><s:property value="mun_nombre"/></td>
                                             <td><s:property value="ins_nombre"/></td>
-                                            <td><s:property value="ins_telefono"/></td>
-                                            <td><s:property value="ins_direccion"/></td>
-                                            <td>
-                                                <s:a cssClass="btn btn-info"  action="editarInsti">
-                                                    <s:param name="ins_id" value="ins_id"/>
-                                                    <i class="icon-pencil"></i>
-                                                </s:a>                                                
-                                                <s:a cssClass="btn btn-danger" action="eliminarInsti">
-                                                    <s:param name="ins_id" value="ins_id"/>
-                                                    <i class="icon-trash"></i>
-                                                </s:a>
-                                            </td>                                      
+                                            <td><s:property value="cat_descripcion"/></td>
+                                            <td><s:property value="equ_nombre"/></td>
+                                            <td><s:property value="equ_marca"/></td>
+                                            <td><s:property value="equ_modelo"/></td>
+                                            <td><s:property value="equ_anio"/></td>
+                                            <td><s:property value="inv_dtl_codigoinventario"/></td>                                                                                  
                                         </tr>
                                     </s:iterator>
                                         
@@ -291,7 +282,7 @@
         <!-- Bootstrap core JavaScript================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script>
+        <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>');</script>
         <!-- <script src="dist/js/bootstrap.min.js"></script> -->
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
         <!-- <script src="assets/js/ie10-viewport-bug-workaround.js"></script> -->
