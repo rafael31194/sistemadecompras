@@ -11,7 +11,7 @@ package models;
  */
 public class BitacoraModel {
     private int bit_id, inv_dtl_id;
-    private String bit_fecha_inicio,bit_fecha_fin,bit_hora_inicio,bit_hora_fin,bit_nombre_personal,bit_comentarios;
+    private String bit_fecha_inicio,bit_fecha_fin,bit_hora_inicio,bit_hora_fin,bit_nombre_personal,bit_comentarios, equipo, institucion;
 
     public BitacoraModel(int bit_id, int inv_dtl_id, String bit_fecha_inicio, String bit_fecha_fin, String bit_hora_inicio, String bit_hora_fin, String bit_nombre_personal, String bit_comentarios) {
         this.bit_id = bit_id;
@@ -22,6 +22,35 @@ public class BitacoraModel {
         this.bit_hora_fin = bit_hora_fin;
         this.bit_nombre_personal = bit_nombre_personal;
         this.bit_comentarios = bit_comentarios;
+    }
+
+    public BitacoraModel(int bit_id, int inv_dtl_id, String bit_fecha_inicio, String bit_fecha_fin, String bit_hora_inicio, String bit_hora_fin, String bit_nombre_personal, String bit_comentarios, String equipo, String institucion) {
+        this.bit_id = bit_id;
+        this.inv_dtl_id = inv_dtl_id;
+        this.bit_fecha_inicio = bit_fecha_inicio;
+        this.bit_fecha_fin = bit_fecha_fin;
+        this.bit_hora_inicio = bit_hora_inicio;
+        this.bit_hora_fin = bit_hora_fin;
+        this.bit_nombre_personal = bit_nombre_personal;
+        this.bit_comentarios = bit_comentarios;
+        this.equipo = equipo;
+        this.institucion = institucion;
+    }
+
+    public String getEquipo() {
+        return equipo;
+    }
+
+    public void setEquipo(String equipo) {
+        this.equipo = equipo;
+    }
+
+    public String getInstitucion() {
+        return institucion;
+    }
+
+    public void setInstitucion(String institucion) {
+        this.institucion = institucion;
     }
 
     public BitacoraModel() {

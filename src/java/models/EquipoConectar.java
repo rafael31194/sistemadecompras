@@ -84,7 +84,8 @@ public class EquipoConectar {
         while (this.datos.next()) {
             this.equipos.add(new EquipoModel(datos.getInt("equ_id"), datos.getInt("pro_id"), datos.getInt("cat_id"), datos.getInt("equ_anio"),
                     datos.getString("equ_nombre"), datos.getString("equ_marca"), datos.getString("equ_modelo"),
-                    datos.getString("equ_especificaciongarantia"), datos.getString("equ_imagen"), datos.getFloat("equ_capacidad_btu"), datos.getFloat("equ_potencia")));
+                    datos.getString("equ_especificaciongarantia"), datos.getString("equ_imagen"),datos.getString("equ_estado"), 
+                    datos.getString("proveedor"), datos.getString("catEquipo"), datos.getFloat("equ_capacidad_btu"), datos.getFloat("equ_potencia")));
         }
         return this.equipos;
     }

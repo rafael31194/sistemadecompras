@@ -210,8 +210,8 @@
                                             <tr>
                                                 <td><s:property value="bit_id"/></td>
                                                 <td class="center"><s:property value="inv_dtl_id"/></td>
-                                                <td class="center"><s:property value=""/></td>
-                                                <td class="center"><s:property value=""/></td>
+                                                <td class="center"><s:property value="equipo"/></td>
+                                                <td class="center"><s:property value="institucion"/></td>
                                                 <td class="center"><s:property value="bit_fecha_inicio"/></td>
                                                 <td class="center"><s:property value="bit_hora_inicio"/></td>
                                                 <td class="center"><s:property value="bit_fecha_fin"/></td>

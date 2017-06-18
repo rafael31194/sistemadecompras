@@ -42,7 +42,7 @@ public class SolicitudController extends ActionSupport{
         this.datosCatEqui = con.getDataCatEquipo("CALL `sp_select_cat_catag_categoriaEquipos`()");
         
         this.datosUnidad = new ArrayList<>();
-        this.datosUnidad = con.getDataUnidades("CALL `sp_select_all_cate_catEquipo`()");
+        this.datosUnidad = con.getDataUnidades("CALL `sp_select_all_uni_unidades`()");
         
         this.datosUser = new ArrayList<>();
         this.datosUser = con.getDataUsuario("CALL `sp_select_all_usu_usuarios`()");

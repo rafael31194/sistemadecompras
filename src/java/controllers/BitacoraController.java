@@ -84,7 +84,8 @@ public class BitacoraController extends ActionSupport {
     public String eliminar() throws Exception{
         this.con = new BitacoraConectar();
         this.datos = new ArrayList<>();
-        con.deleteData("delete from bit_bitacoramantenimiento where bit_id = "+this.bit_id+"");        
+        con.deleteData("delete from bit_bitacoramantenimiento where bit_id = "+this.bit_id+"");
+        this.bit_id = 0;
         execute();
         return SUCCESS;
     }        

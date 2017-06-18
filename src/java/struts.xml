@@ -203,7 +203,7 @@
         <action name="equipo" class="controllers.EquipoController" method="execute">
             <result>/Views/Equipo/Equipo.jsp</result>
         </action>
-        <action name="enviarEquipo" class="controllers.EquipoController" method="recibirDatos">
+        <action name="enviarEquipo" class="controllers.EquipoController" method="guardar">
             <result>/Views/Equipo/Equipo.jsp</result>
         </action>
         <action name="eliminarEquipo" class="controllers.EquipoController" method="eliminar">

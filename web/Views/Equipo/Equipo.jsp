@@ -122,82 +122,74 @@
                                     </div>
                                 </div>
                                 <div class="box-content">
-                                <s:form action="bit_enviar" cssClass="form-horizontal">
+                                <s:form action="enviarEquipo" cssClass="form-horizontal">
                                     <div class="control-group">
                                         <label class="control-label" for="typeahead">Proveedor:</label>
                                         <div class="controls">
-                                            <s:textfield cssClass="form-control" name="bit_fecha_inicio"/>
-                                            <s:hidden name="bit_id"/>
+                                            <s:select name="id" list="datosProvee" listValue="pro_nombre" listKey="pro_id"/>
+                                            <s:hidden name="equ_id"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label" for="date01">Categoría del equipo::</label>
+                                        <label class="control-label" >Categoría del equipo::</label>
                                         <div class="controls">
-                                            <s:textfield cssClass="form-control" name="bit_fecha_inicio"/>
+                                            <s:select name="id_cat" list="datosCatEqui" listValue="cat_descripcion" listKey="cat_id"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label" for="date01">Nombre:</label>
+                                        <label class="control-label" >Nombre:</label>
                                         <div class="controls">
-                                            <s:textfield cssClass="form-control" name="bit_hora_inicio"/>
+                                            <s:textfield cssClass="form-control" name="equ_nombre"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label" for="date01">Marca:</label>
+                                        <label class="control-label" >Marca:</label>
                                         <div class="controls">
-                                            <s:textfield cssClass="form-control" name="bit_fecha_fin"/>
+                                            <s:textfield cssClass="form-control" name="equ_marca"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label" for="date01">Modelo:</label>
+                                        <label class="control-label" >Modelo:</label>
                                         <div class="controls">
-                                            <s:textfield cssClass="form-control" name="bit_hora_fin"/>
+                                            <s:textfield cssClass="form-control" name="equ_modelo"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label">Año:</label>
                                         <div class="controls">
-                                            <s:textfield cssClass="form-control" name="bit_nombre_personal"/>
+                                            <s:textfield cssClass="form-control" name="equ_anio"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label">Capacidad en btu:</label>
+                                        <label class="control-label">Capacidad en BTU:</label>
                                         <div class="controls">
-                                            <s:textfield cssClass="form-control" name="bit_nombre_personal"/>
+                                            <s:textfield cssClass="form-control" name="equ_capacidad_btu"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label">Potencia:</label>
                                         <div class="controls">
-                                            <s:textfield cssClass="form-control" name="bit_nombre_personal"/>
+                                            <s:textfield cssClass="form-control" name="equ_potencia"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label">Garantía:</label>
                                         <div class="controls">
-                                            <s:textfield cssClass="form-control" name="bit_nombre_personal"/>
+                                            <s:textfield cssClass="form-control" name="equ_especificaciongarantia"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label">Estado del equipo:</label>
                                         <div class="controls">
-                                            <s:textfield cssClass="form-control" name="bit_nombre_personal"/>
+                                            <s:textfield cssClass="form-control" name="equ_estado"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label">Imagen:</label>
                                         <div class="controls">
-                                            <s:textfield cssClass="form-control" name="bit_nombre_personal"/>
+                                            <s:textfield cssClass="form-control" name="equ_imagen"/>
                                         </div>
                                     </div>
-
-                                    <div class="control-group">
-                                        <label class="control-label">Comentario:</label>
-                                        <div class="controls">
-                                            <s:textfield cssClass="form-control" name="bit_comentarios"/>
-                                        </div>
-                                    </div>
-
                                     <div class="form-actions">
                                         <s:submit value="Enviar" title="Guardar" cssClass="btn btn-info"/>
                                         <button class="btn">Limpiar</button>
@@ -239,8 +231,8 @@
                                         <s:iterator value="datos" var="dato" status="estado">
                                             <tr>
                                                 <td class="center"><s:property value="equ_nombre"/></td>
-                                                <td class="center"><s:property value="cat_id"/></td>
-                                                <td class="center"><s:property value="pro_id"/></td>
+                                                <td class="center"><s:property value="catEquipo"/></td>
+                                                <td class="center"><s:property value="proveedor"/></td>
                                                 <td class="center"><s:property value="equ_marca"/></td>
                                                 <td class="center"><s:property value="equ_modelo"/></td>
                                                 <td class="center"><s:property value="equ_anio"/></td>
@@ -249,12 +241,12 @@
                                                 <td class="center"><s:property value="equ_estado"/></td>
                                                 <td class="center"><s:property value="equ_especificaciongarantia"/></td>
                                                 <td class="center">
-                                                    <s:a action="bit_editar" cssClass="btn btn-info">
-                                                        <s:param name="bit_id" value="bit_id"/>
+                                                    <s:a action="editarEquipo" cssClass="btn btn-info">
+                                                        <s:param name="equ_id" value="equ_id"/>
                                                         <i class="icon-pencil"></i>
                                                     </s:a>
-                                                    <s:a action="bit_eliminiar" cssClass="btn btn-danger">
-                                                        <s:param name="bit_id" value="bit_id"/>
+                                                    <s:a action="eliminarEquipo" cssClass="btn btn-danger">
+                                                        <s:param name="equ_id" value="equ_id"/>
                                                         <i class="icon-trash"></i>
                                                     </s:a>
                                                 </td>

@@ -11,10 +11,10 @@ package models;
  */
 public class EquipoModel {
     private int equ_id, pro_id,cat_id, equ_anio;
-    private String equ_nombre, equ_marca, equ_modelo, equ_especificaciongarantia, equ_imagen;
+    private String equ_nombre, equ_marca, equ_modelo, equ_especificaciongarantia, equ_imagen, equ_estado, proveedor, catEquipo;
     private float equ_capacidad_btu, equ_potencia;
 
-    public EquipoModel(int equ_id, int pro_id, int cat_id, int equ_anio, String equ_nombre, String equ_marca, String equ_modelo, String equ_especificaciongarantia, String equ_imagen, float equ_capacidad_btu, float equ_potencia) {
+    public EquipoModel(int equ_id, int pro_id, int cat_id, int equ_anio, String equ_nombre, String equ_marca, String equ_modelo, String equ_especificaciongarantia, String equ_imagen, String equ_estado, float equ_capacidad_btu, float equ_potencia) {
         this.equ_id = equ_id;
         this.pro_id = pro_id;
         this.cat_id = cat_id;
@@ -24,8 +24,50 @@ public class EquipoModel {
         this.equ_modelo = equ_modelo;
         this.equ_especificaciongarantia = equ_especificaciongarantia;
         this.equ_imagen = equ_imagen;
+        this.equ_estado = equ_estado;
         this.equ_capacidad_btu = equ_capacidad_btu;
         this.equ_potencia = equ_potencia;
+    }
+
+    public EquipoModel(int equ_id, int pro_id, int cat_id, int equ_anio, String equ_nombre, String equ_marca, String equ_modelo, String equ_especificaciongarantia, String equ_imagen, String equ_estado, String proveedor, String catEquipo, float equ_capacidad_btu, float equ_potencia) {
+        this.equ_id = equ_id;
+        this.pro_id = pro_id;
+        this.cat_id = cat_id;
+        this.equ_anio = equ_anio;
+        this.equ_nombre = equ_nombre;
+        this.equ_marca = equ_marca;
+        this.equ_modelo = equ_modelo;
+        this.equ_especificaciongarantia = equ_especificaciongarantia;
+        this.equ_imagen = equ_imagen;
+        this.equ_estado = equ_estado;
+        this.proveedor = proveedor;
+        this.catEquipo = catEquipo;
+        this.equ_capacidad_btu = equ_capacidad_btu;
+        this.equ_potencia = equ_potencia;
+    }
+
+    public String getProveedor() {
+        return proveedor;
+    }
+
+    public void setProveedor(String proveedor) {
+        this.proveedor = proveedor;
+    }
+
+    public String getCatEquipo() {
+        return catEquipo;
+    }
+
+    public void setCatEquipo(String catEquipo) {
+        this.catEquipo = catEquipo;
+    }
+
+    public String getEqu_estado() {
+        return equ_estado;
+    }
+
+    public void setEqu_estado(String equ_estado) {
+        this.equ_estado = equ_estado;
     }
 
     public EquipoModel() {
