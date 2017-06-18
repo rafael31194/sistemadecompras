@@ -219,7 +219,7 @@
                                             <td>
                                                 <s:a cssClass="btn btn-success" action="detalleOrden">
                                                     <s:param name="ord_id" value="ord_id"/>
-                                                    <i class="icon-save"></i>
+                                                    <i class="icon-th-list"></i>
                                                 </s:a>  
                                                 <s:a cssClass="btn btn-info" action="editarOrden">
                                                     <s:param name="ord_id" value="ord_id"/>

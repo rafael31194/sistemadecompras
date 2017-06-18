@@ -3,6 +3,7 @@ package controllers;
 
 import com.opensymphony.xwork2.ActionSupport;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import models.DetalleOrdenCompraConectar;
 import models.DetalleOrdenCompraJoins;
@@ -20,6 +21,15 @@ public class DetalleOrdenCompraController extends ActionSupport{
     private int equ_id,equid;
     private float ord_dtl_precio;
     private String ord_dtl_codigoInventario;
+    public  int loginError;
+
+    public int getLoginError() {
+        return loginError;
+    }
+
+    public void setLoginError(int loginError) {
+        this.loginError = loginError;
+    }
 
     public int getEquid() {
         return equid;
@@ -129,7 +139,7 @@ public class DetalleOrdenCompraController extends ActionSupport{
                                 "join ord_ordendecompra o on od.ord_id=o.ord_id\n" +
                                 "where o.ord_id="+this.ordid+"");
         this.datosEqu=new ArrayList<>();
-        this.datosEqu=con.getEqu("select * from equ_equipo");
+        this.datosEqu=con.getEqu("CALL `sp_select_equ_equiposByIDProveedor`('"+this.ordid+"')");
 
     return SUCCESS;
     }
@@ -142,9 +152,19 @@ public class DetalleOrdenCompraController extends ActionSupport{
         } else{
             this.ord_id=this.ordid;
         }
+        
         if (this.ord_dtl_id==0){        
+        try{    
+            loginError=0;
         con.setData("CALL `sp_insert_ord_dtl_ordenDetalle`('"+this.ord_id+"', '"+this.equid+"', '"+this.ord_dtl_precio+"', '"+this.ord_dtl_codigoInventario+"')");
         this.ord_idd=this.ord_id;
+        }catch(SQLException ex){
+            loginError=1;
+            this.ord_idd=this.ord_id;
+            System.out.println("\n\n\n********************************************************\n\ncontrollers.DetalleOrdenCompraController.recibirDatos()");
+        }
+        
+        
         } else {
         con.updateData("update ord_dtl_ordendetalle set ord_id="+this.ord_id+",equ_id='"+this.equid+"',ord_dtl_precio='"+this.ord_dtl_precio+"',ord_dtl_codigoInventario='"+this.ord_dtl_codigoInventario+"' where ord_dtl_id="+this.ord_dtl_id+"");
         this.ord_idd=this.ord_id;
@@ -156,7 +176,7 @@ public class DetalleOrdenCompraController extends ActionSupport{
                                 "join ord_ordendecompra o on od.ord_id=o.ord_id\n" +
                                 "where o.ord_id="+this.ord_id+"");
         this.datosEqu=new ArrayList<>();
-        this.datosEqu=con.getEqu("select * from equ_equipo");
+        this.datosEqu=con.getEqu("CALL `sp_select_equ_equiposByIDProveedor`('"+this.ord_id+"')");
         this.equ_id=1;
         this.ord_dtl_id=0;
         this.ord_dtl_precio=0;
@@ -184,7 +204,7 @@ public class DetalleOrdenCompraController extends ActionSupport{
                                 "join ord_ordendecompra o on od.ord_id=o.ord_id\n" +
                                 "where o.ord_id="+this.ord_id+"");
         this.datosEqu=new ArrayList<>();
-        this.datosEqu=con.getEqu("select * from equ_equipo");
+        this.datosEqu=con.getEqu("CALL `sp_select_equ_equiposByIDProveedor`('"+this.ord_id+"')");
         return SUCCESS;
                 
     }
@@ -201,7 +221,7 @@ public class DetalleOrdenCompraController extends ActionSupport{
                                 "join ord_ordendecompra o on od.ord_id=o.ord_id\n" +
                                 "where o.ord_id="+this.ord_id+"");
         this.datosEqu=new ArrayList<>();
-        this.datosEqu=con.getEqu("select * from equ_equipo");
+        this.datosEqu=con.getEqu("CALL `sp_select_equ_equiposByIDProveedor`('"+this.ord_id+"')");
         this.equ_id=0;
         this.ord_dtl_id=0;
         this.ord_dtl_precio=0;
