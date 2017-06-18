@@ -14,7 +14,7 @@
         <!-- start: Mobile Specific -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- end: Mobile Specific -->
-        <title>Solicitud</title>
+        <title>Aprobar Solicitud</title>
         <!-- start: CSS -->
         <link type="text/css" id="base-style" href="Recursos/css/bootstrap.min.css" rel="stylesheet">
         <link type="text/css" id="base-style" href="Recursos/css/bootstrap-responsive.min.css" rel="stylesheet">

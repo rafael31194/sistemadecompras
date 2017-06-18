@@ -161,7 +161,6 @@ public class DetalleOrdenCompraController extends ActionSupport{
         }catch(SQLException ex){
             loginError=1;
             this.ord_idd=this.ord_id;
-            System.out.println("\n\n\n********************************************************\n\ncontrollers.DetalleOrdenCompraController.recibirDatos()");
         }
         
         

@@ -157,10 +157,12 @@
                                         <label class="control-label">Municipio:</label>
                                         <div class="controls">
                                             <s:select name="id" list="datosMun" listValue="mun_nombre" listKey="mun_id"/>
+                                            <s:param name="mun_id" value="mun_id"/>
                                         </div>
                                     </div>
                                     <div class="form-actions">
                                         <s:submit value="Enviar" title="Enviar" cssClass="btn btn-default"/>
+                                        <s:param name="mun_id" value="mun_id"/>
                                         <button class="btn">Limpiar</button>
                                     </div>
                                 </s:form>
