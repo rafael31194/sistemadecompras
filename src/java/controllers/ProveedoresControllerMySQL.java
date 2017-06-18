@@ -175,6 +175,7 @@ public class ProveedoresControllerMySQL extends ActionSupport{
         this.datosUsu = con.getDataUsuario("select * from usu_usuario");
         
         con.deleteData("delete from pro_proveedor where pro_id="+this.pro_id+"");
+        this.pro_id = 0;
         this.datos = new ArrayList<>();
         this.datos = con.getData("select p.pro_id, m.mun_nombre, p.pro_nombre, p.pro_direccion, u.usu_usuario from pro_proveedor p inner join mun_municipio m on p.mun_id = m.mun_id inner join usu_usuario u on p.pro_id_usu = u.usu_id");
         

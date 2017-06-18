@@ -195,6 +195,7 @@ public class RestriccionesControllerMySQL extends ActionSupport{
         this.datosPro = con.getDataProveedores("select * from pro_proveedor");
         
         con.deleteData("delete from res_restriccion where res_id="+this.res_id+"");
+        this.res_id = 0:
         this.datos = new ArrayList<>();
         this.datos = con.getData("select r.res_id, i.ins_nombre, p.pro_nombre, r.res_montolimite, r.res_cantidadcompras, r.res_descripcion, r.res_EsInstalacion from res_restriccion r inner join ins_institucion i on r.ins_id = i.ins_id inner join pro_proveedor p on r.pro_id = p.pro_id");
         

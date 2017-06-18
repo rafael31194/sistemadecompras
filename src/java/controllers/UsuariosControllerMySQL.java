@@ -273,6 +273,7 @@ public class UsuariosControllerMySQL extends ActionSupport{
         this.datosIns = con.getDataInstituciones("select * from ins_institucion");
         
         con.deleteData("delete from usu_usuario where usu_id = "+this.usu_id+"");
+        this.usu_id = 0;
         this.datos = new ArrayList<>();
         this.datos = con.getData("select u.usu_id, u.usu_usuario, u.usu_contrasenia, u.usu_nombre, u.usu_correo, r.rol_descripcion, un.uni_nombre, ins_nombre from rol_rol r join usu_rol_usuarios_por_rol ur on r.rol_id = ur.rol_id join usu_usuario u on ur.usu_id = u.usu_id join usr_uni_usuarios_unidad uu on u.usu_id = uu.usu_id join ins_institucion i on uu.ins_id = i.ins_id join uni_unidad un on uu.uni_id = un.uni_id");
         

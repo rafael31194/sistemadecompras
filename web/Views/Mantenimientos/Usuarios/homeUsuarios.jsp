@@ -128,25 +128,25 @@
                                             <s:hidden name="usu_id"/>
                                             <s:hidden name="id_ur"/>
                                             <s:hidden name="id_uu"/>
-                                            <s:textfield name="usu_usuario" required="true"/>                                            
+                                            <s:textfield name="usu_usuario" required="true" />                                            
                                         </div>
                                     </div>   
                                     <div class="control-group">
                                         <label class="control-label">Contraseña:</label>
                                         <div class="controls">
-                                            <s:textfield name="usu_contrasenia"/> 
+                                            <s:textfield name="usu_contrasenia" required="true" type="password" minlength="8"/> 
                                         </div>
                                     </div>                                     
                                     <div class="control-group">
                                         <label class="control-label">Nombre:</label>
                                         <div class="controls">
-                                            <s:textfield name="usu_nombre"/>
+                                            <s:textfield name="usu_nombre" required="true"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label">Correo:</label>
                                         <div class="controls">
-                                            <s:textfield name="usu_correo"/>
+                                            <s:textfield name="usu_correo" required="true"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
