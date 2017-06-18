@@ -123,67 +123,20 @@
                                 </div>
                                 <div class="box-content">
                                     <s:form action="enviarOrden"> 
-                                       <!-- <div class="control-group">
-                                            <label class="control-label" for="selectError">Estado:</label>
-                                            <div class="controls">
-                                                <select id="selectError" data-rel="chosen">
-                                                    <option>Option 1</option>
-                                                    <option>Option 2</option>
-                                                    <option>Option 3</option>
-                                                    <option>Option 4</option>
-                                                    <option>Option 5</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="control-group">
-                                            <label class="control-label" for="selectError">Solicitud:</label>
-                                            <div class="controls">
-                                                <select id="selectError" data-rel="chosen">
-                                                    <option>Option 1</option>
-                                                    <option>Option 2</option>
-                                                    <option>Option 3</option>
-                                                    <option>Option 4</option>
-                                                    <option>Option 5</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="control-group">
-                                            <label class="control-label" for="selectError">Proveedor:</label>
-                                            <div class="controls">
-                                                <select id="selectError" data-rel="chosen">
-                                                    <option>Option 1</option>
-                                                    <option>Option 2</option>
-                                                    <option>Option 3</option>
-                                                    <option>Option 4</option>
-                                                    <option>Option 5</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="control-group">
-                                            <label class="control-label" for="typeahead">Auto complete </label>
-                                            <div class="controls">
-                                                <input type="text" class="span6 typeahead" id="typeahead"  data-provide="typeahead" data-items="4" data-source='["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]'>
-                                            </div>
-                                        </div>
-                                        <div class="control-group">
-                                            <label class="control-label" for="date01">Fecha:</label>
-                                            <div class="controls">
-                                                <input type="date" class="input-xlarge datepicker" id="date01">
-                                            </div>
-                                        </div>-->
-                                                                                  
+                                                                                                                         
                                 <%--    <div class="control-group">
                                         <label class="control-label">Estado:</label>
                                         <div class="controls">
                                             <s:select name="estid" list="datosEst" listValue="est_estado" listKey="est_id"/> 
-                                            <s:hidden name="ord_id"/>
+                                            
                                         </div>
                                     </div> --%>
                                         
                                        <div class="control-group">
                                             <label class="control-label">Tipo de contratacion:</label>
                                             <div class="controls">
-                                                <s:select name="tcoid" list="datosTipo" listValue="tco_descripcion" listKey="tco_id"/>                                                 
+                                                <s:select name="tcoid" list="datosTipo" listValue="tco_descripcion" listKey="tco_id"/> 
+                                                <s:hidden name="ord_id"/>
                                             </div>
                                         </div>
                                                
