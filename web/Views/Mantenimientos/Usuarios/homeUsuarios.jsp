@@ -128,7 +128,7 @@
                                             <s:hidden name="usu_id"/>
                                             <s:hidden name="id_ur"/>
                                             <s:hidden name="id_uu"/>
-                                            <s:textfield name="usu_usuario"/>                                            
+                                            <s:textfield name="usu_usuario" required="true"/>                                            
                                         </div>
                                     </div>   
                                     <div class="control-group">
