@@ -49,8 +49,7 @@
                             <!-- start: User Dropdown -->
                             <li class="dropdown">
                                 <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <i class="icon-user"></i> Pablo Tobar
-                                    <span class="caret"></span>
+                                    <i class="icon-user"></i>Usuario<span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li class="dropdown-menu-title">
@@ -133,38 +132,38 @@
                                     <div class="control-group">
                                         <label class="control-label" for="date01">Fecha inicio:</label>
                                         <div class="controls">
-                                            <s:textfield cssClass="form-control" name="bit_fecha_inicio"/>
+                                            <s:textfield cssClass="form-control" name="bit_fecha_inicio" type="date" required="true"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label" for="date01">Hora:</label>
                                         <div class="controls">
-                                            <s:textfield cssClass="form-control" name="bit_hora_inicio"/>
+                                            <s:textfield cssClass="form-control" name="bit_hora_inicio" required="true" minlength="5" maxlength="5" placeholder="00:00" pattern="[0-9]{2}:[0-9]{2}" title="Formato: 00:00"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label" for="date01">Fecha fin:</label>
                                         <div class="controls">
-                                            <s:textfield cssClass="form-control" name="bit_fecha_fin"/>
+                                            <s:textfield cssClass="form-control" name="bit_fecha_fin" type="date" required="true"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label" for="date01">Hora:</label>
                                         <div class="controls">
-                                            <s:textfield cssClass="form-control" name="bit_hora_fin"/>
+                                            <s:textfield cssClass="form-control" name="bit_hora_fin" required="true" minlength="5" maxlength="5" placeholder="00:00" pattern="[0-9]{2}:[0-9]{2}" title="Formato: 00:00"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label">Persona que lo realiza:</label>
                                         <div class="controls">
-                                            <s:textfield cssClass="form-control" name="bit_nombre_personal"/>
+                                            <s:textfield cssClass="form-control" name="bit_nombre_personal" required="true" minlength="5"/>
                                         </div>
                                     </div>
 
                                     <div class="control-group">
                                         <label class="control-label">Comentario:</label>
                                         <div class="controls">
-                                            <s:textfield cssClass="form-control" name="bit_comentarios"/>
+                                            <s:textfield cssClass="form-control" name="bit_comentarios" required="true" minlength="5"/>
                                         </div>
                                     </div>
 
@@ -251,69 +250,69 @@
 
         <!-- start: JavaScript-->
 
-        <script src="../Recursos/js/jquery-1.9.1.min.js"></script>
-        <script src="../Recursos/js/jquery-migrate-1.0.0.min.js"></script>
+        <script src="Recursos/js/jquery-1.9.1.min.js"></script>
+        <script src="Recursos/js/jquery-migrate-1.0.0.min.js"></script>
 
-        <script src="../Recursos/js/jquery-ui-1.10.0.custom.min.js"></script>
+        <script src="Recursos/js/jquery-ui-1.10.0.custom.min.js"></script>
 
-        <script src="../Recursos/js/jquery.ui.touch-punch.js"></script>
+        <script src="Recursos/js/jquery.ui.touch-punch.js"></script>
 
-        <script src="../Recursos/js/modernizr.js"></script>
+        <script src="Recursos/js/modernizr.js"></script>
 
-        <script src="../Recursos/js/bootstrap.min.js"></script>
+        <script src="Recursos/js/bootstrap.min.js"></script>
 
-        <script src="../Recursos/js/jquery.cookie.js"></script>
+        <script src="Recursos/js/jquery.cookie.js"></script>
 
-        <script src='../Recursos/js/fullcalendar.min.js'></script>
+        <script src='Recursos/js/fullcalendar.min.js'></script>
 
-        <script src='../Recursos/js/jquery.dataTables.min.js'></script>
+        <script src='Recursos/js/jquery.dataTables.min.js'></script>
 
-        <script src="../Recursos/js/excanvas.js"></script>
-        <script src="../Recursos/js/jquery.flot.js"></script>
-        <script src="../Recursos/js/jquery.flot.pie.js"></script>
-        <script src="../Recursos/js/jquery.flot.stack.js"></script>
-        <script src="../Recursos/js/jquery.flot.resize.min.js"></script>
+        <script src="Recursos/js/excanvas.js"></script>
+        <script src="Recursos/js/jquery.flot.js"></script>
+        <script src="Recursos/js/jquery.flot.pie.js"></script>
+        <script src="Recursos/js/jquery.flot.stack.js"></script>
+        <script src="Recursos/js/jquery.flot.resize.min.js"></script>
 
-        <script src="../Recursos/js/jquery.chosen.min.js"></script>
+        <script src="Recursos/js/jquery.chosen.min.js"></script>
 
-        <script src="../Recursos/js/jquery.uniform.min.js"></script>
+        <script src="Recursos/js/jquery.uniform.min.js"></script>
 
-        <script src="../Recursos/js/jquery.cleditor.min.js"></script>
+        <!-- <script src="Recursos/js/jquery.cleditor.min.js"></script> -->
 
-        <script src="../Recursos/js/jquery.noty.js"></script>
+        <script src="Recursos/js/jquery.noty.js"></script>
 
-        <script src="../Recursos/js/jquery.elfinder.min.js"></script>
+        <script src="Recursos/js/jquery.elfinder.min.js"></script>
 
-        <script src="../Recursos/js/jquery.raty.min.js"></script>
+        <script src="Recursos/js/jquery.raty.min.js"></script>
 
-        <script src="../Recursos/js/jquery.iphone.toggle.js"></script>
+        <script src="Recursos/js/jquery.iphone.toggle.js"></script>
 
-        <script src="../Recursos/js/jquery.uploadify-3.1.min.js"></script>
+        <script src="Recursos/js/jquery.uploadify-3.1.min.js"></script>
 
-        <script src="../Recursos/js/jquery.gritter.min.js"></script>
+        <script src="Recursos/js/jquery.gritter.min.js"></script>
 
-        <script src="../Recursos/js/jquery.imagesloaded.js"></script>
+        <script src="Recursos/js/jquery.imagesloaded.js"></script>
 
-        <script src="../Recursos/js/jquery.masonry.min.js"></script>
+        <script src="Recursos/js/jquery.masonry.min.js"></script>
 
-        <script src="../Recursos/js/jquery.knob.modified.js"></script>
+        <script src="Recursos/js/jquery.knob.modified.js"></script>
 
-        <script src="../Recursos/js/jquery.sparkline.min.js"></script>
+        <script src="Recursos/js/jquery.sparkline.min.js"></script>
 
-        <script src="../Recursos/js/counter.js"></script>
+        <script src="Recursos/js/counter.js"></script>
 
-        <script src="../Recursos/js/retina.js"></script>
+        <script src="Recursos/js/retina.js"></script>
 
-        <script src="../Recursos/js/custom.js"></script>
+        <!-- <script src="Recursos/js/custom.js"></script> -->
         <!-- end: JavaScript-->
 
         <!-- Bootstrap core JavaScript================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-        <script src="../../dist/js/bootstrap.min.js"></script>
+        <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script>
+        <!-- <script src="dist/js/bootstrap.min.js"></script> -->
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-        <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+        <!-- <script src="assets/js/ie10-viewport-bug-workaround.js"></script> -->
 
     </body>
 </html>

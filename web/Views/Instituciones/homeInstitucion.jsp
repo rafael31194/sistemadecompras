@@ -124,20 +124,20 @@
                                     <div class="control-group">
                                         <label class="control-label">Institución:</label>
                                         <div class="controls">
-                                            <s:textfield name="ins_nombre"/>
+                                            <s:textfield name="ins_nombre" required="true" minlength="5"/>
                                             <s:hidden name="ins_id"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label">Teléfono:</label>
                                         <div class="controls">
-                                            <s:textfield name="ins_telefono"/>
+                                            <s:textfield name="ins_telefono" required="true" type="tel" minlength="9" maxlength="9" placeholder="7777-7777" pattern="[0-9]{4}-[0-9]{4}" title="Formato: 7777-7777"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label">Dirección:</label>
                                         <div class="controls">
-                                            <s:textfield name="ins_direccion"/>
+                                            <s:textfield name="ins_direccion" required="true" minlength="5"/>
                                         </div>
                                     </div>
                                    <div class="control-group">
@@ -189,17 +189,15 @@
                                             <td><s:property value="ins_telefono"/></td>
                                             <td><s:property value="ins_direccion"/></td>
                                             <td>
-                                                <s:a action="eliminarInsti">
+                                                <s:a cssClass="btn btn-info"  action="editarInsti">
+                                                    <s:param name="ins_id" value="ins_id"/>
+                                                    <i class="icon-pencil"></i>
+                                                </s:a>                                                
+                                                <s:a cssClass="btn btn-danger" action="eliminarInsti">
                                                     <s:param name="ins_id" value="ins_id"/>
                                                     <i class="icon-trash"></i>
                                                 </s:a>
-                                            </td>
-                                            <td>
-                                                <s:a action="editarInsti">
-                                                    <s:param name="ins_id" value="ins_id"/>
-                                                    <i class="icon-pencil"></i>
-                                                </s:a>
-                                            </td>                                            
+                                            </td>                                      
                                         </tr>
                                     </s:iterator>
                                         
@@ -266,7 +264,7 @@
 
         <script src="Recursos/js/jquery.uniform.min.js"></script>
 
-        <script src="Recursos/js/jquery.cleditor.min.js"></script>
+        <!-- <script src="Recursos/js/jquery.cleditor.min.js"></script> -->
 
         <script src="Recursos/js/jquery.noty.js"></script>
 
@@ -292,16 +290,16 @@
 
         <script src="Recursos/js/retina.js"></script>
 
-        <script src="Recursos/js/custom.js"></script>
+        <!-- <script src="Recursos/js/custom.js"></script> -->
         <!-- end: JavaScript-->
 
         <!-- Bootstrap core JavaScript================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script>
-        <script src="dist/js/bootstrap.min.js"></script>
+        <!-- <script src="dist/js/bootstrap.min.js"></script> -->
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-        <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+        <!-- <script src="assets/js/ie10-viewport-bug-workaround.js"></script> -->
 
     </body>
 </html>

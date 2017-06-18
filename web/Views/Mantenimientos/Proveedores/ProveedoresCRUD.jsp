@@ -187,15 +187,13 @@
                                             <td><s:property value="pro_direccion"/></td>
                                             <td><s:property value="usu_usuario"/></td>
                                             <td>
-                                                <s:a action="pro_eliminar">
-                                                    <s:param name="pro_id" value="pro_id"/>
-                                                    <i class="icon-trash"></i>
-                                                </s:a>
-                                            </td>
-                                            <td>
-                                                <s:a action="pro_editar">
+                                                <s:a cssClass="btn btn-info" action="pro_editar">
                                                     <s:param name="pro_id" value="pro_id"/>
                                                     <i class="icon-pencil"></i>
+                                                </s:a>                                                
+                                                <s:a cssClass="btn btn-danger" action="pro_eliminar">
+                                                    <s:param name="pro_id" value="pro_id"/>
+                                                    <i class="icon-trash"></i>
                                                 </s:a>
                                             </td>
                                         </tr>
@@ -263,7 +261,7 @@
 
         <script src="Recursos/js/jquery.uniform.min.js"></script>
 
-        <script src="Recursos/js/jquery.cleditor.min.js"></script>
+        <!-- <script src="Recursos/js/jquery.cleditor.min.js"></script> -->
 
         <script src="Recursos/js/jquery.noty.js"></script>
 
@@ -289,16 +287,16 @@
 
         <script src="Recursos/js/retina.js"></script>
 
-        <script src="Recursos/js/custom.js"></script>
+        <!-- <script src="Recursos/js/custom.js"></script> -->
         <!-- end: JavaScript-->
 
         <!-- Bootstrap core JavaScript================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script>
-        <script src="dist/js/bootstrap.min.js"></script>
+        <!-- <script src="dist/js/bootstrap.min.js"></script> -->
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-        <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+        <!-- <script src="assets/js/ie10-viewport-bug-workaround.js"></script> -->
 
     </body>
 </html>

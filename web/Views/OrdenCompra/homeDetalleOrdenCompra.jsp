@@ -124,9 +124,6 @@
                             <div class="box-content">     
                                 
                                 <s:form action="enviarDetalle"> 
-                                    
-                                                                       
-                                    
                                     <div class="control-group">
                                             <label class="control-label">Equipo:</label>
                                             <div class="controls">
@@ -196,16 +193,12 @@
                                                     <s:param name="ord_id" value="ord_id"/>
                                                     <i class="icon-pencil"></i>
                                                 </s:a>
-                                            </td> 
-                                            
-                                            <td>
                                                 <s:a cssClass="btn btn-danger" action="eliminarDetalle">
                                                     <s:param name="ord_dtl_id" value="ord_dtl_id"/>
                                                     <s:param name="ord_id" value="ord_id"/>
                                                     <i class="icon-trash"></i>
-                                                </s:a>
-                                            </td>
-                                            
+                                                </s:a>                                                    
+                                            </td>                                             
                                         </tr>
                                     </s:iterator>
                                     </tbody>
@@ -238,69 +231,69 @@
 
         <!-- start: JavaScript-->
 
-        <script src="../Recursos/js/jquery-1.9.1.min.js"></script>
-        <script src="../Recursos/js/jquery-migrate-1.0.0.min.js"></script>
+        <script src="Recursos/js/jquery-1.9.1.min.js"></script>
+        <script src="Recursos/js/jquery-migrate-1.0.0.min.js"></script>
 
-        <script src="../Recursos/js/jquery-ui-1.10.0.custom.min.js"></script>
+        <script src="Recursos/js/jquery-ui-1.10.0.custom.min.js"></script>
 
-        <script src="../Recursos/js/jquery.ui.touch-punch.js"></script>
+        <script src="Recursos/js/jquery.ui.touch-punch.js"></script>
 
-        <script src="../Recursos/js/modernizr.js"></script>
+        <script src="Recursos/js/modernizr.js"></script>
 
-        <script src="../Recursos/js/bootstrap.min.js"></script>
+        <script src="Recursos/js/bootstrap.min.js"></script>
 
-        <script src="../Recursos/js/jquery.cookie.js"></script>
+        <script src="Recursos/js/jquery.cookie.js"></script>
 
-        <script src='../Recursos/js/fullcalendar.min.js'></script>
+        <script src='Recursos/js/fullcalendar.min.js'></script>
 
-        <script src='../Recursos/js/jquery.dataTables.min.js'></script>
+        <script src='Recursos/js/jquery.dataTables.min.js'></script>
 
-        <script src="../Recursos/js/excanvas.js"></script>
-        <script src="../Recursos/js/jquery.flot.js"></script>
-        <script src="../Recursos/js/jquery.flot.pie.js"></script>
-        <script src="../Recursos/js/jquery.flot.stack.js"></script>
-        <script src="../Recursos/js/jquery.flot.resize.min.js"></script>
+        <script src="Recursos/js/excanvas.js"></script>
+        <script src="Recursos/js/jquery.flot.js"></script>
+        <script src="Recursos/js/jquery.flot.pie.js"></script>
+        <script src="Recursos/js/jquery.flot.stack.js"></script>
+        <script src="Recursos/js/jquery.flot.resize.min.js"></script>
 
-        <script src="../Recursos/js/jquery.chosen.min.js"></script>
+        <script src="Recursos/js/jquery.chosen.min.js"></script>
 
-        <script src="../Recursos/js/jquery.uniform.min.js"></script>
+        <script src="Recursos/js/jquery.uniform.min.js"></script>
 
-        <script src="../Recursos/js/jquery.cleditor.min.js"></script>
+        <!-- <script src="Recursos/js/jquery.cleditor.min.js"></script> -->
 
-        <script src="../Recursos/js/jquery.noty.js"></script>
+        <script src="Recursos/js/jquery.noty.js"></script>
 
-        <script src="../Recursos/js/jquery.elfinder.min.js"></script>
+        <script src="Recursos/js/jquery.elfinder.min.js"></script>
 
-        <script src="../Recursos/js/jquery.raty.min.js"></script>
+        <script src="Recursos/js/jquery.raty.min.js"></script>
 
-        <script src="../Recursos/js/jquery.iphone.toggle.js"></script>
+        <script src="Recursos/js/jquery.iphone.toggle.js"></script>
 
-        <script src="../Recursos/js/jquery.uploadify-3.1.min.js"></script>
+        <script src="Recursos/js/jquery.uploadify-3.1.min.js"></script>
 
-        <script src="../Recursos/js/jquery.gritter.min.js"></script>
+        <script src="Recursos/js/jquery.gritter.min.js"></script>
 
-        <script src="../Recursos/js/jquery.imagesloaded.js"></script>
+        <script src="Recursos/js/jquery.imagesloaded.js"></script>
 
-        <script src="../Recursos/js/jquery.masonry.min.js"></script>
+        <script src="Recursos/js/jquery.masonry.min.js"></script>
 
-        <script src="../Recursos/js/jquery.knob.modified.js"></script>
+        <script src="Recursos/js/jquery.knob.modified.js"></script>
 
-        <script src="../Recursos/js/jquery.sparkline.min.js"></script>
+        <script src="Recursos/js/jquery.sparkline.min.js"></script>
 
-        <script src="../Recursos/js/counter.js"></script>
+        <script src="Recursos/js/counter.js"></script>
 
-        <script src="../Recursos/js/retina.js"></script>
+        <script src="Recursos/js/retina.js"></script>
 
-        <script src="../Recursos/js/custom.js"></script>
+        <!-- <script src="Recursos/js/custom.js"></script> -->
         <!-- end: JavaScript-->
 
         <!-- Bootstrap core JavaScript================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-        <script src="../../dist/js/bootstrap.min.js"></script>
+        <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script>
+        <!-- <script src="dist/js/bootstrap.min.js"></script> -->
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-        <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+        <!-- <script src="assets/js/ie10-viewport-bug-workaround.js"></script> -->
 
     </body>
 </html>
