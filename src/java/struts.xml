@@ -184,4 +184,19 @@
         </action>        
     </package>
     
+    <package name="roles" namespace="/" extends="struts-default">
+        <action name="prueba5" class="controllers.RolesControllerMySQL" method="execute">
+            <result>/Views/Mantenimientos/Roles/homeRoles.jsp</result>
+        </action>
+        <action name="enviarRol" class="controllers.RolesControllerMySQL" method="recibirDatos">
+            <result>/Views/Mantenimientos/Roles/homeRoles.jsp</result>
+        </action>
+        <action name="eliminarRol" class="controllers.RolesControllerMySQL" method="eliminar">
+            <result>/Views/Mantenimientos/Roles/homeRoles.jsp</result>
+        </action>
+        <action name="editarRol" class="controllers.RolesControllerMySQL" method="llenarFormulario">
+            <result>/Views/Mantenimientos/Roles/homeRoles.jsp</result>
+        </action>
+    </package>
+    
 </struts>
