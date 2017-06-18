@@ -152,8 +152,8 @@ public class ProveedoresControllerMySQL extends ActionSupport{
         if (this.pro_id == 0)       
             con.setData("CALL `sp_insert_pro_proveedor`('"+this.id_mun+"', '"+this.pro_nombre+"', '"+this.pro_direccion+"', '"+this.id_usu+"')");
         else 
-            con.updateData("update pro_proveedor set mun_id="+this.id_mun+", pro_nombre="+this.pro_nombre+", pro_direccion='"+this.pro_direccion+"', pro_id_usu='"+this.id_usu+"' where pro_id="+this.pro_id+"");
-
+            con.updateData("update pro_proveedor set mun_id="+this.id_mun+", pro_nombre='"+this.pro_nombre+"', pro_direccion='"+this.pro_direccion+"', pro_id_usu="+this.id_usu+" where pro_id="+this.pro_id+"");
+        
         this.pro_id = 0;
         this.mun_id = 0;
         this.pro_nombre = null;

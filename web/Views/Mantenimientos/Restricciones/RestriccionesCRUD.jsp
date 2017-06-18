@@ -138,19 +138,19 @@
                                     <div class="control-group">
                                         <label class="control-label">Monto limite:</label>
                                         <div class="controls">
-                                            <s:textfield name="res_montolimite"/>
+                                        <s:textfield name="res_montolimite" type="number" required="true" min="1"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label">Cantidad:</label>
                                         <div class="controls">
-                                            <s:textfield name="res_cantidadcompras"/>
+                                            <s:textfield name="res_cantidadcompras" type="number" required="true" min="1"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label">Descripción:</label>
                                         <div class="controls">
-                                            <s:textfield name="res_descripcion"/>
+                                            <s:textarea name="res_descripcion" rows="7" required="true" minlength="10" maxlength="200"/>
                                         </div>
                                     </div>
                                     <div class="control-group">

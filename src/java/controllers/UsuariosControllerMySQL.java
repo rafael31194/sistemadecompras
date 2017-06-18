@@ -241,7 +241,7 @@ public class UsuariosControllerMySQL extends ActionSupport{
         if (this.usu_id == 0)       
             con.setData("CALL `sp_insert_usu_usuarioConRol`('"+this.usu_usuario+"', '"+this.usu_contrasenia+"', '"+this.usu_nombre+"', '"+this.usu_correo+"', '"+this.id_rol+"', '"+this.id_uni+"', '"+this.id_ins+"')");
         else 
-            con.updateData("update usu_usuario u, usu_rol_usuarios_por_rol ur, usr_uni_usuarios_unidad uu set u.usu_usuario = "+this.usu_usuario+", u.usu_contrasenia = sha("+this.usu_contrasenia+"), u.usu_nombre = "+this.usu_nombre+", u.usu_correo = "+this.usu_correo+", ur.rol_id = "+this.id_rol+", uu.uni_id = "+this.id_uni+", uu.ins_id = "+this.id_ins+" where u.usu_id = "+this.usu_id+" and ur.usu_rol_id = "+this.id_ur+" and uu.usr_uni_id = "+this.id_uu+"");
+            con.updateData("update usu_usuario u, usu_rol_usuarios_por_rol ur, usr_uni_usuarios_unidad uu set u.usu_usuario = '"+this.usu_usuario+"', u.usu_contrasenia = 'sha("+this.usu_contrasenia+")', u.usu_nombre = '"+this.usu_nombre+"', u.usu_correo = '"+this.usu_correo+"', ur.rol_id = "+this.id_rol+", uu.uni_id = "+this.id_uni+", uu.ins_id = "+this.id_ins+" where u.usu_id = "+this.usu_id+" and ur.usu_rol_id = "+this.id_ur+" and uu.usr_uni_id = "+this.id_uu+"");
         
         this.usu_id = 0;
 

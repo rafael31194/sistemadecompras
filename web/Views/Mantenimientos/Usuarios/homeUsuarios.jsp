@@ -128,7 +128,7 @@
                                             <s:hidden name="usu_id"/>
                                             <s:hidden name="id_ur"/>
                                             <s:hidden name="id_uu"/>
-                                            <s:textfield name="usu_usuario"/>                                            
+                                            <s:textfield name="usu_usuario" required="true"/>                                            
                                         </div>
                                     </div>   
                                     <div class="control-group">
@@ -181,7 +181,7 @@
                     <div class="row-fluid sortable">
                         <div class="box span12">
                             <div class="box-header" data-original-title>
-                                <h2><i class="icon-align-justify"></i><span class="break"></span>Restricciones</h2>
+                                <h2><i class="icon-align-justify"></i><span class="break"></span>Usuarios</h2>
                                 <div class="box-icon">
                                     <a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
                                     <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
@@ -210,12 +210,6 @@
                                             <td><s:property value="rol_descripcion"/></td>
                                             <td><s:property value="uni_nombre"/></td>  
                                             <td><s:property value="ins_nombre"/></td>  
-                                            <td>
-                                                <s:a action="usu_eliminar">
-                                                    <s:param name="usu_id" value="usu_id"/>
-                                                    <i class="icon-trash"></i>
-                                                </s:a>
-                                            </td>
                                             <td>
                                                 <s:a action="usu_editar">
                                                     <s:param name="usu_id" value="usu_id"/>

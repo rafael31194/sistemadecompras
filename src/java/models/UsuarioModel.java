@@ -100,5 +100,9 @@ public class UsuarioModel {
     public void setUsu_activo(int usu_activo) {
         this.usu_activo = usu_activo;
     }
+
+    public Object getUsuario() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

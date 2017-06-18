@@ -132,13 +132,13 @@
                                     <div class="control-group">
                                         <label class="control-label">Nombre:</label>
                                         <div class="controls">
-                                            <s:textfield name="pro_nombre"/>
+                                            <s:textfield name="pro_nombre" required="true" minlength="5"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label">Direccion:</label>
                                         <div class="controls">
-                                            <s:textfield name="pro_direccion"/>
+                                            <s:textarea name="pro_direccion" rows="3" required="true" minlength="10" maxlength="100"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
