@@ -239,7 +239,7 @@
 
         <footer>
             <p>
-                <span style="text-align:left;float:left">Sistema de compra de equipos electrónicos.</span>
+                <span style="text-align:left;float:left">&copy; 2017  Sistema de compra de equipos eletrónicos.</span>
             </p>
         </footer>
 
