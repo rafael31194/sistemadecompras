@@ -156,8 +156,8 @@ public class DetalleOrdenCompraController extends ActionSupport{
         if (this.ord_dtl_id==0){        
         try{    
             loginError=0;
-        con.setData("CALL `sp_insert_ord_dtl_ordenDetalle`('"+this.ord_id+"', '"+this.equid+"', '"+this.ord_dtl_precio+"', '"+this.ord_dtl_codigoInventario+"')");
-        this.ord_idd=this.ord_id;
+            con.setData("CALL `sp_insert_ord_dtl_ordenDetalle`('"+this.ord_id+"', '"+this.equid+"', '"+this.ord_dtl_precio+"', '"+this.ord_dtl_codigoInventario+"')");
+            this.ord_idd=this.ord_id;
         }catch(SQLException ex){
             loginError=1;
             this.ord_idd=this.ord_id;

@@ -8,6 +8,7 @@ package controllers;
 import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionSupport;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import models.CategoriaEquipoModel;
 import models.EquipoConectar;
@@ -33,6 +34,7 @@ public class EquipoController extends ActionSupport {
     private int equ_id, pro_id, cat_id, equ_anio, id, id_cat;
     private String equ_nombre, equ_marca, equ_modelo, equ_especificaciongarantia, equ_imagen, equ_estado, proveedor, catEquipo;
     private float equ_capacidad_btu, equ_potencia;
+    public  int loginError;
 
     @Override
     public String execute() throws Exception {
@@ -104,8 +106,13 @@ public class EquipoController extends ActionSupport {
     public String eliminar() throws Exception {
         this.con = new EquipoConectar();
         this.datos = new ArrayList<>();
-        con.deleteData("delete from equ_equipo where equ_id = " + this.equ_id + "");
-        this.equ_id = 0;
+        try{
+            this.loginError=0;
+            con.deleteData("delete from equ_equipo where equ_id = " + this.equ_id + "");
+            this.equ_id = 0;
+        } catch (SQLException ex){
+            this.loginError=1;
+        }
         execute();
         return SUCCESS;
     }
@@ -304,6 +311,15 @@ public class EquipoController extends ActionSupport {
 
     public void setEqu_potencia(float equ_potencia) {
         this.equ_potencia = equ_potencia;
+    }
+    
+    
+    public int getLoginError() {
+        return loginError;
+    }
+
+    public void setLoginError(int loginError) {
+        this.loginError = loginError;
     }
 
 }

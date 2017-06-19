@@ -42,7 +42,7 @@
                 {
                     //swal
                     swal(
-                            'Oops...', 'La restricion!',
+                            'Oops...', 'Error de restrición!',
                             'error'
                           
                             );

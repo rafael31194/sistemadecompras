@@ -3,6 +3,7 @@ package controllers;
 
 import com.opensymphony.xwork2.ActionSupport;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import models.DetalleOrdenCompraConectar;
 import models.DetalleOrdenCompraJoins;
@@ -38,6 +39,15 @@ public class OrdenCompraController extends ActionSupport{
     private String ord_descripcion;
     private float ord_total;
     private int ordid;
+    public  int loginError;
+
+    public int getLoginError() {
+        return loginError;
+    }
+
+    public void setLoginError(int loginError) {
+        this.loginError = loginError;
+    }
 
     public ArrayList<EquipoModel> getDatosEqu() {
         return datosEqu;
@@ -271,10 +281,16 @@ public class OrdenCompraController extends ActionSupport{
         this.datosSol=con.getSol("select * from sol_solicitud where est_id=4");
         this.datosPro=new ArrayList<>();
         this.datosPro=con.getPro("CALL `sp_select_prov_catag_proveedoresByCategoria`()");
-        if (this.ord_id==0){        
-        con.setData("CALL `sp_insert_ord_ordenCompra`('"+5+"', '"+this.solid+"', '"+this.proid+"', '"+this.ord_fecha+"', '"+this.ord_descripcion+"', '"+0+"', '"+this.tcoid+"')");
+        if (this.ord_id==0){    
+            try{
+                loginError=0;
+                con.setData("CALL `sp_insert_ord_ordenCompra`('"+5+"', '"+this.solid+"', '"+this.proid+"', '"+this.ord_fecha+"', '"+this.ord_descripcion+"', '"+0+"', '"+this.tcoid+"')");
+            } catch (SQLException ex){
+                loginError=1;
+                
+            }
         } else {
-        con.updateData("update ord_ordendecompra set est_id="+5+",tco_id='"+this.tcoid+"',sol_id='"+this.solid+"',pro_id='"+this.proid+"',ord_fecha='"+this.ord_fecha+"',ord_descripcion='"+this.ord_descripcion+"' where ord_id="+this.ord_id+"");
+            con.updateData("update ord_ordendecompra set est_id="+5+",tco_id='"+this.tcoid+"',sol_id='"+this.solid+"',pro_id='"+this.proid+"',ord_fecha='"+this.ord_fecha+"',ord_descripcion='"+this.ord_descripcion+"' where ord_id="+this.ord_id+"");
         }
         this.est_id=0;
         this.sol_id=0;
