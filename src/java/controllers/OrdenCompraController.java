@@ -353,7 +353,14 @@ public class OrdenCompraController extends ActionSupport{
         this.datosSol=con.getSol("select * from sol_solicitud where est_id=4");
         this.datosPro=new ArrayList<>();
         this.datosPro=con.getPro("CALL `sp_select_prov_catag_proveedoresByCategoria`()");
-        con.deleteData("delete from ord_ordendecompra where ord_id="+this.ord_id+"");
+        try{
+            this.loginError=0;
+            con.deleteData("delete from ord_ordendecompra where ord_id="+this.ord_id+"");
+            this.ord_id=0;
+        } catch(SQLException ex){
+          this.loginError=2;
+          this.ord_id=0;
+        }
         this.est_id=0;
         this.sol_id=0;
         this.tco_id=0;

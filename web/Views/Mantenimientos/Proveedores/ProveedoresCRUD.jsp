@@ -29,9 +29,28 @@
         <link type="text/css" id="base-style" href="Recursos/css/halflings.css" rel="stylesheet">
         <link type="text/css" id="base-style-responsive" href="Recursos/css/style-responsive.css" rel="stylesheet">
         <link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,cyrillic-ext,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="Recursos/css/sweetalert2.min.css" />
         <!-- end: CSS -->
+    <script language='javascript'>
+            <%@include file="/Recursos/sweetalert2/sweetalert2.min.js" %>
+
+            function mostrarError()
+            {
+                
+                var isError =<s:property value="loginError"/>;
+                if (isError === 1)
+                {
+                    //swal
+                    swal(
+                            'Oops...', 'Proveedor asociado a una orden de compra, no se puede eliminar',
+                            'error'
+                          
+                            );
+                }
+            }
+        </script>
     </head>
-    <body>
+    <body onload="mostrarError();">
         <!-- start: Header -->
         <div class="navbar">
             <div class="navbar-inner">
@@ -351,7 +370,7 @@
         <!-- Bootstrap core JavaScript================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script>
+        <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>');</script>
         <!-- <script src="dist/js/bootstrap.min.js"></script> -->
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
         <!-- <script src="assets/js/ie10-viewport-bug-workaround.js"></script> -->

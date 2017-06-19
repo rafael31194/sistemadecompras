@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import models.InstitucionModel;
 import models.conectar;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import models.MunicipiosModel;
 
 public class InstitucionesControllerMySQL extends ActionSupport{
@@ -15,7 +16,15 @@ public class InstitucionesControllerMySQL extends ActionSupport{
     private ArrayList<MunicipiosModel> datosMun;
     private ArrayList<String> select;
     private ResultSet dato;
-    private int rol;
+    private int rol,loginError;
+
+    public int getLoginError() {
+        return loginError;
+    }
+
+    public void setLoginError(int loginError) {
+        this.loginError = loginError;
+    }
     
     
     private int mun_id,ins_id,id;
@@ -168,8 +177,16 @@ public class InstitucionesControllerMySQL extends ActionSupport{
         this.con=new conectar();
         this.datosMun=new ArrayList<>();
         this.datosMun=con.getNomMunicipios("select * from mun_municipio");  
-        con.deleteData("delete from ins_institucion where ins_id="+this.ins_id+"");
-        this.ins_id=0;
+        
+        try{
+            this.loginError=0;
+            con.deleteData("delete from ins_institucion where ins_id="+this.ins_id+"");
+            this.ins_id=0;
+        }catch(SQLException ex){
+            this.loginError=1;
+            this.ins_id=0;
+        }
+        
         this.datos=new ArrayList<>();
         this.datos=con.getData("select i.ins_id,i.mun_id,m.mun_nombre,i.ins_nombre,i.ins_telefono,i.ins_direccion from ins_institucion i inner join mun_municipio m on i.mun_id=m.mun_id");
         return SUCCESS;        

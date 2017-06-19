@@ -2,6 +2,7 @@ package controllers;
 
 import com.opensymphony.xwork2.ActionSupport;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import models.MunicipiosModel;
 import models.UsuarioModel;
@@ -19,7 +20,15 @@ public class ProveedoresControllerMySQL extends ActionSupport{
     
     private int pro_id, mun_id, id_mun, pro_id_usu, id_usu;
     private String pro_nombre, pro_direccion;
+    private int loginError;
+    
+    public int getLoginError() {
+        return loginError;
+    }
 
+    public void setLoginError(int loginError) {
+        this.loginError = loginError;
+    }
     public ProveedorConectar getCon() {
         return con;
     }
@@ -173,9 +182,14 @@ public class ProveedoresControllerMySQL extends ActionSupport{
         
         this.datosUsu = new ArrayList<>();
         this.datosUsu = con.getDataUsuario("select * from usu_usuario");
-        
-        con.deleteData("delete from pro_proveedor where pro_id="+this.pro_id+"");
-        this.pro_id = 0;
+        try{
+            this.loginError=0;
+            con.deleteData("delete from pro_proveedor where pro_id="+this.pro_id+"");
+            this.pro_id = 0;
+        } catch (SQLException ex){
+            this.loginError=1;
+            this.pro_id = 0;
+        }
         this.datos = new ArrayList<>();
         this.datos = con.getData("select p.pro_id, m.mun_nombre, p.pro_nombre, p.pro_direccion, u.usu_usuario from pro_proveedor p inner join mun_municipio m on p.mun_id = m.mun_id inner join usu_usuario u on p.pro_id_usu = u.usu_id");
         

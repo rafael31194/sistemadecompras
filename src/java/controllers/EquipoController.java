@@ -112,6 +112,7 @@ public class EquipoController extends ActionSupport {
             this.equ_id = 0;
         } catch (SQLException ex){
             this.loginError=1;
+            this.equ_id = 0;
         }
         execute();
         return SUCCESS;

@@ -48,6 +48,15 @@
                           
                             );
                 }
+                if (isError === 2)
+                {
+                    //swal
+                    swal(
+                            'Oops...', 'Orden de compra asociada a una compra, no se puede eliminar',
+                            'error'
+                          
+                            );
+                }
             }
         </script>
     </head>
