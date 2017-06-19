@@ -115,7 +115,7 @@
                     <!-- end: Main Menu -->
 
                     <!-- start: Content -->
-                    <div id="content" class="span10">
+                    <div id="content" class="box span12">
 
 
                         <ul class="breadcrumb">
@@ -126,22 +126,22 @@
                             </li>
                         </ul>
 
-                        <div class="row-fluid sortable">
-                            <div class="box span12">
-                                <div class="box-header" data-original-title>
-                                    <h2><i class="icon-edit"></i><span class="break"></span>Inicio</h2>
-                                    <div class="box-icon">
-                                        <a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
-                                        <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
-                                        <a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
-                                    </div>
-                                </div>
-                                <div class="box-content">
-                                    <h1>¡BIENVENIDOS!</h1>
+                        <div class="span11 widget blue" onTablet="span5" onDesktop="span4">
+                            <br><br>
+                            <div style="height:70px; width: 100%; text-align: center" >
+                                <h1 style="font-size: 72px; font-weight: 400">¡Bienvenidos!</h1>
                             </div>
-                        </div><!--/span-->
 
-                    </div><!--/row-->
+                        </div>
+                        
+                        <div class="span11 widget green" onTablet="span5" onDesktop="span4">
+                            <br>
+                            <div style="height:100px; width: 100%; text-align: center" >
+                                <h1>Sistema de Gestión de Equipos de Alto Consumo </h1>
+                                <h1>Eléctrico en Instituciones Gubernatmentales.</h1>
+                            </div>
+
+                        </div>
                     
                 </div><!--/.fluid-container-->
 
