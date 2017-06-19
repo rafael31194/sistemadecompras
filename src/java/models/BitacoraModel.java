@@ -11,7 +11,8 @@ package models;
  */
 public class BitacoraModel {
     private int bit_id, inv_dtl_id;
-    private String bit_fecha_inicio,bit_fecha_fin,bit_hora_inicio,bit_hora_fin,bit_nombre_personal,bit_comentarios, equipo, institucion;
+    private String bit_fecha_inicio,bit_fecha_fin,bit_hora_inicio,bit_hora_fin,bit_nombre_personal,bit_comentarios, equipo, institucion,
+            bit_estado_inicial,bit_estado_final;
 
     public BitacoraModel(int bit_id, int inv_dtl_id, String bit_fecha_inicio, String bit_fecha_fin, String bit_hora_inicio, String bit_hora_fin, String bit_nombre_personal, String bit_comentarios) {
         this.bit_id = bit_id;
@@ -24,7 +25,7 @@ public class BitacoraModel {
         this.bit_comentarios = bit_comentarios;
     }
 
-    public BitacoraModel(int bit_id, int inv_dtl_id, String bit_fecha_inicio, String bit_fecha_fin, String bit_hora_inicio, String bit_hora_fin, String bit_nombre_personal, String bit_comentarios, String equipo, String institucion) {
+    public BitacoraModel(int bit_id, int inv_dtl_id, String bit_fecha_inicio, String bit_fecha_fin, String bit_hora_inicio, String bit_hora_fin, String bit_nombre_personal, String bit_comentarios, String equipo, String institucion, String bit_estado_inicial, String bit_estado_final) {
         this.bit_id = bit_id;
         this.inv_dtl_id = inv_dtl_id;
         this.bit_fecha_inicio = bit_fecha_inicio;
@@ -35,6 +36,24 @@ public class BitacoraModel {
         this.bit_comentarios = bit_comentarios;
         this.equipo = equipo;
         this.institucion = institucion;
+        this.bit_estado_inicial = bit_estado_inicial;
+        this.bit_estado_final = bit_estado_final;
+    }
+
+    public String getBit_estado_inicial() {
+        return bit_estado_inicial;
+    }
+
+    public void setBit_estado_inicial(String bit_estado_inicial) {
+        this.bit_estado_inicial = bit_estado_inicial;
+    }
+
+    public String getBit_estado_final() {
+        return bit_estado_final;
+    }
+
+    public void setBit_estado_final(String bit_estado_final) {
+        this.bit_estado_final = bit_estado_final;
     }
 
     public String getEquipo() {

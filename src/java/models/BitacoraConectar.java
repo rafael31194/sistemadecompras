@@ -86,7 +86,8 @@ public class BitacoraConectar {
         while (this.datos.next()) {
             this.bits.add(new BitacoraModel(datos.getInt("bit_id"), datos.getInt("inv_dtl_id"), datos.getString("bit_fecha_inicio"),
             datos.getString("bit_fecha_fin"), datos.getString("bit_hora_inicio"),datos.getString("bit_hora_fin"), datos.getString("bit_nombre_personal"),
-            datos.getString("bit_comentarios"), datos.getString("equipo"), datos.getString("institucion")));
+            datos.getString("bit_comentarios"), datos.getString("equipo"), datos.getString("institucion"), datos.getString("bit_estado_inicial"), 
+            datos.getString("bit_estado_final")));
         }
         return this.bits;
     }

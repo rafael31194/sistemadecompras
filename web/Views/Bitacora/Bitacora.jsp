@@ -71,7 +71,7 @@
 
         <div class="container-fluid-full">
             <div class="row-fluid">
-<%    if (UsuarioActivo.idRol==1) {%>
+                <%    if (UsuarioActivo.idRol == 1) {%>
                 <!-- start: Main Menu -->
                 <div id="sidebar-left" class="span2">
                     <div class="nav-collapse sidebar-nav">
@@ -87,13 +87,13 @@
                             <li><s:a action="orden" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Orden de Compra</s:a></i></li>
                             <li><s:a action="inventario" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Inventario</s:a></i></li>
                             <li><s:a action="bitacora" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Bitacora</s:a></i></li>
- +                          
-                        </ul>
+                                +                          
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <!-- end: Main Menu -->
-<%}%>
-<%    if (UsuarioActivo.idRol==2) {%>
+                    <!-- end: Main Menu -->
+                <%}%>
+                <%    if (UsuarioActivo.idRol == 2) {%>
                 <!-- start: Main Menu -->
                 <div id="sidebar-left" class="span2">
                     <div class="nav-collapse sidebar-nav">
@@ -103,26 +103,26 @@
                             <li><s:a action="prueba3" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Proveedores</s:a></i></li>
                             <li><s:a action="orden" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Orden de Compra</s:a></i></li>
                             <li><s:a action="inventario" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Inventario</s:a></i></li>
- +                          
-                        </ul>
+                                +                          
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <!-- end: Main Menu -->
-<%}%>
-<%    if (UsuarioActivo.idRol==3) {%>
+                    <!-- end: Main Menu -->
+                <%}%>
+                <%    if (UsuarioActivo.idRol == 3) {%>
                 <!-- start: Main Menu -->
                 <div id="sidebar-left" class="span2">
                     <div class="nav-collapse sidebar-nav">
                         <ul class="nav nav-tabs nav-stacked main-menu">
                             <li><s:a action="solicitud" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Solicitudes</s:a></li>
                             <li><s:a action="inventario" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Inventario</s:a></i></li>
- +                          
-                        </ul>
+                                +                          
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <!-- end: Main Menu -->
-<%}%>
-<%    if (UsuarioActivo.idRol==4) {%>
+                    <!-- end: Main Menu -->
+                <%}%>
+                <%    if (UsuarioActivo.idRol == 4) {%>
                 <!-- start: Main Menu -->
                 <div id="sidebar-left" class="span2">
                     <div class="nav-collapse sidebar-nav">
@@ -131,52 +131,52 @@
                             <li><s:a action="aprobar" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Aprobar Solicitud</s:a></li>
                             <li><s:a action="inventario" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Inventario</s:a></i></li>
                             <li><s:a action="bitacora" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Bitacora</s:a></i></li>
- +                          
-                        </ul>
+                                +                          
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <!-- end: Main Menu -->
-<%}%>
-<%    if (UsuarioActivo.idRol==5) {%>
+                    <!-- end: Main Menu -->
+                <%}%>
+                <%    if (UsuarioActivo.idRol == 5) {%>
                 <!-- start: Main Menu -->
                 <div id="sidebar-left" class="span2">
                     <div class="nav-collapse sidebar-nav">
                         <ul class="nav nav-tabs nav-stacked main-menu">
                             <li><s:a action="prueba3" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Proveedores</s:a></i></li>
                             <li><s:a action="equipo" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Equipo</s:a></i></li>
-                            
-                        </ul>
+
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <!-- end: Main Menu -->
-<%}%>
-                    <!-- start: Content -->
-                    <div id="content" class="span10">
+                    <!-- end: Main Menu -->
+                <%}%>
+                <!-- start: Content -->
+                <div id="content" class="span10">
 
 
-                        <ul class="breadcrumb">
-                            <li>
-                                <i class="icon-home"></i>
-                                <a href="index.html">Home</a>
-                                <i class="icon-angle-right"></i>
-                            </li>
-                            <li>
-                                <i class="icon-edit"></i>
-                                <a href="#">Forms</a>
-                            </li>
-                        </ul>
+                    <ul class="breadcrumb">
+                        <li>
+                            <i class="icon-home"></i>
+                            <a href="index.html">Home</a>
+                            <i class="icon-angle-right"></i>
+                        </li>
+                        <li>
+                            <i class="icon-edit"></i>
+                            <a href="#">Forms</a>
+                        </li>
+                    </ul>
 
-                        <div class="row-fluid sortable">
-                            <div class="box span12">
-                                <div class="box-header" data-original-title>
-                                    <h2><i class="icon-edit"></i><span class="break"></span>Ingresar bitacora de matenimiento</h2>
-                                    <div class="box-icon">
-                                        <a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
-                                        <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
-                                        <a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
-                                    </div>
+                    <div class="row-fluid sortable">
+                        <div class="box span12">
+                            <div class="box-header" data-original-title>
+                                <h2><i class="icon-edit"></i><span class="break"></span>Ingresar bitacora de matenimiento</h2>
+                                <div class="box-icon">
+                                    <a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
+                                    <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+                                    <a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
                                 </div>
-                                <div class="box-content">
+                            </div>
+                            <div class="box-content">
                                 <s:form action="bit_enviar" cssClass="form-horizontal">
                                     <div class="control-group">
                                         <label class="control-label" for="typeahead">Equipo:</label>
@@ -188,25 +188,37 @@
                                     <div class="control-group">
                                         <label class="control-label" for="date01">Fecha inicio:</label>
                                         <div class="controls">
-                                            <s:textfield cssClass="form-control" name="bit_fecha_inicio" type="date" required="true"/>
+                                            <s:textfield cssClass="form-control" name="bit_fecha_inicio" type="date"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label" for="date01">Hora:</label>
+                                        <label class="control-label" for="date01">Hora inicio:</label>
                                         <div class="controls">
-                                            <s:textfield cssClass="form-control" name="bit_hora_inicio" required="true" minlength="5" maxlength="5" placeholder="00:00" pattern="[0-9]{2}:[0-9]{2}" title="Formato: 00:00"/>
+                                            <s:textfield cssClass="form-control" name="bit_hora_inicio" minlength="5" maxlength="5" placeholder="00:00" pattern="[0-9]{2}:[0-9]{2}" title="Formato: 00:00"/>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="date01">Estado inicial del equipo:</label>
+                                        <div class="controls">
+                                            <s:textfield cssClass="form-control" name="bit_estado_inicial" placeholder="Estado inicial del equipo" title="Ingresar estado inicial"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label" for="date01">Fecha fin:</label>
                                         <div class="controls">
-                                            <s:textfield cssClass="form-control" name="bit_fecha_fin" type="date" required="true"/>
+                                            <s:textfield cssClass="form-control" name="bit_fecha_fin" type="date"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label" for="date01">Hora:</label>
+                                        <label class="control-label" for="date01">Hora fin:</label>
                                         <div class="controls">
-                                            <s:textfield cssClass="form-control" name="bit_hora_fin" required="true" minlength="5" maxlength="5" placeholder="00:00" pattern="[0-9]{2}:[0-9]{2}" title="Formato: 00:00"/>
+                                            <s:textfield cssClass="form-control" name="bit_hora_fin" minlength="5" maxlength="5" placeholder="00:00" pattern="[0-9]{2}:[0-9]{2}" title="Formato: 00:00"/>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="date01">Estado final:</label>
+                                        <div class="controls">
+                                            <s:textfield cssClass="form-control" name="bit_estado_final" placeholder="Estado final del equipo" title="Ingresar estado final"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
@@ -255,7 +267,8 @@
                                             <th>Hora inicio</th>
                                             <th>Fecha fin</th>
                                             <th>Hora fin</th>
-                                            <th>Estado</th>
+                                            <th>Estado inicial</th>
+                                            <th>Estado final</th>
                                             <th>Persona</th>
                                             <th>Comentario</th>
                                             <th>Acciones</th>
@@ -272,7 +285,8 @@
                                                 <td class="center"><s:property value="bit_hora_inicio"/></td>
                                                 <td class="center"><s:property value="bit_fecha_fin"/></td>
                                                 <td class="center"><s:property value="bit_hora_fin"/></td>
-                                                <td class="center"><s:property value=""/></td>
+                                                <td class="center"><s:property value="bit_estado_inicial"/></td>
+                                                <td class="center"><s:property value="bit_estado_final"/></td>
                                                 <td class="center"><s:property value="bit_nombre_personal"/></td>
                                                 <td class="center"><s:property value="bit_comentarios"/></td>
                                                 <td class="center">

@@ -25,7 +25,7 @@ public class BitacoraController extends ActionSupport {
     private ResultSet dato, select;
 
     private int bit_id, inv_dtl_id, id1, id2;
-    private String bit_fecha_inicio,bit_fecha_fin,bit_hora_inicio,bit_hora_fin,bit_nombre_personal,bit_comentarios;
+    private String bit_fecha_inicio,bit_fecha_fin,bit_hora_inicio,bit_hora_fin,bit_nombre_personal,bit_comentarios, bit_estado_inicial, bit_estado_final;
 
     @Override
     public String execute() throws Exception {
@@ -46,12 +46,13 @@ public class BitacoraController extends ActionSupport {
         this.con = new BitacoraConectar();
         
         if (this.bit_id == 0) {
-            this.con.setData("CALL `sp_insert_bit_bitacoramanto`('"+this.id1+"', '"+this.bit_fecha_inicio+"', '"+this.bit_fecha_fin+"',"
-                            + " '"+this.bit_hora_inicio+"', '"+this.bit_hora_fin+"', '"+this.bit_nombre_personal+"', '"+this.bit_comentarios+"')");
+            this.con.setData("CALL `sp_insert_bit_bitacoramanto_inicio`('"+this.id1+"', '"+this.bit_fecha_inicio+"',"
+                            + " '"+this.bit_hora_inicio+"', '"+this.bit_nombre_personal+"', '"+this.bit_estado_inicial+"','"+this.bit_comentarios+"')");
         }
         else {
-            con.updateData("CALL `sp_update_bit_bitacoramanto`('"+this.bit_id+"', '"+this.id1+"', '"+this.bit_fecha_inicio+"', '"+this.bit_fecha_fin+"', "
-                            + "'"+this.bit_hora_inicio+"', '"+this.bit_hora_fin+"', '"+this.bit_nombre_personal+"', '"+this.bit_comentarios+"')");
+            con.updateData("CALL `sp_update_bit_bitacoramanto_fin`('"+this.bit_id+"', '"+this.id1+"', '"+this.bit_fecha_inicio+"', '"+this.bit_fecha_fin+"', "
+                            + "'"+this.bit_hora_inicio+"', '"+this.bit_hora_fin+"', '"+this.bit_nombre_personal+"', '"+this.bit_estado_inicial+"',"
+                            + " '"+this.bit_estado_final+"', '"+this.bit_comentarios+"')");
         }
         this.id1 = 0;
         this.bit_fecha_inicio = null;
@@ -59,6 +60,8 @@ public class BitacoraController extends ActionSupport {
         this.bit_hora_inicio = null;
         this.bit_hora_fin = null;
         this.bit_nombre_personal = null;
+        this.bit_estado_inicial = null;
+        this.bit_estado_final = null;
         this.bit_comentarios = null;
         
         execute();
@@ -75,6 +78,8 @@ public class BitacoraController extends ActionSupport {
             this.bit_hora_inicio = dato.getString("bit_hora_inicio");
             this.bit_hora_fin = dato.getString("bit_hora_fin");
             this.bit_nombre_personal = dato.getString("bit_nombre_personal");
+            this.bit_estado_inicial = dato.getString("bit_estado_inicial");
+            this.bit_estado_final = dato.getString("bit_estado_final");
             this.bit_comentarios = dato.getString("bit_comentarios");
         }
         execute();
@@ -92,7 +97,24 @@ public class BitacoraController extends ActionSupport {
     
 
     //******************************************************************* Getters & Setters ************************************************************//
-     public BitacoraConectar getCon() {
+
+    public String getBit_estado_inicial() {
+        return bit_estado_inicial;
+    }
+
+    public void setBit_estado_inicial(String bit_estado_inicial) {
+        this.bit_estado_inicial = bit_estado_inicial;
+    }
+
+    public String getBit_estado_final() {
+        return bit_estado_final;
+    }
+
+    public void setBit_estado_final(String bit_estado_final) {
+        this.bit_estado_final = bit_estado_final;
+    }
+    
+    public BitacoraConectar getCon() {
         return con;
     }
 
