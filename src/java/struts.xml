@@ -11,8 +11,10 @@
     <package name="sv.edu.ues.bad115.action" namespace="/" extends="struts-default">
         <action name="LoginAction" class="sv.edu.ues.bad115.action.LoginAction" method="execute">
             <result name="proveedor">/Views/Inventario/DetalleInventario.jsp</result>
-            <result name="home">/Views/Home.jsp</result>
-            <result name="login">/Views/Login.jsp</result>           
+            <result name="admin">/Views/Inventario/DetalleInventario.jsp</result>
+            <result name="uaci">/Views/Inventario/DetalleInventario.jsp</result>
+            <result name="adminIns">/Views/Inventario/DetalleInventario.jsp</result>
+            <result name="usuario">/Views/Inventario/DetalleInventario.jsp</result>  
         </action>
         
         

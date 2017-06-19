@@ -60,6 +60,14 @@ public class LoginAction extends ActionSupport {
         
         System.out.println("\n\n\n*******************555555555555555555555555555555*");
         System.out.println(userRol);
+        if(userRol==1)
+        return "admin"; 
+        if(userRol==2)
+        return "uaci"; 
+        if(userRol==3)
+        return "usuario"; 
+        if(userRol==4)
+        return "adminIns"; 
         if(userRol==5)
         return "proveedor"; //To change body of generated methods, choose Tools | Templates.
         

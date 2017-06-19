@@ -71,7 +71,7 @@
 
         <div class="container-fluid-full">
             <div class="row-fluid">
-<%    if (UsuarioActivo.idRol==5) {%>
+<%    if (UsuarioActivo.idRol==1) {%>
                 <!-- start: Main Menu -->
                 <div id="sidebar-left" class="span2">
                     <div class="nav-collapse sidebar-nav">
@@ -88,6 +88,63 @@
                             <li><s:a action="inventario" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Inventario</s:a></i></li>
                             <li><s:a action="bitacora" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Bitacora</s:a></i></li>
  +                          
+                        </ul>
+                    </div>
+                </div>
+                <!-- end: Main Menu -->
+<%}%>
+<%    if (UsuarioActivo.idRol==2) {%>
+                <!-- start: Main Menu -->
+                <div id="sidebar-left" class="span2">
+                    <div class="nav-collapse sidebar-nav">
+                        <ul class="nav nav-tabs nav-stacked main-menu">
+                            <li><s:a action="aprobar" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Aprobar Solicitud</s:a></li>
+                            <li><s:a action="prueba2" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Restricciones</s:a></i></li>
+                            <li><s:a action="prueba3" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Proveedores</s:a></i></li>
+                            <li><s:a action="orden" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Orden de Compra</s:a></i></li>
+                            <li><s:a action="inventario" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Inventario</s:a></i></li>
+ +                          
+                        </ul>
+                    </div>
+                </div>
+                <!-- end: Main Menu -->
+<%}%>
+<%    if (UsuarioActivo.idRol==3) {%>
+                <!-- start: Main Menu -->
+                <div id="sidebar-left" class="span2">
+                    <div class="nav-collapse sidebar-nav">
+                        <ul class="nav nav-tabs nav-stacked main-menu">
+                            <li><s:a action="solicitud" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Solicitudes</s:a></li>
+                            <li><s:a action="inventario" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Inventario</s:a></i></li>
+ +                          
+                        </ul>
+                    </div>
+                </div>
+                <!-- end: Main Menu -->
+<%}%>
+<%    if (UsuarioActivo.idRol==4) {%>
+                <!-- start: Main Menu -->
+                <div id="sidebar-left" class="span2">
+                    <div class="nav-collapse sidebar-nav">
+                        <ul class="nav nav-tabs nav-stacked main-menu">
+                            <li><s:a action="solicitud" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Solicitudes</s:a></li>
+                            <li><s:a action="aprobar" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Aprobar Solicitud</s:a></li>
+                            <li><s:a action="inventario" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Inventario</s:a></i></li>
+                            <li><s:a action="bitacora" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Bitacora</s:a></i></li>
+ +                          
+                        </ul>
+                    </div>
+                </div>
+                <!-- end: Main Menu -->
+<%}%>
+<%    if (UsuarioActivo.idRol==5) {%>
+                <!-- start: Main Menu -->
+                <div id="sidebar-left" class="span2">
+                    <div class="nav-collapse sidebar-nav">
+                        <ul class="nav nav-tabs nav-stacked main-menu">
+                            <li><s:a action="prueba3" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Proveedores</s:a></i></li>
+                            <li><s:a action="equipo" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Equipo</s:a></i></li>
+                            
                         </ul>
                     </div>
                 </div>

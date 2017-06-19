@@ -1,6 +1,8 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags" %>
+<%@page import="sv.edu.ues.bad115.global.SessionSistema.UsuarioActivo" %>
+
 <!DOCTYPE html>
 <html>
     <head>
