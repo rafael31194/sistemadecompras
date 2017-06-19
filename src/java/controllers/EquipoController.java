@@ -85,7 +85,7 @@ public class EquipoController extends ActionSupport {
         this.con = new EquipoConectar();
         this.dato = con.getDataForm("CALL `sp_select_equ_equipoById`('"+ this.equ_id +"')");
         while (this.dato.next()) {
-            this.id = dato.getInt("equ_id");
+            this.id = dato.getInt("pro_id");
             this.id_cat = dato.getInt("cat_id");
             this.equ_anio = dato.getInt("equ_anio");
             this.equ_capacidad_btu = dato.getFloat("equ_capacidad_btu");
