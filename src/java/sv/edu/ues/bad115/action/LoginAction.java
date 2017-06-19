@@ -56,7 +56,10 @@ public class LoginAction extends ActionSupport {
                  if(countLogs>=3) bloquearUsuario();
             
              return "login";
-        }    
+        }   
+        
+        System.out.println("\n\n\n*******************555555555555555555555555555555*");
+        System.out.println(userRol);
         if(userRol==5)
         return "proveedor"; //To change body of generated methods, choose Tools | Templates.
         
