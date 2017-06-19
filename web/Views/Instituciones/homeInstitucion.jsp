@@ -8,6 +8,7 @@
 <!DOCTYPE html>
 <%@taglib prefix="s" uri="/struts-tags" %>
 <%@page import="sv.edu.ues.bad115.global.SessionSistema.UsuarioActivo" %>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -61,21 +62,21 @@
                         <span class="icon-bar"></span>
                     </a>
                     <a class="brand" href="index.html"><span>Sistema de compras</span></a>
-
+                    
                     <!-- start: Header Menu -->
                     <div class="nav-no-collapse header-nav">
                         <ul class="nav pull-right">
                             <!-- start: User Dropdown -->
                             <li class="dropdown">
                                 <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <i class="icon-user"></i> Hassel Ventura
+                                    <i class="icon-user"></i> 
                                     <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li class="dropdown-menu-title">
                                         <span>Perfil</span>
                                     </li>
-                                    <li><a href="<s:url value='/Views/Login.jsp'/>"><i class="icon-off"></i> Cerrar sesión</a></li>
+                                    <li><s:a action="login" forceAddSchemeHostAndPort="true"><i class="icon-off"></i>Cerrar Sesión</s:a></i></li>
                                 </ul>
                             </li>
                             <!-- end: User Dropdown -->

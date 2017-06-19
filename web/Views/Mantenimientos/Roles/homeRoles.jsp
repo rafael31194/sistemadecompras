@@ -51,7 +51,7 @@
                                     <li class="dropdown-menu-title">
                                         <span>Perfil</span>
                                     </li>
-                                    <li><a href="<s:url value='/Views/Login.jsp'/>"><i class="icon-off"></i> Cerrar sesión</a></li>
+                                    <li><s:a action="login" forceAddSchemeHostAndPort="true"><i class="icon-off"></i>Cerrar Sesión</s:a></i></li>
                                 </ul>
                             </li>
                             <!-- end: User Dropdown -->

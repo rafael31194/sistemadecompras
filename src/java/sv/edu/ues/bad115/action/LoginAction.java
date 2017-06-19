@@ -49,6 +49,7 @@ public class LoginAction extends ActionSupport {
         Usuarios usuarios=new Usuarios();
         usuarios.login(getUser(), getPassword());
         int userRol=SessionSistema.UsuarioActivo.getIdRol();
+        String userNombre=SessionSistema.UsuarioActivo.getNombre();
         if(userRol==0)
         {             
                  mostrarMensajeError();
@@ -60,6 +61,8 @@ public class LoginAction extends ActionSupport {
         
         System.out.println("\n\n\n*******************555555555555555555555555555555*");
         System.out.println(userRol);
+        System.out.println(userNombre);
+        System.out.println(SessionSistema.UsuarioActivo.nombre);
         if(userRol==1)
         return "admin"; 
         if(userRol==2)
@@ -77,6 +80,11 @@ public class LoginAction extends ActionSupport {
     }
     
     public String ordenCompra() throws Exception
+    {
+        return SUCCESS;
+    }
+    
+    public String login() throws Exception
     {
         return SUCCESS;
     }

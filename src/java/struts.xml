@@ -78,6 +78,9 @@
         <action name="editarInsti" class="controllers.InstitucionesControllerMySQL" method="llenarFormulario">
             <result>/Views/Instituciones/homeInstitucion.jsp</result>
         </action>
+        <action name="login" class="sv.edu.ues.bad115.action.LoginAction" method="login">
+            <result>/Views/Login.jsp</result>
+        </action>
     </package>
     
     <package name="solicitudes" namespace="/" extends="struts-default">
@@ -92,6 +95,9 @@
         </action>
         <action name="eliminarSoli" class="controllers.SolicitudController" method="eliminar">
             <result>/Views/Solicitudes/homeSolicitud.jsp</result>
+        </action>
+        <action name="login" class="sv.edu.ues.bad115.action.LoginAction" method="login">
+            <result>/Views/Login.jsp</result>
         </action>
     </package>
     
@@ -114,6 +120,9 @@
         <action name="denegarSol" class="controllers.aprobarController" method="denegarSol">
             <result>/Views/Solicitudes/aprobarSolicitud.jsp</result>
         </action>
+        <action name="login" class="sv.edu.ues.bad115.action.LoginAction" method="login">
+            <result>/Views/Login.jsp</result>
+        </action>
     </package>
     
     <package name="restriccion" namespace="/" extends="struts-default">
@@ -128,6 +137,9 @@
         </action>
         <action name="res_editar" class="controllers.RestriccionesControllerMySQL" method="llenarFormulario">
             <result>/Views/Mantenimientos/Restricciones/RestriccionesCRUD.jsp</result>
+        </action>
+        <action name="login" class="sv.edu.ues.bad115.action.LoginAction" method="login">
+            <result>/Views/Login.jsp</result>
         </action>
     </package> 
 
@@ -144,6 +156,9 @@
         <action name="pro_editar" class="controllers.ProveedoresControllerMySQL" method="llenarFormulario">
             <result>/Views/Mantenimientos/Proveedores/ProveedoresCRUD.jsp</result>
         </action>
+        <action name="login" class="sv.edu.ues.bad115.action.LoginAction" method="login">
+            <result>/Views/Login.jsp</result>
+        </action>
     </package>  
 
      <package name="usuario" namespace="/" extends="struts-default">
@@ -159,6 +174,9 @@
         <action name="usu_editar" class="controllers.UsuariosControllerMySQL" method="llenarFormulario">
             <result>/Views/Mantenimientos/Usuarios/homeUsuarios.jsp</result>
         </action>
+        <action name="login" class="sv.edu.ues.bad115.action.LoginAction" method="login">
+            <result>/Views/Login.jsp</result>
+        </action>
     </package>  
     
     <package name="bitacoras" namespace="/" extends="struts-default">
@@ -173,6 +191,9 @@
         </action>
         <action name="bit_eliminiar" class="controllers.BitacoraController" method="eliminar">
             <result>/Views/Bitacora/Bitacora.jsp</result>
+        </action>
+        <action name="login" class="sv.edu.ues.bad115.action.LoginAction" method="login">
+            <result>/Views/Login.jsp</result>
         </action>
     </package>
     
@@ -192,6 +213,9 @@
         <action name="detalleOrden" class="controllers.OrdenCompraController" method="detalleOrdenCompra">
             <result>/Views/OrdenCompra/homeDetalleOrdenCompra.jsp</result>
         </action>
+        <action name="login" class="sv.edu.ues.bad115.action.LoginAction" method="login">
+            <result>/Views/Login.jsp</result>
+        </action>
     </package>
     
     <package name="detalleordenes" namespace="/" extends="struts-default">
@@ -206,7 +230,10 @@
         </action>
         <action name="editarDetalle" class="controllers.DetalleOrdenCompraController" method="llenarFormulario">
             <result>/Views/OrdenCompra/homeDetalleOrdenCompra.jsp</result>
-        </action>        
+        </action>    
+        <action name="login" class="sv.edu.ues.bad115.action.LoginAction" method="login">
+            <result>/Views/Login.jsp</result>
+        </action>    
     </package>
     
     <package name="roles" namespace="/" extends="struts-default">
@@ -222,6 +249,9 @@
         <action name="editarRol" class="controllers.RolesControllerMySQL" method="llenarFormulario">
             <result>/Views/Mantenimientos/Roles/homeRoles.jsp</result>
         </action>
+        <action name="login" class="sv.edu.ues.bad115.action.LoginAction" method="login">
+            <result>/Views/Login.jsp</result>
+        </action>
     </package>
     
     <package name="equipos" namespace="/" extends="struts-default">
@@ -236,12 +266,18 @@
         </action>
         <action name="editarEquipo" class="controllers.EquipoController" method="llenarFormulario">
             <result>/Views/Equipo/Equipo.jsp</result>
-        </action>        
+        </action>  
+        <action name="login" class="sv.edu.ues.bad115.action.LoginAction" method="login">
+            <result>/Views/Login.jsp</result>
+        </action>      
     </package>
     
     <package name="inventarioInstitucion" namespace="/" extends="struts-default">
         <action name="inventario" class="controllers.InventarioController" method="execute">
             <result>/Views/Inventario/inventario.jsp</result>
-        </action>        
+        </action>   
+        <action name="login" class="sv.edu.ues.bad115.action.LoginAction" method="login">
+            <result>/Views/Login.jsp</result>
+        </action>     
     </package>
 </struts>
