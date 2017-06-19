@@ -11,11 +11,11 @@
     <package name="sv.edu.ues.bad115.action" namespace="/" extends="struts-default">
         <action name="LoginAction" class="sv.edu.ues.bad115.action.LoginAction" method="execute">
             
-            <result name="proveedor">/Views/home.jsp</result>
-            <result name="admin">/Views/home.jsp</result>
-            <result name="uaci">/Views/home.jsp</result>
-            <result name="adminIns">/Views/home.jsp</result>
-            <result name="usuario">/Views/home.jsp</result> 
+            <result name="proveedor">/Views/Home.jsp</result>
+            <result name="admin">/Views/Home.jsp</result>
+            <result name="uaci">/Views/Home.jsp</result>
+            <result name="adminIns">/Views/Home.jsp</result>
+            <result name="usuario">/Views/Home.jsp</result> 
             <result name="login">/Views/Login.jsp</result> 
         </action>
         
