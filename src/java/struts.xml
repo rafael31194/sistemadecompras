@@ -108,10 +108,10 @@
         <action name="enviarApro" class="controllers.aprobarController" method="guardar">
             <result>/Views/Solicitudes/aprobarSolicitud.jsp</result>
         </action>
-        <action name="editarSoli" class="controllers.aprobarController" method="llenarFormulario">
+        <action name="editarAprob" class="controllers.aprobarController" method="llenarFormulario">
             <result>/Views/Solicitudes/aprobarSolicitud.jsp</result>
         </action>
-        <action name="eliminarSoli" class="controllers.aprobarController" method="eliminar">
+        <action name="eliminarAprob" class="controllers.aprobarController" method="eliminar">
             <result>/Views/Solicitudes/aprobarSolicitud.jsp</result>
         </action>
         <action name="aprobarSol" class="controllers.aprobarController" method="aprobarSol">

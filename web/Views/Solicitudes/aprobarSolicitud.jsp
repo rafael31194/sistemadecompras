@@ -218,7 +218,7 @@
                                     <div class="control-group">
                                         <label class="control-label">Tipo solicitud:</label>
                                         <div class="controls">
-                                            <s:textfield name="sol_tipo" cssClass="form-control"/>
+                                            <s:select name="tipoSolid" list="datosTipoSol" listValue="tipoSol_nombre" listKey="tipoSol_id"/>
                                         </div>
                                     </div>
                                     <div class="form-actions">
@@ -276,11 +276,11 @@
                                                         <s:param name="sol_id" value="sol_id"/>
                                                         <i class="icon-remove"></i>
                                                     </s:a>
-                                                    <s:a cssClass="btn btn-info" action="editarSoli">
+                                                    <s:a cssClass="btn btn-info" action="editarAprob">
                                                         <s:param name="sol_id" value="sol_id"/>
                                                         <i class="icon-pencil"></i>
                                                     </s:a>
-                                                    <s:a cssClass="btn btn-danger" action="eliminarSoli">
+                                                    <s:a cssClass="btn btn-danger" action="eliminarAprob">
                                                         <s:param name="sol_id" value="sol_id"/>
                                                         <i class="icon-trash"></i>
                                                     </s:a>

@@ -215,12 +215,14 @@
                                         </div>
                                     </div>
 
-                                    <div class="control-group">
+                                                                            
+                                     <div class="control-group">
                                         <label class="control-label">Tipo solicitud:</label>
                                         <div class="controls">
-                                            <s:textfield name="sol_tipo" cssClass="form-control"/>
+                                            <s:select name="tipoSolid" list="datosTipoSol" listValue="tipoSol_nombre" listKey="tipoSol_id"/>
                                         </div>
                                     </div>
+                                        
                                     <div class="form-actions">
                                         <s:submit value="Enviar" title="Enviar" cssClass="btn btn-primary" />
                                         <button class="btn">Limpiar</button>

@@ -13,6 +13,7 @@ import models.CategoriaEquipoModel;
 import models.ProveedorConectar;
 import models.SolicitudConectar;
 import models.SolicitudModel;
+import models.TipoSolModel;
 import models.UnidadModel;
 import models.UsuarioModel;
 
@@ -29,8 +30,9 @@ public class SolicitudController extends ActionSupport{
     private ArrayList<CategoriaEquipoModel> datosCatEqui;
     private ArrayList<UnidadModel> datosUnidad;
     private ArrayList<UsuarioModel> datosUser;
+    private ArrayList<TipoSolModel> datosTipoSol;
     
-    private int sol_id, cat_id, uni_id, est_id, sol_id_usu, sol_tipo, id, idUni, idUser;
+    private int sol_id, cat_id, uni_id, est_id, sol_id_usu, sol_tipo, id, idUni, idUser,tipoSolid;
     private String sol_fecha;
     private String sol_descripcion;
     
@@ -49,8 +51,12 @@ public class SolicitudController extends ActionSupport{
         
         this.datos = new ArrayList<>();
         this.datos = this.con.getDataSolicitud("CALL `sp_select_sol_SolicitudesEnEspera`()");
-        System.out.println("Datos de solicitudes");
-        System.out.println(this.datos);
+        
+        this.datosTipoSol=new ArrayList<>();
+        this.datosTipoSol=this.con.getTipoSol();
+        
+        System.out.println("Datos de solicitudes55555555555555555555555555555555555555555555555555");
+        System.out.println(this.datosTipoSol);
         return SUCCESS;
     }
     
@@ -58,10 +64,11 @@ public class SolicitudController extends ActionSupport{
         this.con = new SolicitudConectar();
         if (this.sol_id == 0) {
             con.setData("CALL `sp_insert_sol_crearSolicitud`('"+this.id+"', '"+this.idUni+"', '"+3+"', '"+this.idUser+"', "
-                        + "'"+this.sol_fecha+"','"+this.sol_descripcion+"', '"+this.sol_tipo+"')");          
+                        + "'"+this.sol_fecha+"','"+this.sol_descripcion+"', '"+this.tipoSolid+"')");          
         } else {
             con.updateData("CALL `sp_update_sol_solicitud`('"+this.id+"', '"+this.idUni+"', '"+3+"', '"+this.idUser+"', "
-                            + "'"+this.sol_fecha+"', '"+this.sol_descripcion+"', '"+this.sol_id+"', '"+this.sol_tipo+"')");
+                            + "'"+this.sol_fecha+"', '"+this.sol_descripcion+"', '"+this.sol_id+"', '"+this.tipoSolid+"')");
+            this.sol_id=0;
         }
         this.id = 0;
         this.idUni = 0;
@@ -83,7 +90,7 @@ public class SolicitudController extends ActionSupport{
             this.idUni = dato.getInt("uni_id");
             this.sol_fecha = dato.getString("sol_fecha");
             this.idUser = dato.getInt("sol_id_usu");
-            this.sol_tipo = dato.getInt("sol_tipo");
+            this.tipoSolid = dato.getInt("sol_tipo");
             this.sol_descripcion = dato.getString("sol_descripcion");
             this.est_id = dato.getInt("est_id");
         }
@@ -279,6 +286,22 @@ public class SolicitudController extends ActionSupport{
 
     public void setSol_descripcion(String sol_descripcion) {
         this.sol_descripcion = sol_descripcion;
+    }
+
+    public ArrayList<TipoSolModel> getDatosTipoSol() {
+        return datosTipoSol;
+    }
+
+    public void setDatosTipoSol(ArrayList<TipoSolModel> datosTipoSol) {
+        this.datosTipoSol = datosTipoSol;
+    }
+
+    public int getTipoSolid() {
+        return tipoSolid;
+    }
+
+    public void setTipoSolid(int tipoSolid) {
+        this.tipoSolid = tipoSolid;
     }
 
   

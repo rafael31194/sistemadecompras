@@ -26,6 +26,7 @@ public class SolicitudConectar {
     private ArrayList<CategoriaEquipoModel> categorias;
     private ArrayList<UnidadModel> unidades;
     private ArrayList<UsuarioModel> users;
+    private ArrayList<TipoSolModel> tipoSol;
     
     public SolicitudConectar() {
         this.server = "localhost:3307";
@@ -129,4 +130,16 @@ public class SolicitudConectar {
         return this.users;
         
     }   
+    
+    public ArrayList<TipoSolModel> getTipoSol() throws SQLException{
+        this.tipoSol = new ArrayList<>();        
+       
+            this.tipoSol.add(new TipoSolModel(1,"Compra"));
+            this.tipoSol.add(new TipoSolModel(2,"Mantenimiento"));
+        
+         
+        
+        
+        return this.tipoSol;
+    } 
 }
