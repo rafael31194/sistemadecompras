@@ -43,7 +43,7 @@
                 {
                     //swal
                     swal(
-                            'Oops...', 'Equipo asociado a una orden de compra, no se puede eliminar',
+                            'Oops...', 'Bitacora asociada, no se puede eliminar',
                             'error'
                           
                             );

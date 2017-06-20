@@ -2,6 +2,7 @@ package controllers;
 
 import com.opensymphony.xwork2.ActionSupport;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import models.RolConectar;
 import models.RolModel;
@@ -13,8 +14,16 @@ public class RolesControllerMySQL extends ActionSupport{
     private ArrayList<String> select;
     private ResultSet dato;
     
-    private int rol_id;
+    private int rol_id,loginError;
     private String rol_descripcion;
+
+    public int getLoginError() {
+        return loginError;
+    }
+
+    public void setLoginError(int loginError) {
+        this.loginError = loginError;
+    }
 
     public RolConectar getCon() {
         return con;
@@ -99,7 +108,14 @@ public class RolesControllerMySQL extends ActionSupport{
     public String eliminar() throws Exception {
         this.con = new RolConectar();      
         
-        con.deleteData("delete from rol_rol where rol_id="+this.rol_id+"");
+        try{
+            loginError=0;
+            con.deleteData("delete from rol_rol where rol_id="+this.rol_id+"");
+            this.rol_id=0;
+        }catch(SQLException ex){
+            loginError=1;
+            this.rol_id=0;
+        }
         this.datos = new ArrayList<>();
         this.datos = con.getData("select * from rol_rol");
         
