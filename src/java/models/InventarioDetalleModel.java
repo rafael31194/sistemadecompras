@@ -36,7 +36,14 @@ public class InventarioDetalleModel {
         this.inv_dtl_codigoinventario = inv_dtl_codigoinventario;
         this.equ_nombre = equ_nombre;
     }
-    
+
+    public String getEqu_nombre() {
+        return equ_nombre;
+    }
+
+    public void setEqu_nombre(String equ_nombre) {
+        this.equ_nombre = equ_nombre;
+    }
     
     public int getIns_id() {
         return ins_id;
