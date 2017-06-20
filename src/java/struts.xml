@@ -105,7 +105,7 @@
         <action name="aprobar" class="controllers.aprobarController" method="execute">
             <result>/Views/Solicitudes/aprobarSolicitud.jsp</result>
         </action>        
-        <action name="enviar" class="controllers.aprobarController" method="guardar">
+        <action name="enviarApro" class="controllers.aprobarController" method="guardar">
             <result>/Views/Solicitudes/aprobarSolicitud.jsp</result>
         </action>
         <action name="editarSoli" class="controllers.aprobarController" method="llenarFormulario">

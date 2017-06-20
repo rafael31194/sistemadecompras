@@ -262,7 +262,7 @@ public class OrdenCompraController extends ActionSupport{
         this.datosTipo=new ArrayList<>();
         this.datosTipo=con.getTipo("select * from tco_tipocontratacion");
         this.datosSol=new ArrayList<>();
-        this.datosSol=con.getSol("select * from sol_solicitud where est_id=4");
+        this.datosSol=con.getSol("select * from sol_solicitud where est_id=4 and sol_tipo=1");
         this.datosPro=new ArrayList<>();
         this.datosPro=con.getPro("CALL `sp_select_prov_catag_proveedoresByCategoria`()");
 

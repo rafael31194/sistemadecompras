@@ -182,7 +182,7 @@
                                 </div>
                             </div>
                             <div class="box-content">
-                                <s:form action="enviar" cssClass="form-horizontal">
+                                <s:form action="enviarApro" cssClass="form-horizontal">
                                     <div class="control-group">
                                         <label class="control-label">Categoría del equipo:</label>
                                         <div class="controls">
