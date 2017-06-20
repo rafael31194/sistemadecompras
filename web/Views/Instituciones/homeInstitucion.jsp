@@ -73,9 +73,7 @@
                                     <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li class="dropdown-menu-title">
-                                        <span>Perfil</span>
-                                    </li>
+                                    
                                     <li><s:a action="login" forceAddSchemeHostAndPort="true"><i class="icon-off"></i>Cerrar Sesión</s:a></i></li>
                                 </ul>
                             </li>
