@@ -30,9 +30,28 @@
         <link type="text/css" id="base-style" href="Recursos/css/halflings.css" rel="stylesheet">
         <link type="text/css" id="base-style-responsive" href="Recursos/css/style-responsive.css" rel="stylesheet">
         <link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,cyrillic-ext,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="Recursos/css/sweetalert2.min.css" />
         <!-- end: CSS -->
+    <script language='javascript'>
+            <%@include file="/Recursos/sweetalert2/sweetalert2.min.js" %>
+
+            function mostrarError()
+            {
+                
+                var isError =<s:property value="loginError"/>;
+                if (isError === 1)
+                {
+                    //swal
+                    swal(
+                            'Oops...', 'Equipo asociado a una orden de compra, no se puede eliminar',
+                            'error'
+                          
+                            );
+                }
+            }
+        </script>
     </head>
-    <body>
+    <body onload="mostrarError();">
         <!-- start: Header -->
         <div class="navbar">
             <div class="navbar-inner">
@@ -181,7 +200,7 @@
                                     <div class="control-group">
                                         <label class="control-label" for="typeahead">Equipo:</label>
                                         <div class="controls">
-                                            <s:select name="id1" list="datosEqui" listValue="inv_dtl_nombre_equipo" listKey="inv_dtl_id"/>
+                                            <s:select name="id1" list="datosEqui" listValue="equ_nombre" listKey="inv_dtl_id"/>
                                             <s:hidden name="bit_id"/>
                                         </div>
                                     </div>

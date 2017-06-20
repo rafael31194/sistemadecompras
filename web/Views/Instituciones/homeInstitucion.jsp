@@ -91,6 +91,9 @@
 
         <div class="container-fluid-full">
             <div class="row-fluid">
+<%    if (UsuarioActivo.idRol!=1 && UsuarioActivo.idRol!=2 && UsuarioActivo.idRol!=3 && UsuarioActivo.idRol!=4 && UsuarioActivo.idRol!=5){%>
+
+<%}%> 
 <%    if (UsuarioActivo.idRol==1) {%>
                 <!-- start: Main Menu -->
                 <div id="sidebar-left" class="span2">
@@ -112,7 +115,7 @@
                     </div>
                 </div>
                 <!-- end: Main Menu -->
-<%}%>
+
 <%    if (UsuarioActivo.idRol==2) {%>
                 <!-- start: Main Menu -->
                 <div id="sidebar-left" class="span2">

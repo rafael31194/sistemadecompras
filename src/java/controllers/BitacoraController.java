@@ -8,6 +8,7 @@ package controllers;
 import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionSupport;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import models.BitacoraConectar;
 import models.BitacoraModel;
@@ -24,7 +25,7 @@ public class BitacoraController extends ActionSupport {
     private ArrayList<EquipoModel> datosEqui;
     private ResultSet dato, select;
 
-    private int bit_id, inv_dtl_id, id1, id2;
+    private int bit_id, inv_dtl_id, id1, id2,loginError;
     private String bit_fecha_inicio,bit_fecha_fin,bit_hora_inicio,bit_hora_fin,bit_nombre_personal,bit_comentarios, bit_estado_inicial, bit_estado_final;
 
     @Override
@@ -53,6 +54,7 @@ public class BitacoraController extends ActionSupport {
             con.updateData("CALL `sp_update_bit_bitacoramanto_fin`('"+this.bit_id+"', '"+this.id1+"', '"+this.bit_fecha_inicio+"', '"+this.bit_fecha_fin+"', "
                             + "'"+this.bit_hora_inicio+"', '"+this.bit_hora_fin+"', '"+this.bit_nombre_personal+"', '"+this.bit_estado_inicial+"',"
                             + " '"+this.bit_estado_final+"', '"+this.bit_comentarios+"')");
+            this.bit_id=0;
         }
         this.id1 = 0;
         this.bit_fecha_inicio = null;
@@ -89,8 +91,14 @@ public class BitacoraController extends ActionSupport {
     public String eliminar() throws Exception{
         this.con = new BitacoraConectar();
         this.datos = new ArrayList<>();
+        try{
+            this.loginError=0;
         con.deleteData("delete from bit_bitacoramantenimiento where bit_id = "+this.bit_id+"");
-        this.bit_id = 0;
+        this.bit_id = 0;        
+        } catch(SQLException ex){
+            this.bit_id = 0;  
+            this.loginError=1;
+        }
         execute();
         return SUCCESS;
     }        
@@ -232,6 +240,14 @@ public class BitacoraController extends ActionSupport {
 
     public void setId2(int id2) {
         this.id2 = id2;
+    }
+
+    public int getLoginError() {
+        return loginError;
+    }
+
+    public void setLoginError(int loginError) {
+        this.loginError = loginError;
     }
     
     
