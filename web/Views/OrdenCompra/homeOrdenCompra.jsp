@@ -221,7 +221,7 @@
                                     </div> --%>
                                         
                                        <div class="control-group">
-                                            <label class="control-label">Tipo de contratacion:</label>
+                                            <label class="control-label">*Tipo de contratacion:</label>
                                             <div class="controls">
                                                 <s:select name="tcoid" list="datosTipo" listValue="tco_descripcion" listKey="tco_id"/> 
                                                 <s:hidden name="ord_id"/>
@@ -230,7 +230,7 @@
                                                
                                                 
                                        <div class="control-group">
-                                            <label class="control-label">Solicitud:</label>
+                                            <label class="control-label">*Solicitud:</label>
                                             <div class="controls">
                                                 <s:select name="solid" list="datosSol" listValue="sol_descripcion" listKey="sol_id"/>                                                 
                                             </div>
@@ -238,13 +238,13 @@
                                             
                                        
                                        <div class="control-group">
-                                            <label class="control-label">Proveedor:</label>
+                                            <label class="control-label">*Proveedor:</label>
                                             <div class="controls">
                                                 <s:select name="proid" list="datosPro" listValue="pro_nombre" listKey="pro_id"/>                                                 
                                             </div>
                                         </div>
                                        <div class="control-group">
-                                            <label class="control-label">Fecha:</label>
+                                            <label class="control-label">*Fecha:</label>
                                             <div class="controls">
                                                 <s:textfield name="ord_fecha" type="date" required="true"/>
                                             </div>
@@ -253,13 +253,12 @@
                                         <div class="control-group">
                                             <label class="control-label">Descripción:</label>
                                             <div class="controls">
-                                                <s:textfield name="ord_descripcion" type="text" required="true"/>
+                                                <s:textfield name="ord_descripcion" type="text"/>
                                             </div>
                                         </div>
 
                                         <div class="form-actions">
                                             <s:submit value="Enviar" title="Enviar" cssClass="btn btn-default"/>
-                                            <button class="btn">Limpiar</button>
                                         </div>
                                     </s:form>
 

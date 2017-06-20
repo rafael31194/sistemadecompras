@@ -186,32 +186,32 @@
                             <div class="box-content">
                                 <s:form action="enviar" cssClass="form-horizontal">
                                     <div class="control-group">
-                                        <label class="control-label">Categoría del equipo:</label>
+                                        <label class="control-label">*Categoría del equipo:</label>
                                         <div class="controls">
                                             <s:select name="id" list="datosCatEqui" listValue="cat_descripcion" listKey="cat_id"/>
                                             <s:hidden name="sol_id"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label">Unidad:</label>
+                                        <label class="control-label">*Unidad:</label>
                                         <div class="controls">
                                             <s:select name="idUni" list="datosUnidad" listValue="uni_nombre" listKey="uni_id"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label">Usuario:</label>
+                                        <label class="control-label">*Usuario:</label>
                                         <div class="controls">
                                             <s:select name="idUser" list="datosUser" listValue="usu_usuario" listKey="usu_id"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label" for="date01">Fecha:</label>
+                                        <label class="control-label" for="date01">*Fecha:</label>
                                         <div class="controls">
                                             <s:textfield name="sol_fecha" type="date" required="true"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label">Descripción:</label>
+                                        <label class="control-label">*Descripción:</label>
                                         <div class="controls">
                                             <s:textfield name="sol_descripcion" required="true"  minlength="5"/>
                                         </div>
@@ -219,7 +219,7 @@
 
                                                                             
                                      <div class="control-group">
-                                        <label class="control-label">Tipo solicitud:</label>
+                                        <label class="control-label">*Tipo solicitud:</label>
                                         <div class="controls">
                                             <s:select name="tipoSolid" list="datosTipoSol" listValue="tipoSol_nombre" listKey="tipoSol_id"/>
                                         </div>
@@ -227,7 +227,6 @@
                                         
                                     <div class="form-actions">
                                         <s:submit value="Enviar" title="Enviar" cssClass="btn btn-primary" />
-                                        <button class="btn">Limpiar</button>
                                     </div>
                                 </s:form>
 

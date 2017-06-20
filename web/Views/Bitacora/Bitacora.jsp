@@ -201,28 +201,28 @@
                             <div class="box-content">
                                 <s:form action="bit_enviar" cssClass="form-horizontal">
                                     <div class="control-group">
-                                        <label class="control-label" for="typeahead">Equipo:</label>
+                                        <label class="control-label" for="typeahead">*Equipo:</label>
                                         <div class="controls">
                                             <s:select name="id1" list="datosEqui" listValue="equ_nombre" listKey="inv_dtl_id"/>
                                             <s:hidden name="bit_id"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label" for="date01">Fecha inicio:</label>
+                                        <label class="control-label" for="date01">*Fecha inicio:</label>
                                         <div class="controls">
-                                            <s:textfield cssClass="form-control" name="bit_fecha_inicio" type="date"/>
+                                            <s:textfield cssClass="form-control" name="bit_fecha_inicio" required="true" type="date"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label" for="date01">Hora inicio:</label>
+                                        <label class="control-label" for="date01">*Hora inicio:</label>
                                         <div class="controls">
-                                            <s:textfield cssClass="form-control" name="bit_hora_inicio" minlength="5" maxlength="5" placeholder="00:00" pattern="[0-9]{2}:[0-9]{2}" title="Formato: 00:00"/>
+                                            <s:textfield cssClass="form-control" required="true" name="bit_hora_inicio" minlength="5" maxlength="5" placeholder="00:00" pattern="[0-9]{2}:[0-9]{2}" title="Formato: 00:00"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label" for="date01">Estado inicial del equipo:</label>
+                                        <label class="control-label" for="date01">*Estado inicial del equipo:</label>
                                         <div class="controls">
-                                            <s:textfield cssClass="form-control" name="bit_estado_inicial" placeholder="Estado inicial del equipo" title="Ingresar estado inicial"/>
+                                            <s:textfield cssClass="form-control" name="bit_estado_inicial" required="true" placeholder="Estado inicial del equipo" title="Ingresar estado inicial"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
@@ -244,7 +244,7 @@
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label">Persona que lo realiza:</label>
+                                        <label class="control-label">*Persona que lo realiza:</label>
                                         <div class="controls">
                                             <s:textfield cssClass="form-control" name="bit_nombre_personal" required="true" minlength="5"/>
                                         </div>
@@ -253,13 +253,13 @@
                                     <div class="control-group">
                                         <label class="control-label">Comentario:</label>
                                         <div class="controls">
-                                            <s:textfield cssClass="form-control" name="bit_comentarios" required="true" minlength="5"/>
+                                            <s:textfield cssClass="form-control" name="bit_comentarios" minlength="5"/>
                                         </div>
                                     </div>
 
                                     <div class="form-actions">
                                         <s:submit value="Enviar" title="Guardar" cssClass="btn btn-info"/>
-                                        <button class="btn">Limpiar</button>
+                                        
                                     </div>
                                 </s:form>
                             </div>

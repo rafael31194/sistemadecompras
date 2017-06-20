@@ -37,7 +37,7 @@
 
             function mostrarError()
             {
-                
+
                 var isError =<s:property value="loginError"/>;
                 if (isError === 1)
                 {
@@ -45,7 +45,7 @@
                     swal(
                             'Oops...', 'Equipo asociado a una orden de compra, no se puede eliminar',
                             'error'
-                          
+
                             );
                 }
             }
@@ -77,24 +77,24 @@
                                         <span>Perfil</span>
                                     </li>
                                     <li><s:a action="login" forceAddSchemeHostAndPort="true"><i class="icon-off"></i>Cerrar Sesión</s:a></i></li>
-                                </ul>
-                            </li>
-                            <!-- end: User Dropdown -->
-                        </ul>
-                    </div>
-                    <!-- end: Header Menu -->
+                                    </ul>
+                                </li>
+                                <!-- end: User Dropdown -->
+                            </ul>
+                        </div>
+                        <!-- end: Header Menu -->
 
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- start: Header -->
+            <!-- start: Header -->
 
-        <div class="container-fluid-full">
-            <div class="row-fluid">
-<%    if (UsuarioActivo.idRol<1 || UsuarioActivo.idRol>5){%>
-           <s:action name="login" executeResult="true"/>
-<%}%> 
-                <%    if (UsuarioActivo.idRol==1) {%>
+            <div class="container-fluid-full">
+                <div class="row-fluid">
+                <%    if (UsuarioActivo.idRol < 1 || UsuarioActivo.idRol > 5) {%>
+                <s:action name="login" executeResult="true"/>
+                <%}%> 
+                <%    if (UsuarioActivo.idRol == 1) {%>
                 <!-- start: Main Menu -->
                 <div id="sidebar-left" class="span2">
                     <div class="nav-collapse sidebar-nav">
@@ -110,13 +110,13 @@
                             <li><s:a action="orden" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Orden de Compra</s:a></i></li>
                             <li><s:a action="inventario" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Inventario</s:a></i></li>
                             <li><s:a action="bitacora" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Bitacora</s:a></i></li>
- +                          
-                        </ul>
+                                +                          
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <!-- end: Main Menu -->
-<%}%>
-<%    if (UsuarioActivo.idRol==2) {%>
+                    <!-- end: Main Menu -->
+                <%}%>
+                <%    if (UsuarioActivo.idRol == 2) {%>
                 <!-- start: Main Menu -->
                 <div id="sidebar-left" class="span2">
                     <div class="nav-collapse sidebar-nav">
@@ -126,26 +126,26 @@
                             <li><s:a action="prueba3" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Proveedores</s:a></i></li>
                             <li><s:a action="orden" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Orden de Compra</s:a></i></li>
                             <li><s:a action="inventario" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Inventario</s:a></i></li>
- +                          
-                        </ul>
+                                +                          
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <!-- end: Main Menu -->
-<%}%>
-<%    if (UsuarioActivo.idRol==3) {%>
+                    <!-- end: Main Menu -->
+                <%}%>
+                <%    if (UsuarioActivo.idRol == 3) {%>
                 <!-- start: Main Menu -->
                 <div id="sidebar-left" class="span2">
                     <div class="nav-collapse sidebar-nav">
                         <ul class="nav nav-tabs nav-stacked main-menu">
                             <li><s:a action="solicitud" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Solicitudes</s:a></li>
                             <li><s:a action="inventario" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Inventario</s:a></i></li>
- +                          
-                        </ul>
+                                +                          
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <!-- end: Main Menu -->
-<%}%>
-<%    if (UsuarioActivo.idRol==4) {%>
+                    <!-- end: Main Menu -->
+                <%}%>
+                <%    if (UsuarioActivo.idRol == 4) {%>
                 <!-- start: Main Menu -->
                 <div id="sidebar-left" class="span2">
                     <div class="nav-collapse sidebar-nav">
@@ -154,88 +154,88 @@
                             <li><s:a action="aprobar" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Aprobar Solicitud</s:a></li>
                             <li><s:a action="inventario" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Inventario</s:a></i></li>
                             <li><s:a action="bitacora" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Bitacora</s:a></i></li>
- +                          
-                        </ul>
+                                +                          
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <!-- end: Main Menu -->
-<%}%>
-<%    if (UsuarioActivo.idRol==5) {%>
+                    <!-- end: Main Menu -->
+                <%}%>
+                <%    if (UsuarioActivo.idRol == 5) {%>
                 <!-- start: Main Menu -->
                 <div id="sidebar-left" class="span2">
                     <div class="nav-collapse sidebar-nav">
                         <ul class="nav nav-tabs nav-stacked main-menu">
                             <li><s:a action="prueba3" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Proveedores</s:a></i></li>
                             <li><s:a action="equipo" forceAddSchemeHostAndPort="true"><i class="icon-align-justify"></i><span class="hidden-tablet"> Equipo</s:a></i></li>
-                            
-                        </ul>
+
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <!-- end: Main Menu -->
-<%}%>
-                    <!-- start: Content -->
-                    <div id="content" class="span10">
+                    <!-- end: Main Menu -->
+                <%}%>
+                <!-- start: Content -->
+                <div id="content" class="span10">
 
 
-                        <ul class="breadcrumb">
-                            <li>
-                                <i class="icon-home"></i>
-                                <a href="index.html">Home</a>
-                                <i class="icon-angle-right"></i>
-                            </li>
-                            <li>
-                                <i class="icon-edit"></i>
-                                <a href="#">Forms</a>
-                            </li>
-                        </ul>
+                    <ul class="breadcrumb">
+                        <li>
+                            <i class="icon-home"></i>
+                            <a href="index.html">Home</a>
+                            <i class="icon-angle-right"></i>
+                        </li>
+                        <li>
+                            <i class="icon-edit"></i>
+                            <a href="#">Forms</a>
+                        </li>
+                    </ul>
 
-                        <div class="row-fluid sortable">
-                            <div class="box span12">
-                                <div class="box-header" data-original-title>
-                                    <h2><i class="icon-edit"></i><span class="break"></span>Ingresar equipo</h2>
-                                    <div class="box-icon">
-                                        <a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
-                                        <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
-                                        <a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
-                                    </div>
+                    <div class="row-fluid sortable">
+                        <div class="box span12">
+                            <div class="box-header" data-original-title>
+                                <h2><i class="icon-edit"></i><span class="break"></span>Ingresar equipo</h2>
+                                <div class="box-icon">
+                                    <a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
+                                    <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+                                    <a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
                                 </div>
-                                <div class="box-content">
+                            </div>
+                            <div class="box-content">
                                 <s:form action="enviarEquipo" cssClass="form-horizontal">
                                     <div class="control-group">
-                                        <label class="control-label" for="typeahead">Proveedor:</label>
+                                        <label class="control-label" for="typeahead">*Proveedor:</label>
                                         <div class="controls">
                                             <s:select name="id" list="datosProvee" listValue="pro_nombre" listKey="pro_id"/>
                                             <s:hidden name="equ_id"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label" >Categoría del equipo::</label>
+                                        <label class="control-label" >*Categoría del equipo::</label>
                                         <div class="controls">
                                             <s:select name="id_cat" list="datosCatEqui" listValue="cat_descripcion" listKey="cat_id"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label" >Nombre:</label>
+                                        <label class="control-label" >*Nombre:</label>
                                         <div class="controls">
-                                            <s:textfield cssClass="form-control" name="equ_nombre"/>
+                                            <s:textfield cssClass="form-control" name="equ_nombre" required="true"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label" >Marca:</label>
+                                        <label class="control-label" >*Marca:</label>
                                         <div class="controls">
-                                            <s:textfield cssClass="form-control" name="equ_marca"/>
+                                            <s:textfield cssClass="form-control" name="equ_marca" required="true"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label" >Modelo:</label>
+                                        <label class="control-label" >*Modelo:</label>
                                         <div class="controls">
-                                            <s:textfield cssClass="form-control" name="equ_modelo"/>
+                                            <s:textfield cssClass="form-control" name="equ_modelo" required="true"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label">Año:</label>
+                                        <label class="control-label">*Año:</label>
                                         <div class="controls">
-                                            <s:textfield cssClass="form-control" name="equ_anio"/>
+                                            <s:textfield cssClass="form-control" name="equ_anio" required="true"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
@@ -257,20 +257,15 @@
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label">Estado del equipo:</label>
+                                        <label class="control-label">*Estado del equipo:</label>
                                         <div class="controls">
-                                            <s:textfield cssClass="form-control" name="equ_estado"/>
+                                            <s:textfield cssClass="form-control" name="equ_estado" required="true"/>
                                         </div>
                                     </div>
-                                    <div class="control-group">
-                                        <label class="control-label">Imagen:</label>
-                                        <div class="controls">
-                                            <s:textfield cssClass="form-control" name="equ_imagen"/>
-                                        </div>
-                                    </div>
+                                    
                                     <div class="form-actions">
                                         <s:submit value="Enviar" title="Guardar" cssClass="btn btn-info"/>
-                                        <button class="btn">Limpiar</button>
+                                        
                                     </div>
                                 </s:form>
                             </div>

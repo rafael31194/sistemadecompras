@@ -204,13 +204,13 @@
                                 
                                 <s:form action="enviarDetalle"> 
                                     <div class="control-group">
-                                            <label class="control-label">Equipo:</label>
+                                            <label class="control-label">*Equipo:</label>
                                             <div class="controls">
                                                 <s:select name="equid" list="datosEqu" listValue="equ_nombre" listKey="equ_id"/>                                                 
                                             </div>
                                      </div>
                                     <div class="control-group">
-                                        <label class="control-label">Precio:</label>
+                                        <label class="control-label">*Precio:</label>
                                         <div class="controls">
                                             <s:textfield name="ord_dtl_precio" type="number" min="0" required="true"/>
                                             <s:hidden name="ordid" value="%{#parameters.ord_id}"/>                                             
@@ -220,7 +220,7 @@
                                     </div>
                                     
                                     <div class="control-group">
-                                        <label class="control-label">Codigo Inventario:</label>
+                                        <label class="control-label">*Codigo Inventario:</label>
                                         <div class="controls">
                                             <s:textfield name="ord_dtl_codigoInventario" type="text" required="true"/>
                                         </div>
@@ -228,7 +228,6 @@
                                     
                                     <div class="form-actions">
                                         <s:submit value="Enviar" title="Enviar" cssClass="btn btn-default"/>
-                                        <button class="btn">Limpiar</button>
                                     </div>
                                 </s:form>
 

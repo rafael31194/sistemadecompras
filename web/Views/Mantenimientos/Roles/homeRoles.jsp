@@ -198,7 +198,7 @@
                             <div class="box-content">
                                 <s:form action="enviarRol">
                                     <div class="control-group">
-                                        <label class="control-label">Descripcion:</label>
+                                        <label class="control-label">*Descripcion:</label>
                                         <div class="controls">
                                             <s:hidden name="rol_id"/>
                                             <s:textfield name="rol_descripcion" type="text" required="true"/>
@@ -207,7 +207,6 @@
                                      
                                     <div class="form-actions">
                                         <s:submit value="Enviar" title="Enviar" cssClass="btn btn-default"/>
-                                        <button class="btn">Limpiar</button>
                                     </div>
                                 </s:form>
                             </div>

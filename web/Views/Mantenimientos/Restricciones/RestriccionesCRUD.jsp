@@ -183,32 +183,32 @@
                             <div class="box-content">
                                 <s:form action="res_enviar">
                                     <div class="control-group">
-                                        <label class="control-label">Institución:</label>
+                                        <label class="control-label">*Institución:</label>
                                         <div class="controls">
                                             <s:hidden name="res_id"/>
                                             <s:select name="id_ins" list="datosIns" listValue="ins_nombre" listKey="ins_id"/>
                                         </div>
                                     </div>   
                                     <div class="control-group">
-                                        <label class="control-label">Producto:</label>
+                                        <label class="control-label">*Producto:</label>
                                         <div class="controls">
                                             <s:select name="id_pro" list="datosPro" listValue="pro_nombre" listKey="pro_id"></s:select>
                                         </div>
                                     </div>                                     
                                     <div class="control-group">
-                                        <label class="control-label">Monto limite:</label>
+                                        <label class="control-label">*Monto limite:</label>
                                         <div class="controls">
                                         <s:textfield name="res_montolimite" type="number" required="true" min="1"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label">Cantidad:</label>
+                                        <label class="control-label">*Cantidad:</label>
                                         <div class="controls">
                                             <s:textfield name="res_cantidadcompras" type="number" required="true" min="1"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label">Descripción:</label>
+                                        <label class="control-label">*Descripción:</label>
                                         <div class="controls">
                                             <s:textarea name="res_descripcion" rows="7" required="true" minlength="10" maxlength="200"/>
                                         </div>
@@ -221,7 +221,6 @@
                                     </div>
                                     <div class="form-actions">
                                         <s:submit value="Enviar" title="Enviar" cssClass="btn btn-default"/>
-                                        <button class="btn">Limpiar</button>
                                     </div>
                                 </s:form>
 

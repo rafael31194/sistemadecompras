@@ -183,7 +183,7 @@
                             <div class="box-content">
                                 <s:form action="usu_enviar">
                                     <div class="control-group">
-                                        <label class="control-label">Usuario:</label>
+                                        <label class="control-label">*Usuario:</label>
                                         <div class="controls">
                                             <s:hidden name="usu_id"/>
                                             <s:hidden name="id_ur"/>
@@ -192,44 +192,43 @@
                                         </div>
                                     </div>   
                                     <div class="control-group">
-                                        <label class="control-label">Contraseña:</label>
+                                        <label class="control-label">*Contraseña:</label>
                                         <div class="controls">
                                             <s:textfield name="usu_contrasenia" required="true" type="password" minlength="8" maxlength="12" pattern="[A-Za-z][A-Za-z0-9!#$%&?-]*[0-9!#$%&?-][A-Za-z0-9]*" title="Una contraseña válida es un conjuto de caracteres, donde cada uno consiste de una letra mayúscula o minúscula, o un dígito. La contraseña debe empezar con una letra y contener al menos un dígito o símbolo (! # $ % & ? -)."/>
                                         </div>
                                     </div>                                     
                                     <div class="control-group">
-                                        <label class="control-label">Nombre:</label>
+                                        <label class="control-label">*Nombre:</label>
                                         <div class="controls">
                                         <s:textfield name="usu_nombre" required="true" minlength="5"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label">Correo:</label>
+                                        <label class="control-label">*Correo:</label>
                                         <div class="controls">
                                             <s:textfield name="usu_correo" required="true" type="email"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label">Rol:</label>
+                                        <label class="control-label">*Rol:</label>
                                         <div class="controls">
                                             <s:select name="id_rol" list="datosRol" listValue="rol_descripcion" listKey="rol_id"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label">Unidad:</label>
+                                        <label class="control-label">*Unidad:</label>
                                         <div class="controls">
                                             <s:select name="id_uni" list="datosUni" listValue="uni_nombre" listKey="uni_id"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label">Institucion:</label>
+                                        <label class="control-label">*Institucion:</label>
                                         <div class="controls">
                                             <s:select name="id_ins" list="datosIns" listValue="ins_nombre" listKey="ins_id"/>
                                         </div>
                                     </div>                                        
                                     <div class="form-actions">
                                         <s:submit value="Enviar" title="Enviar" cssClass="btn btn-default"/>
-                                        <button class="btn">Limpiar</button>
                                     </div>
                                 </s:form>
 

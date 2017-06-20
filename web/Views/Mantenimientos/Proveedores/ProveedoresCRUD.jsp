@@ -202,33 +202,32 @@
                             <div class="box-content">
                                 <s:form action="pro_enviar">
                                     <div class="control-group">
-                                        <label class="control-label">Municipio:</label>
+                                        <label class="control-label">*Municipio:</label>
                                         <div class="controls">
                                             <s:hidden name="pro_id"/>
                                             <s:select name="id_mun" list="datosMun" listValue="mun_nombre" listKey="mun_id"/>
                                         </div>
                                     </div>                                      
                                     <div class="control-group">
-                                        <label class="control-label">Nombre:</label>
+                                        <label class="control-label">*Nombre:</label>
                                         <div class="controls">
                                             <s:textfield name="pro_nombre" required="true" minlength="5"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label">Direccion:</label>
+                                        <label class="control-label">*Direccion:</label>
                                         <div class="controls">
                                             <s:textarea name="pro_direccion" rows="3" required="true" minlength="10" maxlength="100"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label" for="selectError">Usuario:</label>
+                                        <label class="control-label" for="selectError">*Usuario:</label>
                                         <div class="controls">
                                             <s:select name="id_usu" list="datosUsu" listValue="usu_usuario" listKey="usu_id"/>
                                         </div>
                                     </div> 
                                     <div class="form-actions">
                                         <s:submit value="Enviar" title="Enviar" cssClass="btn btn-default"/>
-                                        <button class="btn">Limpiar</button>
                                     </div>
                                 </s:form>
                             </div>

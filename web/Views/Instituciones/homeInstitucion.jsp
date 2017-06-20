@@ -201,33 +201,32 @@
                             <div class="box-content">
                                  <s:form action="enviarInsti">  
                                     <div class="control-group">
-                                        <label class="control-label">Institución:</label>
+                                        <label class="control-label">*Institución:</label>
                                         <div class="controls">
                                             <s:textfield name="ins_nombre" required="true" minlength="5"/>
                                             <s:hidden name="ins_id"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label">Teléfono:</label>
+                                        <label class="control-label">*Teléfono:</label>
                                         <div class="controls">
                                             <s:textfield name="ins_telefono" required="true" type="tel" minlength="9" maxlength="9" placeholder="7777-7777" pattern="[0-9]{4}-[0-9]{4}" title="Formato: 7777-7777"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label">Dirección:</label>
+                                        <label class="control-label">*Dirección:</label>
                                         <div class="controls">
                                             <s:textfield name="ins_direccion" required="true" minlength="5"/>
                                         </div>
                                     </div>
                                    <div class="control-group">
-                                        <label class="control-label">Municipio:</label>
+                                        <label class="control-label">*Municipio:</label>
                                         <div class="controls">
                                             <s:select name="id" list="datosMun" listValue="mun_nombre" listKey="mun_id"/>
                                         </div>
                                     </div>
                                     <div class="form-actions">
                                         <s:submit value="Enviar" title="Enviar" cssClass="btn btn-default"/>                                        
-                                        <button class="btn">Limpiar</button>
                                     </div>
                                 </s:form>
 

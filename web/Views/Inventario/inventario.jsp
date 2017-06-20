@@ -188,7 +188,6 @@
                                     </div>
                                     <div class="form-actions">
                                         <s:submit value="Enviar" title="Enviar" cssClass="btn btn-default"/>                                        
-                                        <button class="btn">Limpiar</button>
                                     </div>
                                 </s:form>
 
